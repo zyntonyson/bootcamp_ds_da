@@ -2,14 +2,14 @@
 
    - 01-introduccion-python
       - [01-1st-Sprint-Live-Session](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/01-introduccion-python/01-1st-Sprint-Live-Session.ipynb)
-      - [02---1st-Project-Live-Session](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/01-introduccion-python/02---1st-Project-Live-Session.ipynb)
+      - [02-1st-Project-Live-Session](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/01-introduccion-python/02-1st-Project-Live-Session.ipynb)
    - 02-introduccion-python
-      - [03---S2-Live-coding](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-introduccion-python/03---S2-Live-coding.ipynb)
-      - [04-S2---project-practice-(student)](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-introduccion-python/04-S2---project-practice-(student).ipynb)
+      - [03-S2-Live-coding](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-introduccion-python/03-S2-Live-coding.ipynb)
       - [04-S2-Project-mentoring](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-introduccion-python/04-S2-Project-mentoring.ipynb)
+      - [04-S2-project-practice-(student)](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-introduccion-python/04-S2-project-practice-(student).ipynb)
       - extras
-         - [Sprint-2-Ejercicio-integrador-_-Base-escuela](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-introduccion-python/extras/Sprint-2-Ejercicio-integrador-_-Base-escuela.ipynb)
-         - [Sprint-2-Ejercicio-integrador-_-StarWars](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-introduccion-python/extras/Sprint-2-Ejercicio-integrador-_-StarWars.ipynb)
+         - [S2-Ejercicio-integrador-Base-escuela](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-introduccion-python/extras/S2-Ejercicio-integrador-Base-escuela.ipynb)
+         - [S2-Ejercicio-integrador-StarWars](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-introduccion-python/extras/S2-Ejercicio-integrador-StarWars.ipynb)
    - 03-data-wrangling
       - [05---SP3-Data-Wrangling-con-pandas_](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/03-data-wrangling/05---SP3-Data-Wrangling-con-pandas_.ipynb)
       - [06---S3---AirBnB-challenge](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/03-data-wrangling/06---S3---AirBnB-challenge.ipynb)
