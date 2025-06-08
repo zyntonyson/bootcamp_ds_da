@@ -1,29 +1,29 @@
 *Notebooks*
 
    - 01-introduccion-python
-      - ![01-1st-Sprint-Live-Session](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/01-introduccion-python/01-1st-Sprint-Live-Session.ipynb)
-      - ![02---1st-Project-Live-Session](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/01-introduccion-python/02---1st-Project-Live-Session.ipynb)
+      - [01-1st-Sprint-Live-Session](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/01-introduccion-python/01-1st-Sprint-Live-Session.ipynb)
+      - [02---1st-Project-Live-Session](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/01-introduccion-python/02---1st-Project-Live-Session.ipynb)
    - 02-introduccion-python
-      - ![03---S2-Live-coding](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-introduccion-python/03---S2-Live-coding.ipynb)
-      - ![04-S2---project-practice-(student)](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-introduccion-python/04-S2---project-practice-(student).ipynb)
-      - ![04-S2-Project-mentoring](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-introduccion-python/04-S2-Project-mentoring.ipynb)
+      - [03---S2-Live-coding](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-introduccion-python/03---S2-Live-coding.ipynb)
+      - [04-S2---project-practice-(student)](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-introduccion-python/04-S2---project-practice-(student).ipynb)
+      - [04-S2-Project-mentoring](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-introduccion-python/04-S2-Project-mentoring.ipynb)
       - extras
-         - ![Sprint-2-Ejercicio-integrador-_-Base-escuela](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-introduccion-python/extras/Sprint-2-Ejercicio-integrador-_-Base-escuela.ipynb)
-         - ![Sprint-2-Ejercicio-integrador-_-StarWars](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-introduccion-python/extras/Sprint-2-Ejercicio-integrador-_-StarWars.ipynb)
+         - [Sprint-2-Ejercicio-integrador-_-Base-escuela](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-introduccion-python/extras/Sprint-2-Ejercicio-integrador-_-Base-escuela.ipynb)
+         - [Sprint-2-Ejercicio-integrador-_-StarWars](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-introduccion-python/extras/Sprint-2-Ejercicio-integrador-_-StarWars.ipynb)
    - 03-data-wrangling
-      - ![05---SP3-Data-Wrangling-con-pandas_](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/03-data-wrangling/05---SP3-Data-Wrangling-con-pandas_.ipynb)
-      - ![06---S3---AirBnB-challenge](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/03-data-wrangling/06---S3---AirBnB-challenge.ipynb)
+      - [05---SP3-Data-Wrangling-con-pandas_](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/03-data-wrangling/05---SP3-Data-Wrangling-con-pandas_.ipynb)
+      - [06---S3---AirBnB-challenge](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/03-data-wrangling/06---S3---AirBnB-challenge.ipynb)
    - 04-data-wrangling
-      - ![07-S4-Data-Wrangling-II](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/04-data-wrangling/07-S4-Data-Wrangling-II.ipynb)
-      - ![08-S4-IA-como-Asistente-de-Aprendizaje](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/04-data-wrangling/08-S4-IA-como-Asistente-de-Aprendizaje.ipynb)
+      - [07-S4-Data-Wrangling-II](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/04-data-wrangling/07-S4-Data-Wrangling-II.ipynb)
+      - [08-S4-IA-como-Asistente-de-Aprendizaje](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/04-data-wrangling/08-S4-IA-como-Asistente-de-Aprendizaje.ipynb)
    - 05-analisis-estadistico
-      - ![09-S5-Analisis-estadístico-de-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/05-analisis-estadistico/09-S5-Analisis-estadístico-de-datos.ipynb)
-      - ![10-S5-Probabilidad-y-pruebas-de-hipotesis_](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/05-analisis-estadistico/10-S5-Probabilidad-y-pruebas-de-hipotesis_.ipynb)
+      - [09-S5-Analisis-estadístico-de-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/05-analisis-estadistico/09-S5-Analisis-estadístico-de-datos.ipynb)
+      - [10-S5-Probabilidad-y-pruebas-de-hipotesis_](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/05-analisis-estadistico/10-S5-Probabilidad-y-pruebas-de-hipotesis_.ipynb)
    - 07-herramientas-desarrollo
-      - ![13-S7-Terminal](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/07-herramientas-desarrollo/13-S7-Terminal.ipynb)
-      - ![14--S7-Control-de-versiones-Git-y-GitHub](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/07-herramientas-desarrollo/14--S7-Control-de-versiones-Git-y-GitHub.ipynb)
+      - [13-S7-Terminal](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/07-herramientas-desarrollo/13-S7-Terminal.ipynb)
+      - [14--S7-Control-de-versiones-Git-y-GitHub](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/07-herramientas-desarrollo/14--S7-Control-de-versiones-Git-y-GitHub.ipynb)
    - 08-data-retrieval
-      - ![S8-Mineria-de-datos_](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/08-data-retrieval/S8-Mineria-de-datos_.ipynb)
-      - ![S8-SQL](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/08-data-retrieval/S8-SQL.ipynb)
+      - [S8-Mineria-de-datos_](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/08-data-retrieval/S8-Mineria-de-datos_.ipynb)
+      - [S8-SQL](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/08-data-retrieval/S8-SQL.ipynb)
    - utils
-      - ![make_index_notebooks](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/make_index_notebooks.ipynb)
+      - [make_index_notebooks](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/make_index_notebooks.ipynb)
