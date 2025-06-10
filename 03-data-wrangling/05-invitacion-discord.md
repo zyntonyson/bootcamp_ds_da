@@ -18,12 +18,14 @@ Este es un adelanto de lo que veremos en nuestra próxima sesión del Bootcamp d
    Practicaremos cómo ordenar, filtrar y seleccionar la información que necesitas de manera sencilla.
 
 5. **Procesamiento y limpieza de datos**  
-   Te enseñaré a identificar y tratar valores nulos y duplicados para que tus datos sean confiables.
+   Aprende a identificar y tratar valores nulos y duplicados para que tus datos sean confiables.
 
 6. **Agrupación y resumen de información**  
    Aprende a agrupar datos y calcular métricas clave para obtener insights valiosos.
 
 ---
+
+Material de la sesión: [05-S3-Data-Wrangling-con-Pandas](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/03-data-wrangling/05-S3-Data-Wrangling-con-pandas.ipynb)
 
 ¡No te pierdas la oportunidad de fortalecer tus habilidades en el manejo de datos!  
 Ven con ganas de aprender y experimentar.  
