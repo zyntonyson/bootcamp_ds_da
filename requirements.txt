@@ -5,3 +5,5 @@ beautifulsoup4
 scikit-learn
 scipy
 ipykernel
+requests
+lxml
