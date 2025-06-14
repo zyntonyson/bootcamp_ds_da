@@ -26,8 +26,14 @@
       - [13-S7-Terminal](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/07-herramientas-desarrollo/13-S7-Terminal.ipynb)
       - [14--S7-Control-de-versiones-Git-y-GitHub](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/07-herramientas-desarrollo/14--S7-Control-de-versiones-Git-y-GitHub.ipynb)
    - 08-data-retrieval
-      - [15-S8-mineria-de-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/08-data-retrieval/15-S8-mineria-de-datos.ipynb)
-      - [16-S8-SQL](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/08-data-retrieval/16-S8-SQL.ipynb)
+      - [16-S8-mineria-de-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/08-data-retrieval/16-S8-mineria-de-datos.ipynb)
+      - [17-S8-SQL](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/08-data-retrieval/17-S8-SQL.ipynb)
+   - 09-da-analisis-negocio
+      - [18-Metricas_Usuarios](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/09-da-analisis-negocio/18-Metricas_Usuarios.ipynb)
+      - [19-Cohortes_Economia](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/09-da-analisis-negocio/19-Cohortes_Economia.ipynb)
+   - 09-ds-machine-learning
+      - [18-clasificacion_binaria](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/09-ds-machine-learning/18-clasificacion_binaria.ipynb)
+      - [19-regresion](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/09-ds-machine-learning/19-regresion.ipynb)
    - utils
       - [datos_sinteticos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/datos_sinteticos.ipynb)
       - [make_index_notebooks](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/make_index_notebooks.ipynb)
