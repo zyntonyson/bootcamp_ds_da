@@ -13,6 +13,7 @@ Será una oportunidad perfecta para avanzar con tu equipo en el **proyecto colab
 
 [![GitHub](https://img.shields.io/badge/GitHub-Proyecto--Sprint%207-181717?logo=github)](https://github.com/Roms-tripleten/sp7_colaborative_project/tree/main)
 
+[Proyecto de clase](https://github.com/Roms-tripleten/sp7_colaborative_project/tree/main)
 
 
 ⚒️ También resolveremos en vivo el reto de **crear tu primera calculadora en Python desde la terminal** usando `argparse` y clases en python.
