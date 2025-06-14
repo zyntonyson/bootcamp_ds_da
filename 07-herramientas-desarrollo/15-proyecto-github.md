@@ -11,8 +11,6 @@ Será una oportunidad perfecta para avanzar con tu equipo en el **proyecto colab
 
 🌐 Ya puedes clonar el repositorio base 
 
-[![GitHub](https://img.shields.io/badge/GitHub-Proyecto--Sprint%207-181717?logo=github)](https://github.com/Roms-tripleten/sp7_colaborative_project/tree/main)
-
 [Proyecto de clase](https://github.com/Roms-tripleten/sp7_colaborative_project/tree/main)
 
 
@@ -27,3 +25,5 @@ Será una oportunidad perfecta para avanzar con tu equipo en el **proyecto colab
 
 ---
 
+
+[![GitHub](https://img.shields.io/badge/GitHub-Proyecto--Sprint%207-181717?logo=github)](https://github.com/Roms-tripleten/sp7_colaborative_project/tree/main)
