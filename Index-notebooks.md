@@ -20,6 +20,8 @@
       - [09-S5-Analisis-estadístico-de-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/05-analisis-estadistico/09-S5-Analisis-estadístico-de-datos.ipynb)
       - [10-S5-Probabilidad](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/05-analisis-estadistico/10-S5-Probabilidad.ipynb)
       - [11-S5-pruebas-de-hipotesis](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/05-analisis-estadistico/11-S5-pruebas-de-hipotesis.ipynb)
+   - 06-proyecto
+      - [12-insurance-analysis](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/06-proyecto/12-insurance-analysis.ipynb)
    - 07-herramientas-desarrollo
       - [13-S7-Terminal](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/07-herramientas-desarrollo/13-S7-Terminal.ipynb)
       - [14--S7-Control-de-versiones-Git-y-GitHub](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/07-herramientas-desarrollo/14--S7-Control-de-versiones-Git-y-GitHub.ipynb)
