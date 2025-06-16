@@ -7,3 +7,4 @@ scipy
 ipykernel
 requests
 lxml
+jinja2
