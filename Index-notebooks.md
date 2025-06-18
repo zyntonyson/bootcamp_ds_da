@@ -28,6 +28,8 @@
    - 08-data-retrieval
       - [16-S8-mineria-de-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/08-data-retrieval/16-S8-mineria-de-datos.ipynb)
       - [17-S8-SQL](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/08-data-retrieval/17-S8-SQL.ipynb)
+      - extras
+         - [W15_P2_APIs](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/08-data-retrieval/extras/W15_P2_APIs.ipynb)
    - 09-da-analisis-negocio
       - [18-Metricas_Usuarios](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/09-da-analisis-negocio/18-Metricas_Usuarios.ipynb)
       - [19-Cohortes_Economia](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/09-da-analisis-negocio/19-Cohortes_Economia.ipynb)
