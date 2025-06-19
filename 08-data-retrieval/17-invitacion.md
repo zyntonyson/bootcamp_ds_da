@@ -1,15 +1,15 @@
-¡Hola a todos @everyone! 👋
+¡Hola a todos @everyone! :wave:
 
 En nuestra sesión semanal exploraremos juntos el mundo de las **bases de datos relacionales y SQL**.  
-Aprenderemos a consultar, filtrar y analizar datos como lo hacen los profesionales. 📊💻
+Aprenderemos a consultar, filtrar y analizar datos como lo hacen los profesionales. :bar_chart::computer:
 
 Algunas actividades y habilidades que desarrollaremos:
 
-1️⃣ Escribir consultas SQL para extraer información clave  
-2️⃣ Usar funciones de agregación como COUNT y SUM  
-3️⃣ Combinar datos de varias tablas con JOIN  
-4️⃣ Aplicar filtros y ordenar resultados  
-5️⃣ Descubrir funciones avanzadas como RANK y ROW_NUMBER
+:one: Escribir consultas SQL para extraer información clave  
+:two: Usar funciones de agregación 
+:three: Combinar datos de varias tablas 
+:four: Aplicar filtros y ordenar resultados  
+:five: Descubrir funciones avanzadas como las funciones ventana
 
 ¡No te lo pierdas! Será una gran oportunidad para practicar, resolver dudas y mejorar tus habilidades en análisis de datos.  
 ¡Te esperamos!
