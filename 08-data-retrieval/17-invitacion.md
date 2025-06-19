@@ -1,9 +1,10 @@
-¡Hola a todos! 👋
+¡Hola a todos @everyone! 👋
 
 En nuestra sesión semanal exploraremos juntos el mundo de las **bases de datos relacionales y SQL**.  
 Aprenderemos a consultar, filtrar y analizar datos como lo hacen los profesionales. 📊💻
 
 Algunas actividades y habilidades que desarrollaremos:
+
 1️⃣ Escribir consultas SQL para extraer información clave  
 2️⃣ Usar funciones de agregación como COUNT y SUM  
 3️⃣ Combinar datos de varias tablas con JOIN  
