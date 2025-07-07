@@ -41,6 +41,8 @@
       - [19-regresion](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/09-ds-machine-learning/19-regresion.ipynb)
    - 10-da-toma-decisiones-negocio
       - [20-pruebas-ab](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/10-da-toma-decisiones-negocio/20-pruebas-ab.ipynb)
+   - 10-ds-aprendizaje-supervisado
+      - [20-aprendizaje-supervisado](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/10-ds-aprendizaje-supervisado/20-aprendizaje-supervisado.ipynb)
    - utils
       - [datos_sinteticos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/datos_sinteticos.ipynb)
       - [make_index_notebooks](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/make_index_notebooks.ipynb)
