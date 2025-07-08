@@ -3,7 +3,7 @@
 En nuestra sesión de la semana vamos a sumergirnos en el **análisis estadístico de datos** y aprender herramientas clave para entender mejor la información que nos rodea. 📊✨
 
 ### ¿Qué veremos en la sesión?  
-- Diferenciaremos entre **variables discretas y continuas** con ejemplos fáciles de entender. 🔢
+
 - Exploraremos cómo describir y visualizar datos usando **medidas como media, mediana, moda, varianza y desviación estándar**. 📏
 - Aprenderemos a detectar **valores atípicos (outliers)** y a entender su impacto en los análisis. 🚨
 - Usaremos **gráficos** (histogramas, KDE, boxplots, scatterplots) para interpretar la forma y relaciones en los datos. 📈
