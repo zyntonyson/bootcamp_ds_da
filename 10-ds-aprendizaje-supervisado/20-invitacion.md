@@ -10,4 +10,4 @@ Hoy en nuestra sesión semanal vamos a revisar técnicas clave para mejorar el d
 
 ¡Te esperamos para aprender!
 
-**Material de la sesión:**       - [20-Aprendizaje supervisado](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/10-ds-aprendizaje-supervisado/20-aprendizaje-supervisado.ipynb)
+**Material de la sesión:**  [20-Aprendizaje supervisado](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/10-ds-aprendizaje-supervisado/20-aprendizaje-supervisado.ipynb)
