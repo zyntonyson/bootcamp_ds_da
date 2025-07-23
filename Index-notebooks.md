@@ -26,7 +26,7 @@
       - [12-insurance-analysis](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/06-proyecto/12-insurance-analysis.ipynb)
    - 07-herramientas-desarrollo
       - [13-S7-Terminal](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/07-herramientas-desarrollo/13-S7-Terminal.ipynb)
-      - [14--S7-Control-de-versiones-Git-y-GitHub](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/07-herramientas-desarrollo/14--S7-Control-de-versiones-Git-y-GitHub.ipynb)
+      - [14-S7-Control-de-versiones-Git-y-GitHub](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/07-herramientas-desarrollo/14-S7-Control-de-versiones-Git-y-GitHub.ipynb)
    - 08-data-retrieval
       - [16-S8-mineria-de-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/08-data-retrieval/16-S8-mineria-de-datos.ipynb)
       - [17-S8-SQL](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/08-data-retrieval/17-S8-SQL.ipynb)
@@ -45,6 +45,10 @@
    - 10-ds-aprendizaje-supervisado
       - [20-aprendizaje-supervisado](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/10-ds-aprendizaje-supervisado/20-aprendizaje-supervisado.ipynb)
       - [21-coding-challenge-aprendizaje-supervisado](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/10-ds-aprendizaje-supervisado/21-coding-challenge-aprendizaje-supervisado.ipynb)
+   - 11-da-proyecto-2
+      - [22-proyecto-2](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/11-da-proyecto-2/22-proyecto-2.ipynb)
+   - 11-ds-aprendizaje-automatico-negocios
+      - [22-S10-aprendizaje-negocios](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/11-ds-aprendizaje-automatico-negocios/22-S10-aprendizaje-negocios.ipynb)
    - utils
       - [datos_sinteticos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/datos_sinteticos.ipynb)
       - [make_index_notebooks](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/make_index_notebooks.ipynb)
