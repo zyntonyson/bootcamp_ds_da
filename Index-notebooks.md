@@ -48,7 +48,7 @@
    - 11-da-proyecto-2
       - [22-proyecto-2](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/11-da-proyecto-2/22-proyecto-2.ipynb)
    - 11-ds-aprendizaje-automatico-negocios
-      - [22-S10-aprendizaje-negocios](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/11-ds-aprendizaje-automatico-negocios/22-S10-aprendizaje-negocios.ipynb)
+      - [22-S11-aprendizaje-negocios](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/11-ds-aprendizaje-automatico-negocios/22-S11-aprendizaje-negocios.ipynb)
    - utils
       - [datos_sinteticos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/datos_sinteticos.ipynb)
       - [make_index_notebooks](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/make_index_notebooks.ipynb)
