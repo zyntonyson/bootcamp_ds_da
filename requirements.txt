@@ -10,3 +10,5 @@ lxml
 jinja2
 ipywidgets
 streamlit
+plotly
+
