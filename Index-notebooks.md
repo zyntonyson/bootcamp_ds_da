@@ -52,6 +52,8 @@
       - [23-code-challenge](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/11-ds-aprendizaje-automatico-negocios/23-code-challenge.ipynb)
    - 12-da-automatizacion
       - [23-Data-pipelines](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/12-da-automatizacion/23-Data-pipelines.ipynb)
+   - 12-ds-proyecto-2
+      - [24-S12-Proyecto-2](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/12-ds-proyecto-2/24-S12-Proyecto-2.ipynb)
    - utils
       - [datos_sinteticos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/datos_sinteticos.ipynb)
       - [make_index_notebooks](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/make_index_notebooks.ipynb)
