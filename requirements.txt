@@ -11,4 +11,4 @@ jinja2
 ipywidgets
 streamlit
 plotly
-
+dash
