@@ -12,4 +12,4 @@
 Ven con tus dudas, ganas de aprender y prepárate para practicar con ejemplos reales.  
 ¡Nos vemos en la sesión! 🚀🙌
 
-Material de la sesión: [15-S8-mineria-de-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/08-data-retrieval/15-S8-mineria-de-datos.ipynb)
+Material de la sesión: [16-S8-mineria-de-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/08-data-retrieval/16-S8-mineria-de-datos.ipynb)
