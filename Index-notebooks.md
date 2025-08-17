@@ -57,6 +57,8 @@
          - [25-08.proyecto](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/12-da-automatizacion/proyectos/25-08.proyecto.ipynb)
    - 12-ds-proyecto-2
       - [24-S12-Proyecto-2](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/12-ds-proyecto-2/24-S12-Proyecto-2.ipynb)
+   - 13-da-pronosticos-predicciones
+      - [25-introducion-machine-learning](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/13-da-pronosticos-predicciones/25-introducion-machine-learning.ipynb)
    - utils
       - [datos_sinteticos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/datos_sinteticos.ipynb)
       - [make_index_notebooks](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/make_index_notebooks.ipynb)
