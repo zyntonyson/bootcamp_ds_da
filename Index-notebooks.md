@@ -59,6 +59,8 @@
       - [24-S12-Proyecto-2](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/12-ds-proyecto-2/24-S12-Proyecto-2.ipynb)
    - 13-da-pronosticos-predicciones
       - [25-introducion-machine-learning](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/13-da-pronosticos-predicciones/25-introducion-machine-learning.ipynb)
+   - 13-ds-algebra-lineal
+      - [25-S13-vectores-matrices](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/13-ds-algebra-lineal/25-S13-vectores-matrices.ipynb)
    - utils
       - [datos_sinteticos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/datos_sinteticos.ipynb)
       - [make_index_notebooks](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/make_index_notebooks.ipynb)
