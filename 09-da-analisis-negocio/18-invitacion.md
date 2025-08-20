@@ -1,18 +1,14 @@
-¡Hola equipo! @everyone 👋📊🚀
+📢 ¡Hola equipo! @everyone 👋📊  
 
-En nuestra sesión semanal vamos a platicar sobre analisis de negocios, abordaremos las  **métricas de usuarios y evaluación de campañas** en productos digitales. Si quieres aprender a medir, analizar y mejorar el desempeño de tu negocio o proyecto digital, ¡no te lo puedes perder!
+En esta sesión vamos a explorar cómo **medir y analizar métricas de negocio** en productos digitales, integrando conceptos clave con un ejercicio práctico en Python. Verás cómo los datos se convierten en decisiones *data driven*.  
 
-Revisaremos conceptos y herramientas como:
+Revisaremos:  
+- 📊 *Métricas de usuarios y campañas*: visitas, conversiones, ingresos y duración.  
+- 💰 *ROI y ROMI*: mide la rentabilidad de tus campañas y su impacto en el negocio.  
+- ⏱️ *Duración y frecuencia de sesiones*: entiende cómo y cuánto usan tu producto.  
+- 🐍 *Ejercicios prácticos con Python y visualizaciones* para aplicar todo lo aprendido.  
 
-- 📈 ROI y ROMI: mide el retorno de tus inversiones y campañas de marketing.
-- 🛒 Embudos de conversión: identifica en qué etapa se pierden los usuarios y cómo mejorar la conversión.
-- 🔗 CTR y CR: analiza la efectividad de tus anuncios y páginas de destino.
-- 👥 DAU, WAU, MAU y Sticky Factor: mide el engagement y la retención de tus usuarios.
-- ⏱️ Duración y frecuencia de sesiones: entiende cómo y cuánto usan tu producto.
-- 💡 Frameworks HEART y AARRR: estructura el análisis de la experiencia y el ciclo de vida del usuario.
-- 📊 Ejercicios prácticos con Python y visualizaciones para aplicar todo lo aprendido.
-
-¡Será una sesión llena de ejemplos reales, tips y mucha práctica!  
-¡Te esperamos para aprender y resolver dudas juntos!
+Será una clase llena de ejemplos reales, tips y práctica guiada 🚀  
+¡Ideal para quienes buscan aplicar el análisis de datos al crecimiento de un negocio digital!  
 
 **Material de la sesión:** [18-Metricas_Usuarios](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/09-da-analisis-negocio/18-Metricas_Usuarios.ipynb)
