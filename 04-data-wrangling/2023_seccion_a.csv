@@ -1,0 +1,201 @@
+id_paciente,fecha_ingreso,fecha_egreso,edad,sexo,SpO2,presion_arterial,region,sintoma_principal,diagnostico_confirmado,resultado_laboratorio,estado_paciente
+1,2023-11-24,2023-12-03,51,M,97.7455,133/76 mmHg,Sur,Fiebre,Sí,Positivo,Recuperado
+2,2023-02-27,2023-03-02,92,F,97.6210,134/89 mmHg,Centro,Dolor muscular,Sí,Positivo,Recuperado
+3,2023-01-13,2023-01-18,14,M,98.7927,122/81 mmHg,Norte,Tos,No,Negativo,Recuperado
+4,2023-05-21,2023-05-30,71,M,95.4450,129/68 mmHg,Oeste,Fiebre,No,Positivo,Recuperado
+5,2023-05-06,2023-05-20,60,M,98.4139,127/77 mmHg,Norte,Fiebre,Sí,Positivo,Fallecido
+6,2023-04-25,2023-05-05,20,F,100.1573,109/76 mmHg,Centro,Dolor muscular,Sí,Positivo,Activo
+7,2023-03-13,2023-03-20,82,F,99.0582,126/79 mmHg,Oeste,Dolor muscular,Sí,Positivo,Activo
+8,2023-02-22,2023-02-26,86,F,96.6923,117/79 mmHg,Centro,Dificultad respiratoria,Sí,Positivo,Recuperado
+9,2023-12-13,2023-12-28,74,M,95.9123,110/78 mmHg,Este,Fiebre,Sí,Positivo,Recuperado
+10,2023-10-07,2023-10-16,74,M,96.0299,137/82 mmHg,Oeste,Dificultad respiratoria,Sí,Negativo,Recuperado
+11,2023-02-14,2023-02-27,87,F,97.7396,115/82 mmHg,Este,Dolor muscular,Sí,Positivo,Recuperado
+12,2023-10-30,2023-11-11,99,F,94.9943,116/82 mmHg,Norte,Dolor muscular,Sí,Positivo,Activo
+13,2023-08-05,2023-08-17,23,F,97.8914,127/62 mmHg,Norte,Tos,No,Positivo,Recuperado
+14,2023-01-17,2023-01-21,2,F,96.9585,117/83 mmHg,Oeste,Fiebre,No,Positivo,Recuperado
+15,2023-01-16,2023-01-28,21,M,97.1904,114/83 mmHg,Oeste,Dificultad respiratoria,Sí,Positivo,Recuperado
+16,2023-02-17,2023-02-22,52,F,97.7092,104/89 mmHg,Centro,Dolor muscular,Sí,Positivo,Recuperado
+17,2023-04-22,2023-04-29,15a,M,97.0127,117/90 mmHg,Centro,Dolor muscular,Sí,Positivo,Recuperado
+18,2023-04-30,2023-05-11,87,F,98.7929,118/72 mmHg,Este,Dificultad respiratoria,No,Positivo,Recuperado
+19,2023-09-16,2023-09-27,29,M,98.1611,126/87 mmHg,Oeste,Tos,Sí,Positivo,Recuperado
+20,2023-11-05,2023-11-11,37,F,97.8425,117/75 mmHg,Norte,Dolor muscular,Sí,Pendiente,Recuperado
+21,2023-01-14,2023-01-22,1,F,95.8261,122/90 mmHg,Centro,Fiebre,No,Positivo,Activo
+22,2023-10-15,2023-10-30,63,F,97.3335,118/74 mmHg,Centro,Dolor muscular,No,Negativo,Recuperado
+23,2023-04-12,2023-04-21,59,F,94.6306,114/78 mmHg,Norte,Fiebre,No,Positivo,Recuperado
+24,2023-11-29,2023-12-07,veinte,M,95.8139,120/83 mmHg,Centro,Dificultad respiratoria,Sí,Negativo,Recuperado
+25,2023-12-26,2023-12-28,32,F,98.8301,115/78 mmHg,Este,Fiebre,Sí,Negativo,Recuperado
+26,2023-10-07,2023-10-11,75,M,97.1708,112/77 mmHg,Oeste,Dificultad respiratoria,Sí,Positivo,Recuperado
+27,2023-08-03,2023-08-07,57,M,98.3699,115/79 mmHg,Norte,Fiebre,No,Positivo,Recuperado
+28,2023-04-23,2023-04-25,21,M,97.4062,115/81 mmHg,Oeste,Dificultad respiratoria,No,Positivo,Recuperado
+29,2023-08-18,2023-08-24,88,M,93.6297,126/90 mmHg,Centro,Fiebre,Sí,Positivo,Recuperado
+30,2023-10-29,2023-10-30,48,F,97.1015,109/61 mmHg,Centro,Tos,Sí,Pendiente,Recuperado
+31,2023-05-23,2023-06-02,90,M,99.2156,130/85 mmHg,Norte,Fiebre,Sí,Negativo,Recuperado
+32,2023-01-04,2023-01-13,58,M,96.3637,125/89 mmHg,Este,Fiebre,No,Pendiente,Activo
+33,2023-03-23,2023-03-27,41,M,98.4182,104/75 mmHg,Sur,Tos,No,Positivo,Fallecido
+34,2023-12-24,2024-01-03,91,F,98.1222,119/72 mmHg,Norte,Dolor muscular,Sí,Negativo,Recuperado
+35,2023-08-05,2023-08-09,59,F,97.7992,100/74 mmHg,Sur,Dolor muscular,Sí,Pendiente,Recuperado
+36,2023-06-24,2023-06-25,79,F,95.1022,103/102 mmHg,Sur,Fiebre,Sí,Positivo,Recuperado
+37,2023-05-23,2023-05-25,14,F,98.1086,95/78 mmHg,Este,Tos,No,Positivo,Activo
+38,2023-03-21,2023-04-02,61,M,95.5733,125/78 mmHg,Sur,Fiebre,No,Negativo,Recuperado
+39,2023-04-21,2023-05-02,61,M,95.0849,123/79 mmHg,Sur,Dificultad respiratoria,No,Positivo,Recuperado
+40,2023-06-22,2023-06-23,46,F,98.6366,124/80 mmHg,Este,Dificultad respiratoria,Sí,Negativo,Recuperado
+41,2023-02-22,2023-02-26,61,M,97.5897,117/71 mmHg,Sur,Fiebre,Sí,Positivo,Recuperado
+42,2023-02-17,2023-02-19,50,M,98.0629,117/84 mmHg,Sur,Dolor muscular,Sí,Negativo,Recuperado
+43,2023-07-14,2023-07-29,54,M,96.3200,119/87 mmHg,Sur,Dolor muscular,Sí,Positivo,Recuperado
+44,2023-02-19,2023-02-20,63,F,96.4303,135/86 mmHg,Norte,Fiebre,No,Positivo,Recuperado
+45,2023-07-03,2023-07-17,2,F,95.4887,124/83 mmHg,Norte,Fiebre,No,Positivo,Recuperado
+46,2023-06-26,2023-07-02,50,M,97.4833,108/83 mmHg,Norte,Dificultad respiratoria,No,Negativo,Recuperado
+47,2023-11-06,2023-11-08,6,F,97.2684,128/94 mmHg,Este,Dolor muscular,No,Negativo,Activo
+48,2023-05-16,2023-05-25,20,F,97.8992,105/71 mmHg,Centro,Fiebre,Sí,Positivo,Recuperado
+49,2023-01-23,2023-01-27,72,F,96.7484,101/87 mmHg,Sur,Dificultad respiratoria,Sí,Positivo,Recuperado
+50,2023-08-24,2023-08-29,38,F,97.3473,114/74 mmHg,Sur,Dolor muscular,No,Negativo,Recuperado
+51,2023-10-02,2023-10-13,-18,F,94.6765,130/86 mmHg,Este,Tos,No,Positivo,Recuperado
+52,2023-03-05,2023-03-13,3,M,98.9111,115/75 mmHg,Sur,Dificultad respiratoria,Sí,Negativo,Activo
+53,2023-07-13,2023-07-17,88,F,98.0227,123/76 mmHg,Norte,Dolor muscular,Sí,Positivo,Recuperado
+54,2023-02-10,2023-02-19,59,M,100.2071,122/73 mmHg,Centro,Dolor muscular,Sí,Positivo,Recuperado
+55,2023-10-10,2023-10-13,13,M,97.3099,115/80 mmHg,Oeste,Dificultad respiratoria,No,Positivo,Recuperado
+56,2023-05-31,2023-06-12,8,F,95.2808,136/71 mmHg,Sur,Tos,Sí,Positivo,Recuperado
+57,2023-11-18,2023-12-03,89,M,95.4469,115/83 mmHg,Norte,Dificultad respiratoria,Sí,Negativo,Recuperado
+58,2023-11-13,2023-11-28,52,M,95.8100,115/79 mmHg,Oeste,Dolor muscular,Sí,Positivo,Activo
+59,2023-07-05,2023-07-15,1,M,100.0735,130/80 mmHg,Centro,Fiebre,Sí,Positivo,Recuperado
+60,2023-10-23,2023-11-02,83,F,96.5880,102/86 mmHg,Oeste,Fiebre,Sí,Negativo,Recuperado
+61,2023-04-09,2023-04-17,91,F,97.0894,131/79 mmHg,Norte,Dificultad respiratoria,Sí,Positivo,Recuperado
+62,2023-12-27,2023-12-31,59,M,96.3139,125/82 mmHg,Oeste,Dolor muscular,Sí,Positivo,Activo
+63,2023-02-05,2023-02-18,70,F,96.5800,133/87 mmHg,Este,Fiebre,Sí,Pendiente,Recuperado
+64,2023-01-24,2023-02-01,43,F,96.6732,116/82 mmHg,Oeste,Dolor muscular,Sí,Negativo,Recuperado
+65,2023-12-05,2023-12-18,7,F,96.8941,111/88 mmHg,Sur,Dificultad respiratoria,Sí,Positivo,Recuperado
+66,2023-04-27,,46,F,96.3229,128/80 mmHg,Sur,Fiebre,No,Pendiente,Recuperado
+67,2023-05-29,2023-06-02,34,M,97.2147,128/86 mmHg,Este,Dolor muscular,Sí,Negativo,Recuperado
+68,2023-02-10,2023-02-12,77,M,96.6704,109/87 mmHg,Norte,Fiebre,Sí,Positivo,Activo
+69,2023-04-30,2023-05-02,80,F,96.0083,129/85 mmHg,Sur,Dificultad respiratoria,No,Positivo,Recuperado
+70,2023-02-21,2023-03-04,35,F,97.8911,114/74 mmHg,Centro,Dolor muscular,Sí,Negativo,Recuperado
+71,2023-07-14,2023-07-21,no dijo,M,98.7528,127/81 mmHg,Sur,Fiebre,Sí,Negativo,Recuperado
+72,2023-05-23,2023-05-29,3,M,97.1874,129/69 mmHg,Sur,Dificultad respiratoria,Sí,Positivo,Recuperado
+73,2023-08-21,2023-08-28,,F,97.7427,109/90 mmHg,Norte,Fiebre,Sí,Negativo,Recuperado
+74,2023-11-22,2023-11-29,5,M,97.5883,136/76 mmHg,Oeste,Fiebre,Sí,Negativo,Recuperado
+75,2023-07-06,2023-07-14,53,F,98.8958,126/75 mmHg,Sur,Tos,Sí,Positivo,Recuperado
+76,2023-03-25,2023-04-08,3,F,99.6719,117/71 mmHg,Este,Tos,Sí,Positivo,Recuperado
+77,2023-07-09,2023-07-21,53,M,100.3364,125/80 mmHg,Oeste,Dificultad respiratoria,Sí,Positivo,Recuperado
+78,2023-07-01,2023-07-02,92,M,97.1951,124/73 mmHg,Centro,Tos,Sí,Negativo,Recuperado
+79,2023-04-18,2023-04-29,62,F,97.6985,126/76 mmHg,Norte,Dificultad respiratoria,Sí,Positivo,Recuperado
+80,2023-12-10,2023-12-21,17,F,96.7982,119/81 mmHg,Centro,Tos,Sí,Positivo,Recuperado
+81,2023-05-17,2023-05-28,89,M,95.7969,134/71 mmHg,Oeste,Fiebre,Sí,Negativo,Recuperado
+82,2023-12-26,2023-12-28,43,F,95.4099,120/81 mmHg,Oeste,Dificultad respiratoria,Sí,Negativo,Recuperado
+83,2023-12-16,2023-12-17,33,M,97.1692,119/82 mmHg,Oeste,Dificultad respiratoria,No,Positivo,Recuperado
+84,2023-11-28,2023-12-05,73,F,95.7843,119/82 mmHg,Centro,Fiebre,Sí,Negativo,Recuperado
+85,2023-02-06,2023-02-18,61,M,96.4136,128/90 mmHg,Oeste,Dificultad respiratoria,Sí,Positivo,Recuperado
+86,2023-11-08,2023-11-14,99,M,96.9560,124/78 mmHg,Centro,Dificultad respiratoria,Sí,Negativo,Activo
+87,2023-11-22,2023-12-05,13,M,96.8143,114/70 mmHg,Oeste,Tos,Sí,Positivo,Fallecido
+88,2023-03-29,2023-04-12,94,F,99.4015,128/82 mmHg,Este,Dificultad respiratoria,Sí,Positivo,Recuperado
+89,2023-10-01,2023-10-03,47,F,96.5606,116/91 mmHg,Oeste,Dolor muscular,No,Negativo,Recuperado
+90,2023-05-06,2023-05-10,14,M,98.1863,116/75 mmHg,Centro,Fiebre,No,Positivo,Recuperado
+91,,2023-03-29,71,F,94.8380,141/96 mmHg,Sur,Tos,Sí,Positivo,Recuperado
+92,2023-08-25,2023-08-29,77,M,96.9139,117/70 mmHg,Oeste,Tos,No,Negativo,Recuperado
+93,2023-07-14,2023-07-23,86,M,96.0700,130/91 mmHg,Sur,Dolor muscular,Sí,Negativo,Recuperado
+94,2023-05-19,2023-05-27,61,F,97.1586,107/73 mmHg,Este,Fiebre,Sí,Negativo,Recuperado
+95,2023-11-24,2023-11-27,39,F,99.3675,112/78 mmHg,Norte,Fiebre,Sí,Negativo,Recuperado
+96,2023-12-19,2023-12-26,84,M,98.7258,107/78 mmHg,Este,Tos,No,Positivo,Fallecido
+97,2023-10-13,2023-10-16,79,F,94.1781,129/80 mmHg,Oeste,Dificultad respiratoria,Sí,Positivo,Recuperado
+98,2023-04-23,2023-04-28,81,F,96.7270,121/79 mmHg,Sur,Tos,Sí,Positivo,Recuperado
+99,2023-12-17,2023-12-25,52,M,98.3662,113/79 mmHg,Sur,Fiebre,Sí,Positivo,Fallecido
+100,2023-06-16,2023-06-20,23,M,97.2467,123/71 mmHg,Centro,Dolor muscular,Sí,Pendiente,Recuperado
+101,2023-01-29,2023-02-12,25,F,97.0031,119/83 mmHg,Sur,Tos,Sí,Positivo,Recuperado
+102,2023-04-28,2023-05-13,88,M,96.7404,115/95 mmHg,Centro,Fiebre,Sí,Positivo,Recuperado
+103,2023-01-17,2023-01-19,59,M,98.3098,128/88 mmHg,Norte,Tos,Sí,Positivo,Recuperado
+104,2023-06-11,2023-06-19,40,F,97.4861,125/98 mmHg,Oeste,Dificultad respiratoria,Sí,Pendiente,Recuperado
+105,2023-07-25,2023-08-07,28,M,97.0013,104/71 mmHg,Centro,Tos,Sí,Positivo,Fallecido
+106,2023-05-18,2023-06-01,14,M,98.3932,122/66 mmHg,Norte,Tos,Sí,Positivo,Recuperado
+107,2023-02-03,2023-02-17,44,F,97.3346,126/74 mmHg,Sur,Fiebre,Sí,Positivo,Recuperado
+108,2023-04-19,2023-04-28,64,F,95.8620,117/96 mmHg,Sur,Fiebre,Sí,Negativo,Recuperado
+109,2023-10-18,2023-10-20,88,M,97.4703,127/78 mmHg,Norte,Fiebre,No,Positivo,Recuperado
+110,2023-06-11,2023-06-12,70,M,94.5829,110/81 mmHg,Sur,Tos,Sí,Negativo,Recuperado
+111,2023-04-19,2023-04-30,8,F,94.8413,132/75 mmHg,Norte,Dificultad respiratoria,Sí,Pendiente,Activo
+112,2023-12-02,2023-12-11,87,F,98.6519,120/75 mmHg,Centro,Dolor muscular,Sí,Positivo,Recuperado
+113,2023-09-13,2023-09-27,0,F,96.4764,129/81 mmHg,Centro,Dolor muscular,Sí,Negativo,Activo
+114,2023-07-22,2023-07-23,7,F,96.2108,123/84 mmHg,Norte,Fiebre,Sí,Pendiente,Recuperado
+115,2023-11-26,2023-11-28,87,M,95.8893,119/88 mmHg,Centro,Fiebre,Sí,Negativo,Recuperado
+116,2023-08-23,2023-09-07,62,F,95.5193,119/83 mmHg,Centro,Tos,Sí,Positivo,Recuperado
+117,2023-03-15,2023-03-28,10,F,96.8046,114/87 mmHg,Centro,Dolor muscular,Sí,Positivo,Activo
+118,2023-05-16,2023-05-30,80,M,97.5740,121/79 mmHg,Este,Fiebre,Sí,Negativo,Recuperado
+119,2023-03-13,2023-03-17,7,F,97.4649,133/88 mmHg,Oeste,Dificultad respiratoria,Sí,Positivo,Activo
+120,2023-05-07,2023-05-10,34,M,96.9274,117/65 mmHg,Sur,Dificultad respiratoria,Sí,Negativo,Recuperado
+121,2023-10-15,2023-10-22,34,F,97.2931,136/87 mmHg,Este,Fiebre,Sí,Pendiente,Recuperado
+122,2023-10-03,2023-10-11,32,F,96.7034,100/74 mmHg,Centro,Fiebre,Sí,Pendiente,Recuperado
+123,2023-05-15,2023-05-23,4,F,98.5659,115/89 mmHg,Norte,Dolor muscular,Sí,Positivo,Recuperado
+124,2023-10-27,2023-10-31,40,M,98.7103,126/80 mmHg,Centro,Dolor muscular,Sí,Positivo,Recuperado
+125,2023-08-08,2023-08-22,27,M,97.6302,119/67 mmHg,Oeste,Tos,Sí,Pendiente,Recuperado
+126,2023-10-26,2023-11-02,6,F,97.8623,105/78 mmHg,Centro,Dolor muscular,Sí,Negativo,Activo
+127,2023-07-24,2023-08-08,72,M,98.3868,139/80 mmHg,Norte,Dificultad respiratoria,Sí,Positivo,Activo
+128,2023-07-05,2023-07-06,71,M,95.9984,134/73 mmHg,Oeste,Dificultad respiratoria,Sí,Pendiente,Recuperado
+129,2023-04-23,2023-04-26,11,M,94.5573,118/79 mmHg,Centro,Fiebre,No,Negativo,Recuperado
+130,2023-03-12,2023-03-19,33,M,95.9728,135/82 mmHg,Oeste,Dolor muscular,No,Positivo,Activo
+131,2023-09-18,2023-09-19,32,M,92.7795,102/75 mmHg,Sur,Tos,Sí,Positivo,Recuperado
+132,2023-09-10,2023-09-17,47,M,96.6954,122/83 mmHg,Sur,Dificultad respiratoria,Sí,Positivo,Recuperado
+133,2023-02-16,2023-02-21,22,F,96.1208,107/65 mmHg,Centro,Dificultad respiratoria,No,Positivo,Activo
+134,2023-01-25,2023-02-09,61,F,99.4997,124/79 mmHg,Oeste,Tos,Sí,Positivo,Recuperado
+135,2023-02-26,2023-03-11,87,M,98.3670,126/76 mmHg,Norte,Tos,Sí,Negativo,Recuperado
+136,2023-03-20,2023-04-02,36,F,98.1489,107/75 mmHg,Centro,Dificultad respiratoria,Sí,Positivo,Recuperado
+137,2023-11-18,2023-11-26,98,F,95.9754,113/90 mmHg,Sur,Dificultad respiratoria,Sí,Positivo,Activo
+138,2023-03-23,2023-03-28,43,F,96.5719,119/95 mmHg,Sur,Tos,Sí,Positivo,Activo
+139,2023-12-15,2023-12-22,85,F,95.0044,135/86 mmHg,Centro,Dificultad respiratoria,Sí,Positivo,Activo
+140,2023-08-05,2023-08-17,90,M,95.8384,122/78 mmHg,Oeste,Fiebre,Sí,Pendiente,Recuperado
+141,2023-11-02,2023-11-14,34,F,95.5011,101/82 mmHg,Sur,Fiebre,Sí,Positivo,Activo
+142,2023-02-02,2023-02-15,64,F,96.7219,96/91 mmHg,Oeste,Tos,Sí,Positivo,Activo
+143,2023-07-17,2023-07-26,98,M,97.4626,123/80 mmHg,Sur,Dolor muscular,Sí,Negativo,Recuperado
+144,2023-07-15,2023-07-26,46,M,96.5279,109/60 mmHg,Sur,Tos,Sí,Positivo,Activo
+145,2023-11-02,2023-11-14,77,F,98.3552,120/81 mmHg,Este,Tos,Sí,Positivo,Recuperado
+146,2023-08-28,2023-09-05,2,F,95.6605,127/88 mmHg,Sur,Dolor muscular,No,Positivo,Recuperado
+147,2023-09-28,2023-10-01,0,F,98.5048,118/74 mmHg,Norte,Dolor muscular,Sí,Positivo,Recuperado
+148,2023-05-09,2023-05-13,4,F,98.7268,112/83 mmHg,Centro,Dolor muscular,Sí,Positivo,Recuperado
+149,2023-10-11,2023-10-16,89,F,97.6519,106/67 mmHg,Centro,Fiebre,Sí,Positivo,Recuperado
+150,2023-01-06,2023-01-10,13,F,94.7724,115/74 mmHg,Oeste,Dificultad respiratoria,Sí,Positivo,Recuperado
+151,2023-12-15,2023-12-16,26,M,97.8661,111/88 mmHg,Sur,Fiebre,Sí,Pendiente,Recuperado
+152,2023-02-28,2023-03-10,8,F,98.8591,122/81 mmHg,Norte,Dificultad respiratoria,Sí,Positivo,Fallecido
+153,2023-12-16,2023-12-28,78,F,93.8391,117/93 mmHg,Oeste,Fiebre,Sí,Positivo,Recuperado
+154,2023-10-02,2023-10-11,14,M,100.0909,112/83 mmHg,Este,Dificultad respiratoria,Sí,Negativo,Recuperado
+155,2023-05-17,2023-05-18,89,M,95.8651,127/75 mmHg,Oeste,Fiebre,Sí,Positivo,Recuperado
+156,2023-11-25,2023-12-07,41,M,94.4244,114/76 mmHg,Oeste,Dolor muscular,Sí,Negativo,Recuperado
+157,2023-06-24,2023-06-30,76,M,95.5962,108/87 mmHg,Sur,Tos,Sí,Positivo,Recuperado
+158,2023-02-27,2023-02-28,50,F,97.3746,109/77 mmHg,Este,Fiebre,Sí,Pendiente,Recuperado
+159,2023-05-31,2023-06-01,62,F,93.3193,125/83 mmHg,Oeste,Dificultad respiratoria,Sí,Positivo,Activo
+160,2023-08-11,2023-08-21,95,F,97.5375,120/82 mmHg,Norte,Dolor muscular,No,Positivo,Recuperado
+161,2023-03-22,2023-03-30,51,F,95.7677,111/79 mmHg,Norte,Fiebre,Sí,Positivo,Recuperado
+162,2023-08-21,2023-08-30,95,F,96.8744,109/93 mmHg,Centro,Fiebre,Sí,Pendiente,Recuperado
+163,2023-01-02,2023-01-17,3,F,96.6171,112/66 mmHg,Este,Dolor muscular,Sí,Positivo,Activo
+164,2023-05-15,2023-05-29,93,M,97.1466,132/90 mmHg,Este,Fiebre,Sí,Positivo,Recuperado
+165,2023-09-14,2023-09-23,22,F,98.1701,117/90 mmHg,Centro,Tos,Sí,Positivo,Activo
+166,2023-04-02,2023-04-05,14,M,96.4156,103/85 mmHg,Oeste,Fiebre,Sí,Negativo,Recuperado
+167,2023-09-17,2023-09-18,42,M,98.6914,113/83 mmHg,Este,Tos,Sí,Positivo,Activo
+168,2023-02-24,2023-03-05,28,F,97.2831,107/76 mmHg,Norte,Tos,Sí,Negativo,Recuperado
+169,2023-11-17,2023-11-19,35,M,94.9809,121/77 mmHg,Norte,Dolor muscular,Sí,Positivo,Activo
+170,2023-06-02,2023-06-16,12,F,95.7282,114/77 mmHg,Sur,Fiebre,Sí,Positivo,Recuperado
+171,2023-11-24,2023-11-27,31,M,95.4717,96/70 mmHg,Este,Dolor muscular,Sí,Positivo,Fallecido
+172,2023-09-17,2023-09-19,70,F,94.1773,101/84 mmHg,Oeste,Fiebre,Sí,Positivo,Recuperado
+173,2023-11-08,2023-11-18,58,M,95.8337,121/84 mmHg,Centro,Fiebre,Sí,Positivo,Recuperado
+174,2023-04-12,2023-04-14,85,F,96.3026,124/86 mmHg,Centro,Dificultad respiratoria,Sí,Positivo,Recuperado
+175,2023-03-20,2023-03-31,27,F,96.9618,139/80 mmHg,Oeste,Fiebre,Sí,Negativo,Recuperado
+176,2023-07-11,2023-07-25,65,F,95.4255,122/68 mmHg,Sur,Dolor muscular,No,Positivo,Activo
+177,2023-03-24,2023-03-28,41,F,97.2347,121/91 mmHg,Centro,Tos,Sí,Positivo,Fallecido
+178,2023-10-04,2023-10-11,44,F,96.4669,116/92 mmHg,Este,Fiebre,Sí,,Recuperado
+179,2023-09-29,2023-10-01,61,M,96.5087,107/86 mmHg,Sur,Dificultad respiratoria,Sí,Positivo,Recuperado
+180,2023-01-01,2023-01-16,56,M,98.8650,107/69 mmHg,Este,Dolor muscular,Sí,Positivo,Fallecido
+181,2023-11-03,2023-11-13,5,M,,106/69 mmHg,Norte,Fiebre,Sí,Positivo,Recuperado
+182,2023-06-15,2023-06-19,27,F,98.8215,122/75 mmHg,Sur,Dolor muscular,Sí,Positivo,Recuperado
+183,2023-09-08,2023-09-18,27,M,97.1949,112/73 mmHg,Centro,Dificultad respiratoria,Sí,Negativo,Recuperado
+184,2023-01-10,2023-01-20,43,F,99.5406,111/72 mmHg,Sur,Dificultad respiratoria,Sí,Pendiente,Recuperado
+185,2023-02-27,2023-02-28,83,F,99.1062,129/58 mmHg,Sur,Dolor muscular,Sí,Positivo,Recuperado
+186,2023-07-05,2023-07-15,29,M,93.8188,112/80 mmHg,Sur,Fiebre,No,Positivo,Recuperado
+187,2023-06-07,2023-06-09,61,M,95.3937,141/81 mmHg,Sur,Tos,Sí,Negativo,Recuperado
+188,2023-05-03,2023-05-10,74,F,98.5098,112/76 mmHg,Este,Dificultad respiratoria,Sí,Positivo,Recuperado
+189,2023-01-30,2023-02-10,91,M,99.3990,117/82 mmHg,Norte,Fiebre,Sí,Positivo,Activo
+190,2023-05-04,2023-05-14,88,F,96.4652,100/75 mmHg,Oeste,Fiebre,No,Positivo,Recuperado
+191,2023-10-18,2023-10-28,61,F,96.6885,104/87 mmHg,Sur,Tos,Sí,Negativo,Recuperado
+192,2023-02-10,2023-02-19,96,F,95.6964,127/82 mmHg,Centro,Dificultad respiratoria,Sí,Negativo,Recuperado
+193,2023-02-13,2023-02-19,0,F,95.8600,124/90 mmHg,Sur,Dificultad respiratoria,No,Positivo,Recuperado
+194,2023-09-06,2023-09-21,26,F,95.8004,114/72 mmHg,Centro,Fiebre,No,Positivo,Activo
+195,2023-02-05,2023-02-10,61,M,97.7264,115/82 mmHg,Este,Fiebre,No,Positivo,Fallecido
+196,2023-09-30,2023-10-04,76,M,96.7783,131/96 mmHg,Centro,Tos,Sí,Negativo,Recuperado
+197,2023-03-06,2023-03-17,2,F,98.1380,127/98 mmHg,Oeste,Tos,Sí,Positivo,Recuperado
+198,2023-03-07,2023-03-19,69,F,95.9917,131/90 mmHg,Norte,Dificultad respiratoria,Sí,Positivo,Activo
+199,2023-12-04,2023-12-10,71,M,98.3456,121/76 mmHg,Centro,Dolor muscular,No,Negativo,Activo
+200,2023-09-01,2023-09-05,26,M,99.2962,130/96 mmHg,Centro,Dificultad respiratoria,Sí,Positivo,Recuperado
