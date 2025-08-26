@@ -27,6 +27,7 @@
    - 07-herramientas-desarrollo
       - [13-S7-Terminal](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/07-herramientas-desarrollo/13-S7-Terminal.ipynb)
       - [14-S7-Control-de-versiones-Git-y-GitHub](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/07-herramientas-desarrollo/14-S7-Control-de-versiones-Git-y-GitHub.ipynb)
+      - [15-cuestionario_repaso](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/07-herramientas-desarrollo/15-cuestionario_repaso.ipynb)
    - 08-data-retrieval
       - [16-S8-mineria-de-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/08-data-retrieval/16-S8-mineria-de-datos.ipynb)
       - [17-S8-SQL](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/08-data-retrieval/17-S8-SQL.ipynb)
