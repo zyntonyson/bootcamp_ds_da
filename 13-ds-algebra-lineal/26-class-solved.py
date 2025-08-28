@@ -1,7 +1,9 @@
 import numpy as np
 from sklearn.base import BaseEstimator, ClassifierMixin
 
+
 class KNNClassifier(BaseEstimator, ClassifierMixin):
+
     """
     K-Nearest Neighbors.
     Parámetros
@@ -25,6 +27,7 @@ class KNNClassifier(BaseEstimator, ClassifierMixin):
         self._X = None  # matriz de entrenamiento (n_samples, n_features)
         self._y = None  # etiquetas de entrenamiento (n_samples,)
         self.classes_ = None  # clases únicas en el orden interno
+        self.inv_map = None # Etiquetas para el clasificador (0,1,2,...)
 
     def fit(self, X, y):
         """
@@ -40,6 +43,7 @@ class KNNClassifier(BaseEstimator, ClassifierMixin):
         self._X = X
         self._y = y
         self.classes_ = np.unique(y)
+        self.inv_map = {c: j for j, c in enumerate(self.classes_)}
         return self
 
     def predict(self, X):
@@ -58,29 +62,21 @@ class KNNClassifier(BaseEstimator, ClassifierMixin):
 
         # Índices de los k vecinos más cercanos por fila (argpartition para eficiencia)
         k = self.k
-        # top-k (no ordenados); luego ordenamos esos k si queremos estabilidad
+
+        # top-k (no ordenados)
         neigh_idx_part = np.argpartition(D, kth=k-1, axis=1)[:, :k]
 
         # Votación mayoritaria
         y_pred = np.empty(X.shape[0], dtype=self._y.dtype)
         for i in range(X.shape[0]):
             idx_k = neigh_idx_part[i]
-            # ordenar esos k por distancia real para desempates consistentes
-            local_order = np.argsort(D[i, idx_k], kind="stable")
-            idx_k = idx_k[local_order]
             neigh_labels = self._y[idx_k]
-
-            # mapear a 0..C-1 para usar bincount de forma robusta
-            # (self.classes_ está ordenado)
-            inv_map = {c: j for j, c in enumerate(self.classes_)}
-            neigh_idx_labels = np.fromiter((inv_map[c] for c in neigh_labels), dtype=int, count=len(neigh_labels))
-
+            neigh_idx_labels = np.fromiter((self.inv_map[c] for c in neigh_labels), dtype=int, count=len(neigh_labels))
             counts = np.bincount(neigh_idx_labels, minlength=self.classes_.size)
-            # argmax estable -> clase con mayor conteo; si hay empate, la de menor índice (determinista)
             winner_local = int(np.argmax(counts))
             y_pred[i] = self.classes_[winner_local]
-
         return y_pred
+
 
     def _pairwise_distances(self, A, B):
         """
@@ -110,7 +106,6 @@ class KNNClassifier(BaseEstimator, ClassifierMixin):
         Distancia Manhattan L1 pairwise.
         Implementación vectorizada:
         - d(a,b) = sum(|a_i - b_i|)
-        - Usar: np.abs(A[:, None, :] - B[None, :, :]).sum(axis=2)
         """
         return np.abs(A[:, None, :] - B[None, :, :]).sum(axis=2)
 
@@ -133,10 +128,8 @@ class KNNClassifier(BaseEstimator, ClassifierMixin):
         X = np.asarray(X, dtype=float)
         if X.ndim != 2:
             raise ValueError("X debe ser un arreglo 2D de forma (n_samples, n_features).")
-
         if y is None:
             return X
-
         y = np.asarray(y)
         if y.ndim != 1:
             raise ValueError("y debe ser un arreglo 1D de longitud n_samples.")
@@ -150,3 +143,219 @@ class KNNClassifier(BaseEstimator, ClassifierMixin):
             raise ValueError("y contiene NaNs; limpia antes de usar KNN.")
 
         return X, y
+
+
+
+
+
+import numpy as np
+from sklearn.base import BaseEstimator, RegressorMixin
+
+class LinearRegressionCustom(BaseEstimator, RegressorMixin):
+    """
+    Implementación básica de Regresión Lineal compatible con scikit-learn.
+    Parámetros
+    ----------
+    fit_intercept : bool
+        Si True, añade una columna de unos para el intercepto.
+    """
+
+    def __init__(self, fit_intercept=True):
+        self.fit_intercept = fit_intercept
+        self.coef_ = None      # vector de coeficientes (sin intercepto si aplica)
+        self.intercept_ = None # valor escalar del intercepto si fit_intercept=True
+
+    def fit(self, X, y):
+        """
+        Ajusta el modelo a los datos (X, y) resolviendo la ecuación normal:
+        β = (X^T X)^(-1) X^T y
+        - Si fit_intercept=True: añadir columna de unos a X.
+        - Guardar coef_ y intercept_ según corresponda.
+        - Devolver self.
+        """
+        # --- Validaciones y casting ---
+        X = np.asarray(X, dtype=float)
+        y = np.asarray(y, dtype=float)
+        if X.ndim != 2:
+            raise ValueError("X debe ser 2D (n_samples, n_features).")
+        if y.ndim != 1:
+            raise ValueError("y debe ser 1D (n_samples,).")
+        if X.shape[0] != y.shape[0]:
+            raise ValueError(f"Incompatibilidad: X tiene {X.shape[0]} filas y y tiene {y.shape[0]} elementos.")
+        if np.isnan(X).any() or np.isnan(y).any():
+            raise ValueError("X o y contienen NaNs. Limpia o imputa antes de ajustar.")
+
+        # --- Construir X_aug con o sin intercepto ---
+        X_aug = self._add_intercept(X) if self.fit_intercept else X
+
+        # --- Resolver betas (pinv para robustez numérica) ---
+        # beta_star incluye intercepto si fit_intercept=True
+        beta_star = np.linalg.pinv(X_aug) @ y  # equivalente a (X_aug^T X_aug)^-1 X_aug^T y con mayor estabilidad
+
+        if self.fit_intercept:
+            self.intercept_ = float(beta_star[0])
+            self.coef_ = beta_star[1:].copy()
+        else:
+            self.intercept_ = 0.0
+            self.coef_ = beta_star.copy()
+
+        return self
+
+    def predict(self, X):
+        """
+        Predice valores para nuevas muestras.
+        - Añadir columna de unos si fit_intercept=True.
+        - Calcular y = X @ beta.
+        - Devuelve vector (n_samples,).
+        """
+        self._check_is_fitted()
+        X = np.asarray(X, dtype=float)
+        if X.ndim != 2:
+            raise ValueError("X debe ser 2D (n_samples, n_features).")
+        if np.isnan(X).any():
+            raise ValueError("X contiene NaNs. Limpia o imputa antes de predecir.")
+
+        if self.fit_intercept:
+            # y = b + X @ coef
+            return self.intercept_ + X @ self.coef_
+        else:
+            return X @ self.coef_
+
+    # ----------------------
+    # Métodos auxiliares
+    # ----------------------
+
+    def _add_intercept(self, X):
+        """
+        Añade columna de unos a X si fit_intercept=True.
+        """
+        if not self.fit_intercept:
+            return X
+        n = X.shape[0]
+        return np.c_[np.ones(n, dtype=float), X]
+
+    def _check_is_fitted(self):
+        """
+        Verifica que fit() haya sido llamado (coef_ no None).
+        """
+        if self.coef_ is None or self.intercept_ is None:
+            raise ValueError("Este LinearRegressionCustom no está ajustado. Llama primero a fit(X, y).")
+
+
+from sklearn.base import BaseEstimator, TransformerMixin
+
+class FeatureObfuscator(BaseEstimator, TransformerMixin):
+    """
+    Ofuscador lineal reversible: X' = X @ P
+    - Si P es invertible, se recupera X = X' @ P^{-1}.
+    
+    Parámetros
+    ----------
+    P : np.ndarray | None
+        Matriz de ofuscación (dxd) proporcionada por el usuario (debe ser invertible).
+        Si None, se generará en fit() .
+    seed : int | None
+        Semilla para reproducibilidad cuando se genere P.
+    """
+
+    def __init__(self,  P=None,  seed=None):
+        self.P = P
+        self.seed = seed
+        # Atributos aprendidos en fit()
+        self.P_ = None       # Matriz de ofuscación final (validada/generada)
+        self.P_inv_ = None   # Inversa para inverse_transform
+
+    # ----------------------
+    # API sklearn
+    # ----------------------
+
+    def fit(self, X, y=None):
+        """
+        Valida/infere n_features y define P_ y P_inv_.
+        - Si P es proporcionada: validar forma (dxd), invertibilidad y asignar.
+        - Si no: generar P_  y calcular P_inv_.
+        - Debe devolver self.
+        """
+        X = self._validate_2d(X)
+        d = X.shape[1]
+        rng = np.random.default_rng(self.seed)
+
+        if self.P is not None:
+            P = np.asarray(self.P, dtype=float)
+            if P.shape != (d, d):
+                raise ValueError(f"P debe tener forma {(d, d)}; recibida {P.shape}.")
+            # checar invertibilidad razonable
+            if np.linalg.matrix_rank(P) < d:
+                raise ValueError("La matriz P proporcionada no es invertible (rango deficiente).")
+            self.P_ = P.copy()
+        else:
+            self.P_ = self._generate_P(d, rng)
+
+        # calcular inversa (si es ortogonal, usar traspuesta)
+        I = np.eye(d)
+        if np.allclose(self.P_.T @ self.P_, I, atol=1e-8):
+            self.P_inv_ = self.P_.T
+        else:
+            # si está muy mal condicionada, avisar
+            cond = np.linalg.cond(self.P_)
+            if cond > 1e10:
+                raise ValueError(f"P es mal condicionada (cond={cond:.2e}); no es segura para invertir.")
+            self.P_inv_ = np.linalg.inv(self.P_)
+
+        return self
+
+    def transform(self, X):
+        """
+        Aplica la ofuscación: X' = X @ P_
+        - Validar que fit() fue llamado (P_ no None).
+        - Validar dimensionalidad: X.shape[1] == P_.shape[0]
+        - Devolver X ofuscada.
+        """
+        self._check_is_fitted()
+        X = self._validate_2d(X)
+        if X.shape[1] != self.P_.shape[0]:
+            raise ValueError(f"Incompatibilidad: X tiene {X.shape[1]} columnas y P tiene {self.P_.shape[0]}.")
+        return X @ self.P_
+
+    def inverse_transform(self, X_obf):
+        """
+        Revierte la ofuscación: X = X_obf @ P_inv_
+        - Validar que fit() fue llamado y que P_inv_ existe.
+        - Devolver datos originales.
+        """
+        self._check_is_fitted()
+        X_obf = self._validate_2d(X_obf)
+        if X_obf.shape[1] != self.P_inv_.shape[0]:
+            raise ValueError(f"Incompatibilidad: X_obf tiene {X_obf.shape[1]} columnas y P_inv tiene {self.P_inv_.shape[0]}.")
+        return X_obf @ self.P_inv_
+
+    # ----------------------
+    # Utilidades internas
+    # ----------------------
+
+    def _generate_P(self, d, rng):
+        """
+        Genera una matriz P (dxd) invertible det!=0 .
+        Estrategia: matriz aleatoria y se ortogonaliza con QR → P=Q (mejor estabilidad).
+        """
+        A = rng.normal(size=(d, d))
+        Q, _ = np.linalg.qr(A)   # Q es ortogonal: Q^T Q = I
+        return Q
+
+    def _check_is_fitted(self):
+        """
+        Verifica que fit() haya sido llamado (P_ y P_inv_ no None).
+        """
+        if self.P_ is None or self.P_inv_ is None:
+            raise ValueError("Este FeatureObfuscator no está ajustado. Llama primero a fit(X).")
+
+    def _validate_2d(self, X):
+        """
+        Convierte a np.array float y valida que sea 2D (n_samples, n_features).
+        """
+        X = np.asarray(X, dtype=float)
+        if X.ndim != 2:
+            raise ValueError("Se espera una matriz 2D (n_samples, n_features).")
+        if np.isnan(X).any():
+            raise ValueError("X contiene NaNs; limpia o imputa antes de transformar.")
+        return X
