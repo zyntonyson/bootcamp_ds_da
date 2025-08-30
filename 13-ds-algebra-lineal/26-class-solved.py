@@ -215,11 +215,10 @@ class LinearRegressionCustom(BaseEstimator, RegressorMixin):
         if np.isnan(X).any():
             raise ValueError("X contiene NaNs. Limpia o imputa antes de predecir.")
 
-        if self.fit_intercept:
-            # y = b + X @ coef
-            return self.intercept_ + X @ self.coef_
-        else:
-            return X @ self.coef_
+
+
+        return X@self.coef_ + self.intercept_
+
 
     # ----------------------
     # Métodos auxiliares
@@ -284,22 +283,14 @@ class FeatureObfuscator(BaseEstimator, TransformerMixin):
             P = np.asarray(self.P, dtype=float)
             if P.shape != (d, d):
                 raise ValueError(f"P debe tener forma {(d, d)}; recibida {P.shape}.")
-            # checar invertibilidad razonable
-            if np.linalg.matrix_rank(P) < d:
-                raise ValueError("La matriz P proporcionada no es invertible (rango deficiente).")
+            # Revisa si la matriz es invertible 
+            if np.linalg.matrix_rank(P) < d:  # puede usarse  igual al determinante np.linalg.det(A)
+                raise ValueError("La matriz P proporcionada no es invertible.")
             self.P_ = P.copy()
         else:
             self.P_ = self._generate_P(d, rng)
 
-        # calcular inversa (si es ortogonal, usar traspuesta)
-        I = np.eye(d)
-        if np.allclose(self.P_.T @ self.P_, I, atol=1e-8):
-            self.P_inv_ = self.P_.T
-        else:
-            # si está muy mal condicionada, avisar
-            cond = np.linalg.cond(self.P_)
-            if cond > 1e10:
-                raise ValueError(f"P es mal condicionada (cond={cond:.2e}); no es segura para invertir.")
+        # calcular inversa  de P 
             self.P_inv_ = np.linalg.inv(self.P_)
 
         return self
@@ -336,11 +327,13 @@ class FeatureObfuscator(BaseEstimator, TransformerMixin):
     def _generate_P(self, d, rng):
         """
         Genera una matriz P (dxd) invertible det!=0 .
-        Estrategia: matriz aleatoria y se ortogonaliza con QR → P=Q (mejor estabilidad).
-        """
-        A = rng.normal(size=(d, d))
-        Q, _ = np.linalg.qr(A)   # Q es ortogonal: Q^T Q = I
-        return Q
+        """        
+        while True:
+            A = rng.integers(low=0, high=d**2,size=(d, d))
+            if np.linalg.det(A) > 1:
+                break
+        return A
+
 
     def _check_is_fitted(self):
         """

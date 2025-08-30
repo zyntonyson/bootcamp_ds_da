@@ -16,6 +16,7 @@
    - 04-data-wrangling
       - [07-S4-Data-Wrangling-II](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/04-data-wrangling/07-S4-Data-Wrangling-II.ipynb)
       - [08-S4-IA-como-Asistente-de-Aprendizaje](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/04-data-wrangling/08-S4-IA-como-Asistente-de-Aprendizaje.ipynb)
+      - [08-S4-revision-proyecto](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/04-data-wrangling/08-S4-revision-proyecto.ipynb)
       - deprecated
          - [08-S4-IA-como-Asistente-de-Aprendizaje](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/04-data-wrangling/deprecated/08-S4-IA-como-Asistente-de-Aprendizaje.ipynb)
    - 05-analisis-estadistico
