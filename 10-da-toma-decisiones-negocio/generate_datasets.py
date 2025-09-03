@@ -38,14 +38,46 @@ if __name__ == '__main__':
     args, _ = parser.parse_known_args()
 
 SEED_VALUE =42
-TREATMENTS = ['MacOS','Android','IOS','Windows']
-P_TREATMENTS = np.random.choice([2,3,5,7,11,13],len(TREATMENTS))
-P_TREATMENTS=P_TREATMENTS/P_TREATMENTS.sum()
 rng = np.random.default_rng(SEED_VALUE)
+
+current_dataset ='s_10_a_b_mean_test'
+
+if len(args.dataset) == 0 or current_dataset in args.dataset:
+
+
+    TREATMENTS = ['B','A']
+    M_TREATMENTS = [1800,1600]
+    S_TREATMENTS= [25,25]
+
+
+    REPORT_FILENAME=os.path.join('datasets',current_dataset+'.csv')
+    (
+        pd.DataFrame(
+            {'group':TREATMENTS, 'm':M_TREATMENTS,'sd':S_TREATMENTS, 'n_visits':rng.gamma(shape=20, scale=18, size=len(TREATMENTS)) }
+        )
+        .assign(
+            n_visits = lambda df: df.n_visits.round().astype(int),
+            amount = lambda df: df.apply(lambda x: rng.normal(size=int(x['n_visits']),loc=int(x['m']),scale=int(x['sd'])), axis=1).round(2)
+        )
+        .explode('amount')
+        .assign(
+            ts_visit = lambda df: generar_fechas_aleatorias(start_date=start_date,end_date=end_date,n_dates=df.shape[0]),
+            uuid_user = lambda df: [str(uuid.uuid5(uuid.NAMESPACE_DNS,str(i+1))) for i in range(df.shape[0])]
+
+        )
+        .drop(columns=['m','n_visits','sd'])
+        .to_csv(REPORT_FILENAME,index=False)
+    )
+
 
 
 current_dataset ='s_10_a_b_multiple_hypothesis'
 if len(args.dataset) == 0 or current_dataset in args.dataset:
+
+    TREATMENTS = ['MacOS','Android','IOS','Windows']
+    P_TREATMENTS = np.random.choice([2,3,5,7,11,13],len(TREATMENTS))
+    P_TREATMENTS=P_TREATMENTS/P_TREATMENTS.sum()
+
 
     REPORT_FILENAME=os.path.join('datasets',current_dataset+'.csv')
     (
@@ -65,6 +97,5 @@ if len(args.dataset) == 0 or current_dataset in args.dataset:
         .drop(columns=['p_convertion','n_visits'])
         .to_csv(REPORT_FILENAME,index=False)
     )
-
 
 
