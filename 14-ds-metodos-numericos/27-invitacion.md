@@ -10,7 +10,7 @@ En esta sesión trabajaremos para:
 - Tener una intuición sobre las redes neuronales  🧠🚀
 
 
-🗂️ *Material de la clase:* [27-S14-Descenso de gradiente y regularización](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/14-ds-metodos-numericos/26-optimizacion.ipynb)
+🗂️ *Material de la clase:* [27-S14-Descenso de gradiente y regularización](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/14-ds-metodos-numericos/27-optimizacion.ipynb)
 
 
 Nos vemos en ela sesión 🚀📊
