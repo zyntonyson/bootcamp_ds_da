@@ -44,6 +44,7 @@
    - 10-da-toma-decisiones-negocio
       - [20-pruebas-ab](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/10-da-toma-decisiones-negocio/20-pruebas-ab.ipynb)
       - [21-challenge-test-ab](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/10-da-toma-decisiones-negocio/21-challenge-test-ab.ipynb)
+      - [21_challenge_test_ab_sol](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/10-da-toma-decisiones-negocio/21_challenge_test_ab_sol.ipynb)
       - [generate_dataset](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/10-da-toma-decisiones-negocio/generate_dataset.ipynb)
    - 10-ds-aprendizaje-supervisado
       - [20-aprendizaje-supervisado](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/10-ds-aprendizaje-supervisado/20-aprendizaje-supervisado.ipynb)
@@ -68,6 +69,10 @@
       - [26-modelos-personalizados](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/13-ds-algebra-lineal/26-modelos-personalizados.ipynb)
    - 14-ds-metodos-numericos
       - [27-optimizacion](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/14-ds-metodos-numericos/27-optimizacion.ipynb)
+      - [28-Clase_Rusty_Bargain_Precios_FINAL](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/14-ds-metodos-numericos/28-Clase_Rusty_Bargain_Precios_FINAL.ipynb)
+      - [28-ensambles-potenciacion-gradiente](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/14-ds-metodos-numericos/28-ensambles-potenciacion-gradiente.ipynb)
+   - 15-ds-series-temporales
+      - [29-series-temporales](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/15-ds-series-temporales/29-series-temporales.ipynb)
    - utils
       - [datos_sinteticos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/datos_sinteticos.ipynb)
       - [make_index_notebooks](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/make_index_notebooks.ipynb)
