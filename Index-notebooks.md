@@ -1,5 +1,12 @@
 *Notebooks*
 
+   - .venv
+      - Lib
+         - site-packages
+            - wasabi
+               - tests
+                  - test-data
+                     - [wasabi-test-notebook](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/.venv/Lib/site-packages/wasabi/tests/test-data/wasabi-test-notebook.ipynb)
    - 01-introduccion-python
       - [01-1st-Sprint-Live-Session](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/01-introduccion-python/01-1st-Sprint-Live-Session.ipynb)
       - [02-1st-Project-Live-Session](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/01-introduccion-python/02-1st-Project-Live-Session.ipynb)
@@ -73,7 +80,10 @@
       - [28-ensambles-potenciacion-gradiente](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/14-ds-metodos-numericos/28-ensambles-potenciacion-gradiente.ipynb)
    - 15-ds-series-temporales
       - [29-series-temporales](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/15-ds-series-temporales/29-series-temporales.ipynb)
-      - [simulacion-dataset](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/15-ds-series-temporales/simulacion-dataset.ipynb)
+      - [30-series-temporales](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/15-ds-series-temporales/30-series-temporales.ipynb)
+   - 16-ds-analisis-textos
+      - [31-nlp copy](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/16-ds-analisis-textos/31-nlp copy.ipynb)
+      - [31-nlp](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/16-ds-analisis-textos/31-nlp.ipynb)
    - utils
       - [datos_sinteticos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/datos_sinteticos.ipynb)
       - [make_index_notebooks](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/make_index_notebooks.ipynb)
