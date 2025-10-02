@@ -7,6 +7,10 @@
                - tests
                   - test-data
                      - [wasabi-test-notebook](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/.venv/Lib/site-packages/wasabi/tests/test-data/wasabi-test-notebook.ipynb)
+   - 01-da-v8-calidad-datos
+      - [01-da-s1-calidad-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/01-da-v8-calidad-datos/01-da-s1-calidad-datos.ipynb)
+      - [02-da-s1-calidad-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/01-da-v8-calidad-datos/02-da-s1-calidad-datos.ipynb)
+      - [Sprint1_Webinar1_Teorico](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/01-da-v8-calidad-datos/Sprint1_Webinar1_Teorico.ipynb)
    - 01-introduccion-python
       - [01-1st-Sprint-Live-Session](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/01-introduccion-python/01-1st-Sprint-Live-Session.ipynb)
       - [02-1st-Project-Live-Session](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/01-introduccion-python/02-1st-Project-Live-Session.ipynb)
@@ -86,4 +90,5 @@
       - [31-nlp](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/16-ds-analisis-textos/31-nlp.ipynb)
    - utils
       - [datos_sinteticos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/datos_sinteticos.ipynb)
+      - [grid](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/grid.ipynb)
       - [make_index_notebooks](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/make_index_notebooks.ipynb)
