@@ -1,12 +1,4 @@
 *Notebooks*
-
-   - .venv
-      - Lib
-         - site-packages
-            - wasabi
-               - tests
-                  - test-data
-                     - [wasabi-test-notebook](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/.venv/Lib/site-packages/wasabi/tests/test-data/wasabi-test-notebook.ipynb)
    - 01-da-v8-calidad-datos
       - [01-da-s1-calidad-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/01-da-v8-calidad-datos/01-da-s1-calidad-datos.ipynb)
       - [02-da-s1-calidad-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/01-da-v8-calidad-datos/02-da-s1-calidad-datos.ipynb)
