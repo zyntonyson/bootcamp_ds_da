@@ -1,11 +1,20 @@
 *Notebooks*
+
+   - .venv
+      - Lib
+         - site-packages
+            - wasabi
+               - tests
+                  - test-data
+                     - [wasabi-test-notebook](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/.venv/Lib/site-packages/wasabi/tests/test-data/wasabi-test-notebook.ipynb)
    - 01-da-v8-calidad-datos
       - [01-da-s1-calidad-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/01-da-v8-calidad-datos/01-da-s1-calidad-datos.ipynb)
-      - [02-da-s1-calidad-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/01-da-v8-calidad-datos/02-da-s1-calidad-datos.ipynb)
-      - [Sprint1_Webinar1_Teorico](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/01-da-v8-calidad-datos/Sprint1_Webinar1_Teorico.ipynb)
    - 01-introduccion-python
       - [01-1st-Sprint-Live-Session](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/01-introduccion-python/01-1st-Sprint-Live-Session.ipynb)
       - [02-1st-Project-Live-Session](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/01-introduccion-python/02-1st-Project-Live-Session.ipynb)
+   - 02-da-v8-insights-negocio
+      - [03-da-v8-insights-negocio](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-da-v8-insights-negocio/03-da-v8-insights-negocio.ipynb)
+      - [Sprint2_Webinar3_Teorico](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-da-v8-insights-negocio/Sprint2_Webinar3_Teorico.ipynb)
    - 02-introduccion-python
       - [03-S2-Live-coding](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-introduccion-python/03-S2-Live-coding.ipynb)
       - [04-S2-Project-mentoring](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-introduccion-python/04-S2-Project-mentoring.ipynb)
