@@ -1,12 +1,5 @@
 *Notebooks*
 
-   - .venv
-      - Lib
-         - site-packages
-            - wasabi
-               - tests
-                  - test-data
-                     - [wasabi-test-notebook](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/.venv/Lib/site-packages/wasabi/tests/test-data/wasabi-test-notebook.ipynb)
    - 01-da-v8-calidad-datos
       - [01-da-s1-calidad-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/01-da-v8-calidad-datos/01-da-s1-calidad-datos.ipynb)
    - 01-introduccion-python
@@ -60,7 +53,8 @@
       - [generate_dataset](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/10-da-toma-decisiones-negocio/generate_dataset.ipynb)
    - 10-ds-aprendizaje-supervisado
       - [20-aprendizaje-supervisado](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/10-ds-aprendizaje-supervisado/20-aprendizaje-supervisado.ipynb)
-      - [21-coding-challenge-aprendizaje-supervisado](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/10-ds-aprendizaje-supervisado/21-coding-challenge-aprendizaje-supervisado.ipynb)
+      - [21-coding-challenge-churn](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/10-ds-aprendizaje-supervisado/21-coding-challenge-churn.ipynb)
+      - [21-coding-challenge-income](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/10-ds-aprendizaje-supervisado/21-coding-challenge-income.ipynb)
    - 11-da-proyecto-2
       - [22-proyecto-2](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/11-da-proyecto-2/22-proyecto-2.ipynb)
    - 11-ds-aprendizaje-automatico-negocios
