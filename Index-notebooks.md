@@ -7,7 +7,9 @@
       - [02-1st-Project-Live-Session](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/01-introduccion-python/02-1st-Project-Live-Session.ipynb)
    - 02-da-v8-insights-negocio
       - [03-da-v8-insights-negocio](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-da-v8-insights-negocio/03-da-v8-insights-negocio.ipynb)
+      - [05-da-v8-insigths-negocio](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-da-v8-insights-negocio/05-da-v8-insigths-negocio.ipynb)
       - [Sprint2_Webinar3_Teorico](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-da-v8-insights-negocio/Sprint2_Webinar3_Teorico.ipynb)
+      - [preparing_data](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-da-v8-insights-negocio/preparing_data.ipynb)
    - 02-introduccion-python
       - [03-S2-Live-coding](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-introduccion-python/03-S2-Live-coding.ipynb)
       - [04-S2-Project-mentoring](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-introduccion-python/04-S2-Project-mentoring.ipynb)
@@ -81,8 +83,8 @@
       - [29-series-temporales](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/15-ds-series-temporales/29-series-temporales.ipynb)
       - [30-series-temporales](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/15-ds-series-temporales/30-series-temporales.ipynb)
    - 16-ds-analisis-textos
-      - [31-nlp copy](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/16-ds-analisis-textos/31-nlp copy.ipynb)
       - [31-nlp](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/16-ds-analisis-textos/31-nlp.ipynb)
+      - [32-nlp](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/16-ds-analisis-textos/32-nlp.ipynb)
    - utils
       - [datos_sinteticos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/datos_sinteticos.ipynb)
       - [grid](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/grid.ipynb)

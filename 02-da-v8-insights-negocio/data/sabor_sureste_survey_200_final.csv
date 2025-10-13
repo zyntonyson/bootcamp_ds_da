@@ -1,0 +1,201 @@
+Respondent_ID,City,Purchase_Frequency,Brand_Awareness,Price_Sensitivity,Preferred_Channel,Likelihood_to_Buy,Preferred_Product,Monthly_Spend_MXN,Survey_Month
+R001,Chetumal,3,52,Alta,Marketplace,3,Polvos,154,2025-09
+R002,Mérida,2,75,Media,EcommercePropio,4,Polvos,139,2025-07
+R003,Mérida,3,82,Media,Tienda,4,Adobos,203,2025-08
+R004,Mérida,3,71,Media,EcommercePropio,4,Adobos,151,2025-09
+R005,Playa del Carmen,3,76,Alta,Marketplace,4,Polvos,126,2025-07
+R006,Mérida,3,76,Baja,Tienda,4,Polvos,320,2025-09
+R007,Mérida,2,57,Alta,EcommercePropio,3,Polvos,100,2025-07
+R008,Playa del Carmen,3,70,Media,Tienda,4,Adobos,252,2025-09
+R009,Mérida,1,81,Alta,Tienda,2,Adobos,155,2025-09
+R010,Cancún,1,92,Alta,Marketplace,5,Salsas,167,2025-08
+R011,Camp e che,3,55,Media,Tienda,4,Adobos,134,2025-08
+R012,Cancún,1,53,Baja,Marketplace,4,Salsas,329,2025-09
+R013,Tuxtla Gutiérrez,2,51,Alta,Tienda,5,Salsas,148,2025-07
+R014,Tuxtla Gutiérrez,2,61,Media,EcommercePropio,3,Polvos,152,2025-09
+R015,Playa del Carmen,1,81,Baja,Tienda,4,Adobos,283,2025-08
+R016,Playa del Carmen,2,52,Media,Tienda,3,Polvos,277,2025-08
+R017,Cancún,2,64,Media,Tienda,2,Adobos,167,2025-08
+R018,Playa del Carmen,2,60,Baja,EcommercePropio,5,Salsas,218,2025-09
+R019,Cancún,2,92,Media,Tienda,5,Salsas,201,2025-08
+R020,Mérida,3,83,Alta,Tienda,4,Salsas,118,2025-07
+R021,Villahermosa,2,68,Media,EcommercePropio,4,Salsas,128,2025-07
+R022,Mérida,2,67,Media,Tienda,4,Polvos,261,2025-08
+R023,Villahermosa,3,66,Alta,Tienda,5,Salsas,163,2025-09
+R024,Tuxtla Gutiérrez,2,57,Baja,Tienda,3,Polvos,179,2025-07
+R025,Camp e che,4,68,Alta,Marketplace,4,Polvos,124,2025-08
+R026,Camp e che,1,62,Media,Tienda,4,Adobos,107,2025-08
+R027,Tuxtla Gutiérrez,2,51,Media,Marketplace,5,Adobos,171,2025-09
+R028,Playa del Carmen,4,69,Alta,EcommercePropio,4,Adobos,188,2025-09
+R029,Cancún,3,81,Media,Tienda,3,Adobos,217,2025-08
+R030,Mérida,2,69,Alta,Tienda,4,Polvos,237,2025-07
+R031,Chetumal,2,47,Alta,Tienda,4,Polvos,144,2025-09
+R032,Mérida,2,84,Media,Tienda,4,Polvos,224,2025-09
+R033,Cancún,3,78,Media,EcommercePropio,4,Adobos,195,2025-08
+R034,Cancún,2,77,Alta,Tienda,3,Salsas,116,2025-08
+R035,Cancún,2,58,Alta,Tienda,2,Salsas,191,2025-09
+R036,Campeche,2,63,Alta,Tienda,3,Adobos,102,2025-08
+R037,Mérida,1,68,Media,Tienda,4,Adobos,177,2025-08
+R038,Tuxtla Gutiérrez,2,39,Baja,Marketplace,3,Salsas,102,2025-09
+R039,Cancún,2,83,Alta,Marketplace,5,Adobos,236,2025-09
+R040,Villahermosa,1,67,Alta,Tienda,5,Polvos,173,2025-07
+R041,Villahermosa,1,62,Media,Tienda,5,Adobos,105,2025-08
+R042,Chetumal,2,71,Alta,Tienda,4,Salsas,160,2025-08
+R043,Campeche,1,48,Media,Tienda,3,Adobos,172,2025-08
+R044,Tuxtla Gutiérrez,2,69,Media,Tienda,3,Polvos,159,2025-08
+R045,Mérida,3,81,Alta,Marketplace,3,Adobos,201,2025-07
+R046,Cancún,2,79,Media,Marketplace,4,Polvos,258,2025-09
+R047,Mérida,2,52,Media,Marketplace,2,Polvos,239,2025-08
+R048,Tuxtla Gutiérrez,2,71,Media,Marketplace,4,Polvos,135,2025-09
+R049,Cancún,3,65,Media,EcommercePropio,2,Adobos,292,2025-07
+R050,Mérida,1,82,Alta,Tienda,5,Salsas,183,2025-09
+R051,Mérida,1,87,Baja,EcommercePropio,3,Adobos,171,2025-08
+R052,Mérida,2,84,Media,Tienda,4,Adobos,242,2025-09
+R053,Mérida,2,72,Media,Tienda,3,Polvos,197,2025-07
+R054,Mérida,3,71,Alta,Tienda,4,Adobos,159,2025-08
+R055,Camp eche,2,58,Baja,Tienda,3,Adobos,207,2025-08
+R056,Tuxtla Gutiérrez,2,78,Media,Marketplace,4,Adobos,155,2025-08
+R057,Villahermosa,1,58,Baja,Tienda,4,Polvos,148,2025-09
+R058,Cancún,2,83,Baja,Marketplace,4,Adobos,208,2025-07
+R059,Villahermosa,3,59,Alta,Tienda,4,Adobos,180,2025-09
+R060,Mérida,3,70,Alta,Marketplace,4,Adobos,188,2025-09
+R061,Cancún,2,52,Media,EcommercePropio,4,Polvos,210,2025-07
+R062,Mérida,3,60,Alta,Tienda,4,Salsas,158,2025-09
+R063,Mérida,2,58,Baja,Tienda,3,Salsas,220,2025-09
+R064,Tuxtla Gutiérrez,2,63,Media,Tienda,3,Salsas,204,2025-08
+R065,Cancún,2,63,Baja,Tienda,3,Polvos,258,2025-09
+R066,Cancún,3,84,Baja,EcommercePropio,3,Adobos,247,2025-07
+R067,Villahermosa,3,58,Alta,Tienda,3,Salsas,150,2025-08
+R068,Mérida,2,82,Alta,Tienda,4,Adobos,225,2025-08
+R069,Villahermosa,2,49,Baja,Tienda,4,Adobos,222,2025-09
+R070,Playa del Carmen,2,69,Alta,EcommercePropio,2,Salsas,209,2025-07
+R071,Villahermosa,2,32,Alta,EcommercePropio,2,Polvos,132,2025-09
+R072,Villahermosa,3,56,Alta,Tienda,4,Adobos,102,2025-08
+R073,Chetumal,1,68,Alta,Tienda,4,Adobos,139,2025-08
+R074,Mérida,3,63,Media,Tienda,3,Polvos,251,2025-08
+R075,Chetumal,3,58,Media,Marketplace,5,Polvos,140,2025-07
+R076,Tuxtla Gutiérrez,2,55,Media,EcommercePropio,2,Polvos,175,2025-07
+R077,Camp e che,3,56,Baja,Tienda,3,Polvos,242,2025-08
+R078,Villahermosa,1,40,Media,EcommercePropio,3,Salsas,117,2025-07
+R079,Cancún,3,78,Media,Tienda,3,Salsas,185,2025-07
+R080,Campeche,4,50,Alta,EcommercePropio,3,Salsas,150,2025-07
+R081,Playa del Carmen,3,77,Baja,Tienda,3,Polvos,179,2025-07
+R082,Camp e che,2,57,Media,Tienda,2,Adobos,211,2025-08
+R083,Tuxtla Gutiérrez,3,55,Alta,Tienda,3,Adobos,148,2025-09
+R084,Camp e che,2,41,Baja,Tienda,4,Polvos,118,2025-07
+R085,Tuxtla Gutiérrez,2,40,Media,Marketplace,3,Polvos,159,2025-08
+R086,Cancún,4,62,Media,Tienda,2,Polvos,184,2025-08
+R087,Mérida,2,67,Alta,Tienda,4,Polvos,204,2025-09
+R088,Cancún,3,66,Baja,Tienda,5,Adobos,318,2025-08
+R089,Playa del Carmen,2,47,Media,EcommercePropio,3,Adobos,212,2025-08
+R090,Playa del Carmen,1,75,Baja,Tienda,4,Adobos,196,2025-09
+R091,Playa del Carmen,3,87,Media,Tienda,4,Polvos,219,2025-07
+R092,Mérida,2,65,Media,EcommercePropio,3,Salsas,230,2025-07
+R093,Mérida,2,48,Media,Tienda,4,Adobos,146,2025-09
+R094,Tuxtla Gutiérrez,2,79,Media,Marketplace,4,Polvos,117,2025-08
+R095,Mérida,1,89,Alta,Tienda,4,Salsas,196,2025-08
+R096,Tuxtla Gutiérrez,3,57,Media,Tienda,3,Salsas,127,2025-07
+R097,Chetumal,1,39,Alta,Tienda,3,Salsas,134,2025-08
+R098,Cancún,3,73,Alta,Tienda,4,Polvos,205,2025-07
+R099,Camp e che,1,54,Alta,Marketplace,2,Salsas,173,2025-07
+R100,Campeche,2,63,Alta,Marketplace,5,Adobos,176,2025-07
+R101,Playa del Carmen,2,84,Media,EcommercePropio,3,Salsas,227,2025-08
+R102,Playa del Carmen,2,55,Media,Tienda,4,Adobos,181,2025-09
+R103,Mérida,3,69,Baja,Marketplace,5,Adobos,288,2025-09
+R104,Cancún,2,56,Media,Tienda,3,Adobos,243,2025-09
+R105,Playa del Carmen,2,67,Baja,Tienda,4,Adobos,109,2025-09
+R106,Villahermosa,2,41,Media,EcommercePropio,4,Adobos,135,2025-07
+R107,Mérida,2,70,Alta,Marketplace,3,Polvos,178,2025-08
+R108,Villahermosa,2,53,Media,Marketplace,3,Adobos,201,2025-09
+R109,Playa del Carmen,2,81,Media,Tienda,4,Polvos,177,2025-09
+R110,Tuxtla Gutiérrez,2,62,Baja,Tienda,4,Adobos,163,2025-07
+R111,Villahermosa,2,67,Media,Marketplace,5,Salsas,131,2025-07
+R112,Playa del Carmen,3,70,Alta,Marketplace,5,Salsas,193,2025-08
+R113,Villahermosa,3,30,Alta,EcommercePropio,3,Salsas,106,2025-07
+R114,Playa del Carmen,2,66,Media,Tienda,4,Polvos,237,2025-08
+R115,Campeche,3,30,Media,Marketplace,3,Polvos,177,2025-07
+R116,Cancún,2,70,Media,EcommercePropio,3,Polvos,172,2025-09
+R117,Camp eche,3,70,Alta,Marketplace,4,Salsas,111,2025-08
+R118,Cancún,2,72,Alta,EcommercePropio,5,Polvos,182,2025-08
+R119,Tuxtla Gutiérrez,2,60,Baja,Tienda,2,Salsas,217,2025-07
+R120,Villahermosa,3,43,Baja,Tienda,4,Salsas,137,2025-08
+R121,Camp e che,3,68,Alta,Tienda,4,Adobos,174,2025-09
+R122,Camp eche,2,50,Alta,Marketplace,3,Adobos,135,2025-08
+R123,Tuxtla Gutiérrez,2,59,Media,Tienda,3,Salsas,195,2025-08
+R124,Mérida,3,69,Alta,Tienda,3,Salsas,203,2025-08
+R125,Chetumal,3,56,Alta,Tienda,2,Salsas,149,2025-07
+R126,Villahermosa,3,35,Alta,Marketplace,4,Salsas,129,2025-07
+R127,Tuxtla Gutiérrez,1,63,Alta,Tienda,2,Adobos,150,2025-08
+R128,Camp e che,3,60,Media,EcommercePropio,3,Adobos,93,2025-07
+R129,Chetumal,1,35,Media,Tienda,5,Polvos,155,2025-08
+R130,Mérida,2,59,Baja,Tienda,3,Polvos,216,2025-07
+R131,Tuxtla Gutiérrez,1,78,Media,Tienda,4,Salsas,133,2025-08
+R132,Tuxtla Gutiérrez,2,75,Baja,Marketplace,5,Adobos,160,2025-09
+R133,Camp e che,2,59,Alta,Marketplace,4,Salsas,148,2025-09
+R134,Villahermosa,1,42,Media,Tienda,4,Polvos,117,2025-09
+R135,Mérida,3,75,Media,Tienda,3,Salsas,197,2025-08
+R136,Villahermosa,2,56,Baja,Tienda,4,Adobos,117,2025-07
+R137,Chetumal,1,62,Media,Tienda,3,Polvos,171,2025-09
+R138,Mérida,3,72,Alta,EcommercePropio,5,Salsas,148,2025-09
+R139,Camp eche,2,48,Baja,Tienda,2,Polvos,208,2025-09
+R140,Mérida,3,51,Alta,Tienda,3,Polvos,188,2025-08
+R141,Camp eche,3,50,Baja,Tienda,3,Polvos,119,2025-09
+R142,Tuxtla Gutiérrez,4,63,Media,Marketplace,4,Polvos,191,2025-08
+R143,Camp e che,3,65,Media,Marketplace,3,Salsas,194,2025-07
+R144,Playa del Carmen,2,90,Media,Marketplace,4,Polvos,188,2025-07
+R145,Camp e che,2,73,Media,Marketplace,4,Salsas,136,2025-08
+R146,Villahermosa,2,52,Baja,Tienda,5,Polvos,221,2025-08
+R147,Playa del Carmen,3,78,Baja,Tienda,4,Adobos,282,2025-08
+R148,Mérida,3,81,Media,EcommercePropio,4,Adobos,253,2025-08
+R149,Tuxtla Gutiérrez,2,67,Alta,Tienda,4,Polvos,107,2025-07
+R150,Cancún,3,79,Media,EcommercePropio,5,Adobos,198,2025-09
+R151,Playa del Carmen,2,61,Media,Tienda,2,Adobos,138,2025-07
+R152,Mérida,3,60,Alta,Marketplace,4,Polvos,226,2025-09
+R153,Playa del Carmen,2,94,Baja,Marketplace,4,Adobos,280,2025-09
+R154,Cancún,2,86,Media,Tienda,3,Salsas,234,2025-09
+R155,Tuxtla Gutiérrez,2,56,Alta,Tienda,4,Adobos,146,2025-07
+R156,Mérida,2,83,Alta,Tienda,5,Salsas,131,2025-09
+R157,Villahermosa,2,66,Alta,Marketplace,3,Adobos,153,2025-07
+R158,Mérida,1,92,Media,Marketplace,4,Polvos,206,2025-07
+R159,Mérida,3,73,Baja,Marketplace,5,Polvos,184,2025-08
+R160,Camp eche,2,41,Baja,Tienda,3,Polvos,226,2025-09
+R161,Chetumal,2,68,Media,Marketplace,3,Polvos,129,2025-07
+R162,Villahermosa,2,64,Media,Marketplace,4,Polvos,164,2025-08
+R163,Tuxtla Gutiérrez,2,56,Alta,Marketplace,3,Polvos,184,2025-08
+R164,Camp eche,2,60,Alta,Marketplace,5,Adobos,143,2025-07
+R165,Tuxtla Gutiérrez,2,50,Media,EcommercePropio,5,Polvos,75,2025-09
+R166,Mérida,2,62,Media,Tienda,5,Adobos,224,2025-07
+R167,Cancún,2,59,Media,Tienda,4,Salsas,214,2025-09
+R168,Tuxtla Gutiérrez,2,40,Media,EcommercePropio,3,Polvos,173,2025-08
+R169,Mérida,3,75,Media,Tienda,4,Salsas,139,2025-07
+R170,Chetumal,2,45,Media,Marketplace,3,Salsas,183,2025-08
+R171,Mérida,2,62,Alta,Tienda,4,Salsas,190,2025-08
+R172,Tuxtla Gutiérrez,2,30,Alta,EcommercePropio,3,Polvos,161,2025-08
+R173,Chetumal,3,49,Baja,Marketplace,3,Salsas,162,2025-07
+R174,Mérida,3,60,Media,Tienda,3,Salsas,172,2025-07
+R175,Chetumal,2,39,Media,Tienda,4,Adobos,145,2025-08
+R176,Campeche,2,64,Media,Tienda,4,Polvos,97,2025-08
+R177,Mérida,3,81,Baja,Tienda,4,Adobos,292,2025-07
+R178,Tuxtla Gutiérrez,2,73,Alta,Tienda,4,Adobos,110,2025-07
+R179,Campeche,3,83,Media,EcommercePropio,5,Salsas,200,2025-07
+R180,Playa del Carmen,2,59,Media,EcommercePropio,3,Polvos,270,2025-07
+R181,Villahermosa,1,52,Alta,Marketplace,2,Salsas,143,2025-08
+R182,Villahermosa,3,43,Baja,Marketplace,3,Polvos,239,2025-08
+R183,Mérida,2,60,Baja,Marketplace,2,Adobos,142,2025-07
+R184,Playa del Carmen,3,66,Alta,Tienda,5,Salsas,207,2025-09
+R185,Mérida,2,68,Alta,Marketplace,5,Polvos,183,2025-08
+R186,Mérida,2,55,Alta,Marketplace,4,Salsas,148,2025-07
+R187,Tuxtla Gutiérrez,1,50,Baja,EcommercePropio,4,Salsas,273,2025-09
+R188,Mérida,2,59,Alta,Tienda,5,Adobos,183,2025-08
+R189,Mérida,2,62,Alta,Tienda,3,Adobos,228,2025-07
+R190,Villahermosa,2,51,Baja,Marketplace,3,Polvos,250,2025-08
+R191,Campeche,2,65,Alta,Tienda,4,Salsas,148,2025-07
+R192,Cancún,2,82,Alta,Tienda,5,Salsas,176,2025-09
+R193,Mérida,2,59,Alta,Tienda,4,Polvos,169,2025-09
+R194,Cancún,2,75,Media,Tienda,3,Salsas,241,2025-07
+R195,Mérida,2,74,Media,EcommercePropio,4,Salsas,247,2025-08
+R196,Mérida,2,64,Alta,Tienda,4,Polvos,163,2025-09
+R197,Tuxtla Gutiérrez,1,39,Media,EcommercePropio,3,Salsas,123,2025-09
+R198,Villahermosa,2,63,Media,Tienda,3,Adobos,205,2025-07
+R199,Mérida,3,70,Media,Marketplace,4,Polvos,189,2025-07
+R200,Cancún,3,75,Alta,Tienda,4,Salsas,207,2025-07

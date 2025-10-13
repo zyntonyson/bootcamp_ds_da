@@ -1,0 +1,31 @@
+City,Competitor_Name,Store_Count,Avg_Price_Index,Est_Market_Share_%,Revenue_per_Store_MXN,Foot_Traffic_Index,Notes
+Playa del Carmen,La Sazón Sureste,3,0.99,14,454997,84,Ubicación en plaza con alto flujo
+Tuxtla Gutiérrez,YucaSpice Plus,3,0.96,18,301864,67,Enfoque en productos locales
+Villahermosa,Sabores del Golfo Plus,3,0.98,21,347112,67,Promociones frecuentes
+Playa del Carmen,Caribe Condimentos Plus,2,1.07,28,485087,80,Ubicación en plaza con alto flujo
+Campeche,Picante MX MX,3,0.92,28,180000,60,Enfoque en productos locales
+Playa del Carmen,Mar y Chile Select,3,1.07,23,342842,64,Ubicación en plaza con alto flujo
+Cancún,Tabasco Sazón MX,4,1.03,28,404189,73,Enfoque en productos locales
+Villahermosa,Chiapas Gourmet Market,3,1.05,17,322691,84,Promociones frecuentes
+Villahermosa,Sureste Mix Market,4,0.96,27,259838,65,Ubicación en plaza con alto flujo
+Villahermosa,Sabores Mayab Sureste,5,1.1,13,376005,88,Enfoque en productos locales
+Villahermosa,Condimex Plus,2,1.01,33,280598,70,Enfoque en productos locales
+Chetumal,Casa del Adobo Plus,3,0.87,26,305270,76,Enfoque en productos locales
+Mérida,Salsa Viva Plus,7,1.03,25,356012,67,Distribución a restaurantes
+Chetumal,Chile & Sal Select,4,0.9,17,180000,72,Enfoque en productos locales
+Mérida,Gusto Caribe Plus,4,0.95,23,274224,53,Promociones frecuentes
+Cancún,Oro del Sabor Select,4,0.99,36,445864,72,Promociones frecuentes
+Mérida,Don Sazón Select,4,1.06,30,343614,73,Promociones frecuentes
+Cancún,Mercado Spice MX,7,0.95,23,280750,87,Ubicación en plaza con alto flujo
+Cancún,Aromas del Sur Market,4,0.98,23,475308,80,Portafolio amplio de salsas
+Cancún,Rincón del Sabor Sureste,4,1.1,21,318849,95,Promociones frecuentes
+Mérida,La Sazón MX,4,0.96,23,309048,74,Distribución a restaurantes
+Campeche,YucaSpice Select,4,1.02,22,200794,68,Ubicación en plaza con alto flujo
+Playa del Carmen,Sabores del Golfo Market,5,1.08,22,484203,77,Portafolio amplio de salsas
+Villahermosa,Caribe Condimentos Market,3,0.92,22,331245,62,Promociones frecuentes
+Campeche,Picante MX Plus,4,1.1,31,295603,56,Portafolio amplio de salsas
+Campeche,Mar y Chile Market,2,0.93,24,353689,67,Promociones frecuentes
+Mérida,Tabasco Sazón MX,5,1.0,27,260611,85,Enfoque en productos locales
+Cancún,Chiapas Gourmet Sureste,6,0.97,22,373098,82,Portafolio amplio de salsas
+Campeche,Sureste Mix MX,5,1.05,30,407026,78,Enfoque en productos locales
+Chetumal,Sabores Mayab MX,4,1.02,23,180498,63,Distribución a restaurantes

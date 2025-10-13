@@ -1,0 +1,41 @@
+Brand_ID,Brand_Name,Industry_Type,Product,Target_Audience,Importance_Tier
+BR001,Brand_01,Retail,Marketplace,Adultos 25-44,Tier A
+BR002,Brand_02,Home,Cleaner multiusos,Adultos 25-44,Tier C
+BR003,Brand_03,Home,Electrodoméstico,Unisex 18-34,Tier B
+BR004,Brand_04,Apps/Games,App productividad,Jóvenes 18-24,Tier B
+BR005,Brand_05,Finance,Tarjeta prepago,Jóvenes 18-24,Tier C
+BR006,Brand_06,Home,Cleaner multiusos,Adultos 25-44,Tier A
+BR007,Brand_07,Music,Streaming plan,Unisex 18-34,Tier B
+BR008,Brand_08,Beauty/Care,Higiene personal,Familias 25-44,Tier B
+BR009,Brand_09,Kids,Toys educativos,Familias 25-44,Tier A
+BR010,Brand_10,Finance,Tarjeta prepago,Profesionales 25-44,Tier A
+BR011,Brand_11,Retail,Tienda departamental,Hombres 18-34,Tier B
+BR012,Brand_12,Travel,Membresía viajeros,Jóvenes 18-24,Tier B
+BR013,Brand_13,Retail,Tienda departamental,Hombres 18-34,Tier B
+BR014,Brand_14,Finance,Cuenta digital,Mujeres 18-34,Tier A
+BR015,Brand_15,Music,Parlante BT,Mujeres 18-34,Tier A
+BR016,Brand_16,Retail,Marketplace,Unisex 18-34,Tier A
+BR017,Brand_17,Travel,Agencia online,Hombres 18-34,Tier A
+BR018,Brand_18,Beauty/Care,Higiene personal,Adultos 25-44,Tier B
+BR019,Brand_19,Home,Cleaner multiusos,Mujeres 18-34,Tier C
+BR020,Brand_20,Finance,Tarjeta prepago,Adultos 25-44,Tier B
+BR021,Brand_21,Electronics,Accesorios gaming,Mujeres 18-34,Tier C
+BR022,Brand_22,Wellness,Suplementos,Profesionales 25-44,Tier C
+BR023,Brand_23,Apps/Games,App productividad,Hombres 18-34,Tier C
+BR024,Brand_24,Food/Snacks,Botana horneada,Jóvenes 18-24,Tier B
+BR025,Brand_25,Electronics,Accesorios gaming,Padres 25-44,Tier A
+BR026,Brand_26,Apps/Games,Juego móvil,Hombres 18-34,Tier B
+BR027,Brand_27,Automotive,Refacciones,Padres 25-44,Tier C
+BR028,Brand_28,Beauty/Care,Cosmética natural,Mujeres 18-34,Tier B
+BR029,Brand_29,Automotive,Seguro auto,Jóvenes 18-24,Tier B
+BR030,Brand_30,Home,Decoración,Familias 25-44,Tier C
+BR031,Brand_31,Travel,Membresía viajeros,Unisex 18-34,Tier C
+BR032,Brand_32,Kids,Toys educativos,Adultos 25-44,Tier A
+BR033,Brand_33,Electronics,Smartphone,Familias 25-44,Tier B
+BR034,Brand_34,Automotive,Refacciones,Hombres 18-34,Tier A
+BR035,Brand_35,Beverages,Energética,Familias 25-44,Tier C
+BR036,Brand_36,Beauty/Care,Tratamiento facial,Familias 25-44,Tier B
+BR037,Brand_37,Music,Audífonos,Unisex 18-34,Tier A
+BR038,Brand_38,Apps/Games,Juego móvil,Mujeres 18-34,Tier B
+BR039,Brand_39,Home,Electrodoméstico,Jóvenes 18-24,Tier A
+BR040,Brand_40,Beverages,Bebida gasificada,Mujeres 18-34,Tier C
