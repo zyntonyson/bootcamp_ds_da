@@ -17,6 +17,8 @@
       - extras
          - [S2-Ejercicio-integrador-Base-escuela](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-introduccion-python/extras/S2-Ejercicio-integrador-Base-escuela.ipynb)
          - [S2-Ejercicio-integrador-StarWars](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-introduccion-python/extras/S2-Ejercicio-integrador-StarWars.ipynb)
+   - 03-da-v8-explora-kpis-sql
+      - [sql-interface](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/03-da-v8-explora-kpis-sql/sql-interface.ipynb)
    - 03-data-wrangling
       - [05-S3-Data-Wrangling-con-pandas](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/03-data-wrangling/05-S3-Data-Wrangling-con-pandas.ipynb)
       - [06-S3-AirBnB-challenge](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/03-data-wrangling/06-S3-AirBnB-challenge.ipynb)
