@@ -91,6 +91,7 @@
       - [32-nlp](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/16-ds-analisis-textos/32-nlp.ipynb)
    - 17-ds-vision-artificial
       - [33-vision-artificial](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/17-ds-vision-artificial/33-vision-artificial.ipynb)
+      - [34-vision-artificial](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/17-ds-vision-artificial/34-vision-artificial.ipynb)
    - utils
       - [datos_sinteticos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/datos_sinteticos.ipynb)
       - [grid](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/grid.ipynb)
