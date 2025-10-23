@@ -7,8 +7,8 @@ Durante esta sesión trabajaremos con:
 - 🎨 **YOLO** revisaremos un modelo usado para la segmentación de imagenes.  
 
 🗂️ *Material de la clase:*  
-[📘Aprendizaje de una CNN](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/17-ds-vision-artificial/33-vision-artificial.ipynb)
-[📘YOLO](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/17-ds-vision-artificial/33-vision-artificial.ipynb)
+[📘Aprendizaje de una CNN](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/17-ds-vision-artificial/34-vision-artificial-saliency-maps.ipynb)
+[📘YOLO](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/17-ds-vision-artificial/34-vision-artificial-yolo.ipynb)
 
 Prepárate para aprender cómo las redes neuronales pueden identificar patrones visuales y transformar imágenes en conocimiento.  
 ¡Nos vemos en la sesión! 🚀📸  
