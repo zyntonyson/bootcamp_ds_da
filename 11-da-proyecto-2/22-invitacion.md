@@ -10,7 +10,8 @@ Usaremos un caso real con múltiples tablas de navegación, y nos enfocaremos en
 
 💬 No necesitas experiencia previa en ecommerce, solo muchas ganas de analizar, visualizar y proponer como un verdadero *data analyst* 💼📈
 
-🗂️ **Notebook del reto:** [22- S11- Proyecto E-commerce](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/11-da-proyecto-2/22-proyecto-2.ipynb)
+🗂️ **Notebook del reto:** [22- S11- Proyecto E-commerce](https://colab.rese
+arch.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/11-da-proyecto-2/22-proyecto-2.ipynb)
 
 📝 Ten a la mano tu Colab y prepárate para trabajar en equipo, discutir hipótesis y presentar hallazgos como si fueras parte de un equipo real de producto 💼✨
 
