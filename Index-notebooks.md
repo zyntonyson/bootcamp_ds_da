@@ -24,6 +24,8 @@
    - 03-data-wrangling
       - [05-S3-Data-Wrangling-con-pandas](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/03-data-wrangling/05-S3-Data-Wrangling-con-pandas.ipynb)
       - [06-S3-AirBnB-challenge](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/03-data-wrangling/06-S3-AirBnB-challenge.ipynb)
+   - 04-da-v8-user-journey
+      - [11-da-v8-s4-user-journey](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/04-da-v8-user-journey/11-da-v8-s4-user-journey.ipynb)
    - 04-data-wrangling
       - [07-S4-Data-Wrangling-II](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/04-data-wrangling/07-S4-Data-Wrangling-II.ipynb)
       - [08-S4-IA-como-Asistente-de-Aprendizaje](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/04-data-wrangling/08-S4-IA-como-Asistente-de-Aprendizaje.ipynb)
