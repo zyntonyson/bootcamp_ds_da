@@ -26,6 +26,8 @@
       - [06-S3-AirBnB-challenge](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/03-data-wrangling/06-S3-AirBnB-challenge.ipynb)
    - 04-da-v8-user-journey
       - [11-da-v8-s4-user-journey](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/04-da-v8-user-journey/11-da-v8-s4-user-journey.ipynb)
+      - [12-da-v8-coding-together](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/04-da-v8-user-journey/12-da-v8-coding-together.ipynb)
+      - [generate_data](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/04-da-v8-user-journey/generate_data.ipynb)
    - 04-data-wrangling
       - [07-S4-Data-Wrangling-II](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/04-data-wrangling/07-S4-Data-Wrangling-II.ipynb)
       - [08-S4-IA-como-Asistente-de-Aprendizaje](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/04-data-wrangling/08-S4-IA-como-Asistente-de-Aprendizaje.ipynb)
@@ -99,4 +101,5 @@
       - [datos_sinteticos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/datos_sinteticos.ipynb)
       - [db_tripleteen_dump](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/db_tripleteen_dump.ipynb)
       - [grid](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/grid.ipynb)
+      - [labs](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/labs.ipynb)
       - [make_index_notebooks](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/make_index_notebooks.ipynb)
