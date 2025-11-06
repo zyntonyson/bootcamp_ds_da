@@ -5,7 +5,7 @@ En nuestra sesión semanal  practicaremos  **User's journey, Embudos de conversi
 Tú y tus compañeros trabajarán colaborativamente para resolver un ejercicio práctico:
 
 :one: Explorar datos de actividad de clientes usando consultar SQL 
-:two: Diagnósticas la calidad de los datos
+:two: Diagnósticar la calidad de los datos
 :three: Realizar análisis de retención y conversión
 :four: Realizar análisis de cohortes
 
