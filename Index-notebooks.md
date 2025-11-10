@@ -27,6 +27,7 @@
    - 04-da-v8-user-journey
       - [11-da-v8-s4-user-journey](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/04-da-v8-user-journey/11-da-v8-s4-user-journey.ipynb)
       - [12-da-v8-coding-together](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/04-da-v8-user-journey/12-da-v8-coding-together.ipynb)
+      - [13-da-v8-simulation-impact](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/04-da-v8-user-journey/13-da-v8-simulation-impact.ipynb)
       - [generate_data](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/04-da-v8-user-journey/generate_data.ipynb)
    - 04-data-wrangling
       - [07-S4-Data-Wrangling-II](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/04-data-wrangling/07-S4-Data-Wrangling-II.ipynb)
