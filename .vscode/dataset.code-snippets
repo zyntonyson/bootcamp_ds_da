@@ -1,0 +1,10 @@
+{
+  "Cargar dataset tripleten": {
+    "scope": "python",
+    "prefix": "dataset",
+    "body": [
+"df=pd.read_csv('https://practicum-content.s3.us-west-1.amazonaws.com/datasets/.csv')"
+    ],
+    "description": "Inserta una imagen centrada con estilos predeterminados"
+  }
+}
