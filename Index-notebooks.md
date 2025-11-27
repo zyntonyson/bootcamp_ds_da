@@ -43,6 +43,7 @@
       - [15-da-v8-introduction-python](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/05-da-v8-introduction-python/15-da-v8-introduction-python.ipynb)
       - [16-da-v8-introduction-python](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/05-da-v8-introduction-python/16-da-v8-introduction-python.ipynb)
       - [17-da-v8-introduction-python](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/05-da-v8-introduction-python/17-da-v8-introduction-python.ipynb)
+      - [18-da-v8-introduction-python](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/05-da-v8-introduction-python/18-da-v8-introduction-python.ipynb)
    - 06-proyecto
       - [12-insurance-analysis](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/06-proyecto/12-insurance-analysis.ipynb)
    - 07-herramientas-desarrollo
