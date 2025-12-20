@@ -1,5 +1,7 @@
 1. Hacer una copia del GSheet
 1. Ajustar GS para usar punto decimal y formato de YYYYMMDD
+    -Para fechas pasar primero a MX y convertir
+    - Luego a formato US y convertir
 1. Hacer recorrido de los datos pestaña a pestaña
 1. Dar un formato adecuado a change_log
 1. Revisar el diccionario de datos
@@ -22,6 +24,8 @@
             `=IF(ISNUMBER(MATCH(UPPER(TRIM(A2)), {"1","Y","YES","TRUE"}, 0)), TRUE,IF(ISNUMBER(MATCH(UPPER(TRIM(A2)), {"0","N","NO","FALSE"}, 0)), FALSE,NA()))`
     1. **Writer**
         1. `REGEXP_CONTAINS`
+    
+    1. Revisión de nulos y ausentes
 
 
 
