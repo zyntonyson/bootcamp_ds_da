@@ -47,6 +47,8 @@
       - [18-da-v8-introduction-python](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/05-da-v8-introduction-python/18-da-v8-introduction-python.ipynb)
    - 06-proyecto
       - [12-insurance-analysis](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/06-proyecto/12-insurance-analysis.ipynb)
+   - 07-da-v8-patrones-outliers
+      - [19-da-v8-preparacion-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/07-da-v8-patrones-outliers/19-da-v8-preparacion-datos.ipynb)
    - 07-herramientas-desarrollo
       - [13-S7-Terminal](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/07-herramientas-desarrollo/13-S7-Terminal.ipynb)
       - [14-S7-Control-de-versiones-Git-y-GitHub](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/07-herramientas-desarrollo/14-S7-Control-de-versiones-Git-y-GitHub.ipynb)
