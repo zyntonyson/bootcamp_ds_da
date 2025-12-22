@@ -6,9 +6,9 @@ Algunas actividades y habilidades que desarrollaremos:
 
 Seguimos usando 🐼🐍`Pandas` como herramienta de análisis de datos para:
 
-- Realizar resúmenes de datos
-- Combinar datasets
-- Crear gráficos para analizar datos
+- Preparar datos para analisis estadístico
+- Usar bucles para interactuar con los datos
+- Crear funciones para reutilizar nuestro código
 
 ¡No te lo pierdas! Será una gran oportunidad para practicar, resolver dudas y mejorar tus habilidades en análisis de datos.  
 ¡Te esperamos!
