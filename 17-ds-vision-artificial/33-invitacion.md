@@ -10,7 +10,7 @@ Durante esta sesión trabajaremos con:
 - 📊 **Evaluación del modelo** .  
 
 🗂️ *Material de la clase:*  
-[📘Visión Artificial y Redes Convolucionales](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/17-ds-vision-artificial/33-vision-artificial.ipynb)
+📘[Visión Artificial y Redes Convolucionales](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/17-ds-vision-artificial/33-vision-artificial.ipynb)
 
 Prepárate para aprender cómo las redes neuronales pueden identificar patrones visuales y transformar imágenes en conocimiento.  
 ¡Nos vemos en la sesión! 🚀📸  
