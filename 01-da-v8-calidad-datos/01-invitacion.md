@@ -4,6 +4,7 @@ Comenzamos nuestro en análisis de datos, en nuestra próxima sesión platicarem
 **Primeros pasos en el análisis de datos** 🧮➡️📊
 
 En esta sesión trabajaremos sobre:
+- Herramientas que usaremos en nuestro curso
 - Cuáles son la responsabilidades típicas de una analista de datos
 - Limpieza básica de datos
 - Análisis exploratorio de los datos
