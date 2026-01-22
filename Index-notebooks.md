@@ -58,6 +58,8 @@
       - [15-cuestionario_repaso](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/07-herramientas-desarrollo/15-cuestionario_repaso.ipynb)
    - 08-da-v8-analizar-correlaciones
       - [23-da-v8-analizar-correlaciones](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/08-da-v8-analizar-correlaciones/23-da-v8-analizar-correlaciones.ipynb)
+      - [24-da-v8-analizar-correlaciones](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/08-da-v8-analizar-correlaciones/24-da-v8-analizar-correlaciones.ipynb)
+      - [datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/08-da-v8-analizar-correlaciones/datos.ipynb)
    - 08-data-retrieval
       - [16-S8-mineria-de-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/08-data-retrieval/16-S8-mineria-de-datos.ipynb)
       - [17-S8-SQL](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/08-data-retrieval/17-S8-SQL.ipynb)
@@ -111,6 +113,8 @@
       - [33-vision-artificial](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/17-ds-vision-artificial/33-vision-artificial.ipynb)
       - [34-vision-artificial-saliency-maps](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/17-ds-vision-artificial/34-vision-artificial-saliency-maps.ipynb)
       - [34-vision-artificial-yolo](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/17-ds-vision-artificial/34-vision-artificial-yolo.ipynb)
+   - topics
+      - [instalar-python-vs-code](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/topics/instalar-python-vs-code.ipynb)
    - utils
       - [datos_sinteticos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/datos_sinteticos.ipynb)
       - [db_tripleteen_dump](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/db_tripleteen_dump.ipynb)
