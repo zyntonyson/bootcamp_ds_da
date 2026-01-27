@@ -15,4 +15,4 @@ Algunas actividades y habilidades que desarrollaremos:
 
 
 **Material de la sesión II** :   [11 Analisis de comportamiento de clientes](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/04-da-v8-user-journey/11-da-v8-s4-user-journey.ipynb)
-**Servidor SQL** :  [SQL runner](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/03-da-v8-explora-kpis-sql/sql-interface.ipynb)
+**Servidor SQL** :  [SQL runner](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/04-da-v8-user-journey/sql-interface-postgress.ipynb)
