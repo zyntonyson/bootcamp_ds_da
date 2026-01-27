@@ -29,6 +29,7 @@
       - [12-da-v8-coding-together](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/04-da-v8-user-journey/12-da-v8-coding-together.ipynb)
       - [13-da-v8-simulation-impact](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/04-da-v8-user-journey/13-da-v8-simulation-impact.ipynb)
       - [generate_data](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/04-da-v8-user-journey/generate_data.ipynb)
+      - [sql-interface-postgress](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/04-da-v8-user-journey/sql-interface-postgress.ipynb)
    - 04-data-wrangling
       - [07-S4-Data-Wrangling-II](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/04-data-wrangling/07-S4-Data-Wrangling-II.ipynb)
       - [08-S4-IA-como-Asistente-de-Aprendizaje](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/04-data-wrangling/08-S4-IA-como-Asistente-de-Aprendizaje.ipynb)
@@ -114,6 +115,7 @@
       - [34-vision-artificial-saliency-maps](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/17-ds-vision-artificial/34-vision-artificial-saliency-maps.ipynb)
       - [34-vision-artificial-yolo](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/17-ds-vision-artificial/34-vision-artificial-yolo.ipynb)
    - topics
+      - [america_analysis](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/topics/america_analysis.ipynb)
       - [instalar-python-vs-code](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/topics/instalar-python-vs-code.ipynb)
    - utils
       - [datos_sinteticos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/datos_sinteticos.ipynb)
