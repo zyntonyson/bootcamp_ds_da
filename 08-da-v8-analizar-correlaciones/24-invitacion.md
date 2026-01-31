@@ -17,4 +17,4 @@ Vamos:
 
 **Material de la sesión ** 🐍🖥️✍️ :  
 
-- [Explorar conexiones de datos con correlaciones](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/08-da-v8-analizar-correlaciones/23-da-v8-analizar-correlaciones.ipynb)
+- [Explorar conexiones de datos con correlaciones](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/08-da-v8-analizar-correlaciones/24-da-v8-analizar-correlaciones.ipynb)
