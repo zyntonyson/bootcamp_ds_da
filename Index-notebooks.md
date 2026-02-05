@@ -116,6 +116,7 @@
       - [34-vision-artificial-yolo](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/17-ds-vision-artificial/34-vision-artificial-yolo.ipynb)
    - topics
       - [america_analysis](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/topics/america_analysis.ipynb)
+      - [da-using-rest-api](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/topics/da-using-rest-api.ipynb)
       - [instalar-python-vs-code](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/topics/instalar-python-vs-code.ipynb)
    - utils
       - [datos_sinteticos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/datos_sinteticos.ipynb)
