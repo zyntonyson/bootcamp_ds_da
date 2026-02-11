@@ -13,4 +13,4 @@ Algunas actividades y habilidades que desarrollaremos:
 ¡Te esperamos!
 
 
-**Material de la sesión ** :   [ Prepara y estructura datos con Python I 🐍🖥️✍️](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/05-da-v8-introduction-python/15-da-v8-introduction-python.ipynb)
+**Material de la sesión ** :   🐍🖥️✍️[ Prepara y estructura datos con Python I ](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/05-da-v8-introduction-python/15-da-v8-introduction-python.ipynb)
