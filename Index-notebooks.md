@@ -70,6 +70,8 @@
       - [18-Metricas_Usuarios](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/09-da-analisis-negocio/18-Metricas_Usuarios.ipynb)
       - [19-Cohortes_Economia](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/09-da-analisis-negocio/19-Cohortes_Economia.ipynb)
       - [datos-sinteticos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/09-da-analisis-negocio/datos-sinteticos.ipynb)
+   - 09-da-v8-pruebas-hipotesis
+      - [25-pruebas-hipotesis](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/09-da-v8-pruebas-hipotesis/25-pruebas-hipotesis.ipynb)
    - 09-ds-machine-learning
       - [18-clasificacion_binaria](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/09-ds-machine-learning/18-clasificacion_binaria.ipynb)
       - [19-regresion](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/09-ds-machine-learning/19-regresion.ipynb)
