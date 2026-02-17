@@ -2,6 +2,7 @@
 
    - 01-da-v8-calidad-datos
       - [01-da-s1-calidad-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/01-da-v8-calidad-datos/01-da-s1-calidad-datos.ipynb)
+      - [03-da-s1-calidad-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/01-da-v8-calidad-datos/03-da-s1-calidad-datos.ipynb)
    - 01-introduccion-python
       - [01-1st-Sprint-Live-Session](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/01-introduccion-python/01-1st-Sprint-Live-Session.ipynb)
       - [02-1st-Project-Live-Session](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/01-introduccion-python/02-1st-Project-Live-Session.ipynb)

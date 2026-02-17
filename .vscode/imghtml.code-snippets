@@ -4,7 +4,7 @@
     "prefix": "imgdata",
     "body": [
       "<center>",
-      "  <img src=\"https://www.ceupe.com/images/easyblog_articles/2705/b2ap3_amp_actividades-de-un-analista-de-datos.jpg\" alt=\"IA para educación - Logo\" style=\"max-width:50%; height:auto;\" width=\"25%\">",
+      "  <img src=\"https://www.ceupe.com/images/easyblog_articles/2705/b2ap3_amp_actividades-de-un-analista-de-datos.jpg\" alt=\"Texto\" style=\"max-width:100%; height:auto;\" width=\"50%\">",
       "</center>"
     ],
     "description": "Inserta una imagen centrada con estilos predeterminados"
