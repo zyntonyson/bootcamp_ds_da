@@ -74,6 +74,8 @@
       - [datos-sinteticos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/09-da-analisis-negocio/datos-sinteticos.ipynb)
    - 09-da-v8-pruebas-hipotesis
       - [25-pruebas-hipotesis](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/09-da-v8-pruebas-hipotesis/25-pruebas-hipotesis.ipynb)
+      - [26-pruebas-hipotesis](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/09-da-v8-pruebas-hipotesis/26-pruebas-hipotesis.ipynb)
+      - [Sprint9_Webinar29_Practico](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/09-da-v8-pruebas-hipotesis/Sprint9_Webinar29_Practico.ipynb)
    - 09-ds-machine-learning
       - [18-clasificacion_binaria](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/09-ds-machine-learning/18-clasificacion_binaria.ipynb)
       - [19-regresion](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/09-ds-machine-learning/19-regresion.ipynb)
@@ -118,10 +120,13 @@
       - [33-vision-artificial](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/17-ds-vision-artificial/33-vision-artificial.ipynb)
       - [34-vision-artificial-saliency-maps](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/17-ds-vision-artificial/34-vision-artificial-saliency-maps.ipynb)
       - [34-vision-artificial-yolo](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/17-ds-vision-artificial/34-vision-artificial-yolo.ipynb)
+   - testing
+      - [dict_gem](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/testing/dict_gem.ipynb)
    - topics
       - [america_analysis](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/topics/america_analysis.ipynb)
       - [da-using-rest-api](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/topics/da-using-rest-api.ipynb)
       - [instalar-python-vs-code](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/topics/instalar-python-vs-code.ipynb)
+      - [web-scrapping](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/topics/web-scrapping.ipynb)
    - utils
       - [datos_sinteticos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/datos_sinteticos.ipynb)
       - [db_tripleteen_dump](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/db_tripleteen_dump.ipynb)
