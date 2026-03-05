@@ -127,9 +127,9 @@
    - topics
       - [america_analysis](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/topics/america_analysis.ipynb)
       - [da-using-rest-api](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/topics/da-using-rest-api.ipynb)
+      - [debugging-python](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/topics/debugging-python.ipynb)
       - [instalar-python-vs-code](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/topics/instalar-python-vs-code.ipynb)
       - [web-scrapping](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/topics/web-scrapping.ipynb)
-      - [webinar-debugging-python](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/topics/webinar-debugging-python.ipynb)
    - utils
       - [datos_sinteticos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/datos_sinteticos.ipynb)
       - [db_tripleteen_dump](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/db_tripleteen_dump.ipynb)
