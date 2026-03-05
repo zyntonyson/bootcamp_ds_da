@@ -125,15 +125,14 @@
    - testing
       - [dict_gem](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/testing/dict_gem.ipynb)
    - topics
-      - [Sprint10_Webinar30_Extra](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/topics/Sprint10_Webinar30_Extra.ipynb)
       - [america_analysis](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/topics/america_analysis.ipynb)
       - [da-using-rest-api](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/topics/da-using-rest-api.ipynb)
       - [instalar-python-vs-code](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/topics/instalar-python-vs-code.ipynb)
       - [web-scrapping](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/topics/web-scrapping.ipynb)
+      - [webinar-debugging-python](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/topics/webinar-debugging-python.ipynb)
    - utils
       - [datos_sinteticos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/datos_sinteticos.ipynb)
       - [db_tripleteen_dump](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/db_tripleteen_dump.ipynb)
       - [grid](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/grid.ipynb)
       - [labs](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/labs.ipynb)
       - [make_index_notebooks](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/make_index_notebooks.ipynb)
-   - [webinar-debugging-python](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/webinar-debugging-python.ipynb)
