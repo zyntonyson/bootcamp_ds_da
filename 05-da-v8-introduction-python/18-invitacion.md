@@ -14,4 +14,4 @@ Seguimos usando 🐼🐍`Pandas` como herramienta de análisis de datos para:
 ¡Te esperamos!
 
 
-**Material de la sesión ** 🐍🖥️✍️ :  [Prepara y estructura datos con python](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/05-da-v8-introduction-python/18-da-v8-introduction-python.ipynb)
+**Material de la sesión ** 🐍🖥️✍️ :  [Prepara y estructura datos con python IV](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/05-da-v8-introduction-python/18-da-v8-introduction-python.ipynb)
