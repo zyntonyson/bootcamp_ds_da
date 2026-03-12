@@ -85,6 +85,7 @@
       - [21_challenge_test_ab_sol](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/10-da-toma-decisiones-negocio/21_challenge_test_ab_sol.ipynb)
       - [generate_dataset](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/10-da-toma-decisiones-negocio/generate_dataset.ipynb)
    - 10-da-v8-data-story-telling
+      - [24-bi-tools](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/10-da-v8-data-story-telling/24-bi-tools.ipynb)
       - [27-data-story-telling](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/10-da-v8-data-story-telling/27-data-story-telling.ipynb)
    - 10-ds-aprendizaje-supervisado
       - [20-aprendizaje-supervisado](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/10-ds-aprendizaje-supervisado/20-aprendizaje-supervisado.ipynb)
