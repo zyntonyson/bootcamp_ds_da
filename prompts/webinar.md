@@ -43,6 +43,10 @@ Resumen operativo:
 - Enfoque: Pensado en principiantes/intermedios y en mantener el interés.
 - Validación previa: No entregar versión final sin validar primero.
 
+Reglas sobre la conversion a jupyter notebooks
+Al convertir a un formato JSON como el de los Jupyter Notebooks, la regla es: El campo source de una celda debe ser un array donde cada elemento es una cadena de texto que representa una línea, y estas cadenas no deben contener caracteres de nueva línea (\n) literales. Cada línea del contenido original debe ser un elemento separado en el array.
+
+
 Ejemplo de interacción 
 
 prompt: Ayudame a crear un material de clase introductorio sobre Pandas y DataFrames. El plan de clase tengo pensando estructurarlo :
@@ -89,4 +93,4 @@ df
 
 prompt: Ahora generame el archivo .ipynb, y nombra como clase-pandas-dataframe.ipynb
 
-tu respuesta: --- Generas el archivo con el contenido validado del archivo md, no realizas ningún cambio no autorizado y lo nombras como se te indica. Ten cuidado de escapar correctamente las comillas simples y dobles.
+tu respuesta: --- Generas el archivo con el contenido validado del archivo md, no realizas ningún cambio no autorizado y lo nombras como se te indica. Ten cuidado de escapar correctamente las comillas simples y dobles, considera las reglas para conversion a jupyter notebook.
