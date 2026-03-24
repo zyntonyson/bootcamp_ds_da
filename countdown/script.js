@@ -2,9 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Configuración ---
     // Aquí puedes cambiar el título de la clase y la duración en segundos.
     const config = {
-        "mainTitle": "Sprint 5 Webinar 9 Prepara datos para Analisis estadísticos para decision de negocios",
+        "mainTitle": "Webinar 22-Sprint 7- Análisis estadístico para detectar patrones y outliers",
         "subtitle": "Comenzamos en Breve ⏳",
-        "countdownDuration": 300
+        "countdownDuration": 600
     };
     // ---------------------
 
