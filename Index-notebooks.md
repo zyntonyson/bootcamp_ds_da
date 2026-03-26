@@ -4,136 +4,139 @@
       - [01-da-s1-calidad-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/01-da-v8-calidad-datos/01-da-s1-calidad-datos.ipynb)
       - [03-da-s1-calidad-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/01-da-v8-calidad-datos/03-da-s1-calidad-datos.ipynb)
       - [04-da-s1-calidad-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/01-da-v8-calidad-datos/04-da-s1-calidad-datos.ipynb)
-   - 01-introduccion-python
-      - [01-1st-Sprint-Live-Session](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/01-introduccion-python/01-1st-Sprint-Live-Session.ipynb)
-      - [02-1st-Project-Live-Session](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/01-introduccion-python/02-1st-Project-Live-Session.ipynb)
    - 02-da-v8-insights-negocio
       - [03-da-v8-insights-negocio](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-da-v8-insights-negocio/03-da-v8-insights-negocio.ipynb)
       - [05-da-v8-insigths-negocio](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-da-v8-insights-negocio/05-da-v8-insigths-negocio.ipynb)
       - [Sprint2_Webinar3_Teorico](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-da-v8-insights-negocio/Sprint2_Webinar3_Teorico.ipynb)
       - [preparing_data](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-da-v8-insights-negocio/preparing_data.ipynb)
-   - 02-introduccion-python
-      - [03-S2-Live-coding](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-introduccion-python/03-S2-Live-coding.ipynb)
-      - [04-S2-Project-mentoring](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-introduccion-python/04-S2-Project-mentoring.ipynb)
-      - [04-S2-project-practice-(student)](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-introduccion-python/04-S2-project-practice-(student).ipynb)
-      - extras
-         - [S2-Ejercicio-integrador-Base-escuela](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-introduccion-python/extras/S2-Ejercicio-integrador-Base-escuela.ipynb)
-         - [S2-Ejercicio-integrador-StarWars](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-introduccion-python/extras/S2-Ejercicio-integrador-StarWars.ipynb)
    - 03-da-v8-explora-kpis-sql
       - [07-sql-introduction](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/03-da-v8-explora-kpis-sql/07-sql-introduction.ipynb)
       - [09-insights-sakila](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/03-da-v8-explora-kpis-sql/09-insights-sakila.ipynb)
       - [sql-interface](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/03-da-v8-explora-kpis-sql/sql-interface.ipynb)
-   - 03-data-wrangling
-      - [05-S3-Data-Wrangling-con-pandas](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/03-data-wrangling/05-S3-Data-Wrangling-con-pandas.ipynb)
-      - [06-S3-AirBnB-challenge](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/03-data-wrangling/06-S3-AirBnB-challenge.ipynb)
    - 04-da-v8-user-journey
       - [11-da-v8-s4-user-journey](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/04-da-v8-user-journey/11-da-v8-s4-user-journey.ipynb)
       - [12-da-v8-coding-together](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/04-da-v8-user-journey/12-da-v8-coding-together.ipynb)
       - [13-da-v8-simulation-impact](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/04-da-v8-user-journey/13-da-v8-simulation-impact.ipynb)
       - [generate_data](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/04-da-v8-user-journey/generate_data.ipynb)
       - [sql-interface-postgress](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/04-da-v8-user-journey/sql-interface-postgress.ipynb)
-   - 04-data-wrangling
-      - [07-S4-Data-Wrangling-II](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/04-data-wrangling/07-S4-Data-Wrangling-II.ipynb)
-      - [08-S4-IA-como-Asistente-de-Aprendizaje](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/04-data-wrangling/08-S4-IA-como-Asistente-de-Aprendizaje.ipynb)
-      - [08-S4-revision-proyecto](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/04-data-wrangling/08-S4-revision-proyecto.ipynb)
-      - deprecated
-         - [08-S4-IA-como-Asistente-de-Aprendizaje](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/04-data-wrangling/deprecated/08-S4-IA-como-Asistente-de-Aprendizaje.ipynb)
-   - 05-analisis-estadistico
-      - [09-S5-Analisis-estadístico-de-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/05-analisis-estadistico/09-S5-Analisis-estadístico-de-datos.ipynb)
-      - [10-S5-Probabilidad](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/05-analisis-estadistico/10-S5-Probabilidad.ipynb)
-      - [11-S5-integrado-unidad](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/05-analisis-estadistico/11-S5-integrado-unidad.ipynb)
-      - [11-S5-pruebas-de-hipotesis](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/05-analisis-estadistico/11-S5-pruebas-de-hipotesis.ipynb)
    - 05-da-v8-introduction-python
       - [15-da-v8-introduction-python](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/05-da-v8-introduction-python/15-da-v8-introduction-python.ipynb)
       - [16-da-v8-introduction-python](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/05-da-v8-introduction-python/16-da-v8-introduction-python.ipynb)
       - [17-da-v8-introduction-python](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/05-da-v8-introduction-python/17-da-v8-introduction-python.ipynb)
       - [18-da-v8-introduction-python](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/05-da-v8-introduction-python/18-da-v8-introduction-python.ipynb)
-   - 06-proyecto
-      - [12-insurance-analysis](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/06-proyecto/12-insurance-analysis.ipynb)
    - 07-da-v8-patrones-outliers
       - [19-da-v8-preparacion-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/07-da-v8-patrones-outliers/19-da-v8-preparacion-datos.ipynb)
       - [20-da-v8-preparacion-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/07-da-v8-patrones-outliers/20-da-v8-preparacion-datos.ipynb)
       - [21-da-v8-preparacion-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/07-da-v8-patrones-outliers/21-da-v8-preparacion-datos.ipynb)
       - [22-da-v8-preparacion-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/07-da-v8-patrones-outliers/22-da-v8-preparacion-datos.ipynb)
-   - 07-herramientas-desarrollo
-      - [13-S7-Terminal](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/07-herramientas-desarrollo/13-S7-Terminal.ipynb)
-      - [14-S7-Control-de-versiones-Git-y-GitHub](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/07-herramientas-desarrollo/14-S7-Control-de-versiones-Git-y-GitHub.ipynb)
-      - [15-cuestionario_repaso](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/07-herramientas-desarrollo/15-cuestionario_repaso.ipynb)
    - 08-da-v8-analizar-correlaciones
       - [23-da-v8-analizar-correlaciones](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/08-da-v8-analizar-correlaciones/23-da-v8-analizar-correlaciones.ipynb)
       - [24-da-v8-analizar-correlaciones](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/08-da-v8-analizar-correlaciones/24-da-v8-analizar-correlaciones.ipynb)
       - [datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/08-da-v8-analizar-correlaciones/datos.ipynb)
-   - 08-data-retrieval
-      - [16-S8-mineria-de-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/08-data-retrieval/16-S8-mineria-de-datos.ipynb)
-      - [17-S8-SQL](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/08-data-retrieval/17-S8-SQL.ipynb)
-      - extras
-         - [W15_P2_APIs](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/08-data-retrieval/extras/W15_P2_APIs.ipynb)
-   - 09-da-analisis-negocio
-      - [18-Metricas_Usuarios](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/09-da-analisis-negocio/18-Metricas_Usuarios.ipynb)
-      - [19-Cohortes_Economia](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/09-da-analisis-negocio/19-Cohortes_Economia.ipynb)
-      - [datos-sinteticos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/09-da-analisis-negocio/datos-sinteticos.ipynb)
    - 09-da-v8-pruebas-hipotesis
       - [25-pruebas-hipotesis](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/09-da-v8-pruebas-hipotesis/25-pruebas-hipotesis.ipynb)
       - [26-pruebas-hipotesis](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/09-da-v8-pruebas-hipotesis/26-pruebas-hipotesis.ipynb)
       - [Sprint9_Webinar29_Practico](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/09-da-v8-pruebas-hipotesis/Sprint9_Webinar29_Practico.ipynb)
-   - 09-ds-machine-learning
-      - [18-clasificacion_binaria](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/09-ds-machine-learning/18-clasificacion_binaria.ipynb)
-      - [19-regresion](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/09-ds-machine-learning/19-regresion.ipynb)
-   - 10-da-toma-decisiones-negocio
-      - [20-pruebas-ab](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/10-da-toma-decisiones-negocio/20-pruebas-ab.ipynb)
-      - [21-challenge-test-ab](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/10-da-toma-decisiones-negocio/21-challenge-test-ab.ipynb)
-      - [21_challenge_test_ab_sol](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/10-da-toma-decisiones-negocio/21_challenge_test_ab_sol.ipynb)
-      - [generate_dataset](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/10-da-toma-decisiones-negocio/generate_dataset.ipynb)
    - 10-da-v8-data-story-telling
       - [27-data-story-telling](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/10-da-v8-data-story-telling/27-data-story-telling.ipynb)
       - [28-data-story-telling-ii](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/10-da-v8-data-story-telling/28-data-story-telling-ii.ipynb)
-   - 10-ds-aprendizaje-supervisado
-      - [20-aprendizaje-supervisado](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/10-ds-aprendizaje-supervisado/20-aprendizaje-supervisado.ipynb)
-      - [21-coding-challenge-churn](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/10-ds-aprendizaje-supervisado/21-coding-challenge-churn.ipynb)
-      - [21-coding-challenge-income](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/10-ds-aprendizaje-supervisado/21-coding-challenge-income.ipynb)
-   - 11-da-proyecto-2
-      - [22-proyecto-2](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/11-da-proyecto-2/22-proyecto-2.ipynb)
-   - 11-ds-aprendizaje-automatico-negocios
-      - [22-S11-aprendizaje-negocios](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/11-ds-aprendizaje-automatico-negocios/22-S11-aprendizaje-negocios.ipynb)
-      - [23-code-challenge](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/11-ds-aprendizaje-automatico-negocios/23-code-challenge.ipynb)
-   - 12-da-automatizacion
-      - [23-Data-pipelines](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/12-da-automatizacion/23-Data-pipelines.ipynb)
-      - [24-bi-tools](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/12-da-automatizacion/24-bi-tools.ipynb)
-      - proyectos
-         - [25-08.proyecto](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/12-da-automatizacion/proyectos/25-08.proyecto.ipynb)
-   - 12-ds-proyecto-2
-      - [24-S12-Proyecto-2](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/12-ds-proyecto-2/24-S12-Proyecto-2.ipynb)
-   - 13-da-pronosticos-predicciones
-      - [25-introducion-machine-learning](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/13-da-pronosticos-predicciones/25-introducion-machine-learning.ipynb)
-      - [26-introduccion-machine-learning-ii](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/13-da-pronosticos-predicciones/26-introduccion-machine-learning-ii.ipynb)
-   - 13-ds-algebra-lineal
-      - [25-S13-vectores-matrices](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/13-ds-algebra-lineal/25-S13-vectores-matrices.ipynb)
-      - [26-modelos-personalizados](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/13-ds-algebra-lineal/26-modelos-personalizados.ipynb)
-   - 14-ds-metodos-numericos
-      - [27-optimizacion](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/14-ds-metodos-numericos/27-optimizacion.ipynb)
-      - [28-Clase_Rusty_Bargain_Precios_FINAL](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/14-ds-metodos-numericos/28-Clase_Rusty_Bargain_Precios_FINAL.ipynb)
-      - [28-ensambles-potenciacion-gradiente](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/14-ds-metodos-numericos/28-ensambles-potenciacion-gradiente.ipynb)
-   - 15-ds-series-temporales
-      - [29-series-temporales](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/15-ds-series-temporales/29-series-temporales.ipynb)
-      - [30-series-temporales](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/15-ds-series-temporales/30-series-temporales.ipynb)
-   - 16-ds-analisis-textos
-      - [31-nlp](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/16-ds-analisis-textos/31-nlp.ipynb)
-      - [32-nlp](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/16-ds-analisis-textos/32-nlp.ipynb)
-   - 17-ds-vision-artificial
-      - [33-vision-artificial](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/17-ds-vision-artificial/33-vision-artificial.ipynb)
-      - [34-vision-artificial-saliency-maps](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/17-ds-vision-artificial/34-vision-artificial-saliency-maps.ipynb)
-      - [34-vision-artificial-yolo](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/17-ds-vision-artificial/34-vision-artificial-yolo.ipynb)
    - testing
       - [dict_gem](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/testing/dict_gem.ipynb)
    - topics
       - [america_analysis](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/topics/america_analysis.ipynb)
       - [da-using-rest-api](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/topics/da-using-rest-api.ipynb)
       - [debugging-python](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/topics/debugging-python.ipynb)
+      - [etl_pipeline](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/topics/etl_pipeline.ipynb)
       - [instalar-python-vs-code](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/topics/instalar-python-vs-code.ipynb)
       - [web-scrapping](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/topics/web-scrapping.ipynb)
    - utils
       - [datos_sinteticos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/datos_sinteticos.ipynb)
       - [db_tripleteen_dump](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/db_tripleteen_dump.ipynb)
+      - [etl_pipeline](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/etl_pipeline.ipynb)
       - [grid](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/grid.ipynb)
       - [labs](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/labs.ipynb)
       - [make_index_notebooks](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/utils/make_index_notebooks.ipynb)
+   - v7
+      - 01-introduccion-python
+         - [01-1st-Sprint-Live-Session](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/01-introduccion-python/01-1st-Sprint-Live-Session.ipynb)
+         - [02-1st-Project-Live-Session](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/01-introduccion-python/02-1st-Project-Live-Session.ipynb)
+      - 02-introduccion-python
+         - [03-S2-Live-coding](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/02-introduccion-python/03-S2-Live-coding.ipynb)
+         - [04-S2-Project-mentoring](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/02-introduccion-python/04-S2-Project-mentoring.ipynb)
+         - [04-S2-project-practice-(student)](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/02-introduccion-python/04-S2-project-practice-(student).ipynb)
+         - extras
+            - [S2-Ejercicio-integrador-Base-escuela](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/02-introduccion-python/extras/S2-Ejercicio-integrador-Base-escuela.ipynb)
+            - [S2-Ejercicio-integrador-StarWars](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/02-introduccion-python/extras/S2-Ejercicio-integrador-StarWars.ipynb)
+      - 03-data-wrangling
+         - [05-S3-Data-Wrangling-con-pandas](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/03-data-wrangling/05-S3-Data-Wrangling-con-pandas.ipynb)
+         - [06-S3-AirBnB-challenge](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/03-data-wrangling/06-S3-AirBnB-challenge.ipynb)
+      - 04-data-wrangling
+         - [07-S4-Data-Wrangling-II](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/04-data-wrangling/07-S4-Data-Wrangling-II.ipynb)
+         - [08-S4-IA-como-Asistente-de-Aprendizaje](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/04-data-wrangling/08-S4-IA-como-Asistente-de-Aprendizaje.ipynb)
+         - [08-S4-revision-proyecto](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/04-data-wrangling/08-S4-revision-proyecto.ipynb)
+         - deprecated
+            - [08-S4-IA-como-Asistente-de-Aprendizaje](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/04-data-wrangling/deprecated/08-S4-IA-como-Asistente-de-Aprendizaje.ipynb)
+      - 05-analisis-estadistico
+         - [09-S5-Analisis-estadístico-de-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/05-analisis-estadistico/09-S5-Analisis-estadístico-de-datos.ipynb)
+         - [10-S5-Probabilidad](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/05-analisis-estadistico/10-S5-Probabilidad.ipynb)
+         - [11-S5-integrado-unidad](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/05-analisis-estadistico/11-S5-integrado-unidad.ipynb)
+         - [11-S5-pruebas-de-hipotesis](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/05-analisis-estadistico/11-S5-pruebas-de-hipotesis.ipynb)
+      - 06-proyecto
+         - [12-insurance-analysis](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/06-proyecto/12-insurance-analysis.ipynb)
+      - 07-herramientas-desarrollo
+         - [13-S7-Terminal](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/07-herramientas-desarrollo/13-S7-Terminal.ipynb)
+         - [14-S7-Control-de-versiones-Git-y-GitHub](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/07-herramientas-desarrollo/14-S7-Control-de-versiones-Git-y-GitHub.ipynb)
+         - [15-cuestionario_repaso](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/07-herramientas-desarrollo/15-cuestionario_repaso.ipynb)
+      - 08-data-retrieval
+         - [16-S8-mineria-de-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/08-data-retrieval/16-S8-mineria-de-datos.ipynb)
+         - [17-S8-SQL](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/08-data-retrieval/17-S8-SQL.ipynb)
+         - extras
+            - [W15_P2_APIs](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/08-data-retrieval/extras/W15_P2_APIs.ipynb)
+      - 09-da-analisis-negocio
+         - [18-Metricas_Usuarios](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/09-da-analisis-negocio/18-Metricas_Usuarios.ipynb)
+         - [19-Cohortes_Economia](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/09-da-analisis-negocio/19-Cohortes_Economia.ipynb)
+         - [datos-sinteticos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/09-da-analisis-negocio/datos-sinteticos.ipynb)
+      - 09-ds-machine-learning
+         - [18-clasificacion_binaria](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/09-ds-machine-learning/18-clasificacion_binaria.ipynb)
+         - [19-regresion](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/09-ds-machine-learning/19-regresion.ipynb)
+      - 10-da-toma-decisiones-negocio
+         - [20-pruebas-ab](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/10-da-toma-decisiones-negocio/20-pruebas-ab.ipynb)
+         - [21-challenge-test-ab](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/10-da-toma-decisiones-negocio/21-challenge-test-ab.ipynb)
+         - [21_challenge_test_ab_sol](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/10-da-toma-decisiones-negocio/21_challenge_test_ab_sol.ipynb)
+         - [generate_dataset](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/10-da-toma-decisiones-negocio/generate_dataset.ipynb)
+      - 10-ds-aprendizaje-supervisado
+         - [20-aprendizaje-supervisado](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/10-ds-aprendizaje-supervisado/20-aprendizaje-supervisado.ipynb)
+         - [21-coding-challenge-churn](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/10-ds-aprendizaje-supervisado/21-coding-challenge-churn.ipynb)
+         - [21-coding-challenge-income](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/10-ds-aprendizaje-supervisado/21-coding-challenge-income.ipynb)
+      - 11-da-proyecto-2
+         - [22-proyecto-2](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/11-da-proyecto-2/22-proyecto-2.ipynb)
+      - 11-ds-aprendizaje-automatico-negocios
+         - [22-S11-aprendizaje-negocios](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/11-ds-aprendizaje-automatico-negocios/22-S11-aprendizaje-negocios.ipynb)
+         - [23-code-challenge](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/11-ds-aprendizaje-automatico-negocios/23-code-challenge.ipynb)
+      - 12-da-automatizacion
+         - [23-Data-pipelines](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/12-da-automatizacion/23-Data-pipelines.ipynb)
+         - [24-bi-tools](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/12-da-automatizacion/24-bi-tools.ipynb)
+         - proyectos
+            - [25-08.proyecto](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/12-da-automatizacion/proyectos/25-08.proyecto.ipynb)
+      - 12-ds-proyecto-2
+         - [24-S12-Proyecto-2](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/12-ds-proyecto-2/24-S12-Proyecto-2.ipynb)
+      - 13-da-pronosticos-predicciones
+         - [25-introducion-machine-learning](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/13-da-pronosticos-predicciones/25-introducion-machine-learning.ipynb)
+         - [26-introduccion-machine-learning-ii](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/13-da-pronosticos-predicciones/26-introduccion-machine-learning-ii.ipynb)
+      - 13-ds-algebra-lineal
+         - [25-S13-vectores-matrices](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/13-ds-algebra-lineal/25-S13-vectores-matrices.ipynb)
+         - [26-modelos-personalizados](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/13-ds-algebra-lineal/26-modelos-personalizados.ipynb)
+      - 14-ds-metodos-numericos
+         - [27-optimizacion](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/14-ds-metodos-numericos/27-optimizacion.ipynb)
+         - [28-Clase_Rusty_Bargain_Precios_FINAL](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/14-ds-metodos-numericos/28-Clase_Rusty_Bargain_Precios_FINAL.ipynb)
+         - [28-ensambles-potenciacion-gradiente](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/14-ds-metodos-numericos/28-ensambles-potenciacion-gradiente.ipynb)
+      - 15-ds-series-temporales
+         - [29-series-temporales](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/15-ds-series-temporales/29-series-temporales.ipynb)
+         - [30-series-temporales](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/15-ds-series-temporales/30-series-temporales.ipynb)
+      - 16-ds-analisis-textos
+         - [31-nlp](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/16-ds-analisis-textos/31-nlp.ipynb)
+         - [32-nlp](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/16-ds-analisis-textos/32-nlp.ipynb)
+      - 17-ds-vision-artificial
+         - [33-vision-artificial](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/17-ds-vision-artificial/33-vision-artificial.ipynb)
+         - [34-vision-artificial-saliency-maps](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/17-ds-vision-artificial/34-vision-artificial-saliency-maps.ipynb)
+         - [34-vision-artificial-yolo](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/17-ds-vision-artificial/34-vision-artificial-yolo.ipynb)
