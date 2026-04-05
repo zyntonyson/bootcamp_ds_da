@@ -1,0 +1,42 @@
+.venv/
+key/
+img/
+
+07-herramientas-desarrollo/token.txt
+
+# Scikit-learn / Joblib / Pickle
+*.joblib
+*.pkl
+*.sav
+
+# TensorFlow / Keras
+*.h5
+*.hdf5
+*.pb
+
+# PyTorch
+*.pt
+*.pth
+*.ckpt
+
+# XGBoost / LightGBM
+*.model
+*.bin
+
+# ONNX (modelos portables)
+*.onnx
+
+# MXNet / Gluon
+*.params
+
+# Otros posibles formatos
+*.tflite
+*.mlmodel
+
+
+#Files
+
+dataset.zip
+
+#Folder
+**/dataset_webinar/
