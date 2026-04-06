@@ -1,0 +1,665 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    
+<style>
+    :root {
+        --color-orange: #F2855A;
+        --color-green: #66B37D;
+        --color-light-gray: #F2F2F2;
+        --color-dark-mode: #111111;
+        --color-black: #0A0A0A;
+        --color-dark-gray-1: #333333;
+        --color-dark-gray-2: #5F5F5F;
+        --color-white-soft: #F5F5F5;
+        --font-main: 'Montserrat', sans-serif;
+    }
+
+    body {
+        margin: 0;
+        font-family: var(--font-main);
+        overflow: hidden;
+    }
+
+    .presentation {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 2rem;
+        box-sizing: border-box;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.6s ease-in-out, visibility 0.6s ease-in-out;
+    }
+
+    .slide.active {
+        opacity: 1;
+        visibility: visible;
+        z-index: 1;
+    }
+
+    .slide h1 { font-size: 3rem; font-weight: 700; margin: 0 0 0.5rem 0; }
+    .slide h2 { font-size: 1.8rem; font-weight: 300; margin: 0; }
+
+    .slide-countdown { background-color: var(--color-orange); color: var(--color-black); }
+    .slide-countdown h2 { color: var(--color-dark-gray-2); }
+    .slide-countdown .timer { font-size: 5rem; font-weight: 300; letter-spacing: 5px; margin: 1.5rem 0; text-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    .slide-countdown .start-message { font-size: 2.5rem; font-weight: 700; display: none; }
+
+    .slide-transition { background-color: var(--color-green); color: var(--color-black); }
+    
+    .slide-warnup-mood { background-color: var(--color-green); color: var(--color-black); justify-content: center; position: relative; }
+    .content-wrapper { position: relative; z-index: 1; background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); padding: 2rem 4rem; border-radius: 20px; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1); border: 1px solid rgba(255, 255, 255, 0.18); }
+    .slide-warnup-mood h1, .slide-warnup-mood h2 { font-weight: bold; }
+    .emoji-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 0; }
+    .emoji { position: absolute; top: -10%; font-size: 2rem; animation: fall 10s linear infinite; }
+    @keyframes fall {
+        0% { transform: translateY(0) rotate(0); }
+        100% { transform: translateY(110vh) rotate(360deg); }
+    }
+
+    .slide-agenda, .slide-warnup-question, .slide-basic_slide, .slide-two_columns_slide { background-color: var(--color-light-gray); color: var(--color-black); }
+    .slide-basic_slide .content-wrapper, .slide-two_columns_slide .content-wrapper { width: 90%; text-align: left; overflow-y: auto; max-height: 85vh; padding: 2rem 3rem; }
+    .slide-basic_slide .content-wrapper img, .slide-two_columns_slide .content-wrapper img { max-width: 100%; border-radius: 10px; display: block; margin: 1rem auto; padding: 0; }
+    .slide-basic_slide .content-wrapper p, .slide-basic_slide .content-wrapper ul, .slide-basic_slide .content-wrapper ol, .slide-two_columns_slide .content-wrapper p, .slide-two_columns_slide .content-wrapper ul, .slide-two_columns_slide .content-wrapper ol { font-size: 1.5rem; line-height: 1.6; }
+    .slide-basic_slide .content-wrapper ul, .slide-basic_slide .content-wrapper ol, .slide-two_columns_slide .content-wrapper ul, .slide-two_columns_slide .content-wrapper ol { padding-left: 3rem; }
+    
+    .slide-two_columns_slide .column-left { padding-right: 2rem; width: 50%; display: flex; flex-direction: column; justify-content: center; }
+    .slide-two_columns_slide .column-right { width: 50%; display: flex; align-items: center; justify-content: center; height: 100%; }
+    .slide-two_columns_slide .column-right img { width: 100%; max-height: 70vh; object-fit: contain; }
+    .slide-agenda h1 { color: var(--color-black); }
+    .slide-agenda ul { list-style: none; padding: 0; font-size: 1.5rem; }
+    .slide-agenda li { margin: 0.5rem 0; }
+    .slide-agenda li strong { color: var(--color-black); }
+    .slide-agenda li span { color: var(--color-dark-gray-1); margin-left: 1rem; }
+
+    .two-column-layout { display: flex; align-items: center; justify-content: center; width: 100%; gap: 2rem; }
+    .column-left { width: 50%; text-align: left; }
+    .column-right { width: 50%; }
+    .column-right img { max-width: 100%; border-radius: 10px; }
+
+    .slide-objectives { background-color: var(--color-light-gray); color: var(--color-black); }
+    .slide-objectives .content-wrapper { padding: 3rem; text-align: center; width: 95%; max-width: 1600px; max-height: 85vh; overflow-y: auto; }
+    .slide-objectives .objectives-container > ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; list-style: none; padding: 0; margin: 2rem 0; width: 100%; }
+    .slide-objectives .objectives-container > ul > li { background-color: var(--color-light-gray); color: var(--color-dark-gray-1); padding: 2.5rem; border-radius: 15px; flex: 1; min-width: 300px; max-width: 480px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: left; font-size: 1.3rem; line-height: 1.5; display: flex; flex-direction: column; }
+    .slide-objectives .objectives-container > ul > li p { margin: 0; }
+    .slide-objectives .objectives-container img { max-width: 100%; max-height: 100px; object-fit: contain; display: block; margin: 0 auto 1rem auto; }
+    .slide-objectives .objectives-container > ul > li > ul { list-style: none; padding-left: 0; margin-top: 1rem; font-size: 1.1rem; }
+    .slide-objectives .objectives-container > ul > li > ul > li { position: relative; padding-left: 1.2rem; margin-bottom: 0.8rem; color: var(--color-dark-gray-2); }
+    .slide-objectives .objectives-container > ul > li > ul > li::before { content: "•"; position: absolute; left: 0; color: var(--color-green); font-weight: bold; }
+    .slide-objectives h1 { color: var(--color-black); margin-bottom: 1rem; }
+
+    .slide-overlay { background-color: var(--color-black); color: var(--color-white-soft); }
+    .slide-overlay h1, .slide-overlay h2 { color: var(--color-white-soft); margin-bottom: 0.5rem; }
+    .slide-overlay p { font-size: 3rem; font-weight: 500; margin: 1rem 0; line-height: 1.4; color: var(--color-white-soft); text-align: center; }
+
+    .slide-gotocode { background-color: var(--color-dark-mode); color: var(--color-white-soft); }
+    .slide-finale { background-color: var(--color-orange); color: var(--color-black); }
+    .slide-finale h2 { color: var(--color-dark-gray-2); }
+    .slide-gotocode a { color: var(--color-white-soft); }
+    .slide-gotocode .qr-container { display: flex; gap: 2rem; margin-top: 2rem; }
+    .slide-gotocode .qr-item { display: flex; flex-direction: column; align-items: center; }
+    .slide-gotocode .qr-item img { width: 150px; height: 150px; border-radius: 10px; }
+
+    #transition-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out; background-color: var(--color-green); color: var(--color-black); }
+    #transition-overlay h1 { color: var(--color-black); }
+    #transition-overlay.visible { opacity: 1; visibility: visible; }
+    
+    .slide-nav { position: absolute; bottom: 20px; right: 20px; z-index: 100; display: flex; gap: 10px; }
+    .slide-nav button { background: rgba(128, 128, 128, 0.5); border: none; color: white; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 1.5rem; transition: background 0.3s; }
+    .slide-nav button:hover { background: rgba(128, 128, 128, 0.9); }
+    
+    .company-logo { position: absolute; top: 30px; left: 40px; max-height: 60px; opacity: 0; z-index: 50; pointer-events: none; }
+    .slide-countdown .company-logo, .slide-warnup-mood .company-logo, .slide-finale .company-logo, .slide-overlay .company-logo { display: none !important; animation: none !important; }
+    .slide.active .company-logo { animation: showAndHideLogo 4s ease-in-out forwards; }
+    @keyframes showAndHideLogo {
+        0% { opacity: 0; transform: translateY(-10px); }
+        10% { opacity: 1; transform: translateY(0); }
+        80% { opacity: 1; transform: translateY(0); }
+        100% { opacity: 0; transform: translateY(-10px); }
+    }
+</style>
+
+</head>
+<body>
+    <div class="presentation">
+        <div id="transition-overlay"><div class="content-wrapper"><h1></h1></div></div>
+        <div class="slide slide-countdown" id="slide-0" data-type="countdown" data-timer="10 s">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="content-wrapper"><h1>Sesión 1: Post-Onboarding</h1><h2>¡Bienvenido a TripleTen!</h2><div class="timer">--:--</div><div class="start-message">¡Comenzamos!</div><p></p></div><div class="dynamic-date" style="position: absolute; bottom: 30px; left: 40px; font-size: 1.5rem; font-weight: bold; color: var(--color-black);"></div>
+</div>
+<div class="slide slide-basic_slide" id="slide-1" data-type="basic_slide" data-transition-title="¡Bienvenidos a TripleTen! 🚀">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="content-wrapper"><h1>¡Bienvenido a tu nueva aventura profesional!</h1><p>🚀 Estamos por comenzar un nuevo reto en tu vida profesional  </p>
+<p>Un camino que te llevará a transformarte en un <strong>profesional de los datos</strong> 📊💻  </p>
+<p>🙌 ¡Felicidades por tomar esta decisión!<br />
+Estás dando un paso muy importante en tu carrera 🌱✨  </p>
+<blockquote>
+<p><em>El primer paso no te lleva a donde quieres, pero te saca de donde estás</em> 💡</p>
+</blockquote></div>
+</div>
+<div class="slide slide-two_columns_slide" id="slide-2" data-type="two_columns_slide" data-transition-title="Sobre mi, tu tutor">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="content-wrapper"><div class="two-column-layout" style="align-items: stretch; margin-top: 1rem;"><div class="column-left"><p>¡Hola! 👋 Soy <strong>Román</strong>, tu tutor en el programa de <em>Data Analytics</em> 📊  </p>
+<p>Mi misión es <strong>acompañarte en este viaje</strong> 🚀, ayudarte a resolver tus dudas y asegurarme de que saques el máximo provecho de cada módulo 💡  </p>
+<p>Estoy aquí para <strong>apoyarte paso a paso</strong> en tu transición hacia una nueva carrera en tecnología 💻✨<br />
+Vivo en Mérida, Yucatán 🌴 y tengo más de <strong>10 años de experiencia en el mundo de los datos</strong> 📈  </p>
+<p>Si necesitas ayuda o quieres conectar, ¡escríbeme sin problema! 🤝<br />
+👉 <strong>Discord:</strong> <em>romancastillo0813</em> 🎮</p></div><div class="column-right"><p><img alt="Roman Castillo" src="../img/rcc.jpg" /></p></div></div></div>
+</div>
+<div class="slide slide-basic_slide" id="slide-3" data-type="basic_slide" data-transition-title="Y ahora, ¿tú eres?😎🪪">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="content-wrapper"><h2>Tomemos un momento para conocernos</h2><p>Unéte a Mentimeter y comparte con nosotros</p></div>
+</div>
+<div class="slide slide-basic_slide" id="slide-4" data-type="basic_slide" data-transition-title="¿Qué haremos hoy?">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="content-wrapper"><h1>Agenda de la sesión 🕑🚀</h1><ul>
+<li>👋 <strong>Bienvenida y presentación</strong> <em>25 min</em>  </li>
+<li>📊 <strong>¿Qué hace una analista de datos?</strong> <em>20 min</em>  </li>
+<li>📚 <strong>Nuestro curso: cómo aprovecharlo al máximo</strong> <em>50 min</em>  </li>
+<li>⚙️ Cómo funciona  </li>
+<li>✅ Qué tengo que hacer  </li>
+<li>🙋 Cómo pedir ayuda  </li>
+<li>🚀 <strong>Cierre y siguientes pasos</strong> <em>5 min</em></li>
+</ul></div>
+</div>
+<div class="slide slide-objectives" id="slide-5" data-type="objectives" data-transition-title="Objetivos academicos">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="content-wrapper"><h1>Objetivos academicos</h1><div class="objectives-container"><ul>
+<li>1️⃣ <strong>Presentar la metodología del curso y la dinámica de trabajo</strong> <ul>
+<li><em>Verás como funciona el curso</em></li>
+<li><em>Qué tienes que hacer</em></li>
+<li><em>Cómo pedir ayuda</em></li>
+</ul>
+</li>
+<li>2️⃣ <strong>Hacer un recorrido general por los contenidos del curso</strong>  <ul>
+<li><em>Verás los módulos que componen el curso</em></li>
+<li><em>Verás los proyectos que tienes que hacer</em></li>
+<li><em>Verás los recursos que tienes disponibles</em></li>
+</ul>
+</li>
+<li>3️⃣ <strong>Alinear expectativas sobre qué se espera de cada estudiante</strong> <ul>
+<li><em>Verás qué se espera de ti</em></li>
+<li><em>Verás qué puedes esperar de nosotros</em></li>
+<li><em>Verás qué puedes esperar de tus compañeros</em></li>
+</ul>
+</li>
+</ul></div></div>
+</div>
+<div class="slide slide-two_columns_slide" id="slide-6" data-type="two_columns_slide" data-transition-title="¿Qué hace una analista de datos? 🧑‍💻👩‍💻📊">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="content-wrapper"><h1>El boom de los datos 🧑‍💻👩‍💻📊</h1><div class="two-column-layout" style="align-items: stretch; margin-top: 1rem;"><div class="column-left"><p><img alt="Boom de los datos" src="https://www.questionpro.com/blog/wp-content/uploads/2024/10/2842-analista-de-datos.jpg" /></p></div><div class="column-right"><p>Vivimos en la era de los datos: cada interacción digital genera información valiosa. 🌍 Hoy, las empresas necesitan aprovechar esos datos para decidir mejor, innovar y crecer. Por eso, la demanda de profesionales en Data Analytics y Data Science 🚀 es una de las más altas del mercado.</p></div></div></div>
+</div>
+<div class="slide slide-basic_slide" id="slide-7" data-type="basic_slide">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="content-wrapper"><h1>👩‍💻Roles en el mundo de los datos🧑‍💻</h1><p><img alt="Roles en el mundo de los datos" src="../img/00-roles-data.png" /></p></div>
+</div>
+<div class="slide slide-objectives" id="slide-8" data-type="objectives">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="content-wrapper"><h1>¿Qué hace un analista de datos?</h1><div class="objectives-container"><ul>
+<li>
+<p><strong>🧹 Recolecta y limpia información</strong></p>
+<ul>
+<li>Antes de analizar, los datos deben estar listos  </li>
+<li>Por ejemplo: quitar registros duplicados o corregir fechas mal escritas en una base de clientes  </li>
+</ul>
+</li>
+<li>
+<p><strong>📊 Define métricas y KPIs</strong></p>
+<ul>
+<li>Decide qué medir para saber si vamos bien o mal  </li>
+<li>Ejemplo: en una tienda online, definir tasa de conversión = (ventas / visitas)  </li>
+</ul>
+</li>
+<li>
+<p><strong>✨ Comunica hallazgos con storytelling</strong></p>
+<ul>
+<li>No solo muestra números, sino que cuenta una historia  </li>
+<li>Ejemplo: explicar cómo las ventas subieron después de una campaña en redes  </li>
+</ul>
+</li>
+<li>
+<p><strong>🎯 Convierte datos → decisiones</strong></p>
+<ul>
+<li>El objetivo final: que el negocio actúe con base en evidencia  </li>
+<li>Ejemplo: recomendar invertir más en el canal que trae más clientes recurrentes</li>
+</ul>
+</li>
+</ul></div></div>
+</div>
+<div class="slide slide-basic_slide" id="slide-9" data-type="basic_slide" data-transition-title="Contenido del curso">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="content-wrapper"><h1>Contenido del curso</h1><ul>
+<li><strong>Sprint 1:</strong> Asegura la calidad de los datos y genera reportes básicos  </li>
+<li><strong>Sprint 2:</strong> Transforma datos para insights de negocio  </li>
+<li><strong>Sprint 3:</strong> Explora KPIs con SQL  </li>
+<li><strong>Sprint 4:</strong> Analiza journeys de usuarios con SQL  </li>
+<li><strong>Sprint 5:</strong> Prepara y estructura datos con Python  </li>
+<li><strong>Sprint 6:</strong> Análisis estadístico para detectar patrones y outliers (Proyecto 1)  </li>
+<li><strong>Sprint 7:</strong> Curso de preparación de carrera  </li>
+<li><strong>Sprint 8:</strong> Explora las conexiones de datos con correlaciones  </li>
+<li><strong>Sprint 9:</strong> Valida hipótesis de negocio con pruebas estadísticas  </li>
+<li><strong>Sprint 10:</strong> Construye historias visuales claras con gráficos  </li>
+<li><strong>Sprint 11:</strong> Crea dashboards interactivos para stakeholders (Proyecto 2)  </li>
+<li><strong>Sprint 12:</strong> Proyecto final 🚀</li>
+</ul></div>
+</div>
+<div class="slide slide-objectives" id="slide-10" data-type="objectives">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="content-wrapper"><h1>¿Qué herramientas usarás?</h1><div class="objectives-container"><ul>
+<li>
+<p><img alt="Zoom" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Zoom_Communications_Logo.svg/1280px-Zoom_Communications_Logo.svg.png" />  </p>
+<ul>
+<li>Aquí nos estaremos conectando en las diferentes sesiones  </li>
+<li>Te recomiendo instalar la aplicación de escritorio o móvil en vez de usar la versión del navegador  </li>
+</ul>
+</li>
+<li>
+<p><img alt="Discord" src="https://static.wikia.nocookie.net/discord/images/d/dd/Discord.png/revision/latest?cb=20210319023006&amp;path-prefix=es" />  </p>
+<ul>
+<li>Principal canal de comunicación de texto/audio  </li>
+<li>Aquí podrás dejar tus preguntas, compartir inquietudes y convivir con el equipo de TripleTen  </li>
+</ul>
+</li>
+<li>
+<p><img alt="Google Drive" src="https://upload.wikimedia.org/wikipedia/commons/1/12/Google_Drive_icon_%282020%29.svg" />  </p>
+<ul>
+<li>No es obligatorio, pero estaremos trabajando con muchos recursos en la nube  </li>
+<li>Es muy útil para gestionar todo el material que irás generando en el curso  </li>
+</ul>
+</li>
+<li>
+<p><img alt="Google Colab" src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Colaboratory_SVG_Logo.svg" />  </p>
+<ul>
+<li>Ambiente interactivo para ejecutar Python  </li>
+<li>Usa recursos computacionales de Google de forma gratuita</li>
+</ul>
+</li>
+</ul></div></div>
+</div>
+<div class="slide slide-objectives" id="slide-11" data-type="objectives" data-transition-title="¿De que ayudas dispongo en el curso?">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="content-wrapper"><h1>¿Cómo te apoyamos en el curso?</h1><div class="objectives-container"><ul>
+<li>
+<p>🎓 <strong>Plataforma TripleTen</strong>  </p>
+<ul>
+<li>Ejercicios guiados paso a paso para aprender haciendo 🚀  </li>
+</ul>
+</li>
+<li>
+<p>🤖 <strong>Asistente de IA DOT</strong>  </p>
+<ul>
+<li>Tu aliado para resolver dudas rápidas y practicar en cualquier momento 💡  </li>
+</ul>
+</li>
+<li>
+<p>📡 <strong>Webinars semanales con tu tutor</strong>  </p>
+<ul>
+<li>Sesiones en vivo para reforzar conceptos y aprender con ejemplos prácticos 🎥  </li>
+</ul>
+</li>
+<li>
+<p>💬 <strong>Discord</strong>  </p>
+<ul>
+<li>Espacio central para comunicarte, preguntar y conectar con la comunidad 🤝  </li>
+</ul>
+</li>
+<li>
+<p>🧵 <strong>Hilos de preguntas y respuestas</strong>  </p>
+<ul>
+<li>Aprende de las dudas de otros y comparte tus propias soluciones 📚  </li>
+</ul>
+</li>
+<li>
+<p>🔊 <strong>Canal de audio colaborativo</strong>  </p>
+<ul>
+<li>Estudia acompañado y resuelve dudas en tiempo real 🧠  </li>
+</ul>
+</li>
+<li>
+<p>🧑‍🏫 <strong>Sesiones 1:1 con tu tutor</strong>  </p>
+<ul>
+<li>Atención personalizada para avanzar más rápido y con claridad 🎯</li>
+</ul>
+</li>
+</ul></div></div>
+</div>
+<div class="slide slide-basic_slide" id="slide-12" data-type="basic_slide" data-transition-title="¿Cómo son los proyectos?">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="content-wrapper"><h1>¿Que son los proyectos y que se espera de mi?</h1><p>📚 <strong>Cada sprint combina teoría + práctica</strong>  </p>
+<p>En la parte práctica 💻 te enfrentarás a un <strong>proyecto aplicado</strong>, donde pondrás a prueba todo lo aprendido 🚀  </p>
+<p>Cuando subas tu proyecto 📤, será asignado a un <strong>revisor</strong> 🧐  </p>
+<ul>
+<li>Evaluará tu trabajo con base en criterios definidos  </li>
+<li>Te dará <strong>feedback claro y accionable</strong> para ayudarte a mejorar 📈  </li>
+</ul>
+<blockquote>
+<p><em>Aquí es donde realmente creces como profesional: iterando y mejorando cada entrega</em> 💡  </p>
+</blockquote>
+<p>💼 Además, los proyectos están basados en <strong>problemas reales de negocio</strong>  </p>
+<ul>
+<li>Te ayudarán a ganar experiencia práctica  </li>
+<li>Y a comenzar a construir tu <strong>portafolio de evidencias</strong> 🌟</li>
+</ul></div>
+</div>
+<div class="slide slide-basic_slide" id="slide-13" data-type="basic_slide">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="content-wrapper"><p>📝 <strong>Resultado de la revisión de tu proyecto</strong>  </p>
+<p>Al finalizar la revisión, el evaluador tomará una <strong>decisión global</strong> sobre tu entrega 👇  </p>
+<p>✅ <strong>Aprobado</strong>  </p>
+<ul>
+<li>Tu proyecto cumple con el nivel necesario para avanzar 🚀  </li>
+<li>Puede incluir recomendaciones (🟡), pero <strong>no hay errores críticos</strong>  </li>
+</ul>
+<p>❌ <strong>Rechazado</strong>  </p>
+<ul>
+<li>Existe al menos un punto crítico (🔴)  </li>
+<li>Deberás <strong>corregir únicamente esos puntos rojos</strong> antes de reenviar 🔁</li>
+</ul></div>
+</div>
+<div class="slide slide-basic_slide" id="slide-14" data-type="basic_slide">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="content-wrapper"><p>🔁 <strong>¿Qué pasa si tu proyecto es rechazado?</strong>  </p>
+<p>Si tu proyecto no es aprobado ❌, regresará a ti para que puedas:<br />
+- Corregir los <strong>puntos rojos (🔴)</strong><br />
+- Reenviarlo nuevamente 📤  </p>
+<p>💡 Puedes tener <strong>tantas iteraciones como sea necesario</strong><br />
+El objetivo no es solo aprobar, sino <strong>asegurarnos de que realmente aprendas</strong> 📚✨  </p>
+<p>👨‍🏫 Si el revisor detecta que necesitas apoyo adicional, podrá solicitar una <strong>sesión 1:1 con tutores</strong><br />
+- Trabajarás a detalle sobre los errores<br />
+- Resolverás dudas específicas en tiempo real 🧠  </p>
+<blockquote>
+<p><em>Aprovecha estas instancias: son oportunidades clave para fortalecer tu conocimiento y crecer como profesional</em> 🚀📈</p>
+</blockquote></div>
+</div>
+<div class="slide slide-objectives" id="slide-15" data-type="objectives" data-transition-title="Sobre Discord">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="content-wrapper"><h1>📂 Canales principales:</h1><div class="objectives-container"><ul>
+<li>🆘 <strong>DA_GRUPO_</strong><ul>
+<li>📣 <strong>da-info-cohort-</strong>: Anuncios importantes y noticias del programa  </li>
+<li>💬 <strong>da-community-cohort-</strong>: Espacio de discusión general con la comunidad  </li>
+</ul>
+</li>
+<li>🆘 <strong>DA_CONSULTA</strong>: Canal para resolver dudas con apoyo del equipo  <ul>
+<li>📚 <strong>preguntas-de-teoria</strong>: Preguntas sobre ejercicios o contenido de la plataforma  </li>
+<li>🛠️ <strong>preguntas-de-proyecto</strong>: Dudas sobre proyectos  </li>
+<li>Recuerda etiquetar a tu tutor y a <strong>@Dataconsulta</strong> 👀  </li>
+</ul>
+</li>
+<li>🎥 <strong>DATA-CO-LEARNING</strong>: Sesiones en vivo para Q&amp;A y aprendizaje colaborativo</li>
+</ul></div></div>
+</div>
+<div class="slide slide-objectives" id="slide-16" data-type="objectives">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="content-wrapper"><h1>💬 Normas de etiqueta</h1><div class="objectives-container"><ul>
+<li>
+<p>1️⃣ 🧩 <strong>Sé claro al formular tu duda</strong>  </p>
+<ul>
+<li>Incluye contexto, error y captura si aplica 📸  </li>
+</ul>
+</li>
+<li>
+<p>2️⃣ 🏷️ <strong>Usa títulos o tags en tus mensajes</strong>  </p>
+<ul>
+<li>Ejemplos: [Excel], [Python], [Dashboard]  </li>
+</ul>
+</li>
+<li>
+<p>3️⃣ ⏰ <strong>Respeta los tiempos de respuesta</strong>  </p>
+<ul>
+<li>Los tutores responden en horarios de oficina  </li>
+</ul>
+</li>
+<li>
+<p>4️⃣ 🤝 <strong>Fomenta el apoyo entre pares</strong>  </p>
+<ul>
+<li>Si sabes la respuesta, ¡apoya a tus compañeros! 🚀</li>
+</ul>
+</li>
+</ul></div></div>
+</div>
+<div class="slide slide-basic_slide" id="slide-17" data-type="basic_slide" data-transition-title="Webinars">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="content-wrapper"><p>🎥 <strong>Webinars semanales</strong>  </p>
+<p>Contamos con <strong>dos sesiones cada semana</strong> donde:<br />
+- 📚 Revisaremos contenido del sprint<br />
+- ❓ Resolveremos dudas<br />
+- 🧠 Practicaremos con ejercicios extra  </p>
+<p>🗓️ <strong>Horarios:</strong><br />
+- 🟣 <strong>Lunes — 6:00 PM (CDMX)</strong><br />
+- 🔵 <strong>Jueves — 6:00 PM (CDMX)</strong></p></div>
+</div>
+<div class="slide slide-objectives" id="slide-18" data-type="objectives">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="content-wrapper"><h1>📝 Recomendaciones para las sesiones</h1><div class="objectives-container"><ul>
+<li>
+<p>💻 <strong>Usa la aplicación de escritorio o móvil</strong>  </p>
+<ul>
+<li>Evita el navegador para una mejor experiencia  </li>
+</ul>
+</li>
+<li>
+<p>🧘 <strong>Busca un espacio sin distracciones</strong>  </p>
+<ul>
+<li>Así podrás mantenerte enfocado durante la sesión  </li>
+</ul>
+</li>
+<li>
+<p>🪪 <strong>Utiliza un nombre identificable</strong>  </p>
+<ul>
+<li>Facilita la comunicación con el tutor y tus compañeros  </li>
+</ul>
+</li>
+<li>
+<p>✋ <strong>Levanta la mano o usa reacciones para participar</strong>  </p>
+<ul>
+<li>Mantén el orden y aprovecha mejor las intervenciones  </li>
+</ul>
+</li>
+<li>
+<p>🤝 <strong>Sé siempre respetuoso</strong>  </p>
+<ul>
+<li>Nuestros comentarios deben estar orientados a construir y apoyar 💬  </li>
+</ul>
+</li>
+<li>
+<p>🚀 <strong>Mantén una actitud colaborativa</strong>  </p>
+<ul>
+<li>Aprender en comunidad hace la diferencia</li>
+</ul>
+</li>
+</ul></div></div>
+</div>
+<div class="slide slide-basic_slide" id="slide-19" data-type="basic_slide" data-transition-title="Reuniones 1:1 con un tutor">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="content-wrapper"><p>🧑‍🏫 <strong>Sesiones 1:1 con un tutor</strong>  </p>
+<p>Puedes programar sesiones <strong>1:1 con un tutor</strong> para:<br />
+- ❓ Resolver dudas específicas<br />
+- 💬 Hablar sobre inquietudes del curso<br />
+- 📊 Entender mejor el rol del analista de datos  </p>
+<p>⏱️ Para asegurar disponibilidad para todos:<br />
+- Tienes acceso a <strong>1 sesión 1:1 a la semana</strong>  </p>
+<blockquote>
+<p><em>Aprovecha este espacio para avanzar con mayor claridad y confianza</em> 🚀</p>
+</blockquote></div>
+</div>
+<div class="slide slide-overlay" id="slide-20" data-type="overlay">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div style="width: 80%; max-width: 1200px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;"><p>¡Veamos como programar una reunion 1:1!</p></div>
+</div>
+<div class="slide slide-objectives" id="slide-21" data-type="objectives" data-transition-title="Recomendaciones para aprovechar al máximo tu preparación">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="content-wrapper"><h1>📚 Hábitos para aprender mejor</h1><div class="objectives-container"><ul>
+<li>
+<p>🗓️ <strong>Fija un espacio para estudiar</strong>  </p>
+<ul>
+<li>La constancia es clave para avanzar 🚀  </li>
+</ul>
+</li>
+<li>
+<p>✍️ <strong>Toma notas significativas</strong>  </p>
+<ul>
+<li>No copies todo, enfócate en entender 💡  </li>
+</ul>
+</li>
+<li>
+<p>⚡ <strong>Practica inmediatamente después de la teoría</strong>  </p>
+<ul>
+<li>Es la mejor forma de reforzar el aprendizaje  </li>
+</ul>
+</li>
+<li>
+<p>💬 <strong>No esperes a estar bloqueado días</strong>  </p>
+<ul>
+<li>Si surge una duda → escríbela en Discord  </li>
+</ul>
+</li>
+<li>
+<p>⏱️ <strong>Regla de los 20 minutos</strong>  </p>
+<ul>
+<li>Si llevas más de 20 min atascado… ¡pregunta! 🙋</li>
+</ul>
+</li>
+</ul></div></div>
+</div>
+<div class="slide slide-finale" id="slide-22" data-type="finale">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<h1>¡Gracias!</h1><h2>¡Nos vemos en la próxima sesión!</h2>
+</div>
+
+        <div class="slide-nav">
+            <button id="prev-btn" title="Anterior (Flecha Izquierda)">&#8592;</button>
+            <button id="next-btn" title="Siguiente (Flecha Derecha)">&#8594;</button>
+        </div>
+    </div>
+    
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const dateObj = new Date();
+        const day = dateObj.getDate();
+        const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+        const month = months[dateObj.getMonth()];
+        const year = dateObj.getFullYear();
+        const dateStr = `${day} de ${month} ${year}`;
+        document.querySelectorAll('.dynamic-date').forEach(el => el.textContent = dateStr);
+
+        const slides = document.querySelectorAll('.slide');
+        const transitionOverlay = document.getElementById('transition-overlay');
+        const transitionTitleElement = transitionOverlay.querySelector('h1');
+        
+        let currentSlide = -1;
+        let isTransitioning = false;
+        let slideIntervals = {}; 
+
+        function showSlide(index) {
+            if (isTransitioning || index === currentSlide) return;
+            
+            const nextSlideElement = slides[index];
+            if (!nextSlideElement) return;
+
+            isTransitioning = true;
+            
+            const transitionTitle = nextSlideElement.dataset.transitionTitle;
+
+            if (currentSlide > -1) {
+                slides[currentSlide].classList.remove('active');
+            }
+
+            if (transitionTitle && index > currentSlide) {
+                transitionTitleElement.textContent = transitionTitle;
+                transitionOverlay.className = 'slide';
+                transitionOverlay.classList.add(`slide-${nextSlideElement.dataset.type}`);
+                transitionOverlay.classList.add('visible');
+
+                setTimeout(() => {
+                    transitionOverlay.classList.remove('visible');
+                    currentSlide = index;
+                    slides[currentSlide].classList.add('active');
+                    activateSlide(currentSlide);
+                    setTimeout(() => isTransitioning = false, 500);
+                }, 1000);
+            } else {
+                currentSlide = index;
+                slides[currentSlide].classList.add('active');
+                activateSlide(currentSlide);
+                isTransitioning = false;
+            }
+        }
+
+        function nextSlide() {
+            if (currentSlide < slides.length - 1) {
+                showSlide(currentSlide + 1);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                showSlide(currentSlide - 1);
+            }
+        }
+        
+        function activateSlide(index) {
+            const slideElement = slides[index];
+            if (!slideElement) return;
+            const slideType = slideElement.dataset.type;
+
+            Object.values(slideIntervals).forEach(clearInterval);
+
+            if (slideType === 'countdown') {
+                const timerElement = slideElement.querySelector('.timer');
+                const startMessage = slideElement.querySelector('.start-message');
+                let duration = parseInt(slideElement.dataset.timer || '600', 10);
+
+                slideIntervals[index] = setInterval(() => {
+                    if (duration < 0) {
+                        clearInterval(slideIntervals[index]);
+                        timerElement.style.display = 'none';
+                        startMessage.style.display = 'block';
+                        setTimeout(nextSlide, 2000); 
+                        return;
+                    }
+                    const minutes = Math.floor(duration / 60);
+                    const seconds = duration % 60;
+                    timerElement.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+                    duration--;
+                }, 1000);
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            else if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+        if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+
+        if (slides.length > 0) {
+            showSlide(0);
+        }
+    });
+</script>
+
+</body>
+</html>

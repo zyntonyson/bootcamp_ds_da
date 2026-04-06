@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    
+<style>
+    :root {
+        --color-orange: #F2855A;
+        --color-green: #66B37D;
+        --color-light-gray: #F2F2F2;
+        --color-dark-mode: #111111;
+        --color-black: #0A0A0A;
+        --color-dark-gray-1: #333333;
+        --color-dark-gray-2: #5F5F5F;
+        --color-white-soft: #F5F5F5;
+        --font-main: 'Montserrat', sans-serif;
+    }
+
+    body {
+        margin: 0;
+        font-family: var(--font-main);
+        overflow: hidden;
+    }
+
+    .presentation {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 2rem;
+        box-sizing: border-box;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.6s ease-in-out, visibility 0.6s ease-in-out;
+    }
+
+    .slide.active {
+        opacity: 1;
+        visibility: visible;
+        z-index: 1;
+    }
+
+    .slide h1 { font-size: 3rem; font-weight: 700; margin: 0 0 0.5rem 0; }
+    .slide h2 { font-size: 1.8rem; font-weight: 300; margin: 0; }
+
+    .slide-countdown { background-color: var(--color-orange); color: var(--color-black); }
+    .slide-countdown h2 { color: var(--color-dark-gray-2); }
+    .slide-countdown .timer { font-size: 5rem; font-weight: 300; letter-spacing: 5px; margin: 1.5rem 0; text-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    .slide-countdown .start-message { font-size: 2.5rem; font-weight: 700; display: none; }
+
+    .slide-transition { background-color: var(--color-green); color: var(--color-black); }
+    
+    .slide-warnup-mood { background-color: var(--color-green); color: var(--color-black); justify-content: center; }
+    .slide-warnup-mood .content-wrapper { background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); padding: 2rem 4rem; border-radius: 20px; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1); border: 1px solid rgba(255, 255, 255, 0.18); }
+    .slide-warnup-mood h1, .slide-warnup-mood h2 { font-weight: bold; }
+    .emoji-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: -1; }
+    .emoji { position: absolute; top: -10%; font-size: 2rem; animation: fall 10s linear infinite; }
+    @keyframes fall {
+        0% { transform: translateY(0) rotate(0); }
+        100% { transform: translateY(110vh) rotate(360deg); }
+    }
+
+    .slide-agenda, .slide-warnup-question { background-color: var(--color-light-gray); color: var(--color-black); }
+    .slide-agenda h1 { color: var(--color-black); }
+    .slide-agenda ul { list-style: none; padding: 0; font-size: 1.5rem; }
+    .slide-agenda li { margin: 0.5rem 0; }
+    .slide-agenda li strong { color: var(--color-black); }
+    .slide-agenda li span { color: var(--color-dark-gray-1); margin-left: 1rem; }
+
+    .two-column-layout { display: flex; align-items: center; justify-content: center; width: 100%; gap: 2rem; }
+    .column-left { width: 50%; text-align: left; }
+    .column-right { width: 50%; }
+    .column-right img { max-width: 100%; border-radius: 10px; }
+
+    .slide-objectives { background-color: var(--color-green); color: var(--color-black); }
+    .slide-objectives .objectives-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; }
+    .slide-objectives .objective-card { background-color: var(--color-light-gray); color: var(--color-dark-gray-1); padding: 1.5rem; border-radius: 15px; width: 250px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+
+    .slide-gotocode, .slide-finale { background-color: var(--color-dark-mode); color: var(--color-white-soft); }
+    .slide-gotocode a { color: var(--color-white-soft); }
+    .slide-gotocode .qr-container { display: flex; gap: 2rem; margin-top: 2rem; }
+    .slide-gotocode .qr-item { display: flex; flex-direction: column; align-items: center; }
+    .slide-gotocode .qr-item img { width: 150px; height: 150px; border-radius: 10px; }
+
+    #transition-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out; }
+    #transition-overlay.visible { opacity: 1; visibility: visible; }
+</style>
+
+</head>
+<body>
+    <div class="presentation">
+        <div id="transition-overlay"><h1></h1></div>
+        <div class="slide slide-countdown" id="slide-0" data-type="countdown" data-timer="600 s">
+<h1>Webinar 25 Sprint 7 Users Journeys</h1><h2>Simulación de embudo de conversión</h2><div class="timer">--:--</div><div class="start-message">¡Comenzamos!</div><p></p>
+</div>
+<div class="slide slide-warnup-mood" id="slide-1" data-type="warnup-mood" data-transition-title="Midamos los ánimos">
+<div class="emoji-container"><div class="emoji" style="left: {random.randint(0, 95)}vw; animation-delay: {random.uniform(0, 10)}s; animation-duration: {random.uniform(5, 12)}s; font-size: {random.uniform(1.5, 3)}rem;">{random.choice(emojis)}</div><div class="emoji" style="left: {random.randint(0, 95)}vw; animation-delay: {random.uniform(0, 10)}s; animation-duration: {random.uniform(5, 12)}s; font-size: {random.uniform(1.5, 3)}rem;">{random.choice(emojis)}</div><div class="emoji" style="left: {random.randint(0, 95)}vw; animation-delay: {random.uniform(0, 10)}s; animation-duration: {random.uniform(5, 12)}s; font-size: {random.uniform(1.5, 3)}rem;">{random.choice(emojis)}</div><div class="emoji" style="left: {random.randint(0, 95)}vw; animation-delay: {random.uniform(0, 10)}s; animation-duration: {random.uniform(5, 12)}s; font-size: {random.uniform(1.5, 3)}rem;">{random.choice(emojis)}</div><div class="emoji" style="left: {random.randint(0, 95)}vw; animation-delay: {random.uniform(0, 10)}s; animation-duration: {random.uniform(5, 12)}s; font-size: {random.uniform(1.5, 3)}rem;">{random.choice(emojis)}</div><div class="emoji" style="left: {random.randint(0, 95)}vw; animation-delay: {random.uniform(0, 10)}s; animation-duration: {random.uniform(5, 12)}s; font-size: {random.uniform(1.5, 3)}rem;">{random.choice(emojis)}</div><div class="emoji" style="left: {random.randint(0, 95)}vw; animation-delay: {random.uniform(0, 10)}s; animation-duration: {random.uniform(5, 12)}s; font-size: {random.uniform(1.5, 3)}rem;">{random.choice(emojis)}</div><div class="emoji" style="left: {random.randint(0, 95)}vw; animation-delay: {random.uniform(0, 10)}s; animation-duration: {random.uniform(5, 12)}s; font-size: {random.uniform(1.5, 3)}rem;">{random.choice(emojis)}</div><div class="emoji" style="left: {random.randint(0, 95)}vw; animation-delay: {random.uniform(0, 10)}s; animation-duration: {random.uniform(5, 12)}s; font-size: {random.uniform(1.5, 3)}rem;">{random.choice(emojis)}</div><div class="emoji" style="left: {random.randint(0, 95)}vw; animation-delay: {random.uniform(0, 10)}s; animation-duration: {random.uniform(5, 12)}s; font-size: {random.uniform(1.5, 3)}rem;">{random.choice(emojis)}</div><div class="emoji" style="left: {random.randint(0, 95)}vw; animation-delay: {random.uniform(0, 10)}s; animation-duration: {random.uniform(5, 12)}s; font-size: {random.uniform(1.5, 3)}rem;">{random.choice(emojis)}</div><div class="emoji" style="left: {random.randint(0, 95)}vw; animation-delay: {random.uniform(0, 10)}s; animation-duration: {random.uniform(5, 12)}s; font-size: {random.uniform(1.5, 3)}rem;">{random.choice(emojis)}</div><div class="emoji" style="left: {random.randint(0, 95)}vw; animation-delay: {random.uniform(0, 10)}s; animation-duration: {random.uniform(5, 12)}s; font-size: {random.uniform(1.5, 3)}rem;">{random.choice(emojis)}</div><div class="emoji" style="left: {random.randint(0, 95)}vw; animation-delay: {random.uniform(0, 10)}s; animation-duration: {random.uniform(5, 12)}s; font-size: {random.uniform(1.5, 3)}rem;">{random.choice(emojis)}</div><div class="emoji" style="left: {random.randint(0, 95)}vw; animation-delay: {random.uniform(0, 10)}s; animation-duration: {random.uniform(5, 12)}s; font-size: {random.uniform(1.5, 3)}rem;">{random.choice(emojis)}</div><div class="emoji" style="left: {random.randint(0, 95)}vw; animation-delay: {random.uniform(0, 10)}s; animation-duration: {random.uniform(5, 12)}s; font-size: {random.uniform(1.5, 3)}rem;">{random.choice(emojis)}</div><div class="emoji" style="left: {random.randint(0, 95)}vw; animation-delay: {random.uniform(0, 10)}s; animation-duration: {random.uniform(5, 12)}s; font-size: {random.uniform(1.5, 3)}rem;">{random.choice(emojis)}</div><div class="emoji" style="left: {random.randint(0, 95)}vw; animation-delay: {random.uniform(0, 10)}s; animation-duration: {random.uniform(5, 12)}s; font-size: {random.uniform(1.5, 3)}rem;">{random.choice(emojis)}</div><div class="emoji" style="left: {random.randint(0, 95)}vw; animation-delay: {random.uniform(0, 10)}s; animation-duration: {random.uniform(5, 12)}s; font-size: {random.uniform(1.5, 3)}rem;">{random.choice(emojis)}</div><div class="emoji" style="left: {random.randint(0, 95)}vw; animation-delay: {random.uniform(0, 10)}s; animation-duration: {random.uniform(5, 12)}s; font-size: {random.uniform(1.5, 3)}rem;">{random.choice(emojis)}</div></div><div class="content-wrapper"><h1>¿Cómo llegas a la sesión de hoy?</h1><h2>Reacciona con el emoji que mejor te represente</h2></div>
+</div>
+<div class="slide slide-warnup-question" id="slide-2" data-type="warnup-question" data-transition-title="¿Qué opinas al respecto?">
+<div class="two-column-layout"><div class="column-left">## ¿Qué interpretas de la siguiente grafica</div><div class="column-right"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Lorem_ipsum_design.svg/250px-Lorem_ipsum_design.svg.png" alt="Slide image"></div></div>
+</div>
+<div class="slide slide-agenda" id="slide-3" data-type="agenda" data-transition-title="Agenda de la reunion">
+<h1>Agenda de la sesión</h1><ul><li><strong>Bienvenida</strong> <span>10 min min</span></li><li><strong>Actividad 1</strong> <span>20 min min</span></li><li><strong>Actividad 2</strong> <span>30 min min</span></li><li><strong>Actividad 3</strong> <span>40 min min</span></li></ul>
+</div>
+<div class="slide slide-objectives" id="slide-4" data-type="objectives" data-transition-title="Objetivos academicos">
+<h1>Objetivos academicos</h1><div class="objectives-container"><div class="objective-card">Objetivo 1</div><div class="objective-card">Objetivo 2</div><div class="objective-card">Objetivo 3</div></div>
+</div>
+<div class="slide slide-gotocode" id="slide-5" data-type="gotocode" data-transition-title="Vamos al código">
+<h1>Vamos al código</h1><div class="qr-container"><div class="qr-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Lorem_ipsum_design.svg/250px-Lorem_ipsum_design.svg.png" alt="QR1 QR Code"><p>QR1</p></div><div class="qr-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Lorem_ipsum_design.svg/250px-Lorem_ipsum_design.svg.png" alt="QR2 QR Code"><p>QR2</p></div><div class="qr-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Lorem_ipsum_design.svg/250px-Lorem_ipsum_design.svg.png" alt="QR3 QR Code"><p>QR3</p></div></div>
+</div>
+
+    </div>
+    
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const slides = document.querySelectorAll('.slide');
+        const transitionOverlay = document.getElementById('transition-overlay');
+        const transitionTitleElement = transitionOverlay.querySelector('h1');
+        
+        let currentSlide = -1;
+        let isTransitioning = false;
+        let slideIntervals = {}; 
+
+        function showSlide(index) {
+            if (isTransitioning || index === currentSlide) return;
+            
+            const nextSlideElement = slides[index];
+            if (!nextSlideElement) return;
+
+            isTransitioning = true;
+            
+            const transitionTitle = nextSlideElement.dataset.transitionTitle;
+
+            if (currentSlide > -1) {
+                slides[currentSlide].classList.remove('active');
+            }
+
+            if (transitionTitle && index > currentSlide) {
+                transitionTitleElement.textContent = transitionTitle;
+                transitionOverlay.className = 'slide';
+                transitionOverlay.classList.add(`slide-${nextSlideElement.dataset.type}`);
+                transitionOverlay.classList.add('visible');
+
+                setTimeout(() => {
+                    transitionOverlay.classList.remove('visible');
+                    currentSlide = index;
+                    slides[currentSlide].classList.add('active');
+                    activateSlide(currentSlide);
+                    setTimeout(() => isTransitioning = false, 500);
+                }, 4000);
+            } else {
+                currentSlide = index;
+                slides[currentSlide].classList.add('active');
+                activateSlide(currentSlide);
+                isTransitioning = false;
+            }
+        }
+
+        function nextSlide() {
+            if (currentSlide < slides.length - 1) {
+                showSlide(currentSlide + 1);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                showSlide(currentSlide - 1);
+            }
+        }
+        
+        function activateSlide(index) {
+            const slideElement = slides[index];
+            if (!slideElement) return;
+            const slideType = slideElement.dataset.type;
+
+            Object.values(slideIntervals).forEach(clearInterval);
+
+            if (slideType === 'countdown') {
+                const timerElement = slideElement.querySelector('.timer');
+                const startMessage = slideElement.querySelector('.start-message');
+                let duration = parseInt(slideElement.dataset.timer || '600', 10);
+
+                slideIntervals[index] = setInterval(() => {
+                    if (duration < 0) {
+                        clearInterval(slideIntervals[index]);
+                        timerElement.style.display = 'none';
+                        startMessage.style.display = 'block';
+                        setTimeout(nextSlide, 2000); 
+                        return;
+                    }
+                    const minutes = Math.floor(duration / 60);
+                    const seconds = duration % 60;
+                    timerElement.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+                    duration--;
+                }, 1000);
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            else if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        if (slides.length > 0) {
+            showSlide(0);
+        }
+    });
+</script>
+
+</body>
+</html>
