@@ -48,7 +48,6 @@
 
 * [Sprint 11 · Modelado de Datos y Dashboards con Power BI: Caso Megaline](../img/qrs/28-da-va-dashboards-interactivos.png)
 
-
 ---
 
 @finale{}
