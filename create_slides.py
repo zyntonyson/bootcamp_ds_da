@@ -495,6 +495,8 @@ def main():
         return
     slides = parse_markdown(markdown_content)
     html_output = generate_html(slides)
+    if not args.output_file:
+        args.output_file = args.input_file.replace('.md', '.html')
     with open(args.output_file, 'w', encoding='utf-8') as f:
         f.write(html_output)
     print(f"Successfully generated slides in '{args.output_file}'")
