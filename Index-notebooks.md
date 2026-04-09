@@ -42,7 +42,9 @@
       - [28-data-story-telling-ii](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/10-da-v8-data-story-telling/28-data-story-telling-ii.ipynb)
    - 11-da-v8-dashboards
       - [28-da-va-dashboards-interactivos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/11-da-v8-dashboards/28-da-va-dashboards-interactivos.ipynb)
+      - [29-da-va-dashboards-interactivos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/11-da-v8-dashboards/29-da-va-dashboards-interactivos.ipynb)
       - [Sprint11_Webinar35_Teórico](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/11-da-v8-dashboards/Sprint11_Webinar35_Teórico.ipynb)
+      - [Sprint11_Webinar36_Practico](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/11-da-v8-dashboards/Sprint11_Webinar36_Practico.ipynb)
    - testing
       - [dict_gem](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/testing/dict_gem.ipynb)
    - topics
