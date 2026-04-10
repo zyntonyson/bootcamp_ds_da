@@ -1,6 +1,6 @@
 @countdown{timer: 600 , title_transition: "¡Comenzamos en breve!"}
 
-# Sprint 11 Sesión II
+# Sprint 11 Sesión 2
 ## Crea dashboards interactivos para stakeholders
 
 
@@ -19,10 +19,10 @@
 
 
 
-* Bienvenida {5}
-* Revisión proyecto del sprint {15}
-* Modelado de datos con Power BI: Caso Starbucks Rewards {90}
-* Preguntas y respuestas {10}
+* 👋 Bienvenida {5}
+* 📊 Revisión proyecto del sprint {15}
+* ☕ Modelado de datos con Power BI: Caso Starbucks Rewards {90}
+* ❓ Preguntas y respuestas {10}
 
 ---
 
@@ -31,11 +31,11 @@
 # Objetivos académicos de esta clase
 
 
-*  Conectar múltiples fuentes de datos en Power BI.
-*  Construir un **modelo en estrella** para asegurar la integridad de tu análisis.
-*  Crear **columnas calculadas y medidas** usando el lenguaje DAX.
-*  Aplicar la función `CALCULATE` para modificar el contexto de tus cálculos.
-*  Diseñar un **dashboard interactivo** que responda a preguntas de negocio clave.
+* 🌐 Conectar múltiples archivos JSON desde la web a Power BI.
+* ⭐ Construir un **modelo en estrella** (Cliente, Campaña, Evento) para asegurar la integridad analítica.
+* 🧮 Crear **columnas calculadas y medidas** DAX (¡midiendo desde conversiones hasta el ARPU!).
+* 🎯 Aplicar la función `CALCULATE` para modificar el contexto y filtrar el embudo de marketing.
+* ☕ Diseñar un **dashboard interactivo** que descifre el *Customer Journey* de los clientes.
 
 
 ---
@@ -52,6 +52,6 @@
 
 @finale{}
 
-# ¡Gracias inmensas!
+# ¡Excelente trabajo! 🚀📊
 
-## Tu asistencia y participación hacen que la clase sea muy valiosa
+## Su dedicación para transformar datos crudos en decisiones estratégicas hace toda la diferencia. ¡Gracias por participar!
