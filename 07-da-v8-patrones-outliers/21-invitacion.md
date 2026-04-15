@@ -18,4 +18,4 @@ Vamos:
 **Material de la sesión ** 🐍🖥️✍️ :  
 - [Preparación de datos con python III](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/07-da-v8-patrones-outliers/21-da-v8-preparacion-datos.ipynb)
 - [Preparación de datos con python IV: Caso Megaline](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/07-da-v8-patrones-outliers/22-da-v8-preparacion-datos.ipynb)
-   - 07-herramientas-desarrollo
+   

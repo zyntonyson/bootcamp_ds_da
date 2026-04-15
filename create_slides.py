@@ -4,6 +4,7 @@ import html
 import random
 import os
 import markdown
+import json
 
 def parse_markdown(content):
     """
@@ -130,6 +131,15 @@ def generate_css():
     .slide-countdown h2 { color: var(--color-dark-gray-2); }
     .slide-countdown .timer { font-size: 5rem; font-weight: 300; letter-spacing: 5px; margin: 1.5rem 0; text-shadow: 0 0 10px rgba(0,0,0,0.1); }
     .slide-countdown .start-message { font-size: 2.5rem; font-weight: 700; display: none; }
+    
+    .bouncing-logo-container { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; overflow: hidden; z-index: 0; pointer-events: none; }
+    .bouncing-logo { position: absolute; width: 250px; opacity: 0.15; animation: bounceX 13s linear infinite alternate, bounceY 9s linear infinite alternate; }
+    @keyframes bounceX { 0% { left: 0; } 100% { left: calc(100vw - 250px); } }
+    @keyframes bounceY { 0% { top: 0; } 100% { top: calc(100vh - 75px); } }
+
+    .traffic-logo-container { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; overflow: hidden; z-index: 0; pointer-events: none; }
+    .traffic-logo-img { position: absolute; width: 220px; opacity: 0.15; left: -250px; transform: translateY(-50%); }
+    @keyframes driveRight { 0% { transform: translateY(-50%) translateX(0); } 100% { transform: translateY(-50%) translateX(calc(100vw + 500px)); } }
 
     .slide-transition { background-color: var(--color-green); color: var(--color-black); }
     
@@ -193,6 +203,17 @@ def generate_css():
     .slide-nav { position: absolute; bottom: 20px; right: 20px; z-index: 100; display: flex; gap: 10px; }
     .slide-nav button { background: rgba(128, 128, 128, 0.5); border: none; color: white; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 1.5rem; transition: background 0.3s; }
     .slide-nav button:hover { background: rgba(128, 128, 128, 0.9); }
+
+    .slide-menu { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); z-index: 200; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+    .slide-menu.active { opacity: 1; visibility: visible; }
+    .slide-menu-content { background: var(--color-light-gray); padding: 3rem; border-radius: 15px; width: 80%; max-width: 800px; max-height: 80vh; overflow-y: auto; position: relative; color: var(--color-black); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+    .slide-menu-content h2 { margin-top: 0; border-bottom: 2px solid var(--color-dark-gray-1); padding-bottom: 1rem; color: var(--color-black); }
+    .close-menu { position: absolute; top: 15px; right: 20px; background: none; border: none; font-size: 2.5rem; cursor: pointer; color: var(--color-dark-gray-2); transition: color 0.3s; }
+    .close-menu:hover { color: var(--color-orange); }
+    .slide-list { list-style: none; padding: 0; }
+    .slide-list li { margin: 0.5rem 0; }
+    .menu-jump-btn { width: 100%; text-align: left; background: var(--color-white-soft); border: 1px solid rgba(0,0,0,0.1); padding: 1rem; border-radius: 8px; font-size: 1.2rem; cursor: pointer; transition: background 0.2s, transform 0.1s; font-family: var(--font-main); color: var(--color-dark-gray-1); }
+    .menu-jump-btn:hover { background: var(--color-orange); color: var(--color-black); transform: translateX(5px); }
     
     .company-logo { position: absolute; top: 30px; left: 40px; max-height: 60px; opacity: 0; z-index: 50; pointer-events: none; }
     .slide-countdown .company-logo, .slide-warnup-mood .company-logo, .slide-finale .company-logo, .slide-overlay .company-logo { display: none !important; animation: none !important; }
@@ -203,6 +224,32 @@ def generate_css():
         80% { opacity: 1; transform: translateY(0); }
         100% { opacity: 0; transform: translateY(-10px); }
     }
+
+    .quiz-container { display: flex; flex-direction: column; width: 90%; max-width: 1000px; padding: 3rem; align-items: stretch; text-align: left; overflow-y: auto; max-height: 85vh;}
+    .quiz-container h1, .quiz-container h2 { text-align: center; }
+    .quiz-intro { text-align: center; font-size: 1.5rem; margin-bottom: 2rem; color: var(--color-dark-gray-1); }
+    .quiz-start-btn, .quiz-next-btn { align-self: center; background: var(--color-orange); border: none; color: var(--color-black); font-size: 1.5rem; font-weight: bold; padding: 1rem 3rem; border-radius: 10px; cursor: pointer; transition: transform 0.2s; margin-top: 2rem; }
+    .quiz-start-btn:hover, .quiz-next-btn:hover { transform: scale(1.05); }
+    .quiz-header { display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: bold; margin-bottom: 1rem; color: var(--color-dark-gray-2); border-bottom: 2px solid rgba(0,0,0,0.1); padding-bottom: 10px; }
+    .quiz-timer { color: #d9534f; }
+    .quiz-question-box { font-size: 1.8rem; margin: 1.5rem 0; font-weight: 700; color: var(--color-black); }
+    .quiz-question-box p { margin: 0; }
+    .quiz-question-box img { max-width: 100%; border-radius: 10px; max-height: 350px; object-fit: contain; display: block; margin: 15px auto; }
+    .quiz-options-box { display: flex; flex-direction: column; gap: 1rem; perspective: 1000px; }
+    .quiz-option-card { background: var(--color-white-soft); border: 2px solid var(--color-light-gray); text-align: left; padding: 1rem 1.5rem; font-size: 1.4rem; border-radius: 10px; transition: all 0.6s cubic-bezier(0.4, 0.2, 0.2, 1); font-family: var(--font-main); color: var(--color-dark-gray-1); transform-style: preserve-3d; }
+    .quiz-option-card p { margin: 0; }
+    .quiz-option-card.flip-correct { background: #d4edda; border-color: #28a745; color: #155724; transform: rotateX(360deg); box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3); }
+    .quiz-option-card.fade-out { opacity: 0.4; filter: grayscale(100%); }
+    .quiz-feedback-box { margin-top: 2rem; background: rgba(0,0,0,0.05); padding: 1.5rem; border-radius: 10px; border-left: 5px solid var(--color-orange); font-size: 1.3rem; opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .quiz-feedback-box.show { opacity: 1; transform: translateY(0); display: block; }
+    
+    .quiz-nav-menu { display: flex; justify-content: center; gap: 10px; margin-bottom: 2rem; }
+    .quiz-nav-dot { width: 40px; height: 40px; border-radius: 50%; background: rgba(0,0,0,0.1); color: var(--color-dark-gray-2); border: none; font-size: 1.2rem; font-weight: bold; cursor: pointer; transition: all 0.3s; display: flex; justify-content: center; align-items: center; }
+    .quiz-nav-dot:hover { background: rgba(0,0,0,0.2); }
+    .quiz-nav-dot.active { background: var(--color-orange); color: var(--color-black); transform: scale(1.1); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    .quiz-intro { transition: opacity 0.5s, transform 0.5s; }
+    .quiz-ui { transition: opacity 0.5s, transform 0.5s; }
+    .slide-quizz .content-wrapper { overflow-x: hidden; }
 </style>
 """
 
@@ -308,8 +355,195 @@ def generate_js(slides):
 
         const prevBtn = document.getElementById('prev-btn');
         const nextBtn = document.getElementById('next-btn');
+        const menuBtn = document.getElementById('menu-btn');
+        const slideMenu = document.getElementById('slide-menu');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+
         if (prevBtn) prevBtn.addEventListener('click', prevSlide);
         if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+        if (menuBtn) menuBtn.addEventListener('click', () => slideMenu.classList.add('active'));
+        if (closeMenuBtn) closeMenuBtn.addEventListener('click', () => slideMenu.classList.remove('active'));
+
+        document.querySelectorAll('.menu-jump-btn').forEach(btn => {{
+            btn.addEventListener('click', (e) => {{
+                const index = parseInt(e.currentTarget.dataset.index, 10);
+                slideMenu.classList.remove('active');
+                showSlide(index);
+            }});
+        }});
+
+        document.querySelectorAll('.quiz-container').forEach(container => {{
+            const startBtn = container.querySelector('.quiz-start-btn');
+            const nextBtn = container.querySelector('.quiz-next-btn');
+            const uiBox = container.querySelector('.quiz-ui');
+            const introBox = container.querySelector('.quiz-intro');
+            const qBox = container.querySelector('.quiz-question-box');
+            const optBox = container.querySelector('.quiz-options-box');
+            const feedBox = container.querySelector('.quiz-feedback-box');
+            const timerDiv = container.querySelector('.quiz-timer');
+            const timerSpan = container.querySelector('.time-left');
+            const navMenu = container.querySelector('.quiz-nav-menu');
+
+            const h1 = container.querySelector('h1');
+            const h2 = container.querySelector('h2');
+
+            let rawData = container.getAttribute('data-quiz') || "[]";
+            const questions = JSON.parse(rawData);
+            const timeLimit = parseInt(container.getAttribute('data-timer') || "0", 10);
+            
+            let currentQIndex = 0;
+            let timerInterval;
+            let timeLeft = timeLimit;
+            let canAnswer = false;
+
+            function buildNavMenu() {{
+                navMenu.innerHTML = '';
+                questions.forEach((q, idx) => {{
+                    const dot = document.createElement('button');
+                    dot.className = 'quiz-nav-dot';
+                    dot.textContent = idx + 1;
+                    dot.addEventListener('click', () => jumpToQuestion(idx));
+                    navMenu.appendChild(dot);
+                }});
+            }}
+
+            function updateNavMenu() {{
+                const dots = navMenu.querySelectorAll('.quiz-nav-dot');
+                dots.forEach((dot, idx) => {{
+                    if (idx === currentQIndex) dot.classList.add('active');
+                    else dot.classList.remove('active');
+                }});
+            }}
+
+            function renderQuestion() {{
+                clearInterval(timerInterval);
+
+                if(currentQIndex >= questions.length) {{
+                    uiBox.innerHTML = '<div style="text-align:center; padding: 5rem;"><h2>¡Quiz Terminado!</h2><p>Continúa con las flechas de navegación convencionales.</p></div>';
+                    return;
+                }}
+                
+                uiBox.style.opacity = '0';
+                uiBox.style.transform = 'translateX(20px)';
+                
+                setTimeout(() => {{
+                    const q = questions[currentQIndex];
+                    canAnswer = true;
+                    qBox.innerHTML = q.text;
+                    optBox.innerHTML = '';
+                    feedBox.className = 'quiz-feedback-box'; 
+                    feedBox.innerHTML = q.feedback || '';
+                    nextBtn.style.display = 'none';
+                    updateNavMenu();
+
+                    q.options.forEach((opt, idx) => {{
+                        const card = document.createElement('div');
+                        card.className = 'quiz-option-card';
+                        card.innerHTML = opt.text;
+                        optBox.appendChild(card);
+                    }});
+
+                    uiBox.style.display = 'block';
+                    void uiBox.offsetWidth;
+                    uiBox.style.opacity = '1';
+                    uiBox.style.transform = 'translateX(0)';
+                    
+                    if (window.MathJax) {{
+                        MathJax.typesetPromise().catch((err) => console.log('MathJax error: ', err));
+                    }}
+
+                    if (timeLimit > 0) {{
+                        timerDiv.style.display = 'inline-block';
+                        timeLeft = timeLimit;
+                        timerSpan.textContent = timeLeft;
+                        timerInterval = setInterval(() => {{
+                            timeLeft--;
+                            timerSpan.textContent = timeLeft;
+                            if (timeLeft <= 0) {{
+                                clearInterval(timerInterval);
+                                revealAnswer();
+                            }}
+                        }}, 1000);
+                    }} else {{
+                        timerDiv.style.display = 'none';
+                        setTimeout(revealAnswer, 5000);
+                    }}
+                }}, 400);
+            }}
+
+            function revealAnswer() {{
+                if(!canAnswer) return;
+                canAnswer = false;
+                
+                const q = questions[currentQIndex];
+                const cards = optBox.querySelectorAll('.quiz-option-card');
+                
+                cards.forEach((card, idx) => {{
+                    if(q.options[idx].correct) {{
+                        card.classList.add('flip-correct');
+                    }} else {{
+                        card.classList.add('fade-out');
+                    }}
+                }});
+
+                if (q.feedback) {{
+                    feedBox.classList.add('show');
+                }}
+                
+                if (currentQIndex < questions.length - 1) {{
+                    nextBtn.style.display = 'inline-block';
+                    
+                    if (timeLimit > 0) {{
+                        timeLeft = timeLimit;
+                        timerSpan.textContent = timeLeft;
+                        timerInterval = setInterval(() => {{
+                            timeLeft--;
+                            timerSpan.textContent = timeLeft;
+                            if (timeLeft <= 0) {{
+                                clearInterval(timerInterval);
+                                currentQIndex++;
+                                renderQuestion();
+                            }}
+                        }}, 1000);
+                    }}
+                }} else {{
+                    setTimeout(() => {{
+                        currentQIndex++;
+                        renderQuestion();
+                    }}, timeLimit > 0 ? timeLimit * 1000 : 5000);
+                }}
+            }}
+            
+            function jumpToQuestion(idx) {{
+                clearInterval(timerInterval);
+                currentQIndex = idx;
+                renderQuestion();
+            }}
+
+            startBtn.addEventListener('click', () => {{
+                startBtn.style.display = 'none';
+                
+                if(introBox) {{
+                    introBox.style.opacity = '0';
+                    introBox.style.transform = 'scale(0.95)';
+                    setTimeout(() => introBox.style.display = 'none', 500);
+                }}
+                if(h1) h1.style.display = 'none';
+                if(h2) h2.style.display = 'none';
+                
+                buildNavMenu();
+                
+                setTimeout(() => {{
+                    uiBox.style.display = 'block';
+                    renderQuestion();
+                }}, 500);
+            }});
+
+            nextBtn.addEventListener('click', () => {{
+                currentQIndex++;
+                renderQuestion();
+            }});
+        }});
 
         if (slides.length > 0) {{
             showSlide(0);
@@ -318,10 +552,89 @@ def generate_js(slides):
 </script>
 """
 
+def _generate_quizz_html(slide):
+    title = html.escape(slide.get('title', ''))
+    subtitle = html.escape(slide.get('subtitle', ''))
+    content = slide.get('content', '')
+    
+    questions = []
+    current_q = None
+    state = None # 'question', 'options', 'feedback'
+    intro_lines = []
+
+    for line in content.split('\n'):
+        stripped = line.strip()
+        if not stripped: continue
+        
+        if line.startswith('* '):
+            if current_q:
+                questions.append(current_q)
+            current_q = {'text': markdown.markdown(stripped[2:].strip()), 'options': [], 'feedback': ''}
+            state = 'question'
+        else:
+            if stripped.startswith('* Options:'):
+                state = 'options'
+            elif stripped.startswith('* Feedback:'):
+                state = 'feedback'
+            elif stripped.startswith('* '):
+                if state == 'options':
+                    opt_text = stripped[2:]
+                    correct = False
+                    if '{correct: true}' in opt_text:
+                        correct = True
+                        opt_text = opt_text.replace('{correct: true}', '').strip()
+                    current_q['options'].append({'text': markdown.markdown(opt_text), 'correct': correct})
+                elif state == 'feedback':
+                    current_q['feedback'] += markdown.markdown(stripped[2:].strip()) + " "
+            elif line.startswith('> '):
+                intro_lines.append(line[2:])
+            
+    if current_q:
+        questions.append(current_q)
+        
+    intro_html = markdown.markdown('\n'.join(intro_lines)) if intro_lines else ""
+    timer = slide.get('params', {}).get('time_limit', '15')
+    
+    quiz_data = html.escape(json.dumps(questions))
+    
+    return f"""<div class="content-wrapper quiz-container" data-quiz="{quiz_data}" data-timer="{timer}">
+        <h1>{title}</h1>
+        <h2>{subtitle}</h2>
+        <div class="quiz-intro">{intro_html}</div>
+        <div class="quiz-ui" style="display:none; opacity: 0; transform: translateX(20px);">
+            <div class="quiz-nav-menu"></div>
+            <div class="quiz-header" style="justify-content: flex-end;">
+                <span class="quiz-timer" style="display:none; font-size: 1.5rem;">⏳ <span class="time-left"></span>s</span>
+            </div>
+            <div class="quiz-question-box"></div>
+            <div class="quiz-options-box"></div>
+            <div class="quiz-feedback-box"></div>
+            <button class="quiz-next-btn" style="display:none;">Siguiente Pregunta</button>
+        </div>
+        <button class="quiz-start-btn">Comenzar</button>
+    </div>"""
+
 def _generate_countdown_html(slide):
     title = html.escape(slide.get('title', ''))
     subtitle = html.escape(slide.get('subtitle', ''))
-    return f"""<div class="content-wrapper"><h1>{title}</h1><h2>{subtitle}</h2><div class="timer">--:--</div><div class="start-message">¡Comenzamos!</div><p>{html.escape(slide.get('content', ''))}</p></div><div class="dynamic-date" style="position: absolute; bottom: 30px; left: 40px; font-size: 1.5rem; font-weight: bold; color: var(--color-black);"></div>"""
+    logo_animation = slide.get('params', {}).get('logo_animation', 'dvd')
+    bg_html = ""
+    
+    if logo_animation == 'traffic':
+        logo_src = "https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png"
+        logos = []
+        rows = [15, 35, 55, 75]
+        for row_top in rows:
+            duration = random.uniform(20, 35)
+            num_cars = random.randint(3, 5)
+            for i in range(num_cars):
+                delay = - (duration / num_cars) * i
+                logos.append(f'<img class="traffic-logo-img" src="{logo_src}" style="top: {row_top}%; animation: driveRight {duration:.2f}s linear {delay:.2f}s infinite;">')
+        bg_html = f'<div class="traffic-logo-container">{"".join(logos)}</div>'
+    else:
+        bg_html = f'<div class="bouncing-logo-container"><img class="bouncing-logo" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" alt="Bouncing Logo"></div>'
+
+    return f"""{bg_html}<div class="content-wrapper"><h1>{title}</h1><h2>{subtitle}</h2><div class="timer">--:--</div><div class="start-message">¡Comenzamos!</div><p>{html.escape(slide.get('content', ''))}</p></div><div class="dynamic-date" style="position: absolute; bottom: 30px; left: 40px; font-size: 1.5rem; font-weight: bold; color: var(--color-black); z-index: 1;"></div>"""
 
 def _generate_warnup_mood_html(slide):
     title = html.escape(slide.get('title', ''))
@@ -437,6 +750,7 @@ def generate_slide_html(slide):
         'objectives': _generate_objectives_html, 'gotocode': _generate_gotocode_html,
         'finale': _generate_finale_html, 'basic_slide': _generate_basic_slide_html,
         'two_columns_slide': _generate_two_columns_html, 'overlay': _generate_overlay_html,
+        'quizz': _generate_quizz_html,
     }
     generator_func = generator_map.get(slide.get('type', 'unknown'))
     if generator_func:
@@ -447,6 +761,7 @@ def generate_html(slides):
     css = generate_css()
     js = generate_js(slides)
     slides_html = ""
+    slide_list_items_html = ""
     for i, slide in enumerate(slides):
         slide_type = slide.get('type', 'unknown')
         slide_content = generate_slide_html(slide)
@@ -458,6 +773,14 @@ def generate_html(slides):
         if transition_title:
             data_attributes += f' data-transition-title="{html.escape(transition_title)}"'
         slides_html += f'<div class="slide slide-{slide_type}" id="slide-{i}" {data_attributes}>\n{slide_content}\n</div>\n'
+        
+        slide_title = slide.get('title', '')
+        if not slide_title:
+            slide_title = slide.get('subtitle', '')
+        if not slide_title:
+            slide_title = f"{slide_type.capitalize()} {i+1}"
+        slide_list_items_html += f'<li><button class="menu-jump-btn" data-index="{i}">{i+1}. {html.escape(slide_title)}</button></li>\n'
+
     return f"""
 <!DOCTYPE html>
 <html lang="es">
@@ -466,14 +789,30 @@ def generate_html(slides):
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Presentación</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <script>
+      window.MathJax = {{
+        tex: {{ inlineMath: [['$', '$'], ['\\\\(', '\\\\)']] }}
+      }};
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
     {css}
 </head>
 <body>
     <div class="presentation">
         <div id="transition-overlay"><div class="content-wrapper"><h1></h1></div></div>
         {slides_html}
+        <div id="slide-menu" class="slide-menu">
+            <div class="slide-menu-content">
+                <button id="close-menu-btn" class="close-menu" title="Cerrar">&times;</button>
+                <h2>Índice de Diapositivas</h2>
+                <ul class="slide-list">
+                    {slide_list_items_html}
+                </ul>
+            </div>
+        </div>
         <div class="slide-nav">
             <button id="prev-btn" title="Anterior (Flecha Izquierda)">&#8592;</button>
+            <button id="menu-btn" title="Índice de Diapositivas">&#9776;</button>
             <button id="next-btn" title="Siguiente (Flecha Derecha)">&#8594;</button>
         </div>
     </div>

@@ -89,6 +89,32 @@ Acepta toda clase de cosas, como esto:
 
 ---
 
+@quizz{time_limit: 15, title_transition: "¡Ponte a prueba!"}
+
+# Título Principal del Quizz
+## Subtítulo Evaluativo
+
+> Texto introductorio que desaparecerá automáticamente al comenzar el Quizz interactivo 🚀
+
+* ¿Qué tipo de modelo agrupa datos sin etiquetas previas?
+    * Options:
+        * Aprendizaje Supervisado
+        * Aprendizaje No Supervisado{correct: true}
+        * Aprendizaje por Refuerzo
+        * Deep Learning
+    * Feedback:
+        * Es **No Supervisado** porque el algoritmo descubre estructuras libremente. Recuerda que aquí puedes usar LaTeX re-renderizable: $$E = mc^2$$
+
+* Evalúa qué métrica es la que usualmente se busca minimizar por defecto al entrenar una Regresión Lineal:
+    * Options:
+        * El Coeficiente de Determinación ($R^2$).
+        * F1-Score.
+        * El Error Cuadrático Medio (MSE).{correct: true}
+    * Feedback:
+        * ¡Excelente! La función de coste clásica busca reducir matemáticamente el $MSE$ de los residuales al mínimo posible.
+
+---
+
 @two_columns_slide{title_transition: "Comparación de Elementos"}
 
 # Ventajas vs Desventajas

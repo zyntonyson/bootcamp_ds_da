@@ -1,6 +1,6 @@
 @countdown{timer: 600 , title_transition: "¡Comenzamos en breve!"}
 
-# Sprint 7 Sesión II 
+# Sprint 7 Sesión 2
 ## Análisis estadístico para detectar patrones y outliers
 
 

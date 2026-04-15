@@ -1,6 +1,6 @@
-@countdown{timer: 600 , title_transition: "¡Comenzamos en breve!"}
+@countdown{timer: 600 , title_transition: "¡Comenzamos en breve!", logo_animation: "traffic"}
 
-# Sprint 7 Sesión I
+# Sprint 7 Sesión 1
 ## Análisis estadístico para detectar patrones y outliers
 
 
@@ -47,6 +47,50 @@
 
 * [Sprint 7 · Análisis estadístico para detectar patrones y outliers](../img/qrs/19-da-v8-preparacion-datos.png)
 
+
+---
+
+@quizz{ time_limit: 4}
+
+> Repasemos sobre el tema de hoy
+
+* ¿Qué tipo de dato es el que se está analizando?
+    * Options:
+        * tipo 1
+        * tipo 2{correct: true}
+        * tipo 3
+        * tipo 4
+    * Feedback:
+        * La respuesta es I por que la teoria asi lo marca
+
+* ¿Qué tipo de dato es el que se está analizando aqui?
+    * Options:
+        * tipo 1
+        * tipo 2{correct: true}
+        * $x^2$
+        * `Select * from table where col = 1 and not col not null`
+    * Feedback:
+        * La respuesta es II por que la teoria asi lo marca
+
+
+* ¿Cual es el valor faltante? ![alt text](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlc7Cpq2SIItZw3fTXXMxedO2Aonhx6tgyUQ&s)
+    * Options:
+        * tipo 1
+        * tipo 2{correct: true}
+        * tipo 3
+        * tipo 4
+    * Feedback:
+        * La respuesta es II por que la teoria asi lo marca
+
+
+* ¿Cual es el valor faltante? ![alt text](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlc7Cpq2SIItZw3fTXXMxedO2Aonhx6tgyUQ&s)
+    * Options:
+        * ![alt text](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlc7Cpq2SIItZw3fTXXMxedO2Aonhx6tgyUQ&s)
+        * ![alt text](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlc7Cpq2SIItZw3fTXXMxedO2Aonhx6tgyUQ&s){correct: true}
+        * ![alt text](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlc7Cpq2SIItZw3fTXXMxedO2Aonhx6tgyUQ&s)
+        * ![alt text](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlc7Cpq2SIItZw3fTXXMxedO2Aonhx6tgyUQ&s)
+    * Feedback:
+        * La respuesta es II por que la teoria asi lo marca
 ---
 
 @finale{}

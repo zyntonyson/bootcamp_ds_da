@@ -6,9 +6,9 @@ Algunas actividades y habilidades que desarrollaremos:
 
 Seguimos usando 🐼🐍`Pandas` como herramienta de análisis de datos para:
 
-- Identificar y tratar datos atípicos
-- Usar condicionales para dar flexibilidad a tu código
-- Crea segmentos de usuarios usando `apply`
+- 🔍 Identificar y tratar datos atípicos
+- 🚦 Usar condicionales para dar flexibilidad a tu código
+- 👥 Crea segmentos de usuarios usando `apply`
 
 ¡No te lo pierdas! Será una gran oportunidad para practicar, resolver dudas y mejorar tus habilidades en análisis de datos.  
 ¡Te esperamos!

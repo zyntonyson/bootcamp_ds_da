@@ -53,6 +53,11 @@ Cada tipo de diapositiva lanza una función `_generate_[X]_html(slide)` distinta
 - **Misión**: "La Cortinilla Estática". Apaga el logo corporativo. Extradita la caja de vidrio esmerilado para que el fondo sea la pura negritud (`var(--color-black)`) de la pantalla. 
 - *CSS Rule*: Cualquier texto nativo en Markdown que escape como simple párrafo `<p>` está predestinado por CSS a estirarse masivamente a `3rem` en negritas medias y con color totalmente blanco brillante (`color-white-soft`) alineado al estricto centro para fungir como subtítulo cinematográfico.
 
+### `@quizz`
+- **Misión**: Presenta un cuestionario interactivo de forma cronometrada y de revelación autónoma ("Flashcards flip"). 
+- *Formato de Entrada*: Acepta un parámetro `{time_limit: N}` (siempre un entero en segundos). Extrae la estructura markdown usando reconocimiento estricto de indentación: Las preguntas base inician con `* `, las opciones se encierran bajo un item principal titulado `    * Options:` y la justificación bajo `    * Feedback:`. La opción verdadera debe estar marcada explícitamente con `{correct: true}` en el mismo renglón de la alternativa.
+- *Lógica JS/CSS*: Instala una máquina de estados independiente. Tras iniciar, retira ocultamente su texto introductorio (bloque `> `), dibuja la pregunta en curso y detona el reloj interno. Al agotar sus recursos visuales (0s), evalúa sin clics: opaca a grises tenues las respuestas estipuladas como incorrectas y le inyecta una vigorosa animación de rotación 3D sobre su eje `X` (`.flip-correct`) bañando de verde a la tarjeta acertada, revelando concurrentemente la caja transparente del Feedback y atando temporalmente el botón de Continuidad para habilitar proseguir a placer del portavoz (sino salta reevaluándolo pasados `N` segundos adicionales). Posee mini-paginador enumerado para viajes no-lineales entre la trivia, e integra a nivel CDN la asincronía de la librería nativa **MathJax**, invocando `MathJax.typesetPromise()` como refresco visual en cada salto para resolver las sentencias formales cerradas con signaturas `$$...$$` a la perfección de papel impreso.
+
 ### `@finale`
 - **Misión**: Exime logos y vidrios. Toda la pantalla se baña en Naranja y sus letras quedan oscuras, finalizando.
 
