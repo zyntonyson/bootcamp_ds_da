@@ -20,8 +20,8 @@
 
 
 * 👋 Bienvenida {5}
-* 📚 Repaso de conceptos del sprint {10}
-* 🔎 Revisión de proyectos del sprint {10}
+* 📚 Quizz de repaso de conceptos del sprint {10}
+* 🔎 Revisión del proyecto del sprint {10}
 * 🐙 Cómo publicar nuestros proyectos en GitHub {15}
 * 🤝 Proyecto colaborativo: Caso Megaline {50}
 * 🤔 Reflexión y discusión: ¿Qué aprendimos en esta sesión? {10}
@@ -53,7 +53,7 @@
 
 ---
 
-@quizz{time_limit: 20, title_transition: "¡Repasemos algunos conceptos!"}
+@quizz{time_limit: 45, title_transition: "¡Repasemos algunos conceptos!"}
 
 # Quizz de repaso
 ## Análisis estadístico para detectar patrones y outliers

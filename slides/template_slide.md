@@ -96,22 +96,39 @@ Acepta toda clase de cosas, como esto:
 
 > Texto introductorio que desaparecerá automáticamente al comenzar el Quizz interactivo 🚀
 
-* ¿Qué tipo de modelo agrupa datos sin etiquetas previas?
-    * Options:
-        * Aprendizaje Supervisado
-        * Aprendizaje No Supervisado{correct: true}
-        * Aprendizaje por Refuerzo
-        * Deep Learning
-    * Feedback:
-        * Es **No Supervisado** porque el algoritmo descubre estructuras libremente. Recuerda que aquí puedes usar LaTeX re-renderizable: $$E = mc^2$$
+<!-- 
+IMPORTANTE: El formato de los Quizz ahora se define usando YAML para permitir texto multilínea y bloques de código renderizables.
+Recuerda usar EXACTAMENTE el símbolo pipe `|` inmediatamente después de keys como `body:`, `option:` o `feedback:` si el texto contiene o requiere saltos de línea (como código markdown o LaTeX). Asegúrate también de utilizar las listas mediante guiones (`-`).
+-->
 
-* Evalúa qué métrica es la que usualmente se busca minimizar por defecto al entrenar una Regresión Lineal:
-    * Options:
-        * El Coeficiente de Determinación ($R^2$).
-        * F1-Score.
-        * El Error Cuadrático Medio (MSE).{correct: true}
-    * Feedback:
-        * ¡Excelente! La función de coste clásica busca reducir matemáticamente el $MSE$ de los residuales al mínimo posible.
+quizz:
+  - question:
+      body: |
+        ¿Qué tipo de modelo agrupa datos sin etiquetas previas?
+        
+        *Ejemplo opcional de código bloqueado (Highlight.js los coloreará solos!):*
+        ```python
+        from sklearn.cluster import KMeans
+        ```
+      items:
+        - option: "Aprendizaje Supervisado"
+        - option: "Aprendizaje No Supervisado"
+          correct: true
+        - option: "Aprendizaje por Refuerzo"
+        - option: "Deep Learning"
+      feedback: |
+        Es **No Supervisado** porque el algoritmo descubre estructuras libremente. Recuerda que aquí puedes usar LaTeX re-renderizable: $$E = mc^2$$
+
+  - question:
+      body: |
+        Evalúa qué métrica es la que usualmente se busca minimizar por defecto al entrenar una Regresión Lineal:
+      items:
+        - option: "El Coeficiente de Determinación ($R^2$)."
+        - option: "F1-Score."
+        - option: "El Error Cuadrático Medio (MSE)."
+          correct: true
+      feedback: |
+        ¡Excelente! La función de coste clásica busca reducir matemáticamente el $MSE$ de los residuales al mínimo posible.
 
 ---
 

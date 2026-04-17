@@ -5,6 +5,7 @@ import random
 import os
 import markdown
 import json
+import yaml
 
 def parse_markdown(content):
     """
@@ -154,7 +155,7 @@ def generate_css():
     }
 
     .slide-agenda, .slide-warnup-question, .slide-basic_slide, .slide-two_columns_slide { background-color: var(--color-light-gray); color: var(--color-black); }
-    .slide-basic_slide .content-wrapper, .slide-two_columns_slide .content-wrapper { width: 90%; text-align: left; overflow-y: auto; max-height: 85vh; padding: 2rem 3rem; }
+    .slide-agenda .content-wrapper, .slide-basic_slide .content-wrapper, .slide-two_columns_slide .content-wrapper { width: 90%; text-align: left; overflow-y: auto; max-height: 85vh; padding: 2rem 3rem; }
     .slide-basic_slide .content-wrapper img, .slide-two_columns_slide .content-wrapper img { max-width: 100%; border-radius: 10px; display: block; margin: 1rem auto; padding: 0; }
     .slide-basic_slide .content-wrapper p, .slide-basic_slide .content-wrapper ul, .slide-basic_slide .content-wrapper ol, .slide-two_columns_slide .content-wrapper p, .slide-two_columns_slide .content-wrapper ul, .slide-two_columns_slide .content-wrapper ol { font-size: 1.5rem; line-height: 1.6; }
     .slide-basic_slide .content-wrapper ul, .slide-basic_slide .content-wrapper ol, .slide-two_columns_slide .content-wrapper ul, .slide-two_columns_slide .content-wrapper ol { padding-left: 3rem; }
@@ -162,9 +163,9 @@ def generate_css():
     .slide-two_columns_slide .column-left { padding-right: 2rem; width: 50%; display: flex; flex-direction: column; justify-content: center; }
     .slide-two_columns_slide .column-right { width: 50%; display: flex; align-items: center; justify-content: center; height: 100%; }
     .slide-two_columns_slide .column-right img { width: 100%; max-height: 70vh; object-fit: contain; }
-    .slide-agenda h1 { color: var(--color-black); }
+    .slide-agenda h1 { color: var(--color-black); margin-bottom: 1.5rem; }
     .slide-agenda ul { list-style: none; padding: 0; font-size: 1.5rem; }
-    .slide-agenda li { margin: 0.5rem 0; }
+    .slide-agenda li { margin: 0.8rem 0; }
     .slide-agenda li strong { color: var(--color-black); }
     .slide-agenda li span { color: var(--color-dark-gray-1); margin-left: 1rem; }
 
@@ -197,7 +198,8 @@ def generate_css():
     .slide-gotocode .qr-item img { width: 150px; height: 150px; border-radius: 10px; }
 
     #transition-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out; background-color: var(--color-green); color: var(--color-black); }
-    #transition-overlay h1 { color: var(--color-black); }
+    #transition-overlay h1 { color: var(--color-black); margin-bottom: 0; }
+    #transition-overlay .content-wrapper { width: 90%; text-align: left; padding: 2rem 3rem; }
     #transition-overlay.visible { opacity: 1; visibility: visible; }
     
     .slide-nav { position: absolute; bottom: 20px; right: 20px; z-index: 100; display: flex; gap: 10px; }
@@ -250,6 +252,7 @@ def generate_css():
     .quiz-intro { transition: opacity 0.5s, transform 0.5s; }
     .quiz-ui { transition: opacity 0.5s, transform 0.5s; }
     .slide-quizz .content-wrapper { overflow-x: hidden; }
+    pre { border-radius: 8px; font-size: 1.1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
 </style>
 """
 
@@ -451,6 +454,9 @@ def generate_js(slides):
                     if (window.MathJax) {{
                         MathJax.typesetPromise().catch((err) => console.log('MathJax error: ', err));
                     }}
+                    if (window.hljs) {{
+                        uiBox.querySelectorAll('pre code').forEach((block) => hljs.highlightElement(block));
+                    }}
 
                     if (timeLimit > 0) {{
                         timerDiv.style.display = 'inline-block';
@@ -558,41 +564,68 @@ def _generate_quizz_html(slide):
     content = slide.get('content', '')
     
     questions = []
-    current_q = None
-    state = None # 'question', 'options', 'feedback'
     intro_lines = []
 
-    for line in content.split('\n'):
-        stripped = line.strip()
-        if not stripped: continue
-        
-        if line.startswith('* '):
-            if current_q:
-                questions.append(current_q)
-            current_q = {'text': markdown.markdown(stripped[2:].strip()), 'options': [], 'feedback': ''}
-            state = 'question'
-        else:
-            if stripped.startswith('* Options:'):
-                state = 'options'
-            elif stripped.startswith('* Feedback:'):
-                state = 'feedback'
-            elif stripped.startswith('* '):
-                if state == 'options':
-                    opt_text = stripped[2:]
-                    correct = False
-                    if '{correct: true}' in opt_text:
-                        correct = True
-                        opt_text = opt_text.replace('{correct: true}', '').strip()
-                    current_q['options'].append({'text': markdown.markdown(opt_text), 'correct': correct})
-                elif state == 'feedback':
-                    current_q['feedback'] += markdown.markdown(stripped[2:].strip()) + " "
-            elif line.startswith('> '):
-                intro_lines.append(line[2:])
+    if 'quizz:' in content:
+        try:
+            parts = content.split('quizz:', 1)
+            intro_md = parts[0].strip()
+            if intro_md:
+                intro_lines = [intro_md]
             
-    if current_q:
-        questions.append(current_q)
-        
-    intro_html = markdown.markdown('\n'.join(intro_lines)) if intro_lines else ""
+            yaml_str = 'quizz:' + parts[1]
+            data = yaml.safe_load(yaml_str)
+            quizz_data = data.get('quizz', [])
+            
+            if isinstance(quizz_data, dict):
+                quizz_data = [quizz_data]
+                
+            for q_data in quizz_data:
+                q = q_data.get('question', {})
+                body = markdown.markdown(q.get('body', '').strip(), extensions=['fenced_code'])
+                options = []
+                
+                for item in q.get('items', []):
+                    opt_text = markdown.markdown(item.get('option', '').strip(), extensions=['fenced_code'])
+                    options.append({'text': opt_text, 'correct': item.get('correct', False)})
+                feedback = markdown.markdown(q.get('feedback', '').strip(), extensions=['fenced_code'])
+                questions.append({'text': body, 'options': options, 'feedback': feedback})
+        except Exception as e:
+            print(f"Error parsing YAML quizz: {e}")
+    else:
+        current_q = None
+        state = None # 'question', 'options', 'feedback'
+        for line in content.split('\n'):
+            stripped = line.strip()
+            if not stripped: continue
+            
+            if line.startswith('* '):
+                if current_q:
+                    questions.append(current_q)
+                current_q = {'text': markdown.markdown(stripped[2:].strip(), extensions=['fenced_code']), 'options': [], 'feedback': ''}
+                state = 'question'
+            else:
+                if stripped.startswith('* Options:'):
+                    state = 'options'
+                elif stripped.startswith('* Feedback:'):
+                    state = 'feedback'
+                elif stripped.startswith('* '):
+                    if state == 'options':
+                        opt_text = stripped[2:]
+                        correct = False
+                        if '{correct: true}' in opt_text:
+                            correct = True
+                            opt_text = opt_text.replace('{correct: true}', '').strip()
+                        current_q['options'].append({'text': markdown.markdown(opt_text, extensions=['fenced_code']), 'correct': correct})
+                    elif state == 'feedback':
+                        current_q['feedback'] += markdown.markdown(stripped[2:].strip(), extensions=['fenced_code']) + " "
+                elif line.startswith('> '):
+                    intro_lines.append(line[2:])
+                
+        if current_q:
+            questions.append(current_q)
+            
+    intro_html = markdown.markdown('\n'.join(intro_lines), extensions=['fenced_code']) if intro_lines else ""
     timer = slide.get('params', {}).get('time_limit', '15')
     
     quiz_data = html.escape(json.dumps(questions))
@@ -795,6 +828,9 @@ def generate_html(slides):
       }};
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
     {css}
 </head>
 <body>
