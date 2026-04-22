@@ -1,80 +1,21 @@
-import re
-import argparse
-import html
-import random
-import os
-import markdown
-import json
-import yaml
 
-def parse_markdown(content):
-    """
-    Parses the entire markdown content and splits it into slide objects.
-    """
-    slides_content = re.split(r'(?m)^---\s*$', content.strip())
-    slides = []
-
-    for slide_content in slides_content:
-        slide_content = slide_content.strip()
-        if not slide_content:
-            continue
-
-        slide = {
-            'type': 'unknown',
-            'params': {},
-            'content': '',
-            'title': '',
-            'subtitle': ''
-        }
-
-        tag_match = re.match(r'@(\w+(?:-\w+)?)\s*(\{.*\})?', slide_content)
-
-        if tag_match:
-            slide['type'] = tag_match.group(1)
-            params_str = tag_match.group(2)
-
-            if params_str:
-                params_str = params_str.strip('{}')
-                try:
-                    params = {}
-                    for param_match in re.finditer(r'(\w+)\s*:\s*(?:"([^"]*)"|([^,}]+))', params_str):
-                        key = param_match.group(1)
-                        val = param_match.group(2) if param_match.group(2) is not None else param_match.group(3).strip()
-                        params[key] = val
-                    slide['params'] = params
-                except Exception as e:
-                    print(f"Warning: Could not parse params '{params_str}': {e}")
-            
-            content_after_tag = slide_content[tag_match.end():].strip()
-        else:
-            content_after_tag = slide_content
-
-        lines = content_after_tag.split('\n')
-        
-        title_found = False
-        subtitle_found = False
-        remaining_lines = []
-
-        for line in lines:
-            if line.startswith('# ') and not title_found:
-                slide['title'] = line[2:].strip()
-                title_found = True
-            elif line.startswith('## ') and not subtitle_found:
-                slide['subtitle'] = line[3:].strip()
-                subtitle_found = True
-            else:
-                remaining_lines.append(line)
-        
-        slide['content'] = '\n'.join(remaining_lines).strip()
-        slides.append(slide)
-
-    return slides
-
-def generate_css():
-    """
-    Generates the CSS for the presentation.
-    """
-    return """
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <script>
+      window.MathJax = {
+        tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    
 <style>
     :root {
         --color-orange: #F2855A;
@@ -262,18 +203,84 @@ def generate_css():
     .slide-overlay td, .slide-gotocode td { border-color: rgba(255,255,255,0.2); }
     .slide-overlay tr:nth-child(even), .slide-gotocode tr:nth-child(even) { background-color: rgba(255,255,255,0.05); }
 </style>
-"""
 
-def generate_js(slides):
-    return f"""
+</head>
+<body>
+    <div class="presentation">
+        <div id="transition-overlay"><div class="content-wrapper"><h1></h1></div></div>
+        <div class="slide slide-countdown" id="slide-0" data-type="countdown" data-timer="180" data-transition-title="¡Comenzamos en breve!">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="bouncing-logo-container"><img class="bouncing-logo" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" alt="Bouncing Logo"></div><div class="content-wrapper"><h1>Sprint 8 Sesión 1</h1><h2>Explorar conexiones de datos con correlaciones</h2><div class="timer">--:--</div><div class="start-message">¡Comenzamos!</div><p></p></div><div class="dynamic-date" style="position: absolute; bottom: 30px; left: 40px; font-size: 1.5rem; font-weight: bold; color: var(--color-black); z-index: 1;"></div>
+</div>
+<div class="slide slide-warnup-mood" id="slide-1" data-type="warnup-mood" data-transition-title="Midamos los ánimos">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="emoji-container"><div class="emoji" style="left: 52vw; animation-delay: -2.10s; animation-duration: 10.87s; font-size: 3.23rem;">💡</div><div class="emoji" style="left: 71vw; animation-delay: -7.82s; animation-duration: 6.05s; font-size: 3.83rem;">🥳</div><div class="emoji" style="left: 4vw; animation-delay: -3.14s; animation-duration: 7.15s; font-size: 5.71rem;">😔</div><div class="emoji" style="left: 83vw; animation-delay: -1.66s; animation-duration: 8.81s; font-size: 3.60rem;">🙌</div><div class="emoji" style="left: 63vw; animation-delay: -4.11s; animation-duration: 5.30s; font-size: 5.48rem;">😍</div><div class="emoji" style="left: 34vw; animation-delay: -3.75s; animation-duration: 5.94s; font-size: 3.25rem;">🥳</div><div class="emoji" style="left: 72vw; animation-delay: -0.78s; animation-duration: 6.25s; font-size: 4.49rem;">😤</div><div class="emoji" style="left: 8vw; animation-delay: -1.96s; animation-duration: 6.18s; font-size: 5.24rem;">😐</div><div class="emoji" style="left: 60vw; animation-delay: -2.67s; animation-duration: 9.88s; font-size: 3.96rem;">😐</div><div class="emoji" style="left: 75vw; animation-delay: -9.49s; animation-duration: 5.47s; font-size: 4.00rem;">🤔</div><div class="emoji" style="left: 74vw; animation-delay: -6.21s; animation-duration: 7.68s; font-size: 3.64rem;">💪</div><div class="emoji" style="left: 46vw; animation-delay: -8.20s; animation-duration: 6.13s; font-size: 3.61rem;">🤯</div><div class="emoji" style="left: 86vw; animation-delay: -4.46s; animation-duration: 10.95s; font-size: 4.66rem;">⚡</div><div class="emoji" style="left: 71vw; animation-delay: -6.05s; animation-duration: 5.86s; font-size: 5.38rem;">😊</div><div class="emoji" style="left: 1vw; animation-delay: -6.96s; animation-duration: 10.93s; font-size: 3.68rem;">✨</div><div class="emoji" style="left: 84vw; animation-delay: -6.65s; animation-duration: 11.43s; font-size: 5.24rem;">😍</div><div class="emoji" style="left: 94vw; animation-delay: -9.73s; animation-duration: 8.84s; font-size: 5.57rem;">🔥</div><div class="emoji" style="left: 9vw; animation-delay: -7.19s; animation-duration: 10.55s; font-size: 3.74rem;">😵</div><div class="emoji" style="left: 8vw; animation-delay: -3.28s; animation-duration: 5.64s; font-size: 3.79rem;">😲</div><div class="emoji" style="left: 30vw; animation-delay: -5.02s; animation-duration: 6.79s; font-size: 5.78rem;">🚀</div><div class="emoji" style="left: 94vw; animation-delay: -8.13s; animation-duration: 8.62s; font-size: 5.10rem;">🙂</div><div class="emoji" style="left: 28vw; animation-delay: -8.74s; animation-duration: 9.13s; font-size: 3.23rem;">😍</div><div class="emoji" style="left: 60vw; animation-delay: -3.64s; animation-duration: 9.98s; font-size: 4.58rem;">😠</div><div class="emoji" style="left: 59vw; animation-delay: -9.40s; animation-duration: 11.17s; font-size: 4.89rem;">😵</div><div class="emoji" style="left: 15vw; animation-delay: -7.85s; animation-duration: 11.18s; font-size: 5.42rem;">🏋️</div><div class="emoji" style="left: 31vw; animation-delay: -4.67s; animation-duration: 6.81s; font-size: 4.37rem;">😁</div><div class="emoji" style="left: 3vw; animation-delay: -7.35s; animation-duration: 5.50s; font-size: 4.86rem;">😵</div><div class="emoji" style="left: 61vw; animation-delay: -2.46s; animation-duration: 7.33s; font-size: 3.11rem;">🧠</div><div class="emoji" style="left: 77vw; animation-delay: -7.62s; animation-duration: 7.26s; font-size: 3.68rem;">😠</div><div class="emoji" style="left: 35vw; animation-delay: -2.58s; animation-duration: 7.58s; font-size: 4.15rem;">😐</div><div class="emoji" style="left: 37vw; animation-delay: -9.51s; animation-duration: 8.02s; font-size: 4.96rem;">🔥</div><div class="emoji" style="left: 10vw; animation-delay: -3.19s; animation-duration: 10.38s; font-size: 5.31rem;">😍</div><div class="emoji" style="left: 9vw; animation-delay: -9.20s; animation-duration: 5.58s; font-size: 5.29rem;">🤨</div><div class="emoji" style="left: 4vw; animation-delay: -1.98s; animation-duration: 7.30s; font-size: 3.13rem;">🧠</div><div class="emoji" style="left: 22vw; animation-delay: -0.33s; animation-duration: 9.09s; font-size: 5.14rem;">🥳</div><div class="emoji" style="left: 6vw; animation-delay: -0.37s; animation-duration: 6.20s; font-size: 5.17rem;">💪</div><div class="emoji" style="left: 77vw; animation-delay: -5.63s; animation-duration: 8.23s; font-size: 4.82rem;">⚡</div><div class="emoji" style="left: 67vw; animation-delay: -4.03s; animation-duration: 9.97s; font-size: 5.49rem;">🏋️</div><div class="emoji" style="left: 4vw; animation-delay: -3.98s; animation-duration: 9.29s; font-size: 3.55rem;">🏋️</div><div class="emoji" style="left: 35vw; animation-delay: -1.12s; animation-duration: 5.88s; font-size: 3.37rem;">🤨</div><div class="emoji" style="left: 8vw; animation-delay: -0.19s; animation-duration: 6.87s; font-size: 3.53rem;">🧠</div><div class="emoji" style="left: 95vw; animation-delay: -6.46s; animation-duration: 5.46s; font-size: 4.58rem;">😔</div><div class="emoji" style="left: 42vw; animation-delay: -2.03s; animation-duration: 5.16s; font-size: 4.55rem;">😪</div><div class="emoji" style="left: 84vw; animation-delay: -2.20s; animation-duration: 6.34s; font-size: 3.46rem;">😓</div><div class="emoji" style="left: 19vw; animation-delay: -8.62s; animation-duration: 10.03s; font-size: 4.65rem;">😠</div><div class="emoji" style="left: 65vw; animation-delay: -5.65s; animation-duration: 6.75s; font-size: 5.33rem;">🔥</div><div class="emoji" style="left: 60vw; animation-delay: -6.42s; animation-duration: 8.23s; font-size: 3.28rem;">🏋️</div><div class="emoji" style="left: 25vw; animation-delay: -9.01s; animation-duration: 5.46s; font-size: 5.34rem;">😢</div><div class="emoji" style="left: 64vw; animation-delay: -7.29s; animation-duration: 7.69s; font-size: 3.33rem;">😲</div><div class="emoji" style="left: 81vw; animation-delay: -3.46s; animation-duration: 8.74s; font-size: 3.66rem;">🙌</div></div><div class="content-wrapper"><h1>¿Cómo llegas a la sesión de hoy?</h1><h2>Reacciona con el emoji 😎🤔🤓🙂 que mejor represente tu mood</h2></div>
+</div>
+<div class="slide slide-agenda" id="slide-2" data-type="agenda" data-transition-title="Nuestra Agenda de Hoy">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="content-wrapper"><h1>Agenda de la sesión</h1><ul><li><strong>👋 Bienvenida</strong> <span>5 min</span></li><li><strong>👋 Avisos parroquiales</strong> <span>5 min</span></li><li><strong>📚 Revisión de conceptos</strong> <span>10 min</span></li><li><strong>💼 Caso de estudio: German city Bank</strong> <span>40 min</span></li><li><strong>🤔 Reflexión y discusión: ¿Qué aprendimos en esta sesión?</strong> <span>5 min</span></li></ul></div>
+</div>
+<div class="slide slide-two_columns_slide" id="slide-3" data-type="two_columns_slide" data-transition-title="Avisos parroquiales">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="content-wrapper"><h2>Estaré de viaje del 28 de abril al 3 de mayo</h2><div class="two-column-layout" style="align-items: stretch; margin-top: 1rem;"><div class="column-left"><p><img alt="Viaje" src="https://raw.githubusercontent.com/zyntonyson/img_repo/refs/heads/main/img/de_viaje.png" /></p></div><div class="column-right"><ul>
+<li>
+<p><em>Vamos a tener unos ajustes en el calendario</em>:</p>
+</li>
+<li>
+<p><strong>DA-82</strong>: Se mueve del jueves 30 de abril al lunes 27 de abril a las 8:00 PM (hora de CDMX)</p>
+</li>
+<li><strong>DA-98</strong>: Se mueve del jueves 30 de abril al lunes 4 de mayo a las 8:00 PM (hora de CDMX)</li>
+<li><strong>DA-104</strong>: Se mueve del miércoles 29 de abril al lunes 27 de abril a las 8:00 PM (hora de CDMX)</li>
+</ul></div></div></div>
+</div>
+<div class="slide slide-objectives" id="slide-4" data-type="objectives" data-transition-title="¿Qué vamos a practicar?">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="content-wrapper"><h1>Objetivos académicos de esta clase</h1><div class="objectives-container"><ul>
+<li>📈 Calcular métricas de correlaciones</li>
+<li>🧠 Interpretar resultados de análisis de correlación</li>
+<li>⚖️ Integrar pensamiento ético en el análisis de correlación</li>
+</ul></div></div>
+</div>
+<div class="slide slide-gotocode" id="slide-5" data-type="gotocode" data-transition-title="Manos a la Obra">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<h1>Escanea el código para los materiales de la clase</h1><div class="qr-container"><div class="qr-item"><img src="../img/qrs/23-da-v8-analizar-correlaciones.png " alt="Sprint 8 · Explorar conexiones de datos con correlaciones I QR Code"><p>Sprint 8 · Explorar conexiones de datos con correlaciones I</p></div></div>
+</div>
+<div class="slide slide-finale" id="slide-6" data-type="finale">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<h1>¡Gracias inmensas!</h1><h2>Tu asistencia y participación hacen que la clase sea muy valiosa</h2>
+</div>
+
+        <div id="slide-menu" class="slide-menu">
+            <div class="slide-menu-content">
+                <button id="close-menu-btn" class="close-menu" title="Cerrar">&times;</button>
+                <h2>Índice de Diapositivas</h2>
+                <ul class="slide-list">
+                    <li><button class="menu-jump-btn" data-index="0">1. Sprint 8 Sesión 1</button></li>
+<li><button class="menu-jump-btn" data-index="1">2. ¿Cómo llegas a la sesión de hoy?</button></li>
+<li><button class="menu-jump-btn" data-index="2">3. Agenda de la sesión</button></li>
+<li><button class="menu-jump-btn" data-index="3">4. Estaré de viaje del 28 de abril al 3 de mayo</button></li>
+<li><button class="menu-jump-btn" data-index="4">5. Objetivos académicos de esta clase</button></li>
+<li><button class="menu-jump-btn" data-index="5">6. Escanea el código para los materiales de la clase</button></li>
+<li><button class="menu-jump-btn" data-index="6">7. ¡Gracias inmensas!</button></li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="slide-nav">
+            <button id="prev-btn" title="Anterior (Flecha Izquierda)">&#8592;</button>
+            <button id="menu-btn" title="Índice de Diapositivas">&#9776;</button>
+            <button id="next-btn" title="Siguiente (Flecha Derecha)">&#8594;</button>
+        </div>
+    </div>
+    
 <script>
-    document.addEventListener('DOMContentLoaded', () => {{
+    document.addEventListener('DOMContentLoaded', () => {
         const dateObj = new Date();
         const day = dateObj.getDate();
         const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
         const month = months[dateObj.getMonth()];
         const year = dateObj.getFullYear();
-        const dateStr = `${{day}} de ${{month}} ${{year}}`;
+        const dateStr = `${day} de ${month} ${year}`;
         document.querySelectorAll('.dynamic-date').forEach(el => el.textContent = dateStr);
 
         const slides = document.querySelectorAll('.slide');
@@ -282,9 +289,9 @@ def generate_js(slides):
         
         let currentSlide = -1;
         let isTransitioning = false;
-        let slideIntervals = {{}}; 
+        let slideIntervals = {}; 
 
-        function showSlide(index) {{
+        function showSlide(index) {
             if (isTransitioning || index === currentSlide) return;
             
             const nextSlideElement = slides[index];
@@ -294,75 +301,75 @@ def generate_js(slides):
             
             const transitionTitle = nextSlideElement.dataset.transitionTitle;
 
-            if (currentSlide > -1) {{
+            if (currentSlide > -1) {
                 slides[currentSlide].classList.remove('active');
-            }}
+            }
 
-            if (transitionTitle && index > currentSlide) {{
+            if (transitionTitle && index > currentSlide) {
                 transitionTitleElement.textContent = transitionTitle;
                 transitionOverlay.className = 'slide';
-                transitionOverlay.classList.add(`slide-${{nextSlideElement.dataset.type}}`);
+                transitionOverlay.classList.add(`slide-${nextSlideElement.dataset.type}`);
                 transitionOverlay.classList.add('visible');
 
-                setTimeout(() => {{
+                setTimeout(() => {
                     transitionOverlay.classList.remove('visible');
                     currentSlide = index;
                     slides[currentSlide].classList.add('active');
                     activateSlide(currentSlide);
                     setTimeout(() => isTransitioning = false, 500);
-                }}, 1000);
-            }} else {{
+                }, 1000);
+            } else {
                 currentSlide = index;
                 slides[currentSlide].classList.add('active');
                 activateSlide(currentSlide);
                 isTransitioning = false;
-            }}
-        }}
+            }
+        }
 
-        function nextSlide() {{
-            if (currentSlide < slides.length - 1) {{
+        function nextSlide() {
+            if (currentSlide < slides.length - 1) {
                 showSlide(currentSlide + 1);
-            }}
-        }}
+            }
+        }
 
-        function prevSlide() {{
-            if (currentSlide > 0) {{
+        function prevSlide() {
+            if (currentSlide > 0) {
                 showSlide(currentSlide - 1);
-            }}
-        }}
+            }
+        }
         
-        function activateSlide(index) {{
+        function activateSlide(index) {
             const slideElement = slides[index];
             if (!slideElement) return;
             const slideType = slideElement.dataset.type;
 
             Object.values(slideIntervals).forEach(clearInterval);
 
-            if (slideType === 'countdown') {{
+            if (slideType === 'countdown') {
                 const timerElement = slideElement.querySelector('.timer');
                 const startMessage = slideElement.querySelector('.start-message');
                 let duration = parseInt(slideElement.dataset.timer || '600', 10);
 
-                slideIntervals[index] = setInterval(() => {{
-                    if (duration < 0) {{
+                slideIntervals[index] = setInterval(() => {
+                    if (duration < 0) {
                         clearInterval(slideIntervals[index]);
                         timerElement.style.display = 'none';
                         startMessage.style.display = 'block';
                         setTimeout(nextSlide, 2000); 
                         return;
-                    }}
+                    }
                     const minutes = Math.floor(duration / 60);
                     const seconds = duration % 60;
-                    timerElement.textContent = `${{String(minutes).padStart(2, '0')}}:${{String(seconds).padStart(2, '0')}}`;
+                    timerElement.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
                     duration--;
-                }}, 1000);
-            }}
-        }}
+                }, 1000);
+            }
+        }
 
-        document.addEventListener('keydown', (e) => {{
+        document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowRight') nextSlide();
             else if (e.key === 'ArrowLeft') prevSlide();
-        }});
+        });
 
         const prevBtn = document.getElementById('prev-btn');
         const nextBtn = document.getElementById('next-btn');
@@ -375,15 +382,15 @@ def generate_js(slides):
         if (menuBtn) menuBtn.addEventListener('click', () => slideMenu.classList.add('active'));
         if (closeMenuBtn) closeMenuBtn.addEventListener('click', () => slideMenu.classList.remove('active'));
 
-        document.querySelectorAll('.menu-jump-btn').forEach(btn => {{
-            btn.addEventListener('click', (e) => {{
+        document.querySelectorAll('.menu-jump-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
                 const index = parseInt(e.currentTarget.dataset.index, 10);
                 slideMenu.classList.remove('active');
                 showSlide(index);
-            }});
-        }});
+            });
+        });
 
-        document.querySelectorAll('.quiz-container').forEach(container => {{
+        document.querySelectorAll('.quiz-container').forEach(container => {
             const startBtn = container.querySelector('.quiz-start-btn');
             const nextBtn = container.querySelector('.quiz-next-btn');
             const uiBox = container.querySelector('.quiz-ui');
@@ -407,37 +414,37 @@ def generate_js(slides):
             let timeLeft = timeLimit;
             let canAnswer = false;
 
-            function buildNavMenu() {{
+            function buildNavMenu() {
                 navMenu.innerHTML = '';
-                questions.forEach((q, idx) => {{
+                questions.forEach((q, idx) => {
                     const dot = document.createElement('button');
                     dot.className = 'quiz-nav-dot';
                     dot.textContent = idx + 1;
                     dot.addEventListener('click', () => jumpToQuestion(idx));
                     navMenu.appendChild(dot);
-                }});
-            }}
+                });
+            }
 
-            function updateNavMenu() {{
+            function updateNavMenu() {
                 const dots = navMenu.querySelectorAll('.quiz-nav-dot');
-                dots.forEach((dot, idx) => {{
+                dots.forEach((dot, idx) => {
                     if (idx === currentQIndex) dot.classList.add('active');
                     else dot.classList.remove('active');
-                }});
-            }}
+                });
+            }
 
-            function renderQuestion() {{
+            function renderQuestion() {
                 clearInterval(timerInterval);
 
-                if(currentQIndex >= questions.length) {{
+                if(currentQIndex >= questions.length) {
                     uiBox.innerHTML = '<div style="text-align:center; padding: 5rem;"><h2>¡Quiz Terminado!</h2><p>Continúa con las flechas de navegación convencionales.</p></div>';
                     return;
-                }}
+                }
                 
                 uiBox.style.opacity = '0';
                 uiBox.style.transform = 'translateX(20px)';
                 
-                setTimeout(() => {{
+                setTimeout(() => {
                     const q = questions[currentQIndex];
                     canAnswer = true;
                     qBox.innerHTML = q.text;
@@ -447,442 +454,123 @@ def generate_js(slides):
                     nextBtn.style.display = 'none';
                     updateNavMenu();
 
-                    q.options.forEach((opt, idx) => {{
+                    q.options.forEach((opt, idx) => {
                         const card = document.createElement('div');
                         card.className = 'quiz-option-card';
                         card.innerHTML = opt.text;
                         optBox.appendChild(card);
-                    }});
+                    });
 
                     uiBox.style.display = 'block';
                     void uiBox.offsetWidth;
                     uiBox.style.opacity = '1';
                     uiBox.style.transform = 'translateX(0)';
                     
-                    if (window.MathJax) {{
+                    if (window.MathJax) {
                         MathJax.typesetPromise().catch((err) => console.log('MathJax error: ', err));
-                    }}
-                    if (window.hljs) {{
+                    }
+                    if (window.hljs) {
                         uiBox.querySelectorAll('pre code').forEach((block) => hljs.highlightElement(block));
-                    }}
+                    }
 
-                    if (timeLimit > 0) {{
+                    if (timeLimit > 0) {
                         timerDiv.style.display = 'inline-block';
                         timeLeft = timeLimit;
                         timerSpan.textContent = timeLeft;
-                        timerInterval = setInterval(() => {{
+                        timerInterval = setInterval(() => {
                             timeLeft--;
                             timerSpan.textContent = timeLeft;
-                            if (timeLeft <= 0) {{
+                            if (timeLeft <= 0) {
                                 clearInterval(timerInterval);
                                 revealAnswer();
-                            }}
-                        }}, 1000);
-                    }} else {{
+                            }
+                        }, 1000);
+                    } else {
                         timerDiv.style.display = 'none';
                         setTimeout(revealAnswer, 5000);
-                    }}
-                }}, 400);
-            }}
+                    }
+                }, 400);
+            }
 
-            function revealAnswer() {{
+            function revealAnswer() {
                 if(!canAnswer) return;
                 canAnswer = false;
                 
                 const q = questions[currentQIndex];
                 const cards = optBox.querySelectorAll('.quiz-option-card');
                 
-                cards.forEach((card, idx) => {{
-                    if(q.options[idx].correct) {{
+                cards.forEach((card, idx) => {
+                    if(q.options[idx].correct) {
                         card.classList.add('flip-correct');
-                    }} else {{
+                    } else {
                         card.classList.add('fade-out');
-                    }}
-                }});
+                    }
+                });
 
-                if (q.feedback) {{
+                if (q.feedback) {
                     feedBox.classList.add('show');
-                }}
+                }
                 
-                if (currentQIndex < questions.length - 1) {{
+                if (currentQIndex < questions.length - 1) {
                     nextBtn.style.display = 'inline-block';
                     
-                    if (timeLimit > 0) {{
+                    if (timeLimit > 0) {
                         timeLeft = timeLimit;
                         timerSpan.textContent = timeLeft;
-                        timerInterval = setInterval(() => {{
+                        timerInterval = setInterval(() => {
                             timeLeft--;
                             timerSpan.textContent = timeLeft;
-                            if (timeLeft <= 0) {{
+                            if (timeLeft <= 0) {
                                 clearInterval(timerInterval);
                                 currentQIndex++;
                                 renderQuestion();
-                            }}
-                        }}, 1000);
-                    }}
-                }} else {{
-                    setTimeout(() => {{
+                            }
+                        }, 1000);
+                    }
+                } else {
+                    setTimeout(() => {
                         currentQIndex++;
                         renderQuestion();
-                    }}, timeLimit > 0 ? timeLimit * 1000 : 5000);
-                }}
-            }}
+                    }, timeLimit > 0 ? timeLimit * 1000 : 5000);
+                }
+            }
             
-            function jumpToQuestion(idx) {{
+            function jumpToQuestion(idx) {
                 clearInterval(timerInterval);
                 currentQIndex = idx;
                 renderQuestion();
-            }}
+            }
 
-            startBtn.addEventListener('click', () => {{
+            startBtn.addEventListener('click', () => {
                 startBtn.style.display = 'none';
                 
-                if(introBox) {{
+                if(introBox) {
                     introBox.style.opacity = '0';
                     introBox.style.transform = 'scale(0.95)';
                     setTimeout(() => introBox.style.display = 'none', 500);
-                }}
+                }
                 if(h1) h1.style.display = 'none';
                 if(h2) h2.style.display = 'none';
                 
                 buildNavMenu();
                 
-                setTimeout(() => {{
+                setTimeout(() => {
                     uiBox.style.display = 'block';
                     renderQuestion();
-                }}, 500);
-            }});
+                }, 500);
+            });
 
-            nextBtn.addEventListener('click', () => {{
+            nextBtn.addEventListener('click', () => {
                 currentQIndex++;
                 renderQuestion();
-            }});
-        }});
+            });
+        });
 
-        if (slides.length > 0) {{
+        if (slides.length > 0) {
             showSlide(0);
-        }}
-    }});
+        }
+    });
 </script>
-"""
 
-def _generate_quizz_html(slide):
-    title = html.escape(slide.get('title', ''))
-    subtitle = html.escape(slide.get('subtitle', ''))
-    content = slide.get('content', '')
-    
-    questions = []
-    intro_lines = []
-
-    if 'quizz:' in content:
-        try:
-            parts = content.split('quizz:', 1)
-            intro_md = parts[0].strip()
-            if intro_md:
-                intro_lines = [intro_md]
-            
-            yaml_str = 'quizz:' + parts[1]
-            data = yaml.safe_load(yaml_str)
-            quizz_data = data.get('quizz', [])
-            
-            if isinstance(quizz_data, dict):
-                quizz_data = [quizz_data]
-                
-            for q_data in quizz_data:
-                q = q_data.get('question', {})
-                body = markdown.markdown(q.get('body', '').strip(), extensions=['fenced_code', 'tables'])
-                options = []
-                
-                for item in q.get('items', []):
-                    opt_text = markdown.markdown(item.get('option', '').strip(), extensions=['fenced_code', 'tables'])
-                    options.append({'text': opt_text, 'correct': item.get('correct', False)})
-                feedback = markdown.markdown(q.get('feedback', '').strip(), extensions=['fenced_code', 'tables'])
-                questions.append({'text': body, 'options': options, 'feedback': feedback})
-        except Exception as e:
-            print(f"Error parsing YAML quizz: {e}")
-    else:
-        current_q = None
-        state = None # 'question', 'options', 'feedback'
-        for line in content.split('\n'):
-            stripped = line.strip()
-            if not stripped: continue
-            
-            if line.startswith('* '):
-                if current_q:
-                    questions.append(current_q)
-                current_q = {'text': markdown.markdown(stripped[2:].strip(), extensions=['fenced_code', 'tables']), 'options': [], 'feedback': ''}
-                state = 'question'
-            else:
-                if stripped.startswith('* Options:'):
-                    state = 'options'
-                elif stripped.startswith('* Feedback:'):
-                    state = 'feedback'
-                elif stripped.startswith('* '):
-                    if state == 'options':
-                        opt_text = stripped[2:]
-                        correct = False
-                        if '{correct: true}' in opt_text:
-                            correct = True
-                            opt_text = opt_text.replace('{correct: true}', '').strip()
-                        current_q['options'].append({'text': markdown.markdown(opt_text, extensions=['fenced_code', 'tables']), 'correct': correct})
-                    elif state == 'feedback':
-                        current_q['feedback'] += markdown.markdown(stripped[2:].strip(), extensions=['fenced_code', 'tables']) + " "
-                elif line.startswith('> '):
-                    intro_lines.append(line[2:])
-                
-        if current_q:
-            questions.append(current_q)
-            
-    intro_html = markdown.markdown('\n'.join(intro_lines), extensions=['fenced_code', 'tables']) if intro_lines else ""
-    timer = slide.get('params', {}).get('time_limit', '15')
-    
-    quiz_data = html.escape(json.dumps(questions))
-    
-    return f"""<div class="content-wrapper quiz-container" data-quiz="{quiz_data}" data-timer="{timer}">
-        <h1>{title}</h1>
-        <h2>{subtitle}</h2>
-        <div class="quiz-intro">{intro_html}</div>
-        <div class="quiz-ui" style="display:none; opacity: 0; transform: translateX(20px);">
-            <div class="quiz-nav-menu"></div>
-            <div class="quiz-header" style="justify-content: flex-end;">
-                <span class="quiz-timer" style="display:none; font-size: 1.5rem;">⏳ <span class="time-left"></span>s</span>
-            </div>
-            <div class="quiz-question-box"></div>
-            <div class="quiz-options-box"></div>
-            <div class="quiz-feedback-box"></div>
-            <button class="quiz-next-btn" style="display:none;">Siguiente Pregunta</button>
-        </div>
-        <button class="quiz-start-btn">Comenzar</button>
-    </div>"""
-
-def _generate_countdown_html(slide):
-    title = html.escape(slide.get('title', ''))
-    subtitle = html.escape(slide.get('subtitle', ''))
-    logo_animation = slide.get('params', {}).get('logo_animation', 'dvd')
-    bg_html = ""
-    
-    if logo_animation == 'traffic':
-        logo_src = "https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png"
-        logos = []
-        rows = [15, 35, 55, 75]
-        for row_top in rows:
-            duration = random.uniform(20, 35)
-            num_cars = random.randint(3, 5)
-            for i in range(num_cars):
-                delay = - (duration / num_cars) * i
-                logos.append(f'<img class="traffic-logo-img" src="{logo_src}" style="top: {row_top}%; animation: driveRight {duration:.2f}s linear {delay:.2f}s infinite;">')
-        bg_html = f'<div class="traffic-logo-container">{"".join(logos)}</div>'
-    else:
-        bg_html = f'<div class="bouncing-logo-container"><img class="bouncing-logo" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" alt="Bouncing Logo"></div>'
-
-    return f"""{bg_html}<div class="content-wrapper"><h1>{title}</h1><h2>{subtitle}</h2><div class="timer">--:--</div><div class="start-message">¡Comenzamos!</div><p>{html.escape(slide.get('content', ''))}</p></div><div class="dynamic-date" style="position: absolute; bottom: 30px; left: 40px; font-size: 1.5rem; font-weight: bold; color: var(--color-black); z-index: 1;"></div>"""
-
-def _generate_warnup_mood_html(slide):
-    title = html.escape(slide.get('title', ''))
-    subtitle = html.escape(slide.get('subtitle', ''))
-    emojis = [
-    '😀', '😄', '😊', '😁', '🙂',        # positivo básico
-    '🤔', '🧐', '😐', '🤨', '😶',        # reflexión / neutral
-    '🚀', '🔥', '⚡', '🌟', '✨',        # energía / motivación
-    '🤯', '😵', '😲', '😳',              # sorpresa / shock
-    '😴', '🥱', '😪',                    # cansancio
-    '💡', '🧠',                          # ideas / thinking
-    '🎉', '🥳', '🙌',                    # celebración
-    '💪', '🏋️',                         # esfuerzo / disciplina
-    '😅', '😓',                          # estrés leve
-    '😞', '😔', '😢',                    # bajón emocional
-    '😤', '😠',                          # frustración
-    '🤩', '😍'                           # entusiasmo alto
-]
-    emoji_html = "".join([f'<div class="emoji" style="left: {random.randint(0, 95)}vw; animation-delay: -{random.uniform(0, 10):.2f}s; animation-duration: {random.uniform(5, 12):.2f}s; font-size: {random.uniform(3, 6):.2f}rem;">{random.choice(emojis)}</div>' for _ in range(50)])
-    return f"""<div class="emoji-container">{emoji_html}</div><div class="content-wrapper"><h1>{title}</h1><h2>{subtitle}</h2></div>"""
-
-def _generate_warnup_question_html(slide):
-    content = slide.get('content', '')
-    left_match = re.search(r'\{left\}(.*?)\{right\}', content, re.DOTALL)
-    if left_match:
-        left_content = left_match.group(1).strip()
-        rest_of_content = content[left_match.end():].strip()
-        img_match = re.search(r'\[.*?\]\((.*?)\)', rest_of_content)
-        right_content = f'<img src="{html.escape(img_match.group(1))}" alt="Slide image">' if img_match else ""
-    else:
-        left_content = content
-        right_content = ""
-    return f"""<div class="two-column-layout"><div class="column-left">{left_content}</div><div class="column-right">{right_content}</div></div>"""
-
-def _generate_agenda_html(slide):
-    title = html.escape(slide.get('title', ''))
-    items_html = ""
-    for line in slide.get('content', '').split('\n'):
-        if line.strip().startswith('* '):
-            item_text = line.strip()[2:]
-            duration_match = re.search(r'\{(.*?)\}', item_text)
-            duration_text = ""
-            if duration_match:
-                duration = duration_match.group(1)
-                duration_text = f"<span>{duration} min</span>"
-                item_text = item_text[:duration_match.start()].strip()
-            items_html += f"<li><strong>{item_text}</strong> {duration_text}</li>"
-    return f"""<div class="content-wrapper"><h1>{title}</h1><ul>{items_html}</ul></div>"""
-
-def _generate_objectives_html(slide):
-    title = html.escape(slide.get('title', ''))
-    subtitle = html.escape(slide.get('subtitle', ''))
-    title_html = f"<h1>{title}</h1>" if title else ""
-    subtitle_html = f"<h2>{subtitle}</h2>" if subtitle else ""
-    content = slide.get('content', '')
-    content = re.sub(r'^ {2,3}([-*])', r'    \1', content, flags=re.MULTILINE)
-    content_html = markdown.markdown(content, extensions=['fenced_code', 'tables'])
-    return f"""<div class="content-wrapper">{title_html}{subtitle_html}<div class="objectives-container">{content_html}</div></div>"""
-
-def _generate_gotocode_html(slide):
-    title = html.escape(slide.get('title', ''))
-    qr_html = "".join([f'<div class="qr-item"><img src="{html.escape(url)}" alt="{html.escape(name)} QR Code"><p>{html.escape(name)}</p></div>' for name, url in re.findall(r'\*\s*\[(.*?)\]\((.*?)\)', slide.get('content', ''))])
-    return f"""<h1>{title}</h1><div class="qr-container">{qr_html}</div>"""
-
-def _generate_finale_html(slide):
-    title = html.escape(slide.get('title', ''))
-    subtitle = html.escape(slide.get('subtitle', ''))
-    return f"<h1>{title}</h1><h2>{subtitle}</h2>"
-
-def _generate_overlay_html(slide):
-    title = html.escape(slide.get('title', ''))
-    subtitle = html.escape(slide.get('subtitle', ''))
-    title_html = f"<h1>{title}</h1>" if title else ""
-    subtitle_html = f"<h2>{subtitle}</h2>" if subtitle else ""
-    content = slide.get('content', '')
-    content_html = markdown.markdown(content, extensions=['fenced_code', 'tables'])
-    return f"""<div style="width: 80%; max-width: 1200px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">{title_html}{subtitle_html}{content_html}</div>"""
-
-def _generate_basic_slide_html(slide):
-    title = html.escape(slide.get('title', ''))
-    subtitle = html.escape(slide.get('subtitle', ''))
-    title_html = f"<h1>{title}</h1>" if title else ""
-    subtitle_html = f"<h2>{subtitle}</h2>" if subtitle else ""
-    content_html = markdown.markdown(slide.get('content', ''), extensions=['fenced_code', 'tables'])
-    return f"""<div class="content-wrapper">{title_html}{subtitle_html}{content_html}</div>"""
-
-def _generate_two_columns_html(slide):
-    title = html.escape(slide.get('title', ''))
-    subtitle = html.escape(slide.get('subtitle', ''))
-    title_html = f"<h1>{title}</h1>" if title else ""
-    subtitle_html = f"<h2>{subtitle}</h2>" if subtitle else ""
-
-    content = slide.get('content', '')
-    left_match = re.search(r'\.left\{(.*?)\}', content, re.DOTALL | re.IGNORECASE)
-    right_match = re.search(r'\.right\{(.*?)\}|\.rigth\{(.*?)\}', content, re.DOTALL | re.IGNORECASE)
-    
-    left_content = left_match.group(1).strip() if left_match else ""
-    right_content = ""
-    if right_match:
-        right_content = right_match.group(1) if right_match.group(1) else right_match.group(2)
-        right_content = right_content.strip()
-    
-    left_html = markdown.markdown(left_content, extensions=['fenced_code', 'tables'])
-    right_html = markdown.markdown(right_content, extensions=['fenced_code', 'tables'])
-    
-    return f"""<div class="content-wrapper">{title_html}{subtitle_html}<div class="two-column-layout" style="align-items: stretch; margin-top: 1rem;"><div class="column-left">{left_html}</div><div class="column-right">{right_html}</div></div></div>"""
-
-def generate_slide_html(slide):
-    logo_html = '<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">\n'
-    generator_map = {
-        'countdown': _generate_countdown_html, 'warnup-mood': _generate_warnup_mood_html,
-        'warnup-question': _generate_warnup_question_html, 'agenda': _generate_agenda_html,
-        'objectives': _generate_objectives_html, 'gotocode': _generate_gotocode_html,
-        'finale': _generate_finale_html, 'basic_slide': _generate_basic_slide_html,
-        'two_columns_slide': _generate_two_columns_html, 'overlay': _generate_overlay_html,
-        'quizz': _generate_quizz_html,
-    }
-    generator_func = generator_map.get(slide.get('type', 'unknown'))
-    if generator_func:
-        return logo_html + generator_func(slide)
-    return logo_html + f"<h1>{html.escape(slide.get('title', ''))}</h1><h2>{html.escape(slide.get('subtitle', ''))}</h2><p>{html.escape(slide.get('content', ''))}</p>"
-
-def generate_html(slides):
-    css = generate_css()
-    js = generate_js(slides)
-    slides_html = ""
-    slide_list_items_html = ""
-    for i, slide in enumerate(slides):
-        slide_type = slide.get('type', 'unknown')
-        slide_content = generate_slide_html(slide)
-        transition_title = slide.get('params', {}).get('title_transition', '')
-        timer_duration = slide.get('params', {}).get('timer', '600')
-        data_attributes = f'data-type="{slide_type}"'
-        if slide_type == 'countdown':
-            data_attributes += f' data-timer="{timer_duration}"'
-        if transition_title:
-            data_attributes += f' data-transition-title="{html.escape(transition_title)}"'
-        slides_html += f'<div class="slide slide-{slide_type}" id="slide-{i}" {data_attributes}>\n{slide_content}\n</div>\n'
-        
-        slide_title = slide.get('title', '')
-        if not slide_title:
-            slide_title = slide.get('subtitle', '')
-        if not slide_title:
-            slide_title = f"{slide_type.capitalize()} {i+1}"
-        slide_list_items_html += f'<li><button class="menu-jump-btn" data-index="{i}">{i+1}. {html.escape(slide_title)}</button></li>\n'
-
-    return f"""
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Presentación</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
-    <script>
-      window.MathJax = {{
-        tex: {{ inlineMath: [['$', '$'], ['\\\\(', '\\\\)']] }}
-      }};
-    </script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
-    {css}
-</head>
-<body>
-    <div class="presentation">
-        <div id="transition-overlay"><div class="content-wrapper"><h1></h1></div></div>
-        {slides_html}
-        <div id="slide-menu" class="slide-menu">
-            <div class="slide-menu-content">
-                <button id="close-menu-btn" class="close-menu" title="Cerrar">&times;</button>
-                <h2>Índice de Diapositivas</h2>
-                <ul class="slide-list">
-                    {slide_list_items_html}
-                </ul>
-            </div>
-        </div>
-        <div class="slide-nav">
-            <button id="prev-btn" title="Anterior (Flecha Izquierda)">&#8592;</button>
-            <button id="menu-btn" title="Índice de Diapositivas">&#9776;</button>
-            <button id="next-btn" title="Siguiente (Flecha Derecha)">&#8594;</button>
-        </div>
-    </div>
-    {js}
 </body>
 </html>
-"""
-
-def main():
-    parser = argparse.ArgumentParser(description='Generate HTML slides from a markdown file.')
-    parser.add_argument('--output_file', type=str, default='', help='Output HTML file name.')
-    parser.add_argument('--input_file', type=str, default='', help='Input markdown file name.')
-    args, _ = parser.parse_known_args()
-    try:
-        with open(args.input_file, 'r', encoding='utf-8') as f:
-            markdown_content = f.read()
-    except FileNotFoundError:
-        print(f"Error: Input file '{args.input_file}' not found.")
-        return
-    slides = parse_markdown(markdown_content)
-    html_output = generate_html(slides)
-    if not args.output_file:
-        args.output_file = args.input_file.replace('.md', '.html')
-    with open(args.output_file, 'w', encoding='utf-8') as f:
-        f.write(html_output)
-    print(f"Successfully generated slides in '{args.output_file}'")
-
-if __name__ == '__main__':
-    main()
