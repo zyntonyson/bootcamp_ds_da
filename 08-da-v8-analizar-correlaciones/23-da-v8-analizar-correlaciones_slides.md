@@ -1,4 +1,4 @@
-@countdown{timer: 180 , title_transition: "¡Comenzamos en breve!"}
+@countdown{timer: 300 , title_transition: "¡Comenzamos en breve!"}
 
 # Sprint 8 Sesión 1 
 ## Explorar conexiones de datos con correlaciones 
