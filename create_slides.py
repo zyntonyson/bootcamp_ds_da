@@ -231,7 +231,7 @@ def generate_css():
     .quiz-container h1, .quiz-container h2 { text-align: center; }
     .quiz-intro { text-align: center; font-size: 1.5rem; margin-bottom: 2rem; color: var(--color-dark-gray-1); }
     .quiz-start-btn, .quiz-next-btn { align-self: center; background: var(--color-orange); border: none; color: var(--color-black); font-size: 1.5rem; font-weight: bold; padding: 1rem 3rem; border-radius: 10px; cursor: pointer; transition: transform 0.2s; margin-top: 2rem; }
-    .quiz-start-btn:hover, .quiz-next-btn:hover { transform: scale(1.05); }
+    .quiz-start-btn:hover, .quiz-next-btn:hover, .quiz-show-answer-btn:hover { transform: scale(1.05); }
     .quiz-header { display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: bold; margin-bottom: 1rem; color: var(--color-dark-gray-2); border-bottom: 2px solid rgba(0,0,0,0.1); padding-bottom: 10px; }
     .quiz-timer { color: #d9534f; }
     .quiz-question-box { font-size: 1.8rem; margin: 1.5rem 0; font-weight: 700; color: var(--color-black); }
@@ -394,6 +394,7 @@ def generate_js(slides):
             const timerDiv = container.querySelector('.quiz-timer');
             const timerSpan = container.querySelector('.time-left');
             const navMenu = container.querySelector('.quiz-nav-menu');
+            const showAnsBtn = container.querySelector('.quiz-show-answer-btn');
 
             const h1 = container.querySelector('h1');
             const h2 = container.querySelector('h2');
@@ -445,6 +446,7 @@ def generate_js(slides):
                     feedBox.className = 'quiz-feedback-box'; 
                     feedBox.innerHTML = q.feedback || '';
                     nextBtn.style.display = 'none';
+                    if (showAnsBtn) showAnsBtn.style.display = 'none';
                     updateNavMenu();
 
                     q.options.forEach((opt, idx) => {{
@@ -468,6 +470,7 @@ def generate_js(slides):
 
                     if (timeLimit > 0) {{
                         timerDiv.style.display = 'inline-block';
+                        if (showAnsBtn) showAnsBtn.style.display = 'inline-block';
                         timeLeft = timeLimit;
                         timerSpan.textContent = timeLeft;
                         timerInterval = setInterval(() => {{
@@ -480,6 +483,7 @@ def generate_js(slides):
                         }}, 1000);
                     }} else {{
                         timerDiv.style.display = 'none';
+                        if (showAnsBtn) showAnsBtn.style.display = 'inline-block';
                         setTimeout(revealAnswer, 5000);
                     }}
                 }}, 400);
@@ -488,6 +492,8 @@ def generate_js(slides):
             function revealAnswer() {{
                 if(!canAnswer) return;
                 canAnswer = false;
+                clearInterval(timerInterval);
+                if (showAnsBtn) showAnsBtn.style.display = 'none';
                 
                 const q = questions[currentQIndex];
                 const cards = optBox.querySelectorAll('.quiz-option-card');
@@ -557,6 +563,12 @@ def generate_js(slides):
                 currentQIndex++;
                 renderQuestion();
             }});
+
+            if (showAnsBtn) {{
+                showAnsBtn.addEventListener('click', () => {{
+                    revealAnswer();
+                }});
+            }}
         }});
 
         if (slides.length > 0) {{
@@ -644,8 +656,9 @@ def _generate_quizz_html(slide):
         <div class="quiz-intro">{intro_html}</div>
         <div class="quiz-ui" style="display:none; opacity: 0; transform: translateX(20px);">
             <div class="quiz-nav-menu"></div>
-            <div class="quiz-header" style="justify-content: flex-end;">
+            <div class="quiz-header" style="justify-content: flex-end; flex-direction: column; align-items: flex-end;">
                 <span class="quiz-timer" style="display:none; font-size: 1.5rem;">⏳ <span class="time-left"></span>s</span>
+                <button class="quiz-show-answer-btn" style="display:none; margin-top: 10px; font-size: 1.1rem; cursor: pointer; padding: 8px 15px; border-radius: 5px; background: var(--color-orange); color: var(--color-black); border: none; font-weight: bold; transition: transform 0.2s;">Mostrar Respuesta</button>
             </div>
             <div class="quiz-question-box"></div>
             <div class="quiz-options-box"></div>
