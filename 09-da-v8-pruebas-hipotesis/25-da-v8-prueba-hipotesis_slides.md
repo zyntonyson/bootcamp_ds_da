@@ -90,8 +90,8 @@ quizz:
         - option: "😇 Nos dice directamente si la hipótesis nula ($H_0$) es totalmente falsa en el mundo real."
         - option: "😎 Es qué tan 'raros' o extremos serían nuestros resultados si asumiéramos que la hipótesis nula ($H_0$) es cierta."
           correct: true
-        - option: "👍 Mide exactamente cuánto dinero, retención o clics va a ganar la empresa con el experimento."
-        - option: "😄 Nos da la seguridad absoluta (100%) de que nuestra hipótesis alternativa es  verdad."
+        - option: "👍 Mide exactamente la probabilidad de que nuestra hipótesis alternativa sea cierta."
+        - option: "😄 Nos da la certeza absoluta (100%) de que nuestra hipótesis nula ($H_0$) sea  verdad."
       feedback: |
         ¡Excelente! Recuerda que **el $p$-valor NO es una medida incondicional** de la veracidad de la hipótesis. Concretamente nos cuenta qué tan _'raros'_ habrían sido nuestros datos observados si, de facto, no existiera un efecto o anomalía.
 

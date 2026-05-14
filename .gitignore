@@ -1,7 +1,7 @@
 .venv/
 key/
 img/
-
+labs/
 07-herramientas-desarrollo/token.txt
 
 # Scikit-learn / Joblib / Pickle
