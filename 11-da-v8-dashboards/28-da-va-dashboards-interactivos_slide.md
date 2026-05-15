@@ -1,6 +1,6 @@
-@countdown{timer: 600 , title_transition: "¡Comenzamos en breve!"}
+@countdown{timer: 120 , title_transition: "¡Comenzamos en breve!"}
 
-# Sprint 11 Webinar 28
+# Sprint 11 Sesión 1
 ## Crea dashboards interactivos para stakeholders
 
 
@@ -50,8 +50,22 @@
 
 ---
 
+@basic_slide{title_transition: "Ahora para finalizar"}
+
+# 🎉 Espero que hayas disfrutado la sesión
+## Qué te parece si:
+
+* 🏃‍♂️ Continúa con tu avance en el sprint.
+* 🚀 Trata de aplicar lo aprendido en un proyecto personal o tema de tu interés.
+* 🤝 Participa en el Co-Learning para afianzar tus conocimientos mientras ayudas a otros a entenderlos.
+* 💬 Comparte en nuestro canal de `community` algo que te haya gustado o llamado la atención de esta sesión.
+* 🤖 Utiliza la IA de preferencia para que te genere alguna actividad extra para practicar lo aprendido.
+* 📝 Al finalizar la sesión recibirás una encuesta de satisfacción, tus comentarios son muy valiosos para nosotros y me ayudará a mejorar como tutor.
+
+---
+
 @finale{}
 
-# ¡Gracias inmensas!
+# ¡Excelente trabajo! 🚀📊
 
-## Tu asistencia y participación hacen que la clase sea muy valiosa
+## ¡Gracias por participar!

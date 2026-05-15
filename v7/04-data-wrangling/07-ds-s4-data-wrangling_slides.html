@@ -1,0 +1,628 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <script>
+      window.MathJax = {
+        tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    
+<style>
+    :root {
+        --color-orange: #F2855A;
+        --color-green: #66B37D;
+        --color-light-gray: #F2F2F2;
+        --color-dark-mode: #111111;
+        --color-black: #0A0A0A;
+        --color-dark-gray-1: #333333;
+        --color-dark-gray-2: #5F5F5F;
+        --color-white-soft: #F5F5F5;
+        --font-main: 'Montserrat', sans-serif;
+    }
+
+    body {
+        margin: 0;
+        font-family: var(--font-main);
+        overflow: hidden;
+    }
+
+    .presentation {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 2rem;
+        box-sizing: border-box;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.6s ease-in-out, visibility 0.6s ease-in-out;
+    }
+
+    .slide.active {
+        opacity: 1;
+        visibility: visible;
+        z-index: 1;
+    }
+
+    .slide h1 { font-size: 3rem; font-weight: 700; margin: 0 0 0.5rem 0; }
+    .slide h2 { font-size: 1.8rem; font-weight: 300; margin: 0; }
+
+    .slide-countdown { background-color: var(--color-orange); color: var(--color-black); }
+    .slide-countdown h2 { color: var(--color-dark-gray-2); }
+    .slide-countdown .timer { font-size: 5rem; font-weight: 300; letter-spacing: 5px; margin: 1.5rem 0; text-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    .slide-countdown .start-message { font-size: 2.5rem; font-weight: 700; display: none; }
+    
+    .bouncing-logo-container { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; overflow: hidden; z-index: 0; pointer-events: none; }
+    .bouncing-logo { position: absolute; width: 250px; opacity: 0.15; animation: bounceX 13s linear infinite alternate, bounceY 9s linear infinite alternate; }
+    @keyframes bounceX { 0% { left: 0; } 100% { left: calc(100vw - 250px); } }
+    @keyframes bounceY { 0% { top: 0; } 100% { top: calc(100vh - 75px); } }
+
+    .traffic-logo-container { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; overflow: hidden; z-index: 0; pointer-events: none; }
+    .traffic-logo-img { position: absolute; width: 220px; opacity: 0.15; left: -250px; transform: translateY(-50%); }
+    @keyframes driveRight { 0% { transform: translateY(-50%) translateX(0); } 100% { transform: translateY(-50%) translateX(calc(100vw + 500px)); } }
+
+    .slide-transition { background-color: var(--color-green); color: var(--color-black); }
+    
+    .slide-warnup-mood { background-color: var(--color-green); color: var(--color-black); justify-content: center; position: relative; }
+    .content-wrapper { position: relative; z-index: 1; background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); padding: 2rem 4rem; border-radius: 20px; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1); border: 1px solid rgba(255, 255, 255, 0.18); }
+    .slide-warnup-mood h1, .slide-warnup-mood h2 { font-weight: bold; }
+    .emoji-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 0; }
+    .emoji { position: absolute; top: -10%; font-size: 2rem; animation: fall 10s linear infinite; }
+    @keyframes fall {
+        0% { transform: translateY(0) rotate(0); }
+        100% { transform: translateY(110vh) rotate(360deg); }
+    }
+
+    .slide-agenda, .slide-warnup-question, .slide-basic_slide, .slide-two_columns_slide { background-color: var(--color-light-gray); color: var(--color-black); }
+    .slide-agenda .content-wrapper, .slide-basic_slide .content-wrapper, .slide-two_columns_slide .content-wrapper { width: 90%; text-align: left; overflow-y: auto; max-height: 85vh; padding: 2rem 3rem; }
+    .slide-basic_slide .content-wrapper img, .slide-two_columns_slide .content-wrapper img { max-width: 100%; border-radius: 10px; display: block; margin: 1rem auto; padding: 0; }
+    .slide-basic_slide .content-wrapper p, .slide-basic_slide .content-wrapper ul, .slide-basic_slide .content-wrapper ol, .slide-two_columns_slide .content-wrapper p, .slide-two_columns_slide .content-wrapper ul, .slide-two_columns_slide .content-wrapper ol { font-size: 1.5rem; line-height: 1.6; }
+    .slide-basic_slide .content-wrapper ul, .slide-basic_slide .content-wrapper ol, .slide-two_columns_slide .content-wrapper ul, .slide-two_columns_slide .content-wrapper ol { padding-left: 3rem; }
+    
+    .slide-two_columns_slide .column-left { padding-right: 2rem; width: 50%; display: flex; flex-direction: column; justify-content: center; }
+    .slide-two_columns_slide .column-right { width: 50%; display: flex; align-items: center; justify-content: center; height: 100%; }
+    .slide-two_columns_slide .column-right img { width: 100%; max-height: 70vh; object-fit: contain; }
+    .slide-agenda h1 { color: var(--color-black); margin-bottom: 1.5rem; }
+    .slide-agenda ul { list-style: none; padding: 0; font-size: 1.5rem; }
+    .slide-agenda li { margin: 0.8rem 0; }
+    .slide-agenda li strong { color: var(--color-black); }
+    .slide-agenda li span { color: var(--color-dark-gray-1); margin-left: 1rem; }
+
+    .two-column-layout { display: flex; align-items: center; justify-content: center; width: 100%; gap: 2rem; }
+    .column-left { width: 50%; text-align: left; }
+    .column-right { width: 50%; }
+    .column-right img { max-width: 100%; border-radius: 10px; }
+
+    .slide-objectives { background-color: var(--color-light-gray); color: var(--color-black); }
+    .slide-objectives .content-wrapper { padding: 3rem; text-align: center; width: 95%; max-width: 1600px; max-height: 85vh; overflow-y: auto; }
+    .slide-objectives .objectives-container > ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; list-style: none; padding: 0; margin: 2rem 0; width: 100%; }
+    .slide-objectives .objectives-container > ul > li { background-color: var(--color-light-gray); color: var(--color-dark-gray-1); padding: 2.5rem; border-radius: 15px; flex: 1; min-width: 300px; max-width: 480px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: left; font-size: 1.3rem; line-height: 1.5; display: flex; flex-direction: column; }
+    .slide-objectives .objectives-container > ul > li p { margin: 0; }
+    .slide-objectives .objectives-container img { max-width: 100%; max-height: 100px; object-fit: contain; display: block; margin: 0 auto 1rem auto; }
+    .slide-objectives .objectives-container > ul > li > ul { list-style: none; padding-left: 0; margin-top: 1rem; font-size: 1.1rem; }
+    .slide-objectives .objectives-container > ul > li > ul > li { position: relative; padding-left: 1.2rem; margin-bottom: 0.8rem; color: var(--color-dark-gray-2); }
+    .slide-objectives .objectives-container > ul > li > ul > li::before { content: "•"; position: absolute; left: 0; color: var(--color-green); font-weight: bold; }
+    .slide-objectives h1 { color: var(--color-black); margin-bottom: 1rem; }
+
+    .slide-overlay { background-color: var(--color-black); color: var(--color-white-soft); }
+    .slide-overlay h1, .slide-overlay h2 { color: var(--color-white-soft); margin-bottom: 0.5rem; }
+    .slide-overlay p { font-size: 3rem; font-weight: 500; margin: 1rem 0; line-height: 1.4; color: var(--color-white-soft); text-align: center; }
+
+    .slide-gotocode { background-color: var(--color-dark-mode); color: var(--color-white-soft); }
+    .slide-finale { background-color: var(--color-orange); color: var(--color-black); }
+    .slide-finale h2 { color: var(--color-dark-gray-2); }
+    .slide-gotocode a { color: var(--color-white-soft); }
+    .slide-gotocode .qr-container { display: flex; gap: 2rem; margin-top: 2rem; }
+    .slide-gotocode .qr-item { display: flex; flex-direction: column; align-items: center; }
+    .slide-gotocode .qr-item img { width: 150px; height: 150px; border-radius: 10px; }
+
+    #transition-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out; background-color: var(--color-green); color: var(--color-black); }
+    #transition-overlay h1 { color: var(--color-black); margin-bottom: 0; }
+    #transition-overlay .content-wrapper { width: 90%; text-align: left; padding: 2rem 3rem; }
+    #transition-overlay.visible { opacity: 1; visibility: visible; }
+    
+    .slide-nav { position: absolute; bottom: 20px; right: 20px; z-index: 100; display: flex; gap: 10px; }
+    .slide-nav button { background: rgba(128, 128, 128, 0.5); border: none; color: white; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 1.5rem; transition: background 0.3s; }
+    .slide-nav button:hover { background: rgba(128, 128, 128, 0.9); }
+
+    .slide-menu { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); z-index: 200; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+    .slide-menu.active { opacity: 1; visibility: visible; }
+    .slide-menu-content { background: var(--color-light-gray); padding: 3rem; border-radius: 15px; width: 80%; max-width: 800px; max-height: 80vh; overflow-y: auto; position: relative; color: var(--color-black); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+    .slide-menu-content h2 { margin-top: 0; border-bottom: 2px solid var(--color-dark-gray-1); padding-bottom: 1rem; color: var(--color-black); }
+    .close-menu { position: absolute; top: 15px; right: 20px; background: none; border: none; font-size: 2.5rem; cursor: pointer; color: var(--color-dark-gray-2); transition: color 0.3s; }
+    .close-menu:hover { color: var(--color-orange); }
+    .slide-list { list-style: none; padding: 0; }
+    .slide-list li { margin: 0.5rem 0; }
+    .menu-jump-btn { width: 100%; text-align: left; background: var(--color-white-soft); border: 1px solid rgba(0,0,0,0.1); padding: 1rem; border-radius: 8px; font-size: 1.2rem; cursor: pointer; transition: background 0.2s, transform 0.1s; font-family: var(--font-main); color: var(--color-dark-gray-1); }
+    .menu-jump-btn:hover { background: var(--color-orange); color: var(--color-black); transform: translateX(5px); }
+    
+    .company-logo { position: absolute; top: 30px; left: 40px; max-height: 60px; opacity: 0; z-index: 50; pointer-events: none; }
+    .slide-countdown .company-logo, .slide-warnup-mood .company-logo, .slide-finale .company-logo, .slide-overlay .company-logo { display: none !important; animation: none !important; }
+    .slide.active .company-logo { animation: showAndHideLogo 4s ease-in-out forwards; }
+    @keyframes showAndHideLogo {
+        0% { opacity: 0; transform: translateY(-10px); }
+        10% { opacity: 1; transform: translateY(0); }
+        80% { opacity: 1; transform: translateY(0); }
+        100% { opacity: 0; transform: translateY(-10px); }
+    }
+
+    .quiz-container { display: flex; flex-direction: column; width: 90%; max-width: 1000px; padding: 3rem; align-items: stretch; text-align: left; overflow-y: auto; max-height: 85vh;}
+    .quiz-container h1, .quiz-container h2 { text-align: center; }
+    .quiz-intro { text-align: center; font-size: 1.5rem; margin-bottom: 2rem; color: var(--color-dark-gray-1); }
+    .quiz-start-btn, .quiz-next-btn { align-self: center; background: var(--color-orange); border: none; color: var(--color-black); font-size: 1.5rem; font-weight: bold; padding: 1rem 3rem; border-radius: 10px; cursor: pointer; transition: transform 0.2s; margin-top: 2rem; }
+    .quiz-start-btn:hover, .quiz-next-btn:hover, .quiz-show-answer-btn:hover { transform: scale(1.05); }
+    .quiz-header { display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: bold; margin-bottom: 1rem; color: var(--color-dark-gray-2); border-bottom: 2px solid rgba(0,0,0,0.1); padding-bottom: 10px; }
+    .quiz-timer { color: #d9534f; }
+    .quiz-question-box { font-size: 1.8rem; margin: 1.5rem 0; font-weight: 700; color: var(--color-black); }
+    .quiz-question-box p { margin: 0; }
+    .quiz-question-box img { max-width: 100%; border-radius: 10px; max-height: 350px; object-fit: contain; display: block; margin: 15px auto; }
+    .quiz-options-box { display: flex; flex-direction: column; gap: 1rem; perspective: 1000px; }
+    .quiz-option-card { background: var(--color-white-soft); border: 2px solid var(--color-light-gray); text-align: left; padding: 1rem 1.5rem; font-size: 1.4rem; border-radius: 10px; transition: all 0.6s cubic-bezier(0.4, 0.2, 0.2, 1); font-family: var(--font-main); color: var(--color-dark-gray-1); transform-style: preserve-3d; }
+    .quiz-option-card p { margin: 0; }
+    .quiz-option-card.flip-correct { background: #d4edda; border-color: #28a745; color: #155724; transform: rotateX(360deg); box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3); }
+    .quiz-option-card.fade-out { opacity: 0.4; filter: grayscale(100%); }
+    .quiz-feedback-box { margin-top: 2rem; background: rgba(0,0,0,0.05); padding: 1.5rem; border-radius: 10px; border-left: 5px solid var(--color-orange); font-size: 1.3rem; opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .quiz-feedback-box.show { opacity: 1; transform: translateY(0); display: block; }
+    
+    .quiz-nav-menu { display: flex; justify-content: center; gap: 10px; margin-bottom: 2rem; }
+    .quiz-nav-dot { width: 40px; height: 40px; border-radius: 50%; background: rgba(0,0,0,0.1); color: var(--color-dark-gray-2); border: none; font-size: 1.2rem; font-weight: bold; cursor: pointer; transition: all 0.3s; display: flex; justify-content: center; align-items: center; }
+    .quiz-nav-dot:hover { background: rgba(0,0,0,0.2); }
+    .quiz-nav-dot.active { background: var(--color-orange); color: var(--color-black); transform: scale(1.1); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    .quiz-intro { transition: opacity 0.5s, transform 0.5s; }
+    .quiz-ui { transition: opacity 0.5s, transform 0.5s; }
+    .slide-quizz .content-wrapper { overflow-x: hidden; }
+    pre { border-radius: 8px; font-size: 1.1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 1.2rem; color: var(--color-dark-gray-1); }
+    th, td { border: 1px solid rgba(0,0,0,0.1); padding: 1rem; text-align: left; }
+    th { background-color: var(--color-light-gray); font-weight: bold; color: var(--color-black); }
+    tr:nth-child(even) { background-color: rgba(0,0,0,0.02); }
+    .slide-overlay table, .slide-gotocode table { color: var(--color-white-soft); }
+    .slide-overlay th, .slide-gotocode th { background-color: rgba(255,255,255,0.1); color: var(--color-white-soft); border-color: rgba(255,255,255,0.2); }
+    .slide-overlay td, .slide-gotocode td { border-color: rgba(255,255,255,0.2); }
+    .slide-overlay tr:nth-child(even), .slide-gotocode tr:nth-child(even) { background-color: rgba(255,255,255,0.05); }
+</style>
+
+</head>
+<body>
+    <div class="presentation">
+        <div id="transition-overlay"><div class="content-wrapper"><h1></h1></div></div>
+        <div class="slide slide-countdown" id="slide-0" data-type="countdown" data-timer="600" data-transition-title="¡Comenzamos en breve!">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="traffic-logo-container"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 15%; animation: driveRight 30.60s linear -0.00s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 15%; animation: driveRight 30.60s linear -7.65s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 15%; animation: driveRight 30.60s linear -15.30s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 15%; animation: driveRight 30.60s linear -22.95s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 35%; animation: driveRight 22.24s linear -0.00s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 35%; animation: driveRight 22.24s linear -5.56s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 35%; animation: driveRight 22.24s linear -11.12s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 35%; animation: driveRight 22.24s linear -16.68s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 55%; animation: driveRight 24.72s linear -0.00s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 55%; animation: driveRight 24.72s linear -8.24s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 55%; animation: driveRight 24.72s linear -16.48s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 75%; animation: driveRight 29.34s linear -0.00s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 75%; animation: driveRight 29.34s linear -9.78s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 75%; animation: driveRight 29.34s linear -19.56s infinite;"></div><div class="content-wrapper"><h1>Sprint 4 Sesión 1</h1><h2>Manipulación de datos (Data Wrangling)</h2><div class="timer">--:--</div><div class="start-message">¡Comenzamos!</div><p></p></div><div class="dynamic-date" style="position: absolute; bottom: 30px; left: 40px; font-size: 1.5rem; font-weight: bold; color: var(--color-black); z-index: 1;"></div>
+</div>
+<div class="slide slide-warnup-mood" id="slide-1" data-type="warnup-mood" data-transition-title="Midamos los ánimos">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="emoji-container"><div class="emoji" style="left: 90vw; animation-delay: -0.04s; animation-duration: 7.50s; font-size: 5.18rem;">💪</div><div class="emoji" style="left: 82vw; animation-delay: -1.50s; animation-duration: 7.18s; font-size: 3.25rem;">🤨</div><div class="emoji" style="left: 5vw; animation-delay: -6.86s; animation-duration: 9.79s; font-size: 4.50rem;">🔥</div><div class="emoji" style="left: 29vw; animation-delay: -7.41s; animation-duration: 7.09s; font-size: 5.81rem;">😐</div><div class="emoji" style="left: 8vw; animation-delay: -2.52s; animation-duration: 5.83s; font-size: 4.50rem;">🤨</div><div class="emoji" style="left: 73vw; animation-delay: -7.03s; animation-duration: 8.75s; font-size: 4.61rem;">😅</div><div class="emoji" style="left: 30vw; animation-delay: -8.74s; animation-duration: 8.39s; font-size: 3.50rem;">🙂</div><div class="emoji" style="left: 53vw; animation-delay: -0.65s; animation-duration: 10.97s; font-size: 3.16rem;">⚡</div><div class="emoji" style="left: 68vw; animation-delay: -2.61s; animation-duration: 8.77s; font-size: 5.77rem;">😵</div><div class="emoji" style="left: 62vw; animation-delay: -7.04s; animation-duration: 10.70s; font-size: 4.44rem;">🔥</div><div class="emoji" style="left: 27vw; animation-delay: -4.03s; animation-duration: 11.63s; font-size: 4.87rem;">😴</div><div class="emoji" style="left: 56vw; animation-delay: -7.37s; animation-duration: 8.19s; font-size: 5.99rem;">😐</div><div class="emoji" style="left: 11vw; animation-delay: -8.25s; animation-duration: 5.13s; font-size: 5.08rem;">😅</div><div class="emoji" style="left: 33vw; animation-delay: -4.97s; animation-duration: 7.73s; font-size: 5.06rem;">✨</div><div class="emoji" style="left: 91vw; animation-delay: -4.21s; animation-duration: 7.03s; font-size: 4.57rem;">💪</div><div class="emoji" style="left: 14vw; animation-delay: -4.71s; animation-duration: 11.92s; font-size: 4.06rem;">😶</div><div class="emoji" style="left: 31vw; animation-delay: -5.33s; animation-duration: 5.48s; font-size: 4.22rem;">🌟</div><div class="emoji" style="left: 67vw; animation-delay: -0.69s; animation-duration: 7.17s; font-size: 4.02rem;">😢</div><div class="emoji" style="left: 23vw; animation-delay: -8.62s; animation-duration: 7.26s; font-size: 3.94rem;">🤨</div><div class="emoji" style="left: 65vw; animation-delay: -5.98s; animation-duration: 6.86s; font-size: 4.51rem;">😶</div><div class="emoji" style="left: 3vw; animation-delay: -4.79s; animation-duration: 7.60s; font-size: 3.21rem;">😴</div><div class="emoji" style="left: 53vw; animation-delay: -1.00s; animation-duration: 10.45s; font-size: 5.70rem;">💪</div><div class="emoji" style="left: 56vw; animation-delay: -9.12s; animation-duration: 10.68s; font-size: 5.43rem;">🤨</div><div class="emoji" style="left: 42vw; animation-delay: -8.76s; animation-duration: 5.88s; font-size: 5.10rem;">🤔</div><div class="emoji" style="left: 33vw; animation-delay: -6.22s; animation-duration: 11.65s; font-size: 4.21rem;">😶</div><div class="emoji" style="left: 94vw; animation-delay: -8.65s; animation-duration: 7.13s; font-size: 3.97rem;">😐</div><div class="emoji" style="left: 83vw; animation-delay: -6.69s; animation-duration: 10.91s; font-size: 4.23rem;">✨</div><div class="emoji" style="left: 53vw; animation-delay: -3.46s; animation-duration: 8.33s; font-size: 5.06rem;">😢</div><div class="emoji" style="left: 12vw; animation-delay: -3.07s; animation-duration: 6.66s; font-size: 5.21rem;">🤨</div><div class="emoji" style="left: 21vw; animation-delay: -9.41s; animation-duration: 5.59s; font-size: 3.68rem;">🎉</div><div class="emoji" style="left: 71vw; animation-delay: -2.28s; animation-duration: 5.08s; font-size: 3.58rem;">💪</div><div class="emoji" style="left: 9vw; animation-delay: -9.81s; animation-duration: 7.46s; font-size: 5.13rem;">😴</div><div class="emoji" style="left: 16vw; animation-delay: -7.43s; animation-duration: 8.99s; font-size: 4.92rem;">😲</div><div class="emoji" style="left: 19vw; animation-delay: -9.99s; animation-duration: 11.51s; font-size: 3.21rem;">😴</div><div class="emoji" style="left: 62vw; animation-delay: -8.78s; animation-duration: 7.67s; font-size: 5.21rem;">🙌</div><div class="emoji" style="left: 69vw; animation-delay: -4.26s; animation-duration: 9.48s; font-size: 4.31rem;">😄</div><div class="emoji" style="left: 6vw; animation-delay: -0.44s; animation-duration: 5.30s; font-size: 3.91rem;">😔</div><div class="emoji" style="left: 25vw; animation-delay: -4.39s; animation-duration: 5.92s; font-size: 3.50rem;">🌟</div><div class="emoji" style="left: 87vw; animation-delay: -3.60s; animation-duration: 7.09s; font-size: 5.54rem;">😊</div><div class="emoji" style="left: 42vw; animation-delay: -4.40s; animation-duration: 7.67s; font-size: 4.26rem;">😅</div><div class="emoji" style="left: 26vw; animation-delay: -3.49s; animation-duration: 7.58s; font-size: 4.31rem;">🌟</div><div class="emoji" style="left: 73vw; animation-delay: -7.04s; animation-duration: 8.77s; font-size: 3.54rem;">😍</div><div class="emoji" style="left: 79vw; animation-delay: -8.23s; animation-duration: 10.72s; font-size: 4.29rem;">😲</div><div class="emoji" style="left: 35vw; animation-delay: -1.48s; animation-duration: 5.78s; font-size: 3.97rem;">🤩</div><div class="emoji" style="left: 53vw; animation-delay: -9.17s; animation-duration: 6.82s; font-size: 3.32rem;">😔</div><div class="emoji" style="left: 4vw; animation-delay: -7.10s; animation-duration: 7.50s; font-size: 5.49rem;">💡</div><div class="emoji" style="left: 3vw; animation-delay: -6.47s; animation-duration: 10.10s; font-size: 4.85rem;">🤩</div><div class="emoji" style="left: 13vw; animation-delay: -8.99s; animation-duration: 7.69s; font-size: 4.52rem;">🏋️</div><div class="emoji" style="left: 90vw; animation-delay: -8.62s; animation-duration: 5.55s; font-size: 4.75rem;">🔥</div><div class="emoji" style="left: 59vw; animation-delay: -6.19s; animation-duration: 7.43s; font-size: 3.54rem;">🔥</div></div><div class="content-wrapper"><h1>¿Cómo llegas a la sesión de hoy?</h1><h2>Reacciona con el emoji 😎🤔🤓🙂 que mejor represente tu mood</h2></div>
+</div>
+<div class="slide slide-agenda" id="slide-2" data-type="agenda" data-transition-title="Nuestra Agenda de Hoy">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="content-wrapper"><h1>Plan de nuestra sesión</h1><ul><li><strong>👋 Bienvenida</strong> <span>5 min</span></li><li><strong>📊🧹 Revisión de conceptos de Data-Wranglig con datos de salud  (continuación)</strong> <span>60 min</span></li><li><strong>🔍👩‍💻 Quizz de repaso</strong> <span>10 min</span></li><li><strong>🤔 Reflexión y discusión: ¿Qué aprendimos en esta sesión?</strong> <span>5 min</span></li></ul></div>
+</div>
+<div class="slide slide-objectives" id="slide-3" data-type="objectives" data-transition-title="¿Qué aprenderemos hoy?">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="content-wrapper"><h1>Metas de contenido para esta sesión</h1><div class="objectives-container"><ul>
+<li>🛡️ <strong>Realizar un casteo seguro de variables</strong><ul>
+<li><em>Convertir tipos de datos evitando pérdida de información</em></li>
+<li><em>Manejar valores inválidos o nulos durante la conversión</em></li>
+</ul>
+</li>
+<li>⚙️ <strong>Aplicar ingeniería de características en pandas</strong><ul>
+<li><em>Crear nuevas variables a partir de datos existentes</em></li>
+<li><em>Enriquecer el dataset para obtener mejores insights</em></li>
+</ul>
+</li>
+<li>🧮 <strong>Construir y manipular tablas pivote</strong><ul>
+<li><em>Resumir y estructurar grandes volúmenes de datos</em></li>
+<li><em>Agrupar información para facilitar su interpretación</em></li>
+</ul>
+</li>
+<li>🔗 <strong>Unir múltiples DataFrames</strong><ul>
+<li>*Combinar distintas fuentes de datos usando <code>merge</code> </li>
+</ul>
+</li>
+<li>📊 <strong>Generar gráficos de exploración en pandas</strong><ul>
+<li><em>Visualizar la distribución y relación de los datos rápidamente</em></li>
+<li><em>Identificar patrones, tendencias y valores atípicos</em></li>
+</ul>
+</li>
+</ul></div></div>
+</div>
+<div class="slide slide-gotocode" id="slide-4" data-type="gotocode" data-transition-title="Vamos al ejercicio">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<h1>Escanea el código para los materiales de la clase</h1><div class="qr-container"><div class="qr-item"><img src="../../img/qrs/07-S4-Data-Wrangling-II.png" alt="Data Wrangling II QR Code"><p>Data Wrangling II</p></div></div>
+</div>
+<div class="slide slide-quizz" id="slide-5" data-type="quizz">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="content-wrapper quiz-container" data-quiz="[{&quot;text&quot;: &quot;&lt;p&gt;Si ejecutas la siguiente l\u00ednea de c\u00f3digo en pandas, \u00bfcu\u00e1l es su efecto principal?&lt;/p&gt;\n&lt;p&gt;&lt;code&gt;df[&#x27;precio&#x27;] = pd.to_numeric(df[&#x27;precio&#x27;], errors=&#x27;coerce&#x27;)&lt;/code&gt;&lt;/p&gt;&quot;, &quot;options&quot;: [{&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude07 Convierte la columna &#x27;precio&#x27; a texto y elimina los errores&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude0e Convierte la columna a tipo num\u00e9rico; los valores no convertibles ser\u00e1n NaN&lt;/p&gt;&quot;, &quot;correct&quot;: true}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\udc4d Suma todos los valores de la columna &#x27;precio&#x27; ignorando los errores&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude04 Redondea los n\u00fameros de la columna &#x27;precio&#x27; a enteros&lt;/p&gt;&quot;, &quot;correct&quot;: false}], &quot;feedback&quot;: &quot;&lt;p&gt;\u00a1Exacto! El argumento &lt;code&gt;errors=&#x27;coerce&#x27;&lt;/code&gt; obliga a la funci\u00f3n a transformar a NaN cualquier valor que no sea convertible a un n\u00famero (por ejemplo, una letra o un s\u00edmbolo suelto).&lt;/p&gt;&quot;}, {&quot;text&quot;: &quot;&lt;p&gt;Observa el siguiente DataFrame &lt;code&gt;ventas&lt;/code&gt;:&lt;/p&gt;\n&lt;table&gt;\n&lt;thead&gt;\n&lt;tr&gt;\n&lt;th style=\&quot;text-align: left;\&quot;&gt;Producto&lt;/th&gt;\n&lt;th style=\&quot;text-align: left;\&quot;&gt;Precio&lt;/th&gt;\n&lt;th style=\&quot;text-align: left;\&quot;&gt;Cantidad&lt;/th&gt;\n&lt;/tr&gt;\n&lt;/thead&gt;\n&lt;tbody&gt;\n&lt;tr&gt;\n&lt;td style=\&quot;text-align: left;\&quot;&gt;A&lt;/td&gt;\n&lt;td style=\&quot;text-align: left;\&quot;&gt;10&lt;/td&gt;\n&lt;td style=\&quot;text-align: left;\&quot;&gt;2&lt;/td&gt;\n&lt;/tr&gt;\n&lt;tr&gt;\n&lt;td style=\&quot;text-align: left;\&quot;&gt;B&lt;/td&gt;\n&lt;td style=\&quot;text-align: left;\&quot;&gt;15&lt;/td&gt;\n&lt;td style=\&quot;text-align: left;\&quot;&gt;3&lt;/td&gt;\n&lt;/tr&gt;\n&lt;/tbody&gt;\n&lt;/table&gt;\n&lt;p&gt;\u00bfQu\u00e9 c\u00f3digo usar\u00edas para crear una nueva columna llamada &lt;code&gt;Total&lt;/code&gt; multiplicando &lt;code&gt;Precio&lt;/code&gt; por &lt;code&gt;Cantidad&lt;/code&gt;?&lt;/p&gt;&quot;, &quot;options&quot;: [{&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude07 &lt;code&gt;ventas[&#x27;Total&#x27;] = ventas[&#x27;Precio&#x27;] + ventas[&#x27;Cantidad&#x27;]&lt;/code&gt;&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude0e &lt;code&gt;ventas[&#x27;Total&#x27;] = ventas[&#x27;Precio&#x27;] * ventas[&#x27;Cantidad&#x27;]&lt;/code&gt;&lt;/p&gt;&quot;, &quot;correct&quot;: true}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\udc4d &lt;code&gt;ventas.Total = ventas.Precio % ventas.Cantidad&lt;/code&gt;&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude04 &lt;code&gt;ventas.insert(&#x27;Total&#x27;, ventas[&#x27;Precio&#x27;] * ventas[&#x27;Cantidad&#x27;])&lt;/code&gt;&lt;/p&gt;&quot;, &quot;correct&quot;: false}], &quot;feedback&quot;: &quot;&lt;p&gt;\u00a1Correcto! En pandas, la manera m\u00e1s directa de crear una columna a partir de operaciones matem\u00e1ticas con otras columnas es realizando la operaci\u00f3n directamente sobre las Series (columnas).&lt;/p&gt;&quot;}, {&quot;text&quot;: &quot;&lt;p&gt;Analiza la siguiente l\u00ednea de c\u00f3digo:&lt;/p&gt;\n&lt;p&gt;&lt;code&gt;df[&#x27;precio_con_iva&#x27;] = df[&#x27;precio_base&#x27;] * 1.16&lt;/code&gt;&lt;/p&gt;\n&lt;p&gt;\u00bfCu\u00e1l es la interpretaci\u00f3n correcta de esta operaci\u00f3n?&lt;/p&gt;&quot;, &quot;options&quot;: [{&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude07 Calcula el promedio de &#x27;precio_base&#x27; y lo multiplica por 1.16&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude0e Filtra las filas donde &#x27;precio_base&#x27; es mayor a 1.16&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\udc4d Crea una columna nueva aplicando un aumento del 16% a cada valor individual de &#x27;precio_base&#x27;&lt;/p&gt;&quot;, &quot;correct&quot;: true}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude04 Multiplica todos los valores del DataFrame entero por 1.16&lt;/p&gt;&quot;, &quot;correct&quot;: false}], &quot;feedback&quot;: &quot;&lt;p&gt;\u00a1Muy bien! Esta operaci\u00f3n toma cada uno de los valores de la columna &#x27;precio_base&#x27;, lo multiplica por 1.16 y asigna el resultado a una columna nueva llamada &#x27;precio_con_iva&#x27;.&lt;/p&gt;&quot;}, {&quot;text&quot;: &quot;&lt;p&gt;Tienes dos DataFrames (&lt;code&gt;clientes&lt;/code&gt; y &lt;code&gt;compras&lt;/code&gt;) y aplicas el siguiente c\u00f3digo:&lt;/p&gt;\n&lt;p&gt;&lt;code&gt;resultado = clientes.merge(compras, on=&#x27;id_cliente&#x27;)&lt;/code&gt;&lt;/p&gt;\n&lt;p&gt;\u00bfQu\u00e9 describe mejor lo que hace este c\u00f3digo?&lt;/p&gt;&quot;, &quot;options&quot;: [{&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude07 Combina ambas tablas apilando las filas de &lt;code&gt;compras&lt;/code&gt; debajo de las de &lt;code&gt;clientes&lt;/code&gt;&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude0e Une las columnas de ambas tablas, pero solo mantiene las filas donde el &lt;code&gt;id_cliente&lt;/code&gt; coincide en ambos DataFrames&lt;/p&gt;&quot;, &quot;correct&quot;: true}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\udc4d Mezcla las tablas aleatoriamente sin importar si los datos corresponden al mismo cliente&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude04 Elimina la columna &lt;code&gt;id_cliente&lt;/code&gt; de ambos DataFrames&lt;/p&gt;&quot;, &quot;correct&quot;: false}], &quot;feedback&quot;: &quot;&lt;p&gt;\u00a1As\u00ed es! El m\u00e9todo &lt;code&gt;merge&lt;/code&gt; utiliza la columna indicada en &lt;code&gt;on&lt;/code&gt; como clave para combinar las columnas de ambas tablas. Por defecto, solo conserva los registros que existen en ambos DataFrames.&lt;/p&gt;&quot;}, {&quot;text&quot;: &quot;&lt;p&gt;Tienes un DataFrame &lt;code&gt;empleados&lt;/code&gt; y quieres visualizar r\u00e1pidamente c\u00f3mo se distribuyen sus edades en diferentes rangos para ver d\u00f3nde se concentra la mayor\u00eda.&lt;/p&gt;\n&lt;p&gt;\u00bfCu\u00e1l es la l\u00ednea de c\u00f3digo adecuada en pandas para generar este gr\u00e1fico?&lt;/p&gt;&quot;, &quot;options&quot;: [{&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude07 &lt;code&gt;empleados[&#x27;edad&#x27;].plot(kind=&#x27;hist&#x27;)&lt;/code&gt;&lt;/p&gt;&quot;, &quot;correct&quot;: true}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude0e &lt;code&gt;empleados[&#x27;edad&#x27;].plot(kind=&#x27;scatter&#x27;)&lt;/code&gt;&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\udc4d &lt;code&gt;empleados[&#x27;edad&#x27;].plot(kind=&#x27;pie&#x27;)&lt;/code&gt;&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude04 &lt;code&gt;empleados[&#x27;edad&#x27;].plot(kind=&#x27;bar&#x27;)&lt;/code&gt;&lt;/p&gt;&quot;, &quot;correct&quot;: false}], &quot;feedback&quot;: &quot;&lt;p&gt;\u00a1Excelente! El histograma (&lt;code&gt;kind=&#x27;hist&#x27;&lt;/code&gt;) es el gr\u00e1fico ideal para observar la distribuci\u00f3n de frecuencias de una variable num\u00e9rica continua, agrupando los datos en intervalos.&lt;/p&gt;&quot;}]" data-timer="45">
+        <h1>Pongamos a prueba lo aprendido</h1>
+        <h2>Reaccciona en la llamada con el emoji de la respuesta correcta</h2>
+        <div class="quiz-intro"></div>
+        <div class="quiz-ui" style="display:none; opacity: 0; transform: translateX(20px);">
+            <div class="quiz-nav-menu"></div>
+            <div class="quiz-header" style="justify-content: flex-end; flex-direction: column; align-items: flex-end;">
+                <span class="quiz-timer" style="display:none; font-size: 1.5rem;">⏳ <span class="time-left"></span>s</span>
+                <button class="quiz-show-answer-btn" style="display:none; margin-top: 10px; font-size: 1.1rem; cursor: pointer; padding: 8px 15px; border-radius: 5px; background: var(--color-orange); color: var(--color-black); border: none; font-weight: bold; transition: transform 0.2s;">Mostrar Respuesta</button>
+            </div>
+            <div class="quiz-question-box"></div>
+            <div class="quiz-options-box"></div>
+            <div class="quiz-feedback-box"></div>
+            <button class="quiz-next-btn" style="display:none;">Siguiente Pregunta</button>
+        </div>
+        <button class="quiz-start-btn">Comenzar</button>
+    </div>
+</div>
+<div class="slide slide-basic_slide" id="slide-6" data-type="basic_slide" data-transition-title="Ahora para finalizar">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="content-wrapper"><h1>🎉 Espero que hayas disfrutado la sesión</h1><h2>Qué te parece si:</h2><ul>
+<li>🏃‍♂️ Continúa con tu avance en el sprint.</li>
+<li>🚀 Trata de aplicar lo aprendido en un proyecto personal o tema de tu interés.</li>
+<li>🤝 Participa en el Co-Learning para afianzar tus conocimientos mientras ayudas a otros a entenderlos.</li>
+<li>💬 Comparte en nuestro canal de <code>community</code> algo que te haya gustado o llamado la atención de esta sesión.</li>
+<li>🤖 Utiliza la IA de preferencia para que te genere alguna actividad extra para practicar lo aprendido.</li>
+<li>📝 Al finalizar la sesión recibirás una encuesta de satisfacción, tus comentarios son muy valiosos para nosotros y me ayudará a mejorar como tutor.</li>
+</ul></div>
+</div>
+<div class="slide slide-finale" id="slide-7" data-type="finale">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<h1>¡Excelente trabajo! 🚀📊</h1><h2>¡Gracias por participar!</h2>
+</div>
+
+        <div id="slide-menu" class="slide-menu">
+            <div class="slide-menu-content">
+                <button id="close-menu-btn" class="close-menu" title="Cerrar">&times;</button>
+                <h2>Índice de Diapositivas</h2>
+                <ul class="slide-list">
+                    <li><button class="menu-jump-btn" data-index="0">1. Sprint 4 Sesión 1</button></li>
+<li><button class="menu-jump-btn" data-index="1">2. ¿Cómo llegas a la sesión de hoy?</button></li>
+<li><button class="menu-jump-btn" data-index="2">3. Plan de nuestra sesión</button></li>
+<li><button class="menu-jump-btn" data-index="3">4. Metas de contenido para esta sesión</button></li>
+<li><button class="menu-jump-btn" data-index="4">5. Escanea el código para los materiales de la clase</button></li>
+<li><button class="menu-jump-btn" data-index="5">6. Pongamos a prueba lo aprendido</button></li>
+<li><button class="menu-jump-btn" data-index="6">7. 🎉 Espero que hayas disfrutado la sesión</button></li>
+<li><button class="menu-jump-btn" data-index="7">8. ¡Excelente trabajo! 🚀📊</button></li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="slide-nav">
+            <button id="prev-btn" title="Anterior (Flecha Izquierda)">&#8592;</button>
+            <button id="menu-btn" title="Índice de Diapositivas">&#9776;</button>
+            <button id="next-btn" title="Siguiente (Flecha Derecha)">&#8594;</button>
+        </div>
+    </div>
+    
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const dateObj = new Date();
+        const day = dateObj.getDate();
+        const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+        const month = months[dateObj.getMonth()];
+        const year = dateObj.getFullYear();
+        const dateStr = `${day} de ${month} ${year}`;
+        document.querySelectorAll('.dynamic-date').forEach(el => el.textContent = dateStr);
+
+        const slides = document.querySelectorAll('.slide');
+        const transitionOverlay = document.getElementById('transition-overlay');
+        const transitionTitleElement = transitionOverlay.querySelector('h1');
+        
+        let currentSlide = -1;
+        let isTransitioning = false;
+        let slideIntervals = {}; 
+
+        function showSlide(index) {
+            if (isTransitioning || index === currentSlide) return;
+            
+            const nextSlideElement = slides[index];
+            if (!nextSlideElement) return;
+
+            isTransitioning = true;
+            
+            const transitionTitle = nextSlideElement.dataset.transitionTitle;
+
+            if (currentSlide > -1) {
+                slides[currentSlide].classList.remove('active');
+            }
+
+            if (transitionTitle && index > currentSlide) {
+                transitionTitleElement.textContent = transitionTitle;
+                transitionOverlay.className = 'slide';
+                transitionOverlay.classList.add(`slide-${nextSlideElement.dataset.type}`);
+                transitionOverlay.classList.add('visible');
+
+                setTimeout(() => {
+                    transitionOverlay.classList.remove('visible');
+                    currentSlide = index;
+                    slides[currentSlide].classList.add('active');
+                    activateSlide(currentSlide);
+                    setTimeout(() => isTransitioning = false, 500);
+                }, 1000);
+            } else {
+                currentSlide = index;
+                slides[currentSlide].classList.add('active');
+                activateSlide(currentSlide);
+                isTransitioning = false;
+            }
+        }
+
+        function nextSlide() {
+            if (currentSlide < slides.length - 1) {
+                showSlide(currentSlide + 1);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                showSlide(currentSlide - 1);
+            }
+        }
+        
+        function activateSlide(index) {
+            const slideElement = slides[index];
+            if (!slideElement) return;
+            const slideType = slideElement.dataset.type;
+
+            Object.values(slideIntervals).forEach(clearInterval);
+
+            if (slideType === 'countdown') {
+                const timerElement = slideElement.querySelector('.timer');
+                const startMessage = slideElement.querySelector('.start-message');
+                let duration = parseInt(slideElement.dataset.timer || '600', 10);
+
+                slideIntervals[index] = setInterval(() => {
+                    if (duration < 0) {
+                        clearInterval(slideIntervals[index]);
+                        timerElement.style.display = 'none';
+                        startMessage.style.display = 'block';
+                        setTimeout(nextSlide, 2000); 
+                        return;
+                    }
+                    const minutes = Math.floor(duration / 60);
+                    const seconds = duration % 60;
+                    timerElement.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+                    duration--;
+                }, 1000);
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            else if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const menuBtn = document.getElementById('menu-btn');
+        const slideMenu = document.getElementById('slide-menu');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+
+        if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+        if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+        if (menuBtn) menuBtn.addEventListener('click', () => slideMenu.classList.add('active'));
+        if (closeMenuBtn) closeMenuBtn.addEventListener('click', () => slideMenu.classList.remove('active'));
+
+        document.querySelectorAll('.menu-jump-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const index = parseInt(e.currentTarget.dataset.index, 10);
+                slideMenu.classList.remove('active');
+                showSlide(index);
+            });
+        });
+
+        document.querySelectorAll('.quiz-container').forEach(container => {
+            const startBtn = container.querySelector('.quiz-start-btn');
+            const nextBtn = container.querySelector('.quiz-next-btn');
+            const uiBox = container.querySelector('.quiz-ui');
+            const introBox = container.querySelector('.quiz-intro');
+            const qBox = container.querySelector('.quiz-question-box');
+            const optBox = container.querySelector('.quiz-options-box');
+            const feedBox = container.querySelector('.quiz-feedback-box');
+            const timerDiv = container.querySelector('.quiz-timer');
+            const timerSpan = container.querySelector('.time-left');
+            const navMenu = container.querySelector('.quiz-nav-menu');
+            const showAnsBtn = container.querySelector('.quiz-show-answer-btn');
+
+            const h1 = container.querySelector('h1');
+            const h2 = container.querySelector('h2');
+
+            let rawData = container.getAttribute('data-quiz') || "[]";
+            const questions = JSON.parse(rawData);
+            const timeLimit = parseInt(container.getAttribute('data-timer') || "0", 10);
+            
+            let currentQIndex = 0;
+            let timerInterval;
+            let timeLeft = timeLimit;
+            let canAnswer = false;
+
+            function buildNavMenu() {
+                navMenu.innerHTML = '';
+                questions.forEach((q, idx) => {
+                    const dot = document.createElement('button');
+                    dot.className = 'quiz-nav-dot';
+                    dot.textContent = idx + 1;
+                    dot.addEventListener('click', () => jumpToQuestion(idx));
+                    navMenu.appendChild(dot);
+                });
+            }
+
+            function updateNavMenu() {
+                const dots = navMenu.querySelectorAll('.quiz-nav-dot');
+                dots.forEach((dot, idx) => {
+                    if (idx === currentQIndex) dot.classList.add('active');
+                    else dot.classList.remove('active');
+                });
+            }
+
+            function renderQuestion() {
+                clearInterval(timerInterval);
+
+                if(currentQIndex >= questions.length) {
+                    uiBox.innerHTML = '<div style="text-align:center; padding: 5rem;"><h2>¡Quiz Terminado!</h2><p>Continúa con las flechas de navegación convencionales.</p></div>';
+                    return;
+                }
+                
+                uiBox.style.opacity = '0';
+                uiBox.style.transform = 'translateX(20px)';
+                
+                setTimeout(() => {
+                    const q = questions[currentQIndex];
+                    canAnswer = true;
+                    qBox.innerHTML = q.text;
+                    optBox.innerHTML = '';
+                    feedBox.className = 'quiz-feedback-box'; 
+                    feedBox.innerHTML = q.feedback || '';
+                    nextBtn.style.display = 'none';
+                    if (showAnsBtn) showAnsBtn.style.display = 'none';
+                    updateNavMenu();
+
+                    q.options.forEach((opt, idx) => {
+                        const card = document.createElement('div');
+                        card.className = 'quiz-option-card';
+                        card.innerHTML = opt.text;
+                        optBox.appendChild(card);
+                    });
+
+                    uiBox.style.display = 'block';
+                    void uiBox.offsetWidth;
+                    uiBox.style.opacity = '1';
+                    uiBox.style.transform = 'translateX(0)';
+                    
+                    if (window.MathJax) {
+                        MathJax.typesetPromise().catch((err) => console.log('MathJax error: ', err));
+                    }
+                    if (window.hljs) {
+                        uiBox.querySelectorAll('pre code').forEach((block) => hljs.highlightElement(block));
+                    }
+
+                    if (timeLimit > 0) {
+                        timerDiv.style.display = 'inline-block';
+                        if (showAnsBtn) showAnsBtn.style.display = 'inline-block';
+                        timeLeft = timeLimit;
+                        timerSpan.textContent = timeLeft;
+                        timerInterval = setInterval(() => {
+                            timeLeft--;
+                            timerSpan.textContent = timeLeft;
+                            if (timeLeft <= 0) {
+                                clearInterval(timerInterval);
+                                revealAnswer();
+                            }
+                        }, 1000);
+                    } else {
+                        timerDiv.style.display = 'none';
+                        if (showAnsBtn) showAnsBtn.style.display = 'inline-block';
+                        setTimeout(revealAnswer, 5000);
+                    }
+                }, 400);
+            }
+
+            function revealAnswer() {
+                if(!canAnswer) return;
+                canAnswer = false;
+                clearInterval(timerInterval);
+                if (showAnsBtn) showAnsBtn.style.display = 'none';
+                
+                const q = questions[currentQIndex];
+                const cards = optBox.querySelectorAll('.quiz-option-card');
+                
+                cards.forEach((card, idx) => {
+                    if(q.options[idx].correct) {
+                        card.classList.add('flip-correct');
+                    } else {
+                        card.classList.add('fade-out');
+                    }
+                });
+
+                if (q.feedback) {
+                    feedBox.classList.add('show');
+                }
+                
+                if (currentQIndex < questions.length - 1) {
+                    nextBtn.style.display = 'inline-block';
+                    
+                    if (timeLimit > 0) {
+                        timeLeft = timeLimit;
+                        timerSpan.textContent = timeLeft;
+                        timerInterval = setInterval(() => {
+                            timeLeft--;
+                            timerSpan.textContent = timeLeft;
+                            if (timeLeft <= 0) {
+                                clearInterval(timerInterval);
+                                currentQIndex++;
+                                renderQuestion();
+                            }
+                        }, 1000);
+                    }
+                } else {
+                    setTimeout(() => {
+                        currentQIndex++;
+                        renderQuestion();
+                    }, timeLimit > 0 ? timeLimit * 1000 : 5000);
+                }
+            }
+            
+            function jumpToQuestion(idx) {
+                clearInterval(timerInterval);
+                currentQIndex = idx;
+                renderQuestion();
+            }
+
+            startBtn.addEventListener('click', () => {
+                startBtn.style.display = 'none';
+                
+                if(introBox) {
+                    introBox.style.opacity = '0';
+                    introBox.style.transform = 'scale(0.95)';
+                    setTimeout(() => introBox.style.display = 'none', 500);
+                }
+                if(h1) h1.style.display = 'none';
+                if(h2) h2.style.display = 'none';
+                
+                buildNavMenu();
+                
+                setTimeout(() => {
+                    uiBox.style.display = 'block';
+                    renderQuestion();
+                }, 500);
+            });
+
+            nextBtn.addEventListener('click', () => {
+                currentQIndex++;
+                renderQuestion();
+            });
+
+            if (showAnsBtn) {
+                showAnsBtn.addEventListener('click', () => {
+                    revealAnswer();
+                });
+            }
+        });
+
+        if (slides.length > 0) {
+            showSlide(0);
+        }
+    });
+</script>
+
+</body>
+</html>
