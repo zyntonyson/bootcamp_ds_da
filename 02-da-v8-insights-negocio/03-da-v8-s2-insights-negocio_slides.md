@@ -50,7 +50,7 @@
 * [Transformar datos para insights de negocio](../img/qrs/03-da-v8-insights-negocio.png)
 
 ---
-@quizz{time_limit: 45}
+@quizz{time_limit: 80}
 
 # Pongamos a prueba lo aprendido
 ## Reaccciona en la llamada con el emoji de la respuesta correcta

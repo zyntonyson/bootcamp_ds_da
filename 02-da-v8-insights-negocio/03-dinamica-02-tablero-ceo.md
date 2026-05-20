@@ -36,3 +36,33 @@
 
 * **La Regla de Escritura:** `[Métrica de salud/calidad] + [Límite aceptable / No pasar de X]`. (Ej: *Tasa de pedidos dañados -> Menor a 2%* o *Satisfacción del cliente CSAT -> No bajar de 4.8*).
 * **La Acción:** En lugar de pegarlo en una columna aislada, **les pides que peguen su Guardrail tocando el borde inferior del OKR correspondiente**, demostrando visualmente que es el "guardaespaldas" de ese objetivo.
+
+---
+
+## 💡 Guía del Facilitador: Respuestas Aceptables de Ejemplo
+Si los estudiantes se quedan atascados o necesitan orientación para avanzar, utiliza estos ejemplos como referencia. Fíjate cómo los **Guardrails** se derivan directamente de los **OKRs** para actuar como su cinturón de seguridad contra decisiones imprudentes.
+
+### 🟡 Ronda 1: Ejemplos de KPIs Válidos (Métricas sin verbos)
+* **Negocio y Finanzas:** `Ticket promedio`, `Costo de Adquisición de Clientes (CAC)`, `Valor de Vida del Cliente (LTV)`, `Ingreso Mensual Recurrente (MRR)`.
+* **Operaciones:** `Tiempo promedio de entrega`, `Tasa de pedidos entregados a tiempo (OTD)`, `Tiempo de preparación en cocina`.
+* **Marketing y Producto:** `Usuarios activos mensuales (MAU)`, `Tasa de conversión de registro a compra`, `Tasa de abandono de carrito`.
+
+### 🟢 Ronda 2 & 🔴 Ronda 3: Ejemplos de OKRs y sus Guardrails Asociados
+
+#### 🎯 Caso A: Enfoque en Operaciones (Velocidad de entrega)
+* **OKR Ambicioso:** `Reducir` el `tiempo promedio de entrega` de `40 minutos` a `22 minutos` para el `30 de septiembre (Q3)`.
+* **Guardrails Protectores (para vigilar que la prisa no rompa el negocio):**
+  * `Tasa de pedidos dañados o derramados` ➔ `Menor a 1.5%` *(para evitar que la velocidad destruya la comida).*
+  * `Costo operativo por entrega` ➔ `No superar los $3.00 USD` *(para no resolver la prisa contratando repartidores a pérdida).*
+
+#### 🎯 Caso B: Enfoque en Crecimiento (Marketing)
+* **OKR Ambicioso:** `Incrementar` los `usuarios activos mensuales (MAU)` de `150,000` a `250,000` para el `30 de septiembre (Q3)`.
+* **Guardrails Protectores (para vigilar que el crecimiento no sea artificial o insostenible):**
+  * `Costo de Adquisición de Clientes (CAC)` ➔ `No exceder los $8.00 USD por usuario nuevo` *(para no vaciar la caja en publicidad cara).*
+  * `Tasa de desinstalación de la app en el día 7` ➔ `Menor al 25%` *(para garantizar que son usuarios que realmente valoran la app y no solo cazadores de un cupón único).*
+
+#### 🎯 Caso C: Enfoque en Monetización (Producto)
+* **OKR Ambicioso:** `Aumentar` el `ticket promedio de compra` de `$15 USD` a `$22 USD` para el `30 de septiembre (Q3)`.
+* **Guardrails Protectores (para vigilar que la monetización no asuste a los usuarios):**
+  * `Tasa de abandono del carrito` ➔ `No superar el 45%` *(para asegurar que exigir compras mínimas más altas o tarifas extras no espante a la gente en el último paso).*
+  * `Satisfacción del cliente (CSAT)` ➔ `No bajar de 4.6 / 5.0` *(para vigilar que no saturemos al usuario con publicidad o pop-ups de venta cruzada molestos).*
