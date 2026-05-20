@@ -1,0 +1,625 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <script>
+      window.MathJax = {
+        tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    
+<style>
+    :root {
+        --color-orange: #F2855A;
+        --color-green: #66B37D;
+        --color-light-gray: #F2F2F2;
+        --color-dark-mode: #111111;
+        --color-black: #0A0A0A;
+        --color-dark-gray-1: #333333;
+        --color-dark-gray-2: #5F5F5F;
+        --color-white-soft: #F5F5F5;
+        --font-main: 'Montserrat', sans-serif;
+    }
+
+    body {
+        margin: 0;
+        font-family: var(--font-main);
+        overflow: hidden;
+    }
+
+    .presentation {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 2rem;
+        box-sizing: border-box;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.6s ease-in-out, visibility 0.6s ease-in-out;
+    }
+
+    .slide.active {
+        opacity: 1;
+        visibility: visible;
+        z-index: 1;
+    }
+
+    .slide h1 { font-size: 3rem; font-weight: 700; margin: 0 0 0.5rem 0; }
+    .slide h2 { font-size: 1.8rem; font-weight: 300; margin: 0; }
+
+    .slide-countdown { background-color: var(--color-orange); color: var(--color-black); }
+    .slide-countdown h2 { color: var(--color-dark-gray-2); }
+    .slide-countdown .timer { font-size: 5rem; font-weight: 300; letter-spacing: 5px; margin: 1.5rem 0; text-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    .slide-countdown .start-message { font-size: 2.5rem; font-weight: 700; display: none; }
+    
+    .bouncing-logo-container { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; overflow: hidden; z-index: 0; pointer-events: none; }
+    .bouncing-logo { position: absolute; width: 250px; opacity: 0.15; animation: bounceX 13s linear infinite alternate, bounceY 9s linear infinite alternate; }
+    @keyframes bounceX { 0% { left: 0; } 100% { left: calc(100vw - 250px); } }
+    @keyframes bounceY { 0% { top: 0; } 100% { top: calc(100vh - 75px); } }
+
+    .traffic-logo-container { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; overflow: hidden; z-index: 0; pointer-events: none; }
+    .traffic-logo-img { position: absolute; width: 220px; opacity: 0.15; left: -250px; transform: translateY(-50%); }
+    @keyframes driveRight { 0% { transform: translateY(-50%) translateX(0); } 100% { transform: translateY(-50%) translateX(calc(100vw + 500px)); } }
+
+    .slide-transition { background-color: var(--color-green); color: var(--color-black); }
+    
+    .slide-warnup-mood { background-color: var(--color-green); color: var(--color-black); justify-content: center; position: relative; }
+    .content-wrapper { position: relative; z-index: 1; background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); padding: 2rem 4rem; border-radius: 20px; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1); border: 1px solid rgba(255, 255, 255, 0.18); }
+    .slide-warnup-mood h1, .slide-warnup-mood h2 { font-weight: bold; }
+    .emoji-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 0; }
+    .emoji { position: absolute; top: -10%; font-size: 2rem; animation: fall 10s linear infinite; }
+    @keyframes fall {
+        0% { transform: translateY(0) rotate(0); }
+        100% { transform: translateY(110vh) rotate(360deg); }
+    }
+
+    .slide-agenda, .slide-warnup-question, .slide-basic_slide, .slide-two_columns_slide { background-color: var(--color-light-gray); color: var(--color-black); }
+    .slide-agenda .content-wrapper, .slide-basic_slide .content-wrapper, .slide-two_columns_slide .content-wrapper { width: 90%; text-align: left; overflow-y: auto; max-height: 85vh; padding: 2rem 3rem; }
+    .slide-basic_slide .content-wrapper img, .slide-two_columns_slide .content-wrapper img { max-width: 100%; border-radius: 10px; display: block; margin: 1rem auto; padding: 0; }
+    .slide-basic_slide .content-wrapper p, .slide-basic_slide .content-wrapper ul, .slide-basic_slide .content-wrapper ol, .slide-two_columns_slide .content-wrapper p, .slide-two_columns_slide .content-wrapper ul, .slide-two_columns_slide .content-wrapper ol { font-size: 1.5rem; line-height: 1.6; }
+    .slide-basic_slide .content-wrapper ul, .slide-basic_slide .content-wrapper ol, .slide-two_columns_slide .content-wrapper ul, .slide-two_columns_slide .content-wrapper ol { padding-left: 3rem; }
+    
+    .slide-two_columns_slide .column-left { padding-right: 2rem; width: 50%; display: flex; flex-direction: column; justify-content: center; }
+    .slide-two_columns_slide .column-right { width: 50%; display: flex; align-items: center; justify-content: center; height: 100%; }
+    .slide-two_columns_slide .column-right img { width: 100%; max-height: 70vh; object-fit: contain; }
+    .slide-agenda h1 { color: var(--color-black); margin-bottom: 1.5rem; }
+    .slide-agenda ul { list-style: none; padding: 0; font-size: 1.5rem; }
+    .slide-agenda li { margin: 0.8rem 0; }
+    .slide-agenda li strong { color: var(--color-black); }
+    .slide-agenda li span { color: var(--color-dark-gray-1); margin-left: 1rem; }
+
+    .two-column-layout { display: flex; align-items: center; justify-content: center; width: 100%; gap: 2rem; }
+    .column-left { width: 50%; text-align: left; }
+    .column-right { width: 50%; }
+    .column-right img { max-width: 100%; border-radius: 10px; }
+
+    .slide-objectives { background-color: var(--color-light-gray); color: var(--color-black); }
+    .slide-objectives .content-wrapper { padding: 3rem; text-align: center; width: 95%; max-width: 1600px; max-height: 85vh; overflow-y: auto; }
+    .slide-objectives .objectives-container > ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; list-style: none; padding: 0; margin: 2rem 0; width: 100%; }
+    .slide-objectives .objectives-container > ul > li { background-color: var(--color-light-gray); color: var(--color-dark-gray-1); padding: 2.5rem; border-radius: 15px; flex: 1; min-width: 300px; max-width: 480px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: left; font-size: 1.3rem; line-height: 1.5; display: flex; flex-direction: column; }
+    .slide-objectives .objectives-container > ul > li p { margin: 0; }
+    .slide-objectives .objectives-container img { max-width: 100%; max-height: 100px; object-fit: contain; display: block; margin: 0 auto 1rem auto; }
+    .slide-objectives .objectives-container > ul > li > ul { list-style: none; padding-left: 0; margin-top: 1rem; font-size: 1.1rem; }
+    .slide-objectives .objectives-container > ul > li > ul > li { position: relative; padding-left: 1.2rem; margin-bottom: 0.8rem; color: var(--color-dark-gray-2); }
+    .slide-objectives .objectives-container > ul > li > ul > li::before { content: "•"; position: absolute; left: 0; color: var(--color-green); font-weight: bold; }
+    .slide-objectives h1 { color: var(--color-black); margin-bottom: 1rem; }
+
+    .slide-overlay { background-color: var(--color-black); color: var(--color-white-soft); }
+    .slide-overlay h1, .slide-overlay h2 { color: var(--color-white-soft); margin-bottom: 0.5rem; }
+    .slide-overlay p { font-size: 3rem; font-weight: 500; margin: 1rem 0; line-height: 1.4; color: var(--color-white-soft); text-align: center; }
+
+    .slide-gotocode { background-color: var(--color-dark-mode); color: var(--color-white-soft); }
+    .slide-finale { background-color: var(--color-orange); color: var(--color-black); }
+    .slide-finale h2 { color: var(--color-dark-gray-2); }
+    .slide-gotocode a { color: var(--color-white-soft); }
+    .slide-gotocode .qr-container { display: flex; gap: 2rem; margin-top: 2rem; }
+    .slide-gotocode .qr-item { display: flex; flex-direction: column; align-items: center; }
+    .slide-gotocode .qr-item img { width: 150px; height: 150px; border-radius: 10px; }
+
+    #transition-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out; background-color: var(--color-green); color: var(--color-black); }
+    #transition-overlay h1 { color: var(--color-black); margin-bottom: 0; }
+    #transition-overlay .content-wrapper { width: 90%; text-align: left; padding: 2rem 3rem; }
+    #transition-overlay.visible { opacity: 1; visibility: visible; }
+    
+    .slide-nav { position: absolute; bottom: 20px; right: 20px; z-index: 100; display: flex; gap: 10px; }
+    .slide-nav button { background: rgba(128, 128, 128, 0.5); border: none; color: white; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 1.5rem; transition: background 0.3s; }
+    .slide-nav button:hover { background: rgba(128, 128, 128, 0.9); }
+
+    .slide-menu { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); z-index: 200; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+    .slide-menu.active { opacity: 1; visibility: visible; }
+    .slide-menu-content { background: var(--color-light-gray); padding: 3rem; border-radius: 15px; width: 80%; max-width: 800px; max-height: 80vh; overflow-y: auto; position: relative; color: var(--color-black); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+    .slide-menu-content h2 { margin-top: 0; border-bottom: 2px solid var(--color-dark-gray-1); padding-bottom: 1rem; color: var(--color-black); }
+    .close-menu { position: absolute; top: 15px; right: 20px; background: none; border: none; font-size: 2.5rem; cursor: pointer; color: var(--color-dark-gray-2); transition: color 0.3s; }
+    .close-menu:hover { color: var(--color-orange); }
+    .slide-list { list-style: none; padding: 0; }
+    .slide-list li { margin: 0.5rem 0; }
+    .menu-jump-btn { width: 100%; text-align: left; background: var(--color-white-soft); border: 1px solid rgba(0,0,0,0.1); padding: 1rem; border-radius: 8px; font-size: 1.2rem; cursor: pointer; transition: background 0.2s, transform 0.1s; font-family: var(--font-main); color: var(--color-dark-gray-1); }
+    .menu-jump-btn:hover { background: var(--color-orange); color: var(--color-black); transform: translateX(5px); }
+    
+    .company-logo { position: absolute; top: 30px; left: 40px; max-height: 60px; opacity: 0; z-index: 50; pointer-events: none; }
+    .slide-countdown .company-logo, .slide-warnup-mood .company-logo, .slide-finale .company-logo, .slide-overlay .company-logo { display: none !important; animation: none !important; }
+    .slide.active .company-logo { animation: showAndHideLogo 4s ease-in-out forwards; }
+    @keyframes showAndHideLogo {
+        0% { opacity: 0; transform: translateY(-10px); }
+        10% { opacity: 1; transform: translateY(0); }
+        80% { opacity: 1; transform: translateY(0); }
+        100% { opacity: 0; transform: translateY(-10px); }
+    }
+
+    .quiz-container { display: flex; flex-direction: column; width: 90%; max-width: 1000px; padding: 3rem; align-items: stretch; text-align: left; overflow-y: auto; max-height: 85vh;}
+    .quiz-container h1, .quiz-container h2 { text-align: center; }
+    .quiz-intro { text-align: center; font-size: 1.5rem; margin-bottom: 2rem; color: var(--color-dark-gray-1); }
+    .quiz-start-btn, .quiz-next-btn { align-self: center; background: var(--color-orange); border: none; color: var(--color-black); font-size: 1.5rem; font-weight: bold; padding: 1rem 3rem; border-radius: 10px; cursor: pointer; transition: transform 0.2s; margin-top: 2rem; }
+    .quiz-start-btn:hover, .quiz-next-btn:hover, .quiz-show-answer-btn:hover { transform: scale(1.05); }
+    .quiz-header { display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: bold; margin-bottom: 1rem; color: var(--color-dark-gray-2); border-bottom: 2px solid rgba(0,0,0,0.1); padding-bottom: 10px; }
+    .quiz-timer { color: #d9534f; }
+    .quiz-question-box { font-size: 1.8rem; margin: 1.5rem 0; font-weight: 700; color: var(--color-black); }
+    .quiz-question-box p { margin: 0; }
+    .quiz-question-box img { max-width: 100%; border-radius: 10px; max-height: 350px; object-fit: contain; display: block; margin: 15px auto; }
+    .quiz-options-box { display: flex; flex-direction: column; gap: 1rem; perspective: 1000px; }
+    .quiz-option-card { background: var(--color-white-soft); border: 2px solid var(--color-light-gray); text-align: left; padding: 1rem 1.5rem; font-size: 1.4rem; border-radius: 10px; transition: all 0.6s cubic-bezier(0.4, 0.2, 0.2, 1); font-family: var(--font-main); color: var(--color-dark-gray-1); transform-style: preserve-3d; }
+    .quiz-option-card p { margin: 0; }
+    .quiz-option-card.flip-correct { background: #d4edda; border-color: #28a745; color: #155724; transform: rotateX(360deg); box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3); }
+    .quiz-option-card.fade-out { opacity: 0.4; filter: grayscale(100%); }
+    .quiz-feedback-box { margin-top: 2rem; background: rgba(0,0,0,0.05); padding: 1.5rem; border-radius: 10px; border-left: 5px solid var(--color-orange); font-size: 1.3rem; opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .quiz-feedback-box.show { opacity: 1; transform: translateY(0); display: block; }
+    
+    .quiz-nav-menu { display: flex; justify-content: center; gap: 10px; margin-bottom: 2rem; }
+    .quiz-nav-dot { width: 40px; height: 40px; border-radius: 50%; background: rgba(0,0,0,0.1); color: var(--color-dark-gray-2); border: none; font-size: 1.2rem; font-weight: bold; cursor: pointer; transition: all 0.3s; display: flex; justify-content: center; align-items: center; }
+    .quiz-nav-dot:hover { background: rgba(0,0,0,0.2); }
+    .quiz-nav-dot.active { background: var(--color-orange); color: var(--color-black); transform: scale(1.1); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    .quiz-intro { transition: opacity 0.5s, transform 0.5s; }
+    .quiz-ui { transition: opacity 0.5s, transform 0.5s; }
+    .slide-quizz .content-wrapper { overflow-x: hidden; }
+    pre { border-radius: 8px; font-size: 1.1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 1.2rem; color: var(--color-dark-gray-1); }
+    th, td { border: 1px solid rgba(0,0,0,0.1); padding: 1rem; text-align: left; }
+    th { background-color: var(--color-light-gray); font-weight: bold; color: var(--color-black); }
+    tr:nth-child(even) { background-color: rgba(0,0,0,0.02); }
+    .slide-overlay table, .slide-gotocode table { color: var(--color-white-soft); }
+    .slide-overlay th, .slide-gotocode th { background-color: rgba(255,255,255,0.1); color: var(--color-white-soft); border-color: rgba(255,255,255,0.2); }
+    .slide-overlay td, .slide-gotocode td { border-color: rgba(255,255,255,0.2); }
+    .slide-overlay tr:nth-child(even), .slide-gotocode tr:nth-child(even) { background-color: rgba(255,255,255,0.05); }
+</style>
+
+</head>
+<body>
+    <div class="presentation">
+        <div id="transition-overlay"><div class="content-wrapper"><h1></h1></div></div>
+        <div class="slide slide-countdown" id="slide-0" data-type="countdown" data-timer="600" data-transition-title="¡Comenzamos en breve!">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="traffic-logo-container"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 15%; animation: driveRight 21.34s linear -0.00s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 15%; animation: driveRight 21.34s linear -5.34s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 15%; animation: driveRight 21.34s linear -10.67s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 15%; animation: driveRight 21.34s linear -16.01s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 35%; animation: driveRight 33.07s linear -0.00s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 35%; animation: driveRight 33.07s linear -6.61s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 35%; animation: driveRight 33.07s linear -13.23s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 35%; animation: driveRight 33.07s linear -19.84s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 35%; animation: driveRight 33.07s linear -26.45s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 55%; animation: driveRight 25.68s linear -0.00s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 55%; animation: driveRight 25.68s linear -5.14s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 55%; animation: driveRight 25.68s linear -10.27s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 55%; animation: driveRight 25.68s linear -15.41s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 55%; animation: driveRight 25.68s linear -20.54s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 75%; animation: driveRight 26.42s linear -0.00s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 75%; animation: driveRight 26.42s linear -8.81s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 75%; animation: driveRight 26.42s linear -17.61s infinite;"></div><div class="content-wrapper"><h1>Sprint 2 Sesión 1</h1><h2>Transformar datos para insights de negocio</h2><div class="timer">--:--</div><div class="start-message">¡Comenzamos!</div><p></p></div><div class="dynamic-date" style="position: absolute; bottom: 30px; left: 40px; font-size: 1.5rem; font-weight: bold; color: var(--color-black); z-index: 1;"></div>
+</div>
+<div class="slide slide-warnup-mood" id="slide-1" data-type="warnup-mood" data-transition-title="Midamos los ánimos">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="emoji-container"><div class="emoji" style="left: 27vw; animation-delay: -3.37s; animation-duration: 10.06s; font-size: 5.52rem;">🏋️</div><div class="emoji" style="left: 0vw; animation-delay: -6.72s; animation-duration: 5.50s; font-size: 5.78rem;">🤯</div><div class="emoji" style="left: 74vw; animation-delay: -0.98s; animation-duration: 9.29s; font-size: 3.74rem;">🏋️</div><div class="emoji" style="left: 55vw; animation-delay: -1.89s; animation-duration: 8.70s; font-size: 3.22rem;">😊</div><div class="emoji" style="left: 35vw; animation-delay: -3.04s; animation-duration: 9.72s; font-size: 4.86rem;">😍</div><div class="emoji" style="left: 8vw; animation-delay: -0.32s; animation-duration: 6.95s; font-size: 5.99rem;">😪</div><div class="emoji" style="left: 25vw; animation-delay: -3.93s; animation-duration: 8.93s; font-size: 4.77rem;">🤔</div><div class="emoji" style="left: 57vw; animation-delay: -6.09s; animation-duration: 6.75s; font-size: 5.16rem;">🤨</div><div class="emoji" style="left: 81vw; animation-delay: -2.70s; animation-duration: 6.03s; font-size: 4.17rem;">🙂</div><div class="emoji" style="left: 93vw; animation-delay: -6.95s; animation-duration: 7.59s; font-size: 3.94rem;">😅</div><div class="emoji" style="left: 35vw; animation-delay: -7.65s; animation-duration: 6.82s; font-size: 5.36rem;">😢</div><div class="emoji" style="left: 60vw; animation-delay: -6.87s; animation-duration: 6.21s; font-size: 4.32rem;">😓</div><div class="emoji" style="left: 73vw; animation-delay: -4.29s; animation-duration: 5.52s; font-size: 4.84rem;">🌟</div><div class="emoji" style="left: 0vw; animation-delay: -7.50s; animation-duration: 11.64s; font-size: 4.61rem;">🚀</div><div class="emoji" style="left: 9vw; animation-delay: -4.97s; animation-duration: 5.82s; font-size: 4.40rem;">🏋️</div><div class="emoji" style="left: 24vw; animation-delay: -0.69s; animation-duration: 9.63s; font-size: 3.84rem;">😞</div><div class="emoji" style="left: 46vw; animation-delay: -8.33s; animation-duration: 7.77s; font-size: 3.94rem;">✨</div><div class="emoji" style="left: 58vw; animation-delay: -1.74s; animation-duration: 11.03s; font-size: 4.55rem;">😤</div><div class="emoji" style="left: 73vw; animation-delay: -8.15s; animation-duration: 11.35s; font-size: 4.09rem;">😢</div><div class="emoji" style="left: 30vw; animation-delay: -7.81s; animation-duration: 7.79s; font-size: 4.66rem;">😄</div><div class="emoji" style="left: 9vw; animation-delay: -0.84s; animation-duration: 10.56s; font-size: 5.33rem;">🧐</div><div class="emoji" style="left: 87vw; animation-delay: -7.19s; animation-duration: 10.56s; font-size: 3.62rem;">🚀</div><div class="emoji" style="left: 66vw; animation-delay: -7.69s; animation-duration: 11.85s; font-size: 4.04rem;">😪</div><div class="emoji" style="left: 8vw; animation-delay: -6.66s; animation-duration: 9.37s; font-size: 5.83rem;">😔</div><div class="emoji" style="left: 86vw; animation-delay: -4.95s; animation-duration: 7.50s; font-size: 5.50rem;">😀</div><div class="emoji" style="left: 39vw; animation-delay: -1.10s; animation-duration: 5.20s; font-size: 3.55rem;">🔥</div><div class="emoji" style="left: 64vw; animation-delay: -2.14s; animation-duration: 9.70s; font-size: 5.30rem;">🔥</div><div class="emoji" style="left: 75vw; animation-delay: -0.36s; animation-duration: 5.10s; font-size: 3.50rem;">🧠</div><div class="emoji" style="left: 11vw; animation-delay: -9.74s; animation-duration: 10.28s; font-size: 3.04rem;">🤨</div><div class="emoji" style="left: 94vw; animation-delay: -4.12s; animation-duration: 5.82s; font-size: 5.35rem;">😊</div><div class="emoji" style="left: 15vw; animation-delay: -5.68s; animation-duration: 7.85s; font-size: 3.18rem;">😢</div><div class="emoji" style="left: 72vw; animation-delay: -6.70s; animation-duration: 6.87s; font-size: 4.35rem;">😍</div><div class="emoji" style="left: 6vw; animation-delay: -7.20s; animation-duration: 8.39s; font-size: 3.94rem;">🧠</div><div class="emoji" style="left: 11vw; animation-delay: -1.04s; animation-duration: 5.02s; font-size: 4.80rem;">😍</div><div class="emoji" style="left: 43vw; animation-delay: -3.49s; animation-duration: 8.43s; font-size: 3.95rem;">😓</div><div class="emoji" style="left: 9vw; animation-delay: -9.20s; animation-duration: 6.98s; font-size: 4.17rem;">🏋️</div><div class="emoji" style="left: 11vw; animation-delay: -0.08s; animation-duration: 5.10s; font-size: 3.84rem;">😲</div><div class="emoji" style="left: 2vw; animation-delay: -3.27s; animation-duration: 8.50s; font-size: 4.92rem;">😵</div><div class="emoji" style="left: 65vw; animation-delay: -5.68s; animation-duration: 10.98s; font-size: 5.92rem;">😀</div><div class="emoji" style="left: 31vw; animation-delay: -1.46s; animation-duration: 10.84s; font-size: 3.34rem;">😠</div><div class="emoji" style="left: 41vw; animation-delay: -6.13s; animation-duration: 9.01s; font-size: 4.81rem;">🤯</div><div class="emoji" style="left: 22vw; animation-delay: -7.44s; animation-duration: 6.95s; font-size: 3.23rem;">😲</div><div class="emoji" style="left: 92vw; animation-delay: -7.37s; animation-duration: 8.53s; font-size: 4.24rem;">😪</div><div class="emoji" style="left: 72vw; animation-delay: -3.75s; animation-duration: 5.30s; font-size: 3.53rem;">😵</div><div class="emoji" style="left: 31vw; animation-delay: -0.87s; animation-duration: 11.14s; font-size: 5.33rem;">😞</div><div class="emoji" style="left: 53vw; animation-delay: -4.93s; animation-duration: 10.91s; font-size: 4.77rem;">🧠</div><div class="emoji" style="left: 49vw; animation-delay: -5.59s; animation-duration: 9.17s; font-size: 4.03rem;">😠</div><div class="emoji" style="left: 47vw; animation-delay: -7.92s; animation-duration: 5.57s; font-size: 4.50rem;">🥱</div><div class="emoji" style="left: 54vw; animation-delay: -3.22s; animation-duration: 7.15s; font-size: 3.39rem;">🔥</div><div class="emoji" style="left: 58vw; animation-delay: -9.01s; animation-duration: 5.38s; font-size: 5.40rem;">😀</div></div><div class="content-wrapper"><h1>¿Cómo llegas a la sesión de hoy?</h1><h2>Reacciona con el emoji 😎🤔🤓🙂 que mejor represente tu mood</h2></div>
+</div>
+<div class="slide slide-agenda" id="slide-2" data-type="agenda" data-transition-title="Nuestra Agenda de Hoy">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="content-wrapper"><h1>Plan de nuestra sesión</h1><ul><li><strong>👋 Bienvenida</strong> <span>5 min</span></li><li><strong>De los datos al insight: Preguntas análiticas de negocio 💼📊</strong> <span>35 min</span></li><li><strong>Analisis exploratorio de datos: Caso Almacen Global</strong> <span>45 min</span></li><li><strong>🤔 Reflexión y discusión: ¿Qué aprendimos en esta sesión?</strong> <span>5 min</span></li></ul></div>
+</div>
+<div class="slide slide-objectives" id="slide-3" data-type="objectives" data-transition-title="¿Qué aprenderemos hoy?">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="content-wrapper"><h1>Metas de contenido para esta sesión</h1><div class="objectives-container"><ul>
+<li>🎯 Conocer cómo definir el tipo de preguntas que se pueden hacer para analizar datos:<ul>
+<li>Comprender el problema central y los objetivos estratégicos del negocio.</li>
+<li>Identificar stakeholders y sus necesidades.</li>
+</ul>
+</li>
+<li>📏 Conocer las diferentes métricas que se pueden calcular para analizar datos (KPIs, OKRs, Guardrails):<ul>
+<li>Definir indicadores clave de rendimiento (KPIs) para medir el éxito.</li>
+<li>Conocer OKRs (Objectives and Key Results) y cómo utilizarlos para establecer metas.</li>
+</ul>
+</li>
+<li>🛠️ Aplicar herramientas de procesamiento y análisis de datos:<ul>
+<li>Funciones de búsqueda y concatenación de tablas (Vlookup).</li>
+<li>Aplicar filtros avanzados para obtener información específica.</li>
+<li>Crear tablas dinámicas para analizar datos.</li>
+</ul>
+</li>
+<li>💡 Crear visualizaciones para comunicar insights de negocio:<ul>
+<li>Seleccionar el gráfico más adecuado según la información a transmitir.</li>
+<li>Aplicar principios de <em>storytelling</em> para facilitar la toma de decisiones.</li>
+</ul>
+</li>
+</ul></div></div>
+</div>
+<div class="slide slide-gotocode" id="slide-4" data-type="gotocode" data-transition-title="Momento de trabajar en equipo">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<h1>¡A trabajar en equipo!</h1><div class="qr-container"><div class="qr-item"><img src="../img/qrs/03-da-v8-insights-negocio.png" alt="Transformar datos para insights de negocio QR Code"><p>Transformar datos para insights de negocio</p></div></div>
+</div>
+<div class="slide slide-quizz" id="slide-5" data-type="quizz">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="content-wrapper quiz-container" data-quiz="[{&quot;text&quot;: &quot;&lt;p&gt;Tu equipo de producto quiere entender por qu\u00e9 cayeron las ventas el mes pasado. Al estructurar la pregunta anal\u00edtica de negocio, debes considerar varios aspectos para que sea accionable.&lt;/p&gt;\n&lt;p&gt;\u00bfCu\u00e1l de los siguientes elementos &lt;strong&gt;NO&lt;/strong&gt; es indispensable considerar al formular la pregunta de negocio?&lt;/p&gt;&quot;, &quot;options&quot;: [{&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude07 El horizonte temporal (ej. &#x27;durante el \u00faltimo mes&#x27;)&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude0e El mecanismo t\u00e9cnico de captura de datos (ej. &#x27;API vs Webhook&#x27;)&lt;/p&gt;&quot;, &quot;correct&quot;: true}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\udc4d La identidad del tomador de decisi\u00f3n&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude04 Las variables para segmentaci\u00f3n (ej. &#x27;por tipo de usuario&#x27;)&lt;/p&gt;&quot;, &quot;correct&quot;: false}], &quot;feedback&quot;: &quot;&lt;p&gt;\u00a1Correcto! El mecanismo de captura de datos es un detalle t\u00e9cnico. Las preguntas anal\u00edticas de negocio deben centrarse en el contexto del problema (tiempo, tomadores de decisi\u00f3n, segmentos) para generar &lt;em&gt;insights&lt;/em&gt; accionables, sin importar c\u00f3mo se extrajo la informaci\u00f3n.&lt;/p&gt;&quot;}, {&quot;text&quot;: &quot;&lt;p&gt;Una empresa de software lanza una agresiva campa\u00f1a para adquirir nuevos usuarios ofreciendo un mes gratis. Para asegurar que este crecimiento no afecte la experiencia actual, monitorean constantemente la \&quot;Tasa de interrupciones del servicio (SAIFI)\&quot;.&lt;/p&gt;\n&lt;p&gt;\u00bfQu\u00e9 tipo de m\u00e9trica representa esta tasa en este contexto?&lt;/p&gt;&quot;, &quot;options&quot;: [{&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude07 Un OKR (Objective and Key Result)&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude0e Una m\u00e9trica de vanidad&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\udc4d Un KPI (Key Performance Indicator)&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude04 Un Guardrail (M\u00e9trica de protecci\u00f3n)&lt;/p&gt;&quot;, &quot;correct&quot;: true}], &quot;feedback&quot;: &quot;&lt;p&gt;\u00a1Exacto! Es un &lt;em&gt;Guardrail&lt;/em&gt;. Mientras la empresa busca crecer agresivamente, necesita una m\u00e9trica de protecci\u00f3n para asegurarse de que ese crecimiento no degrade la calidad del servicio para los usuarios existentes.&lt;/p&gt;&quot;}, {&quot;text&quot;: &quot;&lt;p&gt;El director de operaciones de una red de distribuci\u00f3n el\u00e9ctrica revisa un tablero de control cada ma\u00f1ana. Su indicador principal para evaluar la eficiencia operativa del d\u00eda a d\u00eda es el \&quot;Costo promedio de mantenimiento por kWh distribuido\&quot;.&lt;/p&gt;\n&lt;p&gt;\u00bfA qu\u00e9 concepto corresponde esta m\u00e9trica?&lt;/p&gt;&quot;, &quot;options&quot;: [{&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude07 Un KPI (Key Performance Indicator)&lt;/p&gt;&quot;, &quot;correct&quot;: true}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude0e Un OKR estrat\u00e9gico&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\udc4d Un Guardrail (M\u00e9trica de protecci\u00f3n)&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude04 Una m\u00e9trica cualitativa&lt;/p&gt;&quot;, &quot;correct&quot;: false}], &quot;feedback&quot;: &quot;&lt;p&gt;\u00a1Muy bien! Es un KPI porque mide el desempe\u00f1o continuo y la salud operativa del negocio a lo largo del tiempo, permitiendo evaluar si las operaciones son eficientes de manera constante.&lt;/p&gt;&quot;}, {&quot;text&quot;: &quot;&lt;p&gt;Al inicio del trimestre, el equipo de infraestructura de una startup define su gran meta transformacional: \&quot;Aumentar la disponibilidad promedio del sistema del 97.5% al 99% para el final del Q3\&quot;.&lt;/p&gt;\n&lt;p&gt;\u00bfQu\u00e9 representa esta declaraci\u00f3n?&lt;/p&gt;&quot;, &quot;options&quot;: [{&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude07 Un Guardrail (M\u00e9trica de protecci\u00f3n)&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude0e Un OKR (Objective and Key Result)&lt;/p&gt;&quot;, &quot;correct&quot;: true}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\udc4d Un indicador descriptivo&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude04 Una m\u00e9trica de vanidad&lt;/p&gt;&quot;, &quot;correct&quot;: false}], &quot;feedback&quot;: &quot;&lt;p&gt;\u00a1Correcto! Es un OKR porque establece una meta espec\u00edfica, temporal y retadora (pasar de 97.5% a 99% en un trimestre), dise\u00f1ada para alinear el esfuerzo del equipo hacia una mejora o salto cualitativo.&lt;/p&gt;&quot;}, {&quot;text&quot;: &quot;&lt;p&gt;Una cadena de supermercados not\u00f3 una ca\u00edda en sus ventas. El equipo de datos formula la siguiente pregunta: &lt;em&gt;\&quot;\u00bfQu\u00e9 factores y comportamientos causaron la disminuci\u00f3n del 15% en las ventas de la categor\u00eda de l\u00e1cteos durante el mes pasado?\&quot;&lt;/em&gt;&lt;/p&gt;\n&lt;p&gt;\u00bfQu\u00e9 tipo de pregunta anal\u00edtica es esta?&lt;/p&gt;&quot;, &quot;options&quot;: [{&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude07 Descriptiva (\u00bfQu\u00e9 pas\u00f3?)&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude0e Diagn\u00f3stica (\u00bfPor qu\u00e9 pas\u00f3?)&lt;/p&gt;&quot;, &quot;correct&quot;: true}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\udc4d Predictiva (\u00bfQu\u00e9 pasar\u00e1?)&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude04 Prescriptiva (\u00bfQu\u00e9 deber\u00edamos hacer?)&lt;/p&gt;&quot;, &quot;correct&quot;: false}], &quot;feedback&quot;: &quot;&lt;p&gt;\u00a1Excelente! Es una pregunta diagn\u00f3stica porque busca entender las &lt;strong&gt;causas&lt;/strong&gt; o los factores detr\u00e1s de un evento que ya ocurri\u00f3 (la ca\u00edda del 15% en ventas).&lt;/p&gt;&quot;}]" data-timer="45">
+        <h1>Pongamos a prueba lo aprendido</h1>
+        <h2>Reaccciona en la llamada con el emoji de la respuesta correcta</h2>
+        <div class="quiz-intro"></div>
+        <div class="quiz-ui" style="display:none; opacity: 0; transform: translateX(20px);">
+            <div class="quiz-nav-menu"></div>
+            <div class="quiz-header" style="justify-content: flex-end; flex-direction: column; align-items: flex-end;">
+                <span class="quiz-timer" style="display:none; font-size: 1.5rem;">⏳ <span class="time-left"></span>s</span>
+                <button class="quiz-show-answer-btn" style="display:none; margin-top: 10px; font-size: 1.1rem; cursor: pointer; padding: 8px 15px; border-radius: 5px; background: var(--color-orange); color: var(--color-black); border: none; font-weight: bold; transition: transform 0.2s;">Mostrar Respuesta</button>
+            </div>
+            <div class="quiz-question-box"></div>
+            <div class="quiz-options-box"></div>
+            <div class="quiz-feedback-box"></div>
+            <button class="quiz-next-btn" style="display:none;">Siguiente Pregunta</button>
+        </div>
+        <button class="quiz-start-btn">Comenzar</button>
+    </div>
+</div>
+<div class="slide slide-basic_slide" id="slide-6" data-type="basic_slide" data-transition-title="Ahora para finalizar">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="content-wrapper"><h1>🎉 Espero que hayas disfrutado la sesión</h1><h2>Qué te parece si:</h2><ul>
+<li>🏃‍♂️ Continúa con tu avance en el sprint.</li>
+<li>🚀 Trata de aplicar lo aprendido en un proyecto personal o tema de tu interés.</li>
+<li>🤝 Participa en el Co-Learning para afianzar tus conocimientos mientras ayudas a otros a entenderlos.</li>
+<li>💬 Comparte en nuestro canal de <code>community</code> algo que te haya gustado o llamado la atención de esta sesión.</li>
+<li>🤖 Utiliza la IA de preferencia para que te genere alguna actividad extra para practicar lo aprendido.</li>
+<li>📝 Al finalizar la sesión recibirás una encuesta de satisfacción, tus comentarios son muy valiosos para nosotros y me ayudará a mejorar como tutor.</li>
+</ul></div>
+</div>
+<div class="slide slide-finale" id="slide-7" data-type="finale">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<h1>¡Excelente trabajo! 🚀📊</h1><h2>¡Gracias por participar!</h2>
+</div>
+
+        <div id="slide-menu" class="slide-menu">
+            <div class="slide-menu-content">
+                <button id="close-menu-btn" class="close-menu" title="Cerrar">&times;</button>
+                <h2>Índice de Diapositivas</h2>
+                <ul class="slide-list">
+                    <li><button class="menu-jump-btn" data-index="0">1. Sprint 2 Sesión 1</button></li>
+<li><button class="menu-jump-btn" data-index="1">2. ¿Cómo llegas a la sesión de hoy?</button></li>
+<li><button class="menu-jump-btn" data-index="2">3. Plan de nuestra sesión</button></li>
+<li><button class="menu-jump-btn" data-index="3">4. Metas de contenido para esta sesión</button></li>
+<li><button class="menu-jump-btn" data-index="4">5. ¡A trabajar en equipo!</button></li>
+<li><button class="menu-jump-btn" data-index="5">6. Pongamos a prueba lo aprendido</button></li>
+<li><button class="menu-jump-btn" data-index="6">7. 🎉 Espero que hayas disfrutado la sesión</button></li>
+<li><button class="menu-jump-btn" data-index="7">8. ¡Excelente trabajo! 🚀📊</button></li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="slide-nav">
+            <button id="prev-btn" title="Anterior (Flecha Izquierda)">&#8592;</button>
+            <button id="menu-btn" title="Índice de Diapositivas">&#9776;</button>
+            <button id="next-btn" title="Siguiente (Flecha Derecha)">&#8594;</button>
+        </div>
+    </div>
+    
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const dateObj = new Date();
+        const day = dateObj.getDate();
+        const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+        const month = months[dateObj.getMonth()];
+        const year = dateObj.getFullYear();
+        const dateStr = `${day} de ${month} ${year}`;
+        document.querySelectorAll('.dynamic-date').forEach(el => el.textContent = dateStr);
+
+        const slides = document.querySelectorAll('.slide');
+        const transitionOverlay = document.getElementById('transition-overlay');
+        const transitionTitleElement = transitionOverlay.querySelector('h1');
+        
+        let currentSlide = -1;
+        let isTransitioning = false;
+        let slideIntervals = {}; 
+
+        function showSlide(index) {
+            if (isTransitioning || index === currentSlide) return;
+            
+            const nextSlideElement = slides[index];
+            if (!nextSlideElement) return;
+
+            isTransitioning = true;
+            
+            const transitionTitle = nextSlideElement.dataset.transitionTitle;
+
+            if (currentSlide > -1) {
+                slides[currentSlide].classList.remove('active');
+            }
+
+            if (transitionTitle && index > currentSlide) {
+                transitionTitleElement.textContent = transitionTitle;
+                transitionOverlay.className = 'slide';
+                transitionOverlay.classList.add(`slide-${nextSlideElement.dataset.type}`);
+                transitionOverlay.classList.add('visible');
+
+                setTimeout(() => {
+                    transitionOverlay.classList.remove('visible');
+                    currentSlide = index;
+                    slides[currentSlide].classList.add('active');
+                    activateSlide(currentSlide);
+                    setTimeout(() => isTransitioning = false, 500);
+                }, 1000);
+            } else {
+                currentSlide = index;
+                slides[currentSlide].classList.add('active');
+                activateSlide(currentSlide);
+                isTransitioning = false;
+            }
+        }
+
+        function nextSlide() {
+            if (currentSlide < slides.length - 1) {
+                showSlide(currentSlide + 1);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                showSlide(currentSlide - 1);
+            }
+        }
+        
+        function activateSlide(index) {
+            const slideElement = slides[index];
+            if (!slideElement) return;
+            const slideType = slideElement.dataset.type;
+
+            Object.values(slideIntervals).forEach(clearInterval);
+
+            if (slideType === 'countdown') {
+                const timerElement = slideElement.querySelector('.timer');
+                const startMessage = slideElement.querySelector('.start-message');
+                let duration = parseInt(slideElement.dataset.timer || '600', 10);
+
+                slideIntervals[index] = setInterval(() => {
+                    if (duration < 0) {
+                        clearInterval(slideIntervals[index]);
+                        timerElement.style.display = 'none';
+                        startMessage.style.display = 'block';
+                        setTimeout(nextSlide, 2000); 
+                        return;
+                    }
+                    const minutes = Math.floor(duration / 60);
+                    const seconds = duration % 60;
+                    timerElement.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+                    duration--;
+                }, 1000);
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            else if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const menuBtn = document.getElementById('menu-btn');
+        const slideMenu = document.getElementById('slide-menu');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+
+        if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+        if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+        if (menuBtn) menuBtn.addEventListener('click', () => slideMenu.classList.add('active'));
+        if (closeMenuBtn) closeMenuBtn.addEventListener('click', () => slideMenu.classList.remove('active'));
+
+        document.querySelectorAll('.menu-jump-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const index = parseInt(e.currentTarget.dataset.index, 10);
+                slideMenu.classList.remove('active');
+                showSlide(index);
+            });
+        });
+
+        document.querySelectorAll('.quiz-container').forEach(container => {
+            const startBtn = container.querySelector('.quiz-start-btn');
+            const nextBtn = container.querySelector('.quiz-next-btn');
+            const uiBox = container.querySelector('.quiz-ui');
+            const introBox = container.querySelector('.quiz-intro');
+            const qBox = container.querySelector('.quiz-question-box');
+            const optBox = container.querySelector('.quiz-options-box');
+            const feedBox = container.querySelector('.quiz-feedback-box');
+            const timerDiv = container.querySelector('.quiz-timer');
+            const timerSpan = container.querySelector('.time-left');
+            const navMenu = container.querySelector('.quiz-nav-menu');
+            const showAnsBtn = container.querySelector('.quiz-show-answer-btn');
+
+            const h1 = container.querySelector('h1');
+            const h2 = container.querySelector('h2');
+
+            let rawData = container.getAttribute('data-quiz') || "[]";
+            const questions = JSON.parse(rawData);
+            const timeLimit = parseInt(container.getAttribute('data-timer') || "0", 10);
+            
+            let currentQIndex = 0;
+            let timerInterval;
+            let timeLeft = timeLimit;
+            let canAnswer = false;
+
+            function buildNavMenu() {
+                navMenu.innerHTML = '';
+                questions.forEach((q, idx) => {
+                    const dot = document.createElement('button');
+                    dot.className = 'quiz-nav-dot';
+                    dot.textContent = idx + 1;
+                    dot.addEventListener('click', () => jumpToQuestion(idx));
+                    navMenu.appendChild(dot);
+                });
+            }
+
+            function updateNavMenu() {
+                const dots = navMenu.querySelectorAll('.quiz-nav-dot');
+                dots.forEach((dot, idx) => {
+                    if (idx === currentQIndex) dot.classList.add('active');
+                    else dot.classList.remove('active');
+                });
+            }
+
+            function renderQuestion() {
+                clearInterval(timerInterval);
+
+                if(currentQIndex >= questions.length) {
+                    uiBox.innerHTML = '<div style="text-align:center; padding: 5rem;"><h2>¡Quiz Terminado!</h2><p>Continúa con las flechas de navegación convencionales.</p></div>';
+                    return;
+                }
+                
+                uiBox.style.opacity = '0';
+                uiBox.style.transform = 'translateX(20px)';
+                
+                setTimeout(() => {
+                    const q = questions[currentQIndex];
+                    canAnswer = true;
+                    qBox.innerHTML = q.text;
+                    optBox.innerHTML = '';
+                    feedBox.className = 'quiz-feedback-box'; 
+                    feedBox.innerHTML = q.feedback || '';
+                    nextBtn.style.display = 'none';
+                    if (showAnsBtn) showAnsBtn.style.display = 'none';
+                    updateNavMenu();
+
+                    q.options.forEach((opt, idx) => {
+                        const card = document.createElement('div');
+                        card.className = 'quiz-option-card';
+                        card.innerHTML = opt.text;
+                        optBox.appendChild(card);
+                    });
+
+                    uiBox.style.display = 'block';
+                    void uiBox.offsetWidth;
+                    uiBox.style.opacity = '1';
+                    uiBox.style.transform = 'translateX(0)';
+                    
+                    if (window.MathJax) {
+                        MathJax.typesetPromise().catch((err) => console.log('MathJax error: ', err));
+                    }
+                    if (window.hljs) {
+                        uiBox.querySelectorAll('pre code').forEach((block) => hljs.highlightElement(block));
+                    }
+
+                    if (timeLimit > 0) {
+                        timerDiv.style.display = 'inline-block';
+                        if (showAnsBtn) showAnsBtn.style.display = 'inline-block';
+                        timeLeft = timeLimit;
+                        timerSpan.textContent = timeLeft;
+                        timerInterval = setInterval(() => {
+                            timeLeft--;
+                            timerSpan.textContent = timeLeft;
+                            if (timeLeft <= 0) {
+                                clearInterval(timerInterval);
+                                revealAnswer();
+                            }
+                        }, 1000);
+                    } else {
+                        timerDiv.style.display = 'none';
+                        if (showAnsBtn) showAnsBtn.style.display = 'inline-block';
+                        setTimeout(revealAnswer, 5000);
+                    }
+                }, 400);
+            }
+
+            function revealAnswer() {
+                if(!canAnswer) return;
+                canAnswer = false;
+                clearInterval(timerInterval);
+                if (showAnsBtn) showAnsBtn.style.display = 'none';
+                
+                const q = questions[currentQIndex];
+                const cards = optBox.querySelectorAll('.quiz-option-card');
+                
+                cards.forEach((card, idx) => {
+                    if(q.options[idx].correct) {
+                        card.classList.add('flip-correct');
+                    } else {
+                        card.classList.add('fade-out');
+                    }
+                });
+
+                if (q.feedback) {
+                    feedBox.classList.add('show');
+                }
+                
+                if (currentQIndex < questions.length - 1) {
+                    nextBtn.style.display = 'inline-block';
+                    
+                    if (timeLimit > 0) {
+                        timeLeft = timeLimit;
+                        timerSpan.textContent = timeLeft;
+                        timerInterval = setInterval(() => {
+                            timeLeft--;
+                            timerSpan.textContent = timeLeft;
+                            if (timeLeft <= 0) {
+                                clearInterval(timerInterval);
+                                currentQIndex++;
+                                renderQuestion();
+                            }
+                        }, 1000);
+                    }
+                } else {
+                    setTimeout(() => {
+                        currentQIndex++;
+                        renderQuestion();
+                    }, timeLimit > 0 ? timeLimit * 1000 : 5000);
+                }
+            }
+            
+            function jumpToQuestion(idx) {
+                clearInterval(timerInterval);
+                currentQIndex = idx;
+                renderQuestion();
+            }
+
+            startBtn.addEventListener('click', () => {
+                startBtn.style.display = 'none';
+                
+                if(introBox) {
+                    introBox.style.opacity = '0';
+                    introBox.style.transform = 'scale(0.95)';
+                    setTimeout(() => introBox.style.display = 'none', 500);
+                }
+                if(h1) h1.style.display = 'none';
+                if(h2) h2.style.display = 'none';
+                
+                buildNavMenu();
+                
+                setTimeout(() => {
+                    uiBox.style.display = 'block';
+                    renderQuestion();
+                }, 500);
+            });
+
+            nextBtn.addEventListener('click', () => {
+                currentQIndex++;
+                renderQuestion();
+            });
+
+            if (showAnsBtn) {
+                showAnsBtn.addEventListener('click', () => {
+                    revealAnswer();
+                });
+            }
+        });
+
+        if (slides.length > 0) {
+            showSlide(0);
+        }
+    });
+</script>
+
+</body>
+</html>
