@@ -21,8 +21,13 @@
 
 * 👋 Bienvenida {5}
 * 📊 Revisión proyecto del sprint {15}
+* 📢 Aviso generales {5}
 * ☕ Modelado de datos con Power BI: Caso Starbucks Rewards {90}
 * ❓ Preguntas y respuestas {10}
+
+---
+
+@include{path="./slides/out_office.md"}
 
 ---
 

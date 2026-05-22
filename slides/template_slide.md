@@ -11,6 +11,7 @@ Reglas Generales:
 3. Opcionalmente, puedes pasar parámetros entre llaves: `{parametro1: "valor", parametro2: "valor"}`.
    * `title_transition`: Genera una pantalla verde dinámica de transición de n-segundos antes de mostrar la slide. Si lo omites, el salto será instantáneo.
 4. El script extraerá automáticamente la línea de código que empiece con `# ` como el "Título", y `## ` como el "Subtítulo", sin importar el orden exacto dentro del texto.
+5. Puedes incluir contenido externo reutilizable usando `@include(path="./ruta/al/archivo.md")` (usando llaves `{}` en lugar de paréntesis). Esto preprocesará el archivo cargando su contenido e insertará automáticamente el delimitador `---` para finalizar la diapositiva.
 -->
 
 @countdown{timer: 10 s, title_transition: "¡Comenzamos en breve!"}
@@ -168,6 +169,19 @@ Esto construirá visualmente los cuadros para tu pantalla.
 
 * [Ejercicio Jupyter Notebook 1](https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Lorem_ipsum_design.svg/250px-Lorem_ipsum_design.svg.png)
 * [Repositorio GitHub Oficial](https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Lorem_ipsum_design.svg/250px-Lorem_ipsum_design.svg.png)
+
+---
+
+<!-- 
+=====================================================
+INCLUSIÓN DE SLIDES EXTERNAS (@include)
+=====================================================
+Puedes incluir una diapositiva o un conjunto de diapositivas almacenadas en otro archivo markdown.
+Esto es útil para avisos parroquiales, cambios de calendario o anuncios repetitivos en múltiples presentaciones.
+Al final de la inclusión, el script agregará automáticamente la línea '---' para terminar la diapositiva.
+-->
+
+@include{path="./slides/out_office.md"}
 
 ---
 

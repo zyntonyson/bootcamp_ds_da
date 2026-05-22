@@ -7,6 +7,78 @@ import markdown
 import json
 import yaml
 
+def resolve_path(include_path, current_file_dir, root_file_dir):
+    """
+    Resolves the given path using a fallback strategy:
+    1. Absolute path.
+    2. Relative to directory of file currently being processed.
+    3. Relative to directory of root input file.
+    4. Relative to current working directory.
+    """
+    if os.path.isabs(include_path):
+        return include_path
+
+    # Try relative to current_file_dir
+    path1 = os.path.abspath(os.path.join(current_file_dir, include_path))
+    if os.path.exists(path1):
+        return path1
+
+    # Try relative to root_file_dir
+    path2 = os.path.abspath(os.path.join(root_file_dir, include_path))
+    if os.path.exists(path2):
+        return path2
+
+    # Try relative to CWD
+    path3 = os.path.abspath(include_path)
+    if os.path.exists(path3):
+        return path3
+
+    # Default fallback
+    return path1
+
+def resolve_includes(content, current_file_path, root_file_dir, visited=None):
+    """
+    Recursively resolves @include{path="..."} markers in the content.
+    """
+    if visited is None:
+        visited = set()
+
+    current_abs_path = os.path.abspath(current_file_path)
+    if current_abs_path in visited:
+        print(f"Warning: Circular include detected for file '{current_abs_path}'")
+        return ""
+    visited.add(current_abs_path)
+
+    current_file_dir = os.path.dirname(current_abs_path)
+
+    pattern = r'@include\s*\{\s*path\s*=\s*(?:"([^"]*)"|\'([^\']*)\'|([^\s}]+))\s*\}'
+    
+    def replace_match(match):
+        include_path = match.group(1) or match.group(2) or match.group(3)
+        resolved_path = resolve_path(include_path, current_file_dir, root_file_dir)
+        
+        if not os.path.exists(resolved_path):
+            print(f"Error: Included file '{include_path}' (resolved to '{resolved_path}') not found.")
+            return f"\n<!-- Error: Included file '{include_path}' not found -->\n"
+
+        try:
+            with open(resolved_path, 'r', encoding='utf-8') as f:
+                included_content = f.read()
+        except Exception as e:
+            print(f"Error reading included file '{resolved_path}': {e}")
+            return f"\n<!-- Error reading included file '{include_path}': {e} -->\n"
+
+        # Recursively resolve nested includes
+        resolved_content = resolve_includes(included_content, resolved_path, root_file_dir, visited.copy())
+        
+        # Ensure it ends with --- and a newline to terminate the slide properly
+        if not resolved_content.strip().endswith('---'):
+            resolved_content = resolved_content.rstrip() + "\n---\n"
+            
+        return resolved_content
+
+    return re.sub(pattern, replace_match, content)
+
 def parse_markdown(content):
     """
     Parses the entire markdown content and splits it into slide objects.
@@ -889,6 +961,8 @@ def main():
     except FileNotFoundError:
         print(f"Error: Input file '{args.input_file}' not found.")
         return
+    root_file_dir = os.path.dirname(os.path.abspath(args.input_file))
+    markdown_content = resolve_includes(markdown_content, args.input_file, root_file_dir)
     slides = parse_markdown(markdown_content)
     html_output = generate_html(slides)
     if not args.output_file:

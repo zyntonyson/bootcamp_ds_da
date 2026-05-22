@@ -21,9 +21,12 @@
 
 
 * 👋 Bienvenida {5}
-* 💬 Data Storytelling {10}
+* 📝 Avisos generales {5}
 * 💬 Herramientas para crear dashboards y visualizaciones {80}
 * 🤔 Reflexión y discusión: ¿Qué aprendimos en esta sesión? {5}
+
+---
+@include{path="./slides/out_office.md"}
 
 ---
 
