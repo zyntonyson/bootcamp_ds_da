@@ -270,8 +270,7 @@ quizz:
 
 ---
 
-@finale{}
 
-# ¡Gracias inmensas!
+@include{path="../slides/farewell.md"}
 
-## Tu asistencia y participación hacen que la clase sea muy valiosa
+

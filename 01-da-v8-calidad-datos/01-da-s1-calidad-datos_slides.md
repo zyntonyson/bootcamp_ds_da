@@ -396,12 +396,6 @@ Por eso, es importante conocer los diferentes **tipos de datos** 🗂️, sus ca
 
 ---
 
-@finale{}
-
-# ¡Gracias!
-## ¡Nos vemos en la próxima sesión!
-
-
-
+@include{path="../slides/farewell.md"}
 
 

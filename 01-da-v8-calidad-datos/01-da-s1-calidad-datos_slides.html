@@ -172,7 +172,7 @@
     .quiz-container h1, .quiz-container h2 { text-align: center; }
     .quiz-intro { text-align: center; font-size: 1.5rem; margin-bottom: 2rem; color: var(--color-dark-gray-1); }
     .quiz-start-btn, .quiz-next-btn { align-self: center; background: var(--color-orange); border: none; color: var(--color-black); font-size: 1.5rem; font-weight: bold; padding: 1rem 3rem; border-radius: 10px; cursor: pointer; transition: transform 0.2s; margin-top: 2rem; }
-    .quiz-start-btn:hover, .quiz-next-btn:hover { transform: scale(1.05); }
+    .quiz-start-btn:hover, .quiz-next-btn:hover, .quiz-show-answer-btn:hover { transform: scale(1.05); }
     .quiz-header { display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: bold; margin-bottom: 1rem; color: var(--color-dark-gray-2); border-bottom: 2px solid rgba(0,0,0,0.1); padding-bottom: 10px; }
     .quiz-timer { color: #d9534f; }
     .quiz-question-box { font-size: 1.8rem; margin: 1.5rem 0; font-weight: 700; color: var(--color-black); }
@@ -210,7 +210,7 @@
         <div id="transition-overlay"><div class="content-wrapper"><h1></h1></div></div>
         <div class="slide slide-countdown" id="slide-0" data-type="countdown" data-timer="600" data-transition-title="¡Comenzamos en breve!">
 <img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
-<div class="traffic-logo-container"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 15%; animation: driveRight 20.25s linear -0.00s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 15%; animation: driveRight 20.25s linear -5.06s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 15%; animation: driveRight 20.25s linear -10.13s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 15%; animation: driveRight 20.25s linear -15.19s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 35%; animation: driveRight 30.44s linear -0.00s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 35%; animation: driveRight 30.44s linear -6.09s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 35%; animation: driveRight 30.44s linear -12.18s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 35%; animation: driveRight 30.44s linear -18.26s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 35%; animation: driveRight 30.44s linear -24.35s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 55%; animation: driveRight 26.36s linear -0.00s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 55%; animation: driveRight 26.36s linear -6.59s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 55%; animation: driveRight 26.36s linear -13.18s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 55%; animation: driveRight 26.36s linear -19.77s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 75%; animation: driveRight 22.21s linear -0.00s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 75%; animation: driveRight 22.21s linear -5.55s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 75%; animation: driveRight 22.21s linear -11.10s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 75%; animation: driveRight 22.21s linear -16.65s infinite;"></div><div class="content-wrapper"><h1>Sprint 1 Sesión 1</h1><h2>Asegura la calidad de los datos y genera reportes básicos</h2><div class="timer">--:--</div><div class="start-message">¡Comenzamos!</div><p></p></div><div class="dynamic-date" style="position: absolute; bottom: 30px; left: 40px; font-size: 1.5rem; font-weight: bold; color: var(--color-black); z-index: 1;"></div>
+<div class="traffic-logo-container"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 15%; animation: driveRight 31.46s linear -0.00s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 15%; animation: driveRight 31.46s linear -10.49s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 15%; animation: driveRight 31.46s linear -20.97s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 35%; animation: driveRight 22.75s linear -0.00s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 35%; animation: driveRight 22.75s linear -5.69s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 35%; animation: driveRight 22.75s linear -11.37s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 35%; animation: driveRight 22.75s linear -17.06s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 55%; animation: driveRight 25.18s linear -0.00s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 55%; animation: driveRight 25.18s linear -8.39s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 55%; animation: driveRight 25.18s linear -16.79s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 75%; animation: driveRight 33.97s linear -0.00s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 75%; animation: driveRight 33.97s linear -6.79s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 75%; animation: driveRight 33.97s linear -13.59s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 75%; animation: driveRight 33.97s linear -20.38s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 75%; animation: driveRight 33.97s linear -27.18s infinite;"></div><div class="content-wrapper"><h1>Sprint 1 Sesión 1</h1><h2>Asegura la calidad de los datos y genera reportes básicos</h2><div class="timer">--:--</div><div class="start-message">¡Comenzamos!</div><p></p></div><div class="dynamic-date" style="position: absolute; bottom: 30px; left: 40px; font-size: 1.5rem; font-weight: bold; color: var(--color-black); z-index: 1;"></div>
 </div>
 <div class="slide slide-basic_slide" id="slide-1" data-type="basic_slide" data-transition-title="¡Bienvenidos a TripleTen! 🚀">
 <img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
@@ -592,9 +592,19 @@ ORDER BY margin_pct DESC;
 <img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
 <h1>Escanea el código QR para acceder al material de la actividad.</h1><div class="qr-container"><div class="qr-item"><img src="../img/qrs/01-da-s1-calidad-datos.png" alt="Limpieza de datos: Taylor Swift Dataset QR Code"><p>Limpieza de datos: Taylor Swift Dataset</p></div></div>
 </div>
-<div class="slide slide-finale" id="slide-22" data-type="finale">
+<div class="slide slide-basic_slide" id="slide-22" data-type="basic_slide" data-transition-title="Ahora para finalizar">
 <img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
-<h1>¡Gracias!</h1><h2>¡Nos vemos en la próxima sesión!</h2>
+<div class="content-wrapper"><h1>🎉 Espero que hayas disfrutado la sesión</h1><h2>Qué te parece si:</h2><ul>
+<li>🚀 Trata de aplicar lo aprendido en un proyecto personal o tema de tu interés.</li>
+<li>🤝 Participa en el Co-Learning para afianzar tus conocimientos mientras ayudas a otros a entenderlos.</li>
+<li>💬 Comparte en nuestro canal de <code>community</code> algo que te haya gustado o llamado la atención de esta sesión.</li>
+<li>🤖 Utiliza la IA de preferencia para que te genere alguna actividad extra para practicar lo aprendido.</li>
+<li>📝 Al finalizar la sesión recibirás una encuesta de satisfacción, tus comentarios son muy valiosos para nosotros y me ayudará a mejorar como tutor.</li>
+</ul></div>
+</div>
+<div class="slide slide-finale" id="slide-23" data-type="finale">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<h1>¡Excelente trabajo! 🚀📊</h1><h2>¡Gracias por participar!</h2>
 </div>
 
         <div id="slide-menu" class="slide-menu">
@@ -624,7 +634,8 @@ ORDER BY margin_pct DESC;
 <li><button class="menu-jump-btn" data-index="19">20. ¿Qué hace un analista de datos?</button></li>
 <li><button class="menu-jump-btn" data-index="20">21. Conceptos de calidad de datos</button></li>
 <li><button class="menu-jump-btn" data-index="21">22. Escanea el código QR para acceder al material de la actividad.</button></li>
-<li><button class="menu-jump-btn" data-index="22">23. ¡Gracias!</button></li>
+<li><button class="menu-jump-btn" data-index="22">23. 🎉 Espero que hayas disfrutado la sesión</button></li>
+<li><button class="menu-jump-btn" data-index="23">24. ¡Excelente trabajo! 🚀📊</button></li>
 
                 </ul>
             </div>
@@ -764,6 +775,7 @@ ORDER BY margin_pct DESC;
             const timerDiv = container.querySelector('.quiz-timer');
             const timerSpan = container.querySelector('.time-left');
             const navMenu = container.querySelector('.quiz-nav-menu');
+            const showAnsBtn = container.querySelector('.quiz-show-answer-btn');
 
             const h1 = container.querySelector('h1');
             const h2 = container.querySelector('h2');
@@ -815,6 +827,7 @@ ORDER BY margin_pct DESC;
                     feedBox.className = 'quiz-feedback-box'; 
                     feedBox.innerHTML = q.feedback || '';
                     nextBtn.style.display = 'none';
+                    if (showAnsBtn) showAnsBtn.style.display = 'none';
                     updateNavMenu();
 
                     q.options.forEach((opt, idx) => {
@@ -838,6 +851,7 @@ ORDER BY margin_pct DESC;
 
                     if (timeLimit > 0) {
                         timerDiv.style.display = 'inline-block';
+                        if (showAnsBtn) showAnsBtn.style.display = 'inline-block';
                         timeLeft = timeLimit;
                         timerSpan.textContent = timeLeft;
                         timerInterval = setInterval(() => {
@@ -850,6 +864,7 @@ ORDER BY margin_pct DESC;
                         }, 1000);
                     } else {
                         timerDiv.style.display = 'none';
+                        if (showAnsBtn) showAnsBtn.style.display = 'inline-block';
                         setTimeout(revealAnswer, 5000);
                     }
                 }, 400);
@@ -858,6 +873,8 @@ ORDER BY margin_pct DESC;
             function revealAnswer() {
                 if(!canAnswer) return;
                 canAnswer = false;
+                clearInterval(timerInterval);
+                if (showAnsBtn) showAnsBtn.style.display = 'none';
                 
                 const q = questions[currentQIndex];
                 const cards = optBox.querySelectorAll('.quiz-option-card');
@@ -927,6 +944,12 @@ ORDER BY margin_pct DESC;
                 currentQIndex++;
                 renderQuestion();
             });
+
+            if (showAnsBtn) {
+                showAnsBtn.addEventListener('click', () => {
+                    revealAnswer();
+                });
+            }
         });
 
         if (slides.length > 0) {

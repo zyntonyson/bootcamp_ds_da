@@ -12,6 +12,9 @@
       };
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
     
 <style>
     :root {
@@ -93,7 +96,7 @@
     }
 
     .slide-agenda, .slide-warnup-question, .slide-basic_slide, .slide-two_columns_slide { background-color: var(--color-light-gray); color: var(--color-black); }
-    .slide-basic_slide .content-wrapper, .slide-two_columns_slide .content-wrapper { width: 90%; text-align: left; overflow-y: auto; max-height: 85vh; padding: 2rem 3rem; }
+    .slide-agenda .content-wrapper, .slide-basic_slide .content-wrapper, .slide-two_columns_slide .content-wrapper { width: 90%; text-align: left; overflow-y: auto; max-height: 85vh; padding: 2rem 3rem; }
     .slide-basic_slide .content-wrapper img, .slide-two_columns_slide .content-wrapper img { max-width: 100%; border-radius: 10px; display: block; margin: 1rem auto; padding: 0; }
     .slide-basic_slide .content-wrapper p, .slide-basic_slide .content-wrapper ul, .slide-basic_slide .content-wrapper ol, .slide-two_columns_slide .content-wrapper p, .slide-two_columns_slide .content-wrapper ul, .slide-two_columns_slide .content-wrapper ol { font-size: 1.5rem; line-height: 1.6; }
     .slide-basic_slide .content-wrapper ul, .slide-basic_slide .content-wrapper ol, .slide-two_columns_slide .content-wrapper ul, .slide-two_columns_slide .content-wrapper ol { padding-left: 3rem; }
@@ -101,9 +104,9 @@
     .slide-two_columns_slide .column-left { padding-right: 2rem; width: 50%; display: flex; flex-direction: column; justify-content: center; }
     .slide-two_columns_slide .column-right { width: 50%; display: flex; align-items: center; justify-content: center; height: 100%; }
     .slide-two_columns_slide .column-right img { width: 100%; max-height: 70vh; object-fit: contain; }
-    .slide-agenda h1 { color: var(--color-black); }
+    .slide-agenda h1 { color: var(--color-black); margin-bottom: 1.5rem; }
     .slide-agenda ul { list-style: none; padding: 0; font-size: 1.5rem; }
-    .slide-agenda li { margin: 0.5rem 0; }
+    .slide-agenda li { margin: 0.8rem 0; }
     .slide-agenda li strong { color: var(--color-black); }
     .slide-agenda li span { color: var(--color-dark-gray-1); margin-left: 1rem; }
 
@@ -136,7 +139,8 @@
     .slide-gotocode .qr-item img { width: 150px; height: 150px; border-radius: 10px; }
 
     #transition-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out; background-color: var(--color-green); color: var(--color-black); }
-    #transition-overlay h1 { color: var(--color-black); }
+    #transition-overlay h1 { color: var(--color-black); margin-bottom: 0; }
+    #transition-overlay .content-wrapper { width: 90%; text-align: left; padding: 2rem 3rem; }
     #transition-overlay.visible { opacity: 1; visibility: visible; }
     
     .slide-nav { position: absolute; bottom: 20px; right: 20px; z-index: 100; display: flex; gap: 10px; }
@@ -168,7 +172,7 @@
     .quiz-container h1, .quiz-container h2 { text-align: center; }
     .quiz-intro { text-align: center; font-size: 1.5rem; margin-bottom: 2rem; color: var(--color-dark-gray-1); }
     .quiz-start-btn, .quiz-next-btn { align-self: center; background: var(--color-orange); border: none; color: var(--color-black); font-size: 1.5rem; font-weight: bold; padding: 1rem 3rem; border-radius: 10px; cursor: pointer; transition: transform 0.2s; margin-top: 2rem; }
-    .quiz-start-btn:hover, .quiz-next-btn:hover { transform: scale(1.05); }
+    .quiz-start-btn:hover, .quiz-next-btn:hover, .quiz-show-answer-btn:hover { transform: scale(1.05); }
     .quiz-header { display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: bold; margin-bottom: 1rem; color: var(--color-dark-gray-2); border-bottom: 2px solid rgba(0,0,0,0.1); padding-bottom: 10px; }
     .quiz-timer { color: #d9534f; }
     .quiz-question-box { font-size: 1.8rem; margin: 1.5rem 0; font-weight: 700; color: var(--color-black); }
@@ -189,6 +193,15 @@
     .quiz-intro { transition: opacity 0.5s, transform 0.5s; }
     .quiz-ui { transition: opacity 0.5s, transform 0.5s; }
     .slide-quizz .content-wrapper { overflow-x: hidden; }
+    pre { border-radius: 8px; font-size: 1.1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 1.2rem; color: var(--color-dark-gray-1); }
+    th, td { border: 1px solid rgba(0,0,0,0.1); padding: 1rem; text-align: left; }
+    th { background-color: var(--color-light-gray); font-weight: bold; color: var(--color-black); }
+    tr:nth-child(even) { background-color: rgba(0,0,0,0.02); }
+    .slide-overlay table, .slide-gotocode table { color: var(--color-white-soft); }
+    .slide-overlay th, .slide-gotocode th { background-color: rgba(255,255,255,0.1); color: var(--color-white-soft); border-color: rgba(255,255,255,0.2); }
+    .slide-overlay td, .slide-gotocode td { border-color: rgba(255,255,255,0.2); }
+    .slide-overlay tr:nth-child(even), .slide-gotocode tr:nth-child(even) { background-color: rgba(255,255,255,0.05); }
 </style>
 
 </head>
@@ -197,50 +210,41 @@
         <div id="transition-overlay"><div class="content-wrapper"><h1></h1></div></div>
         <div class="slide slide-countdown" id="slide-0" data-type="countdown" data-timer="600" data-transition-title="¡Comenzamos en breve!">
 <img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
-<div class="traffic-logo-container"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 15%; animation: driveRight 28.37s linear -0.00s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 15%; animation: driveRight 28.37s linear -7.09s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 15%; animation: driveRight 28.37s linear -14.19s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 15%; animation: driveRight 28.37s linear -21.28s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 35%; animation: driveRight 33.18s linear -0.00s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 35%; animation: driveRight 33.18s linear -8.29s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 35%; animation: driveRight 33.18s linear -16.59s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 35%; animation: driveRight 33.18s linear -24.88s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 55%; animation: driveRight 31.54s linear -0.00s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 55%; animation: driveRight 31.54s linear -6.31s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 55%; animation: driveRight 31.54s linear -12.61s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 55%; animation: driveRight 31.54s linear -18.92s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 55%; animation: driveRight 31.54s linear -25.23s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 75%; animation: driveRight 24.99s linear -0.00s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 75%; animation: driveRight 24.99s linear -8.33s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 75%; animation: driveRight 24.99s linear -16.66s infinite;"></div><div class="content-wrapper"><h1>Sprint 7 Sesión 1</h1><h2>Análisis estadístico para detectar patrones y outliers</h2><div class="timer">--:--</div><div class="start-message">¡Comenzamos!</div><p></p></div><div class="dynamic-date" style="position: absolute; bottom: 30px; left: 40px; font-size: 1.5rem; font-weight: bold; color: var(--color-black); z-index: 1;"></div>
+<div class="traffic-logo-container"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 15%; animation: driveRight 27.92s linear -0.00s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 15%; animation: driveRight 27.92s linear -6.98s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 15%; animation: driveRight 27.92s linear -13.96s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 15%; animation: driveRight 27.92s linear -20.94s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 35%; animation: driveRight 20.18s linear -0.00s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 35%; animation: driveRight 20.18s linear -5.05s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 35%; animation: driveRight 20.18s linear -10.09s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 35%; animation: driveRight 20.18s linear -15.14s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 55%; animation: driveRight 30.58s linear -0.00s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 55%; animation: driveRight 30.58s linear -6.12s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 55%; animation: driveRight 30.58s linear -12.23s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 55%; animation: driveRight 30.58s linear -18.35s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 55%; animation: driveRight 30.58s linear -24.46s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 75%; animation: driveRight 20.89s linear -0.00s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 75%; animation: driveRight 20.89s linear -4.18s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 75%; animation: driveRight 20.89s linear -8.36s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 75%; animation: driveRight 20.89s linear -12.53s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 75%; animation: driveRight 20.89s linear -16.71s infinite;"></div><div class="content-wrapper"><h1>Sprint 7 Sesión 1</h1><h2>Análisis estadístico para detectar patrones y outliers</h2><div class="timer">--:--</div><div class="start-message">¡Comenzamos!</div><p></p></div><div class="dynamic-date" style="position: absolute; bottom: 30px; left: 40px; font-size: 1.5rem; font-weight: bold; color: var(--color-black); z-index: 1;"></div>
 </div>
 <div class="slide slide-warnup-mood" id="slide-1" data-type="warnup-mood" data-transition-title="Midamos los ánimos">
 <img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
-<div class="emoji-container"><div class="emoji" style="left: 71vw; animation-delay: -3.50s; animation-duration: 11.71s; font-size: 3.31rem;">🏋️</div><div class="emoji" style="left: 12vw; animation-delay: -8.80s; animation-duration: 11.17s; font-size: 5.56rem;">🚀</div><div class="emoji" style="left: 41vw; animation-delay: -6.92s; animation-duration: 9.27s; font-size: 3.29rem;">😔</div><div class="emoji" style="left: 33vw; animation-delay: -0.00s; animation-duration: 9.06s; font-size: 3.11rem;">😊</div><div class="emoji" style="left: 47vw; animation-delay: -6.88s; animation-duration: 7.80s; font-size: 3.01rem;">😐</div><div class="emoji" style="left: 9vw; animation-delay: -6.55s; animation-duration: 8.95s; font-size: 5.39rem;">😄</div><div class="emoji" style="left: 84vw; animation-delay: -0.42s; animation-duration: 7.43s; font-size: 5.99rem;">😍</div><div class="emoji" style="left: 70vw; animation-delay: -3.04s; animation-duration: 5.06s; font-size: 5.70rem;">🙌</div><div class="emoji" style="left: 38vw; animation-delay: -7.03s; animation-duration: 7.30s; font-size: 3.38rem;">🏋️</div><div class="emoji" style="left: 41vw; animation-delay: -4.71s; animation-duration: 8.93s; font-size: 5.40rem;">😅</div><div class="emoji" style="left: 44vw; animation-delay: -9.14s; animation-duration: 11.40s; font-size: 4.15rem;">🏋️</div><div class="emoji" style="left: 69vw; animation-delay: -8.03s; animation-duration: 6.16s; font-size: 5.95rem;">🌟</div><div class="emoji" style="left: 74vw; animation-delay: -6.23s; animation-duration: 7.72s; font-size: 4.53rem;">😪</div><div class="emoji" style="left: 69vw; animation-delay: -1.71s; animation-duration: 11.72s; font-size: 4.42rem;">🧐</div><div class="emoji" style="left: 70vw; animation-delay: -1.27s; animation-duration: 10.02s; font-size: 3.72rem;">🙌</div><div class="emoji" style="left: 65vw; animation-delay: -7.63s; animation-duration: 6.59s; font-size: 5.90rem;">😍</div><div class="emoji" style="left: 86vw; animation-delay: -2.17s; animation-duration: 5.76s; font-size: 3.32rem;">😊</div><div class="emoji" style="left: 6vw; animation-delay: -3.26s; animation-duration: 6.02s; font-size: 3.72rem;">🌟</div><div class="emoji" style="left: 82vw; animation-delay: -4.97s; animation-duration: 9.31s; font-size: 3.30rem;">🎉</div><div class="emoji" style="left: 0vw; animation-delay: -8.56s; animation-duration: 10.07s; font-size: 5.00rem;">✨</div><div class="emoji" style="left: 74vw; animation-delay: -2.54s; animation-duration: 7.27s; font-size: 5.84rem;">😴</div><div class="emoji" style="left: 16vw; animation-delay: -8.06s; animation-duration: 9.99s; font-size: 5.44rem;">💡</div><div class="emoji" style="left: 50vw; animation-delay: -6.12s; animation-duration: 6.93s; font-size: 4.17rem;">😶</div><div class="emoji" style="left: 85vw; animation-delay: -6.48s; animation-duration: 6.00s; font-size: 3.81rem;">😄</div><div class="emoji" style="left: 44vw; animation-delay: -7.08s; animation-duration: 7.30s; font-size: 4.34rem;">😴</div><div class="emoji" style="left: 31vw; animation-delay: -7.29s; animation-duration: 6.19s; font-size: 6.00rem;">😢</div><div class="emoji" style="left: 91vw; animation-delay: -0.13s; animation-duration: 7.57s; font-size: 4.86rem;">🎉</div><div class="emoji" style="left: 91vw; animation-delay: -3.89s; animation-duration: 8.15s; font-size: 3.52rem;">😴</div><div class="emoji" style="left: 92vw; animation-delay: -7.24s; animation-duration: 8.12s; font-size: 3.97rem;">😀</div><div class="emoji" style="left: 50vw; animation-delay: -7.19s; animation-duration: 5.01s; font-size: 3.91rem;">🤯</div><div class="emoji" style="left: 94vw; animation-delay: -2.40s; animation-duration: 10.83s; font-size: 5.10rem;">😳</div><div class="emoji" style="left: 59vw; animation-delay: -8.06s; animation-duration: 6.26s; font-size: 5.68rem;">😁</div><div class="emoji" style="left: 42vw; animation-delay: -3.86s; animation-duration: 7.78s; font-size: 4.54rem;">🤯</div><div class="emoji" style="left: 47vw; animation-delay: -3.14s; animation-duration: 9.19s; font-size: 4.66rem;">😄</div><div class="emoji" style="left: 91vw; animation-delay: -3.93s; animation-duration: 6.97s; font-size: 3.74rem;">🧐</div><div class="emoji" style="left: 4vw; animation-delay: -4.06s; animation-duration: 11.76s; font-size: 4.20rem;">😞</div><div class="emoji" style="left: 91vw; animation-delay: -8.38s; animation-duration: 10.96s; font-size: 4.77rem;">✨</div><div class="emoji" style="left: 41vw; animation-delay: -0.39s; animation-duration: 7.85s; font-size: 4.59rem;">🌟</div><div class="emoji" style="left: 19vw; animation-delay: -9.93s; animation-duration: 7.16s; font-size: 3.91rem;">😁</div><div class="emoji" style="left: 29vw; animation-delay: -1.36s; animation-duration: 5.01s; font-size: 4.85rem;">🥱</div><div class="emoji" style="left: 90vw; animation-delay: -2.49s; animation-duration: 6.45s; font-size: 5.31rem;">😢</div><div class="emoji" style="left: 30vw; animation-delay: -6.26s; animation-duration: 6.39s; font-size: 5.37rem;">😀</div><div class="emoji" style="left: 93vw; animation-delay: -8.12s; animation-duration: 5.24s; font-size: 4.79rem;">😞</div><div class="emoji" style="left: 13vw; animation-delay: -6.67s; animation-duration: 11.81s; font-size: 3.39rem;">⚡</div><div class="emoji" style="left: 66vw; animation-delay: -2.86s; animation-duration: 11.76s; font-size: 5.84rem;">💡</div><div class="emoji" style="left: 59vw; animation-delay: -5.47s; animation-duration: 6.27s; font-size: 5.48rem;">😁</div><div class="emoji" style="left: 83vw; animation-delay: -2.29s; animation-duration: 7.65s; font-size: 4.61rem;">😅</div><div class="emoji" style="left: 88vw; animation-delay: -4.79s; animation-duration: 11.95s; font-size: 5.39rem;">😅</div><div class="emoji" style="left: 76vw; animation-delay: -0.41s; animation-duration: 8.67s; font-size: 4.63rem;">🤨</div><div class="emoji" style="left: 73vw; animation-delay: -3.70s; animation-duration: 5.11s; font-size: 4.44rem;">😅</div></div><div class="content-wrapper"><h1>¿Cómo llegas a la sesión de hoy?</h1><h2>Reacciona con el emoji 😎🤔🤓🙂 que mejor represente tu mood</h2></div>
+<div class="emoji-container"><div class="emoji" style="left: 70vw; animation-delay: -2.04s; animation-duration: 5.44s; font-size: 5.26rem;">😠</div><div class="emoji" style="left: 41vw; animation-delay: -5.22s; animation-duration: 11.24s; font-size: 3.42rem;">🔥</div><div class="emoji" style="left: 62vw; animation-delay: -0.34s; animation-duration: 9.63s; font-size: 3.61rem;">😲</div><div class="emoji" style="left: 78vw; animation-delay: -8.16s; animation-duration: 11.32s; font-size: 5.45rem;">😶</div><div class="emoji" style="left: 14vw; animation-delay: -2.31s; animation-duration: 6.61s; font-size: 4.53rem;">😀</div><div class="emoji" style="left: 12vw; animation-delay: -2.54s; animation-duration: 7.20s; font-size: 4.55rem;">😄</div><div class="emoji" style="left: 44vw; animation-delay: -4.88s; animation-duration: 9.34s; font-size: 5.36rem;">🚀</div><div class="emoji" style="left: 15vw; animation-delay: -9.00s; animation-duration: 7.45s; font-size: 3.12rem;">😤</div><div class="emoji" style="left: 27vw; animation-delay: -7.00s; animation-duration: 10.60s; font-size: 5.09rem;">😄</div><div class="emoji" style="left: 47vw; animation-delay: -2.05s; animation-duration: 9.79s; font-size: 3.85rem;">🚀</div><div class="emoji" style="left: 57vw; animation-delay: -1.07s; animation-duration: 6.38s; font-size: 4.28rem;">😄</div><div class="emoji" style="left: 80vw; animation-delay: -9.67s; animation-duration: 7.99s; font-size: 4.62rem;">😁</div><div class="emoji" style="left: 70vw; animation-delay: -3.51s; animation-duration: 11.65s; font-size: 4.42rem;">✨</div><div class="emoji" style="left: 28vw; animation-delay: -5.26s; animation-duration: 5.88s; font-size: 3.11rem;">🔥</div><div class="emoji" style="left: 89vw; animation-delay: -2.75s; animation-duration: 8.81s; font-size: 5.23rem;">🌟</div><div class="emoji" style="left: 56vw; animation-delay: -7.52s; animation-duration: 11.47s; font-size: 4.04rem;">😁</div><div class="emoji" style="left: 40vw; animation-delay: -5.67s; animation-duration: 6.68s; font-size: 3.96rem;">😠</div><div class="emoji" style="left: 49vw; animation-delay: -9.21s; animation-duration: 6.98s; font-size: 3.71rem;">😞</div><div class="emoji" style="left: 50vw; animation-delay: -3.63s; animation-duration: 9.15s; font-size: 3.54rem;">🎉</div><div class="emoji" style="left: 32vw; animation-delay: -7.76s; animation-duration: 9.48s; font-size: 5.47rem;">😪</div><div class="emoji" style="left: 56vw; animation-delay: -9.90s; animation-duration: 11.68s; font-size: 4.72rem;">🧐</div><div class="emoji" style="left: 66vw; animation-delay: -1.59s; animation-duration: 7.16s; font-size: 3.04rem;">😤</div><div class="emoji" style="left: 33vw; animation-delay: -5.60s; animation-duration: 8.22s; font-size: 4.34rem;">🌟</div><div class="emoji" style="left: 42vw; animation-delay: -4.67s; animation-duration: 9.08s; font-size: 4.41rem;">🎉</div><div class="emoji" style="left: 41vw; animation-delay: -4.09s; animation-duration: 6.51s; font-size: 3.03rem;">🤨</div><div class="emoji" style="left: 51vw; animation-delay: -5.32s; animation-duration: 10.02s; font-size: 3.96rem;">🤨</div><div class="emoji" style="left: 62vw; animation-delay: -0.39s; animation-duration: 8.97s; font-size: 3.36rem;">🙌</div><div class="emoji" style="left: 66vw; animation-delay: -0.90s; animation-duration: 8.24s; font-size: 3.36rem;">😐</div><div class="emoji" style="left: 54vw; animation-delay: -2.68s; animation-duration: 8.25s; font-size: 3.20rem;">😢</div><div class="emoji" style="left: 83vw; animation-delay: -1.04s; animation-duration: 9.25s; font-size: 5.52rem;">💪</div><div class="emoji" style="left: 15vw; animation-delay: -3.72s; animation-duration: 5.12s; font-size: 4.91rem;">🏋️</div><div class="emoji" style="left: 77vw; animation-delay: -1.92s; animation-duration: 5.31s; font-size: 5.73rem;">🙂</div><div class="emoji" style="left: 22vw; animation-delay: -4.02s; animation-duration: 10.45s; font-size: 4.15rem;">🤨</div><div class="emoji" style="left: 88vw; animation-delay: -0.84s; animation-duration: 7.73s; font-size: 3.64rem;">😓</div><div class="emoji" style="left: 76vw; animation-delay: -9.41s; animation-duration: 5.00s; font-size: 5.24rem;">😊</div><div class="emoji" style="left: 18vw; animation-delay: -1.80s; animation-duration: 5.31s; font-size: 5.10rem;">😲</div><div class="emoji" style="left: 53vw; animation-delay: -6.66s; animation-duration: 9.70s; font-size: 4.87rem;">😔</div><div class="emoji" style="left: 40vw; animation-delay: -8.08s; animation-duration: 7.33s; font-size: 5.37rem;">😊</div><div class="emoji" style="left: 83vw; animation-delay: -4.40s; animation-duration: 8.31s; font-size: 4.16rem;">😳</div><div class="emoji" style="left: 18vw; animation-delay: -7.15s; animation-duration: 9.09s; font-size: 3.70rem;">😅</div><div class="emoji" style="left: 82vw; animation-delay: -3.49s; animation-duration: 5.66s; font-size: 4.35rem;">🤔</div><div class="emoji" style="left: 83vw; animation-delay: -4.66s; animation-duration: 6.86s; font-size: 5.49rem;">😔</div><div class="emoji" style="left: 43vw; animation-delay: -9.00s; animation-duration: 6.35s; font-size: 4.94rem;">💪</div><div class="emoji" style="left: 72vw; animation-delay: -9.06s; animation-duration: 7.18s; font-size: 3.89rem;">🤨</div><div class="emoji" style="left: 26vw; animation-delay: -1.42s; animation-duration: 9.41s; font-size: 3.09rem;">🤨</div><div class="emoji" style="left: 25vw; animation-delay: -0.03s; animation-duration: 6.74s; font-size: 5.61rem;">💡</div><div class="emoji" style="left: 31vw; animation-delay: -5.47s; animation-duration: 11.14s; font-size: 3.43rem;">😤</div><div class="emoji" style="left: 14vw; animation-delay: -3.38s; animation-duration: 10.92s; font-size: 4.84rem;">😪</div><div class="emoji" style="left: 95vw; animation-delay: -5.03s; animation-duration: 8.27s; font-size: 4.51rem;">😪</div><div class="emoji" style="left: 42vw; animation-delay: -7.61s; animation-duration: 8.04s; font-size: 3.97rem;">🤔</div></div><div class="content-wrapper"><h1>¿Cómo llegas a la sesión de hoy?</h1><h2>Reacciona con el emoji 😎🤔🤓🙂 que mejor represente tu mood</h2></div>
 </div>
 <div class="slide slide-agenda" id="slide-2" data-type="agenda" data-transition-title="Nuestra Agenda de Hoy">
 <img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
-<div class="content-wrapper"><h1>Agenda de la sesión</h1><ul><li><strong>Bienvenida</strong> <span>5 min</span></li><li><strong>Preparación de datos para análisis estádistico</strong> <span>100 min</span></li><li><strong>🤔 Reflexión y discusión: ¿Qué aprendimos en esta sesión?</strong> <span>10 min</span></li></ul></div>
+<div class="content-wrapper"><h1>Agenda de la sesión</h1><ul><li><strong>👋 Bienvenida</strong> <span>5 min</span></li><li><strong>🏗️ Preparación de datos para análisis estádistico</strong> <span>100 min</span></li><li><strong>🤔 Reflexión y discusión: ¿Qué aprendimos en esta sesión?</strong> <span>10 min</span></li></ul></div>
 </div>
 <div class="slide slide-objectives" id="slide-3" data-type="objectives" data-transition-title="¿Qué aprenderemos hoy?">
 <img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
 <div class="content-wrapper"><h1>Objetivos académicos de esta clase</h1><div class="objectives-container"><ul>
-<li>Explorar datos con estadísticos y gráficos. 📊📉 </li>
-<li>Conocer el uso de los ciclos y las funciones en python 🐍 ♻️</li>
-<li>Crear <em>Data Pipelines</em> . 📄🏗️👷‍♂️</li>
+<li>Explorar datos con estadísticos y gráficos en pandas 📊📉 </li>
+<li>Conocer el uso de los ciclos, condicionales y funciones en python para preparar los datos 🐍 ♻️</li>
+<li>Crear <em>Data Pipelines</em> en python para preparar los datos . 📄🏗️👷‍♂️</li>
 </ul></div></div>
 </div>
 <div class="slide slide-gotocode" id="slide-4" data-type="gotocode" data-transition-title="Manos a la Obra">
 <img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
 <h1>Escanea el código para los materiales de la clase</h1><div class="qr-container"><div class="qr-item"><img src="../img/qrs/19-da-v8-preparacion-datos.png" alt="Sprint 7 · Análisis estadístico para detectar patrones y outliers QR Code"><p>Sprint 7 · Análisis estadístico para detectar patrones y outliers</p></div></div>
 </div>
-<div class="slide slide-quizz" id="slide-5" data-type="quizz">
+<div class="slide slide-basic_slide" id="slide-5" data-type="basic_slide" data-transition-title="Ahora para finalizar">
 <img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
-<div class="content-wrapper quiz-container" data-quiz="[{&quot;text&quot;: &quot;&lt;p&gt;\u00bfQu\u00e9 tipo de dato es el que se est\u00e1 analizando?&lt;/p&gt;&quot;, &quot;options&quot;: [{&quot;text&quot;: &quot;&lt;p&gt;tipo 1&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;tipo 2&lt;/p&gt;&quot;, &quot;correct&quot;: true}, {&quot;text&quot;: &quot;&lt;p&gt;tipo 3&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;tipo 4&lt;/p&gt;&quot;, &quot;correct&quot;: false}], &quot;feedback&quot;: &quot;&lt;p&gt;La respuesta es I por que la teoria asi lo marca&lt;/p&gt; &quot;}, {&quot;text&quot;: &quot;&lt;p&gt;\u00bfQu\u00e9 tipo de dato es el que se est\u00e1 analizando aqui?&lt;/p&gt;&quot;, &quot;options&quot;: [{&quot;text&quot;: &quot;&lt;p&gt;tipo 1&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;tipo 2&lt;/p&gt;&quot;, &quot;correct&quot;: true}, {&quot;text&quot;: &quot;&lt;p&gt;$x^2$&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;&lt;code&gt;Select * from table where col = 1 and not col not null&lt;/code&gt;&lt;/p&gt;&quot;, &quot;correct&quot;: false}], &quot;feedback&quot;: &quot;&lt;p&gt;La respuesta es II por que la teoria asi lo marca&lt;/p&gt; &quot;}, {&quot;text&quot;: &quot;&lt;p&gt;\u00bfCual es el valor faltante? &lt;img alt=\&quot;alt text\&quot; src=\&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlc7Cpq2SIItZw3fTXXMxedO2Aonhx6tgyUQ&amp;amp;s\&quot; /&gt;&lt;/p&gt;&quot;, &quot;options&quot;: [{&quot;text&quot;: &quot;&lt;p&gt;tipo 1&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;tipo 2&lt;/p&gt;&quot;, &quot;correct&quot;: true}, {&quot;text&quot;: &quot;&lt;p&gt;tipo 3&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;tipo 4&lt;/p&gt;&quot;, &quot;correct&quot;: false}], &quot;feedback&quot;: &quot;&lt;p&gt;La respuesta es II por que la teoria asi lo marca&lt;/p&gt; &quot;}, {&quot;text&quot;: &quot;&lt;p&gt;\u00bfCual es el valor faltante? &lt;img alt=\&quot;alt text\&quot; src=\&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlc7Cpq2SIItZw3fTXXMxedO2Aonhx6tgyUQ&amp;amp;s\&quot; /&gt;&lt;/p&gt;&quot;, &quot;options&quot;: [{&quot;text&quot;: &quot;&lt;p&gt;&lt;img alt=\&quot;alt text\&quot; src=\&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlc7Cpq2SIItZw3fTXXMxedO2Aonhx6tgyUQ&amp;amp;s\&quot; /&gt;&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;&lt;img alt=\&quot;alt text\&quot; src=\&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlc7Cpq2SIItZw3fTXXMxedO2Aonhx6tgyUQ&amp;amp;s\&quot; /&gt;&lt;/p&gt;&quot;, &quot;correct&quot;: true}, {&quot;text&quot;: &quot;&lt;p&gt;&lt;img alt=\&quot;alt text\&quot; src=\&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlc7Cpq2SIItZw3fTXXMxedO2Aonhx6tgyUQ&amp;amp;s\&quot; /&gt;&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;&lt;img alt=\&quot;alt text\&quot; src=\&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlc7Cpq2SIItZw3fTXXMxedO2Aonhx6tgyUQ&amp;amp;s\&quot; /&gt;&lt;/p&gt;&quot;, &quot;correct&quot;: false}], &quot;feedback&quot;: &quot;&lt;p&gt;La respuesta es II por que la teoria asi lo marca&lt;/p&gt; &quot;}]" data-timer="4">
-        <h1></h1>
-        <h2></h2>
-        <div class="quiz-intro"><p>Repasemos sobre el tema de hoy</p></div>
-        <div class="quiz-ui" style="display:none; opacity: 0; transform: translateX(20px);">
-            <div class="quiz-nav-menu"></div>
-            <div class="quiz-header" style="justify-content: flex-end;">
-                <span class="quiz-timer" style="display:none; font-size: 1.5rem;">⏳ <span class="time-left"></span>s</span>
-            </div>
-            <div class="quiz-question-box"></div>
-            <div class="quiz-options-box"></div>
-            <div class="quiz-feedback-box"></div>
-            <button class="quiz-next-btn" style="display:none;">Siguiente Pregunta</button>
-        </div>
-        <button class="quiz-start-btn">Comenzar</button>
-    </div>
+<div class="content-wrapper"><h1>🎉 Espero que hayas disfrutado la sesión</h1><h2>Qué te parece si:</h2><ul>
+<li>🚀 Trata de aplicar lo aprendido en un proyecto personal o tema de tu interés.</li>
+<li>🤝 Participa en el Co-Learning para afianzar tus conocimientos mientras ayudas a otros a entenderlos.</li>
+<li>💬 Comparte en nuestro canal de <code>community</code> algo que te haya gustado o llamado la atención de esta sesión.</li>
+<li>🤖 Utiliza la IA de preferencia para que te genere alguna actividad extra para practicar lo aprendido.</li>
+<li>📝 Al finalizar la sesión recibirás una encuesta de satisfacción, tus comentarios son muy valiosos para nosotros y me ayudará a mejorar como tutor.</li>
+</ul></div>
 </div>
 <div class="slide slide-finale" id="slide-6" data-type="finale">
 <img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
-<h1>¡Gracias inmensas!</h1><h2>Tu asistencia y participación hacen que la clase sea muy valiosa</h2>
+<h1>¡Excelente trabajo! 🚀📊</h1><h2>¡Gracias por participar!</h2>
 </div>
 
         <div id="slide-menu" class="slide-menu">
@@ -253,8 +257,8 @@
 <li><button class="menu-jump-btn" data-index="2">3. Agenda de la sesión</button></li>
 <li><button class="menu-jump-btn" data-index="3">4. Objetivos académicos de esta clase</button></li>
 <li><button class="menu-jump-btn" data-index="4">5. Escanea el código para los materiales de la clase</button></li>
-<li><button class="menu-jump-btn" data-index="5">6. Quizz 6</button></li>
-<li><button class="menu-jump-btn" data-index="6">7. ¡Gracias inmensas!</button></li>
+<li><button class="menu-jump-btn" data-index="5">6. 🎉 Espero que hayas disfrutado la sesión</button></li>
+<li><button class="menu-jump-btn" data-index="6">7. ¡Excelente trabajo! 🚀📊</button></li>
 
                 </ul>
             </div>
@@ -394,6 +398,7 @@
             const timerDiv = container.querySelector('.quiz-timer');
             const timerSpan = container.querySelector('.time-left');
             const navMenu = container.querySelector('.quiz-nav-menu');
+            const showAnsBtn = container.querySelector('.quiz-show-answer-btn');
 
             const h1 = container.querySelector('h1');
             const h2 = container.querySelector('h2');
@@ -445,6 +450,7 @@
                     feedBox.className = 'quiz-feedback-box'; 
                     feedBox.innerHTML = q.feedback || '';
                     nextBtn.style.display = 'none';
+                    if (showAnsBtn) showAnsBtn.style.display = 'none';
                     updateNavMenu();
 
                     q.options.forEach((opt, idx) => {
@@ -462,9 +468,13 @@
                     if (window.MathJax) {
                         MathJax.typesetPromise().catch((err) => console.log('MathJax error: ', err));
                     }
+                    if (window.hljs) {
+                        uiBox.querySelectorAll('pre code').forEach((block) => hljs.highlightElement(block));
+                    }
 
                     if (timeLimit > 0) {
                         timerDiv.style.display = 'inline-block';
+                        if (showAnsBtn) showAnsBtn.style.display = 'inline-block';
                         timeLeft = timeLimit;
                         timerSpan.textContent = timeLeft;
                         timerInterval = setInterval(() => {
@@ -477,6 +487,7 @@
                         }, 1000);
                     } else {
                         timerDiv.style.display = 'none';
+                        if (showAnsBtn) showAnsBtn.style.display = 'inline-block';
                         setTimeout(revealAnswer, 5000);
                     }
                 }, 400);
@@ -485,6 +496,8 @@
             function revealAnswer() {
                 if(!canAnswer) return;
                 canAnswer = false;
+                clearInterval(timerInterval);
+                if (showAnsBtn) showAnsBtn.style.display = 'none';
                 
                 const q = questions[currentQIndex];
                 const cards = optBox.querySelectorAll('.quiz-option-card');
@@ -554,6 +567,12 @@
                 currentQIndex++;
                 renderQuestion();
             });
+
+            if (showAnsBtn) {
+                showAnsBtn.addEventListener('click', () => {
+                    revealAnswer();
+                });
+            }
         });
 
         if (slides.length > 0) {
