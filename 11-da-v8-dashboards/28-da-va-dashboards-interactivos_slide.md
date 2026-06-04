@@ -1,4 +1,4 @@
-@countdown{timer: 120 , title_transition: "¡Comenzamos en breve!"}
+@countdown{timer: 600 , title_transition: "¡Comenzamos en breve!"}
 
 # Sprint 11 Sesión 1
 ## Crea dashboards interactivos para stakeholders

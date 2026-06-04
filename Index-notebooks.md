@@ -27,6 +27,7 @@
    - 07-da-v8-patrones-outliers
       - [19-da-v8-preparacion-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/07-da-v8-patrones-outliers/19-da-v8-preparacion-datos.ipynb)
       - [20-da-v8-preparacion-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/07-da-v8-patrones-outliers/20-da-v8-preparacion-datos.ipynb)
+      - [20-da-v8-preparacion-datos_v2](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/07-da-v8-patrones-outliers/20-da-v8-preparacion-datos_v2.ipynb)
       - [21-da-v8-preparacion-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/07-da-v8-patrones-outliers/21-da-v8-preparacion-datos.ipynb)
       - [22-da-v8-preparacion-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/07-da-v8-patrones-outliers/22-da-v8-preparacion-datos.ipynb)
    - 08-da-v8-analizar-correlaciones
@@ -45,7 +46,11 @@
       - [29-da-va-dashboards-interactivos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/11-da-v8-dashboards/29-da-va-dashboards-interactivos.ipynb)
       - [Sprint11_Webinar35_Teórico](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/11-da-v8-dashboards/Sprint11_Webinar35_Teórico.ipynb)
       - [Sprint11_Webinar36_Practico](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/11-da-v8-dashboards/Sprint11_Webinar36_Practico.ipynb)
+   - labs
+      - [S10 Proyecto_VersionEstudiante_Desempeno_Comercial](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/labs/S10 Proyecto_VersionEstudiante_Desempeno_Comercial.ipynb)
+      - [S9 Version_Student_Proyecto_Landing_Experiment](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/labs/S9 Version_Student_Proyecto_Landing_Experiment.ipynb)
    - testing
+      - [Sprint04_Webinar13_Teorico](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/testing/Sprint04_Webinar13_Teorico.ipynb)
       - [dict_gem](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/testing/dict_gem.ipynb)
    - topics
       - [america_analysis](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/topics/america_analysis.ipynb)

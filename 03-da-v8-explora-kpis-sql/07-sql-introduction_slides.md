@@ -86,46 +86,31 @@ quizz:
 
   - question:
       body: |
-        Deseas clasificar las películas en dos categorías: 'Larga' (si dura más de 120 minutos) y 'Corta' (en cualquier otro caso).
+        Quieres filtrar la tabla `film` para encontrar todas las películas cuyo título comienza exactamente con la letra 'A'.
         
-        ¿Cuál es la sintaxis básica correcta usando `CASE` en tu consulta?
+        ¿Qué condición en la cláusula `WHERE` debes utilizar para lograrlo?
       items:
-        - option: "😇 CASE WHEN length > 120 THEN 'Larga' WHEN length <= 120 THEN 'Corta'"
-        - option: "😎 IF length > 120 THEN 'Larga' ELSE 'Corta' END"
-        - option: "👍 CASE length > 120 THEN 'Larga' ELSE 'Corta'"
-        - option: "😄 CASE WHEN length > 120 THEN 'Larga' ELSE 'Corta' END"
+        - option: "😇 WHERE title = 'A%'"
+        - option: "😎 WHERE title LIKE 'A%'"
           correct: true
+        - option: "👍 WHERE title IN ('A')"
+        - option: "😄 WHERE title CONTAINS 'A'"
       feedback: |
-        ¡Excelente! La expresión CASE comienza con 'CASE WHEN [condición] THEN [valor]' y siempre debe terminar con la palabra clave 'END', pudiendo opcionalmente usar 'ELSE' para el caso por defecto.
+        ¡Correcto! El operador LIKE junto con el comodín '%' permite realizar búsquedas de patrones de texto. 'A%' buscará cualquier texto que empiece con 'A' seguido de cualquier carácter.
 
   - question:
       body: |
-        Quieres consultar la tabla `film` (películas) y la tabla `language` (idiomas) para ver el nombre de la película y su idioma.
+        Al escribir una consulta en SQL, debes usar las cláusulas `WHERE`, `ORDER BY` y `LIMIT` al mismo tiempo.
         
-        ¿Qué tipo de cláusula y condición debes emplear para unir ambas tablas usando el campo común `language_id`?
+        ¿Cuál es el orden correcto en el que deben estructurarse estas palabras clave en tu consulta?
       items:
-        - option: "😇 JOIN language WHERE film.language_id in language.language_id"
-        - option: "😎 JOIN language ON film.language_id = language.language_id"
+        - option: "😇 SELECT ... FROM ... ORDER BY ... LIMIT ... WHERE ..."
+        - option: "😎 SELECT ... FROM ... LIMIT ... WHERE ... ORDER BY ..."
+        - option: "👍 SELECT ... FROM ... WHERE ... ORDER BY ... LIMIT ..."
           correct: true
-        - option: "👍 JOIN language USING language_id WHERE ON"
-        - option: "😄 MERGE language WHERE language_id = language_id"
+        - option: "😄 SELECT ... FROM ... WHERE ... LIMIT ... ORDER BY ..."
       feedback: |
-        ¡Correcto! La cláusula 'JOIN' (o 'INNER JOIN') se acompaña de la condición 'ON' para especificar qué columnas de ambas tablas se corresponden para realizar la unión.
-
-  - question:
-      body: |
-        Quieres definir una consulta temporal llamada `data` que puedas reutilizar dentro de tu consulta principal para hacer tu código más limpio y modular.
-        
-        ¿Cuál es la forma correcta de iniciar una Expresión de Tabla Común (CTE) en SQL?
-      items:
-        - option: "😇 DEFINE data AS (SELECT * FROM film)"
-        - option: "😎 SELECT * FROM (SELECT * FROM film) AS data"
-        - option: "👍 WITH data AS (SELECT * FROM film)"
-          correct: true
-        - option: "😄 CREATE TEMP TABLE data AS (SELECT * FROM film)"
-      feedback: |
-        ¡Perfecto! La cláusula 'WITH' permite definir una CTE (Common Table Expression), actuando como una subconsulta temporal nombrada que simplifica y organiza el código SQL complejo.
-
+        ¡Excelente! En la sintaxis de SQL, el filtro de filas (WHERE) siempre debe declararse antes de la ordenación (ORDER BY), y el límite de filas (LIMIT) se coloca al final de la consulta.
 ---
 
 @include{path="../slides/farewell.md"}
