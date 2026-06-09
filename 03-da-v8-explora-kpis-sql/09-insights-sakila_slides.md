@@ -1,4 +1,4 @@
-@countdown{timer: 300 , title_transition: "¡Comenzamos en breve!", logo_animation: "traffic"}
+@countdown{timer: 600 , title_transition: "¡Comenzamos en breve!", logo_animation: "traffic"}
 
 # Sprint 3 Sesión 3
 ## Explorar KPIs con SQL
