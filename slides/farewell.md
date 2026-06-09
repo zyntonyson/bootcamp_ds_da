@@ -7,7 +7,6 @@
 * 🚀 Trata de aplicar lo aprendido en un proyecto personal o tema de tu interés.
 * 🤝 Participa en el Co-Learning para afianzar tus conocimientos mientras ayudas a otros a entenderlos.
 * 💬 Comparte en nuestro canal de `community` algo que te haya gustado o llamado la atención de esta sesión.
-* 🤖 Utiliza la IA de preferencia para que te genere alguna actividad extra para practicar lo aprendido.
 * 📝 Al finalizar la sesión recibirás una encuesta de satisfacción, tus comentarios son muy valiosos para nosotros y me ayudará a mejorar como tutor.
 
 ---
