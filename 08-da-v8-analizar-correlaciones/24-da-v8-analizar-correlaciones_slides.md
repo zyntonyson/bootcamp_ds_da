@@ -29,10 +29,11 @@
 
 # Objetivos académicos de esta clase
 
- 
-* 📈 Calcular métricas de correlaciones
-* 🧠 Interpretar resultados de análisis de correlación
-* ⚖️ Integrar pensamiento ético en el análisis de correlación
+* 🔗 **Integrar múltiples técnicas** de correlación (**Pearson, Spearman, Punto biserial y V de Cramér**) en un flujo de análisis consolidado.
+* 📈 **Identificar relaciones significativas** entre variables contextuales y rendimiento académico usando `scatterplots` y `heatmaps`.
+* ⚠️ **Detectar correlaciones engañosas** y evaluar críticamente las asociaciones espurias (como tabaquismo vs. desempeño).
+* 📝 **Documentar supuestos y limitaciones** estadísticas en los datos (outliers, representatividad, variables proxy).
+* 💼 **Traducir hallazgos a recomendaciones** de negocio y redactar un **reporte analítico profesional**.
 
 
 ---

@@ -172,7 +172,7 @@
     .quiz-container h1, .quiz-container h2 { text-align: center; }
     .quiz-intro { text-align: center; font-size: 1.5rem; margin-bottom: 2rem; color: var(--color-dark-gray-1); }
     .quiz-start-btn, .quiz-next-btn { align-self: center; background: var(--color-orange); border: none; color: var(--color-black); font-size: 1.5rem; font-weight: bold; padding: 1rem 3rem; border-radius: 10px; cursor: pointer; transition: transform 0.2s; margin-top: 2rem; }
-    .quiz-start-btn:hover, .quiz-next-btn:hover { transform: scale(1.05); }
+    .quiz-start-btn:hover, .quiz-next-btn:hover, .quiz-show-answer-btn:hover { transform: scale(1.05); }
     .quiz-header { display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: bold; margin-bottom: 1rem; color: var(--color-dark-gray-2); border-bottom: 2px solid rgba(0,0,0,0.1); padding-bottom: 10px; }
     .quiz-timer { color: #d9534f; }
     .quiz-question-box { font-size: 1.8rem; margin: 1.5rem 0; font-weight: 700; color: var(--color-black); }
@@ -208,46 +208,76 @@
 <body>
     <div class="presentation">
         <div id="transition-overlay"><div class="content-wrapper"><h1></h1></div></div>
-        <div class="slide slide-countdown" id="slide-0" data-type="countdown" data-timer="300" data-transition-title="¡Comenzamos en breve!">
+        <div class="slide slide-countdown" id="slide-0" data-type="countdown" data-timer="600" data-transition-title="¡Comenzamos en breve!">
 <img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
 <div class="bouncing-logo-container"><img class="bouncing-logo" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" alt="Bouncing Logo"></div><div class="content-wrapper"><h1>Sprint 8 Sesión 1</h1><h2>Explorar conexiones de datos con correlaciones</h2><div class="timer">--:--</div><div class="start-message">¡Comenzamos!</div><p></p></div><div class="dynamic-date" style="position: absolute; bottom: 30px; left: 40px; font-size: 1.5rem; font-weight: bold; color: var(--color-black); z-index: 1;"></div>
 </div>
 <div class="slide slide-warnup-mood" id="slide-1" data-type="warnup-mood" data-transition-title="Midamos los ánimos">
 <img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
-<div class="emoji-container"><div class="emoji" style="left: 59vw; animation-delay: -5.40s; animation-duration: 11.23s; font-size: 4.50rem;">⚡</div><div class="emoji" style="left: 40vw; animation-delay: -5.01s; animation-duration: 9.40s; font-size: 4.61rem;">🧐</div><div class="emoji" style="left: 50vw; animation-delay: -5.95s; animation-duration: 11.96s; font-size: 5.27rem;">⚡</div><div class="emoji" style="left: 56vw; animation-delay: -6.02s; animation-duration: 8.99s; font-size: 5.88rem;">😔</div><div class="emoji" style="left: 92vw; animation-delay: -5.55s; animation-duration: 10.02s; font-size: 5.41rem;">🔥</div><div class="emoji" style="left: 76vw; animation-delay: -6.64s; animation-duration: 7.75s; font-size: 5.82rem;">😁</div><div class="emoji" style="left: 15vw; animation-delay: -8.10s; animation-duration: 8.89s; font-size: 3.42rem;">🙌</div><div class="emoji" style="left: 13vw; animation-delay: -3.20s; animation-duration: 11.90s; font-size: 4.88rem;">🎉</div><div class="emoji" style="left: 85vw; animation-delay: -3.09s; animation-duration: 9.47s; font-size: 4.59rem;">😤</div><div class="emoji" style="left: 17vw; animation-delay: -7.26s; animation-duration: 5.02s; font-size: 4.18rem;">🧐</div><div class="emoji" style="left: 37vw; animation-delay: -8.70s; animation-duration: 8.04s; font-size: 4.11rem;">🥱</div><div class="emoji" style="left: 7vw; animation-delay: -9.91s; animation-duration: 9.35s; font-size: 3.26rem;">🤔</div><div class="emoji" style="left: 15vw; animation-delay: -1.96s; animation-duration: 6.83s; font-size: 5.60rem;">😊</div><div class="emoji" style="left: 71vw; animation-delay: -9.80s; animation-duration: 7.70s; font-size: 4.25rem;">😔</div><div class="emoji" style="left: 95vw; animation-delay: -3.21s; animation-duration: 7.15s; font-size: 5.05rem;">🌟</div><div class="emoji" style="left: 26vw; animation-delay: -1.96s; animation-duration: 10.36s; font-size: 5.74rem;">🧠</div><div class="emoji" style="left: 22vw; animation-delay: -2.35s; animation-duration: 7.64s; font-size: 5.45rem;">😅</div><div class="emoji" style="left: 12vw; animation-delay: -1.03s; animation-duration: 8.99s; font-size: 4.02rem;">😅</div><div class="emoji" style="left: 43vw; animation-delay: -8.39s; animation-duration: 11.84s; font-size: 4.56rem;">🥱</div><div class="emoji" style="left: 66vw; animation-delay: -8.69s; animation-duration: 9.75s; font-size: 4.83rem;">😓</div><div class="emoji" style="left: 22vw; animation-delay: -7.75s; animation-duration: 5.62s; font-size: 5.76rem;">😲</div><div class="emoji" style="left: 46vw; animation-delay: -7.10s; animation-duration: 7.28s; font-size: 5.90rem;">⚡</div><div class="emoji" style="left: 24vw; animation-delay: -4.30s; animation-duration: 11.83s; font-size: 3.55rem;">😊</div><div class="emoji" style="left: 17vw; animation-delay: -1.51s; animation-duration: 8.06s; font-size: 3.49rem;">😄</div><div class="emoji" style="left: 28vw; animation-delay: -1.38s; animation-duration: 9.33s; font-size: 3.69rem;">🎉</div><div class="emoji" style="left: 93vw; animation-delay: -0.56s; animation-duration: 11.67s; font-size: 5.15rem;">😵</div><div class="emoji" style="left: 85vw; animation-delay: -4.93s; animation-duration: 10.72s; font-size: 3.64rem;">😊</div><div class="emoji" style="left: 31vw; animation-delay: -2.94s; animation-duration: 7.37s; font-size: 4.11rem;">😅</div><div class="emoji" style="left: 1vw; animation-delay: -4.79s; animation-duration: 5.72s; font-size: 3.83rem;">😁</div><div class="emoji" style="left: 36vw; animation-delay: -2.64s; animation-duration: 6.18s; font-size: 5.61rem;">😢</div><div class="emoji" style="left: 29vw; animation-delay: -9.37s; animation-duration: 6.59s; font-size: 3.14rem;">🤨</div><div class="emoji" style="left: 67vw; animation-delay: -5.83s; animation-duration: 7.61s; font-size: 5.54rem;">🎉</div><div class="emoji" style="left: 55vw; animation-delay: -3.39s; animation-duration: 5.45s; font-size: 5.93rem;">😶</div><div class="emoji" style="left: 57vw; animation-delay: -8.41s; animation-duration: 6.66s; font-size: 3.34rem;">🧠</div><div class="emoji" style="left: 86vw; animation-delay: -8.98s; animation-duration: 7.46s; font-size: 3.90rem;">😵</div><div class="emoji" style="left: 5vw; animation-delay: -0.74s; animation-duration: 5.20s; font-size: 5.52rem;">😄</div><div class="emoji" style="left: 15vw; animation-delay: -7.55s; animation-duration: 7.99s; font-size: 3.28rem;">😞</div><div class="emoji" style="left: 21vw; animation-delay: -9.09s; animation-duration: 11.53s; font-size: 5.76rem;">😞</div><div class="emoji" style="left: 91vw; animation-delay: -1.61s; animation-duration: 8.30s; font-size: 4.37rem;">🙌</div><div class="emoji" style="left: 68vw; animation-delay: -8.91s; animation-duration: 6.81s; font-size: 4.14rem;">😍</div><div class="emoji" style="left: 46vw; animation-delay: -1.07s; animation-duration: 8.87s; font-size: 5.18rem;">🔥</div><div class="emoji" style="left: 80vw; animation-delay: -3.50s; animation-duration: 10.68s; font-size: 4.77rem;">😴</div><div class="emoji" style="left: 13vw; animation-delay: -0.69s; animation-duration: 6.99s; font-size: 4.41rem;">😶</div><div class="emoji" style="left: 23vw; animation-delay: -4.14s; animation-duration: 10.60s; font-size: 4.18rem;">🤨</div><div class="emoji" style="left: 32vw; animation-delay: -8.69s; animation-duration: 9.89s; font-size: 3.65rem;">😍</div><div class="emoji" style="left: 62vw; animation-delay: -2.19s; animation-duration: 7.31s; font-size: 4.38rem;">😀</div><div class="emoji" style="left: 92vw; animation-delay: -0.19s; animation-duration: 10.54s; font-size: 5.67rem;">😶</div><div class="emoji" style="left: 14vw; animation-delay: -3.83s; animation-duration: 10.10s; font-size: 5.75rem;">🚀</div><div class="emoji" style="left: 80vw; animation-delay: -4.15s; animation-duration: 8.86s; font-size: 3.09rem;">🧠</div><div class="emoji" style="left: 14vw; animation-delay: -1.92s; animation-duration: 5.50s; font-size: 5.64rem;">😪</div></div><div class="content-wrapper"><h1>¿Cómo llegas a la sesión de hoy?</h1><h2>Reacciona con el emoji 😎🤔🤓🙂 que mejor represente tu mood</h2></div>
+<div class="emoji-container"><div class="emoji" style="left: 53vw; animation-delay: -1.52s; animation-duration: 11.14s; font-size: 5.03rem;">🥱</div><div class="emoji" style="left: 89vw; animation-delay: -8.16s; animation-duration: 8.53s; font-size: 4.52rem;">😲</div><div class="emoji" style="left: 66vw; animation-delay: -1.98s; animation-duration: 6.07s; font-size: 3.29rem;">🤩</div><div class="emoji" style="left: 58vw; animation-delay: -2.81s; animation-duration: 7.69s; font-size: 5.95rem;">⚡</div><div class="emoji" style="left: 39vw; animation-delay: -9.00s; animation-duration: 10.45s; font-size: 3.22rem;">🙂</div><div class="emoji" style="left: 4vw; animation-delay: -4.57s; animation-duration: 8.52s; font-size: 5.67rem;">🤯</div><div class="emoji" style="left: 78vw; animation-delay: -3.85s; animation-duration: 9.17s; font-size: 3.84rem;">😄</div><div class="emoji" style="left: 9vw; animation-delay: -2.94s; animation-duration: 9.74s; font-size: 4.86rem;">😁</div><div class="emoji" style="left: 65vw; animation-delay: -0.21s; animation-duration: 6.24s; font-size: 5.99rem;">✨</div><div class="emoji" style="left: 14vw; animation-delay: -2.15s; animation-duration: 9.57s; font-size: 4.54rem;">😓</div><div class="emoji" style="left: 18vw; animation-delay: -6.17s; animation-duration: 8.38s; font-size: 5.02rem;">😁</div><div class="emoji" style="left: 93vw; animation-delay: -3.39s; animation-duration: 8.70s; font-size: 3.78rem;">🏋️</div><div class="emoji" style="left: 24vw; animation-delay: -9.03s; animation-duration: 10.24s; font-size: 5.12rem;">⚡</div><div class="emoji" style="left: 76vw; animation-delay: -6.45s; animation-duration: 10.02s; font-size: 5.95rem;">😀</div><div class="emoji" style="left: 76vw; animation-delay: -4.12s; animation-duration: 9.30s; font-size: 4.48rem;">😴</div><div class="emoji" style="left: 88vw; animation-delay: -8.72s; animation-duration: 6.97s; font-size: 5.36rem;">😁</div><div class="emoji" style="left: 12vw; animation-delay: -3.65s; animation-duration: 11.21s; font-size: 3.00rem;">😶</div><div class="emoji" style="left: 84vw; animation-delay: -7.17s; animation-duration: 7.16s; font-size: 5.53rem;">⚡</div><div class="emoji" style="left: 0vw; animation-delay: -6.98s; animation-duration: 5.24s; font-size: 4.75rem;">😔</div><div class="emoji" style="left: 94vw; animation-delay: -8.54s; animation-duration: 6.62s; font-size: 3.41rem;">💡</div><div class="emoji" style="left: 9vw; animation-delay: -2.34s; animation-duration: 10.53s; font-size: 5.86rem;">🏋️</div><div class="emoji" style="left: 56vw; animation-delay: -2.36s; animation-duration: 7.75s; font-size: 4.46rem;">😊</div><div class="emoji" style="left: 15vw; animation-delay: -3.89s; animation-duration: 9.56s; font-size: 5.48rem;">😴</div><div class="emoji" style="left: 39vw; animation-delay: -5.52s; animation-duration: 8.71s; font-size: 3.47rem;">🏋️</div><div class="emoji" style="left: 13vw; animation-delay: -3.90s; animation-duration: 7.43s; font-size: 4.95rem;">😶</div><div class="emoji" style="left: 86vw; animation-delay: -0.67s; animation-duration: 11.46s; font-size: 5.45rem;">🥱</div><div class="emoji" style="left: 78vw; animation-delay: -0.35s; animation-duration: 7.33s; font-size: 3.75rem;">😵</div><div class="emoji" style="left: 7vw; animation-delay: -2.08s; animation-duration: 6.66s; font-size: 3.88rem;">💪</div><div class="emoji" style="left: 95vw; animation-delay: -6.06s; animation-duration: 5.24s; font-size: 5.86rem;">😁</div><div class="emoji" style="left: 4vw; animation-delay: -9.23s; animation-duration: 9.42s; font-size: 4.07rem;">🥱</div><div class="emoji" style="left: 12vw; animation-delay: -6.98s; animation-duration: 9.46s; font-size: 3.55rem;">😴</div><div class="emoji" style="left: 76vw; animation-delay: -0.48s; animation-duration: 9.02s; font-size: 4.14rem;">😵</div><div class="emoji" style="left: 6vw; animation-delay: -0.38s; animation-duration: 8.31s; font-size: 5.41rem;">💪</div><div class="emoji" style="left: 57vw; animation-delay: -3.46s; animation-duration: 9.51s; font-size: 4.13rem;">✨</div><div class="emoji" style="left: 55vw; animation-delay: -3.60s; animation-duration: 11.45s; font-size: 3.74rem;">🤩</div><div class="emoji" style="left: 91vw; animation-delay: -9.93s; animation-duration: 10.14s; font-size: 4.33rem;">💡</div><div class="emoji" style="left: 77vw; animation-delay: -7.29s; animation-duration: 10.31s; font-size: 3.91rem;">🔥</div><div class="emoji" style="left: 72vw; animation-delay: -3.42s; animation-duration: 9.02s; font-size: 5.29rem;">🔥</div><div class="emoji" style="left: 16vw; animation-delay: -2.53s; animation-duration: 8.16s; font-size: 3.58rem;">😁</div><div class="emoji" style="left: 55vw; animation-delay: -1.54s; animation-duration: 11.00s; font-size: 4.23rem;">✨</div><div class="emoji" style="left: 15vw; animation-delay: -5.24s; animation-duration: 8.87s; font-size: 4.46rem;">✨</div><div class="emoji" style="left: 23vw; animation-delay: -1.91s; animation-duration: 10.36s; font-size: 3.91rem;">🔥</div><div class="emoji" style="left: 57vw; animation-delay: -2.07s; animation-duration: 8.37s; font-size: 4.70rem;">🥱</div><div class="emoji" style="left: 70vw; animation-delay: -5.14s; animation-duration: 11.57s; font-size: 4.72rem;">🧐</div><div class="emoji" style="left: 48vw; animation-delay: -4.22s; animation-duration: 7.25s; font-size: 5.99rem;">🚀</div><div class="emoji" style="left: 47vw; animation-delay: -9.42s; animation-duration: 6.23s; font-size: 4.30rem;">😵</div><div class="emoji" style="left: 76vw; animation-delay: -5.37s; animation-duration: 6.70s; font-size: 4.54rem;">😅</div><div class="emoji" style="left: 54vw; animation-delay: -1.31s; animation-duration: 8.85s; font-size: 3.76rem;">🤔</div><div class="emoji" style="left: 69vw; animation-delay: -8.51s; animation-duration: 9.56s; font-size: 3.84rem;">🤩</div><div class="emoji" style="left: 78vw; animation-delay: -1.20s; animation-duration: 10.57s; font-size: 4.70rem;">🙌</div></div><div class="content-wrapper"><h1>¿Cómo llegas a la sesión de hoy?</h1><h2>Reacciona con el emoji 😎🤔🤓🙂 que mejor represente tu mood</h2></div>
 </div>
 <div class="slide slide-agenda" id="slide-2" data-type="agenda" data-transition-title="Nuestra Agenda de Hoy">
 <img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
-<div class="content-wrapper"><h1>Agenda de la sesión</h1><ul><li><strong>👋 Bienvenida</strong> <span>5 min</span></li><li><strong>👋 Avisos parroquiales</strong> <span>5 min</span></li><li><strong>📚 Revisión de conceptos</strong> <span>10 min</span></li><li><strong>💼 Caso de estudio: German city Bank</strong> <span>40 min</span></li><li><strong>🤔 Reflexión y discusión: ¿Qué aprendimos en esta sesión?</strong> <span>5 min</span></li></ul></div>
+<div class="content-wrapper"><h1>Agenda de la sesión</h1><ul><li><strong>👋 Bienvenida</strong> <span>5 min</span></li><li><strong>💼 Caso de estudio: German city Bank</strong> <span>40 min</span></li><li><strong>🤔 Reflexión y discusión: ¿Qué aprendimos en esta sesión?</strong> <span>5 min</span></li></ul></div>
 </div>
-<div class="slide slide-two_columns_slide" id="slide-3" data-type="two_columns_slide" data-transition-title="Avisos parroquiales">
-<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
-<div class="content-wrapper"><h2>Estaré de viaje del 28 de abril al 3 de mayo</h2><div class="two-column-layout" style="align-items: stretch; margin-top: 1rem;"><div class="column-left"><p><img alt="Viaje" src="https://raw.githubusercontent.com/zyntonyson/img_repo/refs/heads/main/img/de_viaje.png" /></p></div><div class="column-right"><ul>
-<li>
-<p><em>Vamos a tener unos ajustes en el calendario</em>:</p>
-</li>
-<li>
-<p><strong>DA-82</strong>: Se mueve del jueves 30 de abril al lunes 27 de abril a las 8:00 PM (hora de CDMX)</p>
-</li>
-<li><strong>DA-98</strong>: Se mueve del jueves 30 de abril al lunes 4 de mayo a las 8:00 PM (hora de CDMX)</li>
-<li><strong>DA-104</strong>: Se mueve del miércoles 29 de abril al lunes 27 de abril a las 8:00 PM (hora de CDMX)</li>
-</ul></div></div></div>
-</div>
-<div class="slide slide-objectives" id="slide-4" data-type="objectives" data-transition-title="¿Qué vamos a practicar?">
+<div class="slide slide-objectives" id="slide-3" data-type="objectives" data-transition-title="¿Qué vamos a practicar?">
 <img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
 <div class="content-wrapper"><h1>Objetivos académicos de esta clase</h1><div class="objectives-container"><ul>
-<li>📈 Calcular métricas de correlaciones</li>
-<li>🧠 Interpretar resultados de análisis de correlación</li>
-<li>⚖️ Integrar pensamiento ético en el análisis de correlación</li>
+<li>📈 Calcular métricas de correlaciones<ul>
+<li><strong>Calcular Pearson</strong> para medir la fuerza y dirección de relaciones lineales continuas.</li>
+<li><strong>Calcular Spearman</strong> para evaluar relaciones monótonas y mitigar el impacto de outliers.</li>
+<li><strong>Calcular la correlación punto biserial</strong> para medir asociaciones entre variables continuas y binarias.</li>
+<li><strong>Calcular la V de Cramér</strong> para determinar la fuerza de asociación entre variables categóricas.</li>
+</ul>
+</li>
+<li>🧠 Interpretar resultados de análisis de correlación<ul>
+<li><strong>Analizar visualmente</strong> relaciones complejas usando herramientas gráficas como <code>pairplot</code> y <code>heatmap</code>.</li>
+</ul>
+</li>
+<li>⚖️ Integrar pensamiento ético en el análisis de correlación<ul>
+<li><strong>Evaluar críticamente</strong> el uso analítico de variables sensibles como género, edad o vivienda.</li>
+<li><strong>Prevenir sesgos discriminatorios</strong> al estructurar modelos de decisión basados en correlaciones.</li>
+<li><strong>Documentar supuestos y limitaciones</strong> estadísticas para asegurar un uso responsable del análisis.</li>
+</ul>
+</li>
 </ul></div></div>
 </div>
-<div class="slide slide-gotocode" id="slide-5" data-type="gotocode" data-transition-title="Manos a la Obra">
+<div class="slide slide-gotocode" id="slide-4" data-type="gotocode" data-transition-title="Manos a la Obra">
 <img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
-<h1>Escanea el código para los materiales de la clase</h1><div class="qr-container"><div class="qr-item"><img src="../img/qrs/23-da-v8-analizar-correlaciones.png " alt="Sprint 8 · Explorar conexiones de datos con correlaciones I QR Code"><p>Sprint 8 · Explorar conexiones de datos con correlaciones I</p></div></div>
+<h1>Escanea el código para los materiales de la clase</h1><div class="qr-container"><div class="qr-item"><img src="../img/qrs/23-da-v8-analizar-correlaciones.png " alt="Explorar conexiones de datos con correlaciones I QR Code"><p>Explorar conexiones de datos con correlaciones I</p></div></div>
 </div>
-<div class="slide slide-finale" id="slide-6" data-type="finale">
+<div class="slide slide-quizz" id="slide-5" data-type="quizz">
 <img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
-<h1>¡Gracias inmensas!</h1><h2>Tu asistencia y participación hacen que la clase sea muy valiosa</h2>
+<div class="content-wrapper quiz-container" data-quiz="[{&quot;text&quot;: &quot;&lt;p&gt;Si calculamos el coeficiente de correlaci\u00f3n de Pearson entre el n\u00famero de horas que un cliente demora en pagar su saldo y su historial de cr\u00e9dito, y obtenemos un valor de $-0.78$, \u00bfc\u00f3mo debemos interpretar este resultado?&lt;/p&gt;&quot;, &quot;options&quot;: [{&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude07 Existe una relaci\u00f3n fuerte y directa: a mayor retraso en el pago, mejor historial de cr\u00e9dito del cliente.&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude0e Existe una relaci\u00f3n inversa fuerte: a mayor retraso en el pago, menor tiende a ser su historial de cr\u00e9dito.&lt;/p&gt;&quot;, &quot;correct&quot;: true}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\udc4d No existe ninguna relaci\u00f3n lineal entre las dos variables debido a que el coeficiente es menor a cero.&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude04 El tiempo de demora en el pago es la causa directa del deterioro en un 78% del historial de cr\u00e9dito.&lt;/p&gt;&quot;, &quot;correct&quot;: false}], &quot;feedback&quot;: &quot;&lt;p&gt;\u00a1Correcto! Un coeficiente de Pearson de $-0.78$ indica una relaci\u00f3n lineal negativa (inversa) y fuerte. Significa que al aumentar una variable, la otra tiende a disminuir.&lt;/p&gt;&quot;}, {&quot;text&quot;: &quot;&lt;p&gt;El equipo de riesgos de German City Bank quiere medir si existe alguna relaci\u00f3n o asociaci\u00f3n entre la &lt;strong&gt;Situaci\u00f3n Habitacional&lt;/strong&gt; de un cliente (casa propia, rentada o libre) y si el cliente es clasificado como &lt;strong&gt;Riesgo Alto o Riesgo Bajo&lt;/strong&gt;. \u00bfQu\u00e9 m\u00e9trica de correlaci\u00f3n o asociaci\u00f3n es la m\u00e1s adecuada?&lt;/p&gt;&quot;, &quot;options&quot;: [{&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude07 Coeficiente de Pearson, porque ambas variables son continuas.&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude0e Coeficiente de Spearman, ya que las variables no siguen una distribuci\u00f3n normal.&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\udc4d Correlaci\u00f3n punto biserial, debido a que una variable es continua y la otra es binaria.&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude04 V de Cram\u00e9r, porque ambas variables son categ\u00f3ricas (cualitativas).&lt;/p&gt;&quot;, &quot;correct&quot;: true}], &quot;feedback&quot;: &quot;&lt;p&gt;\u00a1Excelente! Tanto la &#x27;Situaci\u00f3n Habitacional&#x27; como el &#x27;Riesgo&#x27; son variables categ\u00f3ricas. La &lt;strong&gt;V de Cram\u00e9r&lt;/strong&gt; es la m\u00e9trica adecuada para evaluar el nivel de asociaci\u00f3n entre dos variables cualitativas.&lt;/p&gt;&quot;}, {&quot;text&quot;: &quot;&lt;p&gt;Observa la siguiente matriz de correlaci\u00f3n lineal simulada para tres variables de los clientes del banco:&lt;/p&gt;\n&lt;pre&gt;&lt;code class=\&quot;language-text\&quot;&gt;| Variables      | Edad | Monto_Credito | Ingresos |\n|----------------|------|---------------|----------|\n| Edad           | 1.00 |  0.15         |  0.45    |\n| Monto_Credito  | 0.15 |  1.00         |  0.72    |\n| Ingresos       | 0.45 |  0.72         |  1.00    |\n&lt;/code&gt;&lt;/pre&gt;\n&lt;p&gt;\u00bfCu\u00e1l de las siguientes afirmaciones es estad\u00edsticamente correcta?&lt;/p&gt;&quot;, &quot;options&quot;: [{&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude07 La edad del cliente determina e incrementa de forma directa el monto de cr\u00e9dito que se le aprueba.&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude0e Existe una relaci\u00f3n lineal positiva fuerte entre los ingresos del cliente y el monto de cr\u00e9dito ($0.72$).&lt;/p&gt;&quot;, &quot;correct&quot;: true}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\udc4d No existe ninguna relaci\u00f3n entre la edad y los ingresos de los clientes, ya que su valor es de $0.45$.&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude04 La correlaci\u00f3n de $0.15$ entre la edad y el monto del cr\u00e9dito es la asociaci\u00f3n m\u00e1s fuerte de la matriz.&lt;/p&gt;&quot;, &quot;correct&quot;: false}], &quot;feedback&quot;: &quot;&lt;p&gt;\u00a1Correcto! El coeficiente de $0.72$ entre &lt;code&gt;Ingresos&lt;/code&gt; y &lt;code&gt;Monto_Credito&lt;/code&gt; representa la relaci\u00f3n positiva m\u00e1s fuerte de la matriz. Las relaciones de $0.45$ y $0.15$ indican asociaciones moderada-d\u00e9bil y d\u00e9bil respectivamente.&lt;/p&gt;&quot;}, {&quot;text&quot;: &quot;&lt;p&gt;Si descubrimos una correlaci\u00f3n estad\u00edstica en los datos hist\u00f3ricos del banco entre la variable &#x27;G\u00e9nero&#x27; del solicitante y la tasa de incumplimiento, es \u00e9ticamente correcto y justificable usar esta correlaci\u00f3n de manera autom\u00e1tica para rechazar cr\u00e9ditos y mitigar riesgos.&lt;/p&gt;&quot;, &quot;options&quot;: [{&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude07 Verdadero&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude0e Falso&lt;/p&gt;&quot;, &quot;correct&quot;: true}], &quot;feedback&quot;: &quot;&lt;p&gt;\u00a1As\u00ed es! Usar variables sensibles como g\u00e9nero o etnia para tomar decisiones automatizadas de cr\u00e9dito refuerza sesgos hist\u00f3ricos. Aunque exista una asociaci\u00f3n estad\u00edstica, la \u00e9tica exige no discriminar por caracter\u00edsticas demogr\u00e1ficas.&lt;/p&gt;&quot;}, {&quot;text&quot;: &quot;&lt;p&gt;Un an\u00e1lisis en una tienda muestra que las ventas de helados y las ventas de bloqueadores solares tienen una correlaci\u00f3n positiva fuerte ($0.85$). Por lo tanto, podemos concluir que comprar helado provoca directamente que la gente compre bloqueador solar.&lt;/p&gt;&quot;, &quot;options&quot;: [{&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude07 Verdadero&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude0e Falso&lt;/p&gt;&quot;, &quot;correct&quot;: true}], &quot;feedback&quot;: &quot;&lt;p&gt;\u00a1Correcto! Este es un ejemplo de correlaci\u00f3n espuria producida por una variable oculta (el clima c\u00e1lido o el verano). Ambas variables aumentan debido al calor, pero comer helado no causa la compra de bloqueador solar. \u00a1Correlaci\u00f3n no implica causalidad!&lt;/p&gt;&quot;}]" data-timer="80">
+        <h1>Pongamos a prueba lo aprendido</h1>
+        <h2>Reaccciona en la llamada con el emoji de la respuesta correcta</h2>
+        <div class="quiz-intro"></div>
+        <div class="quiz-ui" style="display:none; opacity: 0; transform: translateX(20px);">
+            <div class="quiz-nav-menu"></div>
+            <div class="quiz-header" style="justify-content: flex-end; flex-direction: column; align-items: flex-end;">
+                <span class="quiz-timer" style="display:none; font-size: 1.5rem;">⏳ <span class="time-left"></span>s</span>
+                <button class="quiz-show-answer-btn" style="display:none; margin-top: 10px; font-size: 1.1rem; cursor: pointer; padding: 8px 15px; border-radius: 5px; background: var(--color-orange); color: var(--color-black); border: none; font-weight: bold; transition: transform 0.2s;">Mostrar Respuesta</button>
+            </div>
+            <div class="quiz-question-box"></div>
+            <div class="quiz-options-box"></div>
+            <div class="quiz-feedback-box"></div>
+            <button class="quiz-next-btn" style="display:none;">Siguiente Pregunta</button>
+        </div>
+        <button class="quiz-start-btn">Comenzar</button>
+    </div>
+</div>
+<div class="slide slide-basic_slide" id="slide-6" data-type="basic_slide" data-transition-title="Ahora para finalizar">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="content-wrapper"><h1>🎉 Espero que hayas disfrutado la sesión</h1><h2>Qué te parece si:</h2><ul>
+<li>🚀 Trata de aplicar lo aprendido en un proyecto personal o tema de tu interés.</li>
+<li>🤝 Participa en el Co-Learning para afianzar tus conocimientos mientras ayudas a otros a entenderlos.</li>
+<li>💬 Comparte en nuestro canal de <code>community</code> algo que te haya gustado o llamado la atención de esta sesión.</li>
+<li>📝 Al finalizar la sesión recibirás una encuesta de satisfacción, tus comentarios son muy valiosos para nosotros y me ayudará a mejorar como tutor.</li>
+</ul></div>
+</div>
+<div class="slide slide-finale" id="slide-7" data-type="finale">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<h1>¡Excelente trabajo! 🚀📊</h1><h2>¡Gracias por participar!</h2>
 </div>
 
         <div id="slide-menu" class="slide-menu">
@@ -258,10 +288,11 @@
                     <li><button class="menu-jump-btn" data-index="0">1. Sprint 8 Sesión 1</button></li>
 <li><button class="menu-jump-btn" data-index="1">2. ¿Cómo llegas a la sesión de hoy?</button></li>
 <li><button class="menu-jump-btn" data-index="2">3. Agenda de la sesión</button></li>
-<li><button class="menu-jump-btn" data-index="3">4. Estaré de viaje del 28 de abril al 3 de mayo</button></li>
-<li><button class="menu-jump-btn" data-index="4">5. Objetivos académicos de esta clase</button></li>
-<li><button class="menu-jump-btn" data-index="5">6. Escanea el código para los materiales de la clase</button></li>
-<li><button class="menu-jump-btn" data-index="6">7. ¡Gracias inmensas!</button></li>
+<li><button class="menu-jump-btn" data-index="3">4. Objetivos académicos de esta clase</button></li>
+<li><button class="menu-jump-btn" data-index="4">5. Escanea el código para los materiales de la clase</button></li>
+<li><button class="menu-jump-btn" data-index="5">6. Pongamos a prueba lo aprendido</button></li>
+<li><button class="menu-jump-btn" data-index="6">7. 🎉 Espero que hayas disfrutado la sesión</button></li>
+<li><button class="menu-jump-btn" data-index="7">8. ¡Excelente trabajo! 🚀📊</button></li>
 
                 </ul>
             </div>
@@ -401,6 +432,7 @@
             const timerDiv = container.querySelector('.quiz-timer');
             const timerSpan = container.querySelector('.time-left');
             const navMenu = container.querySelector('.quiz-nav-menu');
+            const showAnsBtn = container.querySelector('.quiz-show-answer-btn');
 
             const h1 = container.querySelector('h1');
             const h2 = container.querySelector('h2');
@@ -452,6 +484,7 @@
                     feedBox.className = 'quiz-feedback-box'; 
                     feedBox.innerHTML = q.feedback || '';
                     nextBtn.style.display = 'none';
+                    if (showAnsBtn) showAnsBtn.style.display = 'none';
                     updateNavMenu();
 
                     q.options.forEach((opt, idx) => {
@@ -475,6 +508,7 @@
 
                     if (timeLimit > 0) {
                         timerDiv.style.display = 'inline-block';
+                        if (showAnsBtn) showAnsBtn.style.display = 'inline-block';
                         timeLeft = timeLimit;
                         timerSpan.textContent = timeLeft;
                         timerInterval = setInterval(() => {
@@ -487,6 +521,7 @@
                         }, 1000);
                     } else {
                         timerDiv.style.display = 'none';
+                        if (showAnsBtn) showAnsBtn.style.display = 'inline-block';
                         setTimeout(revealAnswer, 5000);
                     }
                 }, 400);
@@ -495,6 +530,8 @@
             function revealAnswer() {
                 if(!canAnswer) return;
                 canAnswer = false;
+                clearInterval(timerInterval);
+                if (showAnsBtn) showAnsBtn.style.display = 'none';
                 
                 const q = questions[currentQIndex];
                 const cards = optBox.querySelectorAll('.quiz-option-card');
@@ -564,6 +601,12 @@
                 currentQIndex++;
                 renderQuestion();
             });
+
+            if (showAnsBtn) {
+                showAnsBtn.addEventListener('click', () => {
+                    revealAnswer();
+                });
+            }
         });
 
         if (slides.length > 0) {

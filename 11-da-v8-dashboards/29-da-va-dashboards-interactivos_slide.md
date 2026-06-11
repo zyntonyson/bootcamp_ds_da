@@ -1,4 +1,4 @@
-@countdown{timer: 600 , title_transition: "¡Comenzamos en breve!"}
+@countdown{timer: 300 , title_transition: "¡Comenzamos en breve!"}
 
 # Sprint 11 Sesión 2
 ## Crea dashboards interactivos para stakeholders
@@ -24,10 +24,6 @@
 * 📢 Aviso generales {5}
 * ☕ Modelado de datos con Power BI: Caso Starbucks Rewards {90}
 * ❓ Preguntas y respuestas {10}
-
----
-
-@include{path="./slides/out_office.md"}
 
 ---
 
