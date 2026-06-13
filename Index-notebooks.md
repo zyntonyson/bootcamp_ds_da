@@ -12,6 +12,7 @@
    - 03-da-v8-explora-kpis-sql
       - [07-sql-introduction](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/03-da-v8-explora-kpis-sql/07-sql-introduction.ipynb)
       - [09-insights-sakila](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/03-da-v8-explora-kpis-sql/09-insights-sakila.ipynb)
+      - [10-insights-sql-books](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/03-da-v8-explora-kpis-sql/10-insights-sql-books.ipynb)
       - [sql-interface](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/03-da-v8-explora-kpis-sql/sql-interface.ipynb)
    - 04-da-v8-user-journey
       - [11-da-v8-s4-user-journey](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/04-da-v8-user-journey/11-da-v8-s4-user-journey.ipynb)
@@ -27,7 +28,6 @@
    - 07-da-v8-patrones-outliers
       - [19-da-v8-preparacion-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/07-da-v8-patrones-outliers/19-da-v8-preparacion-datos.ipynb)
       - [20-da-v8-preparacion-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/07-da-v8-patrones-outliers/20-da-v8-preparacion-datos.ipynb)
-      - [20-da-v8-preparacion-datos_v2](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/07-da-v8-patrones-outliers/20-da-v8-preparacion-datos_v2.ipynb)
       - [21-da-v8-preparacion-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/07-da-v8-patrones-outliers/21-da-v8-preparacion-datos.ipynb)
       - [22-da-v8-preparacion-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/07-da-v8-patrones-outliers/22-da-v8-preparacion-datos.ipynb)
    - 08-da-v8-analizar-correlaciones
