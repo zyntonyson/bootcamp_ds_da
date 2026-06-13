@@ -12,5 +12,5 @@ Algunas actividades y habilidades que desarrollaremos:
 ¡Te esperamos!
 
 
-**Material de la sesión II** :  [SQL: Análisis de negocio](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/03-da-v8-explora-kpis-sql/09-insights-sakila.ipynb)
+**Material de la sesión ** :  [Explorar KPIs con SQL](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/03-da-v8-explora-kpis-sql/10-insights-sql-books.ipynb)
 **Servidor SQL** :  [SQL runner](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/03-da-v8-explora-kpis-sql/sql-interface.ipynb)
