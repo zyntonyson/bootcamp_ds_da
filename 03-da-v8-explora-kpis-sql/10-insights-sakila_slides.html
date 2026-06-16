@@ -1,0 +1,626 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <script>
+      window.MathJax = {
+        tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    
+<style>
+    :root {
+        --color-orange: #F2855A;
+        --color-green: #66B37D;
+        --color-light-gray: #F2F2F2;
+        --color-dark-mode: #111111;
+        --color-black: #0A0A0A;
+        --color-dark-gray-1: #333333;
+        --color-dark-gray-2: #5F5F5F;
+        --color-white-soft: #F5F5F5;
+        --font-main: 'Montserrat', sans-serif;
+    }
+
+    body {
+        margin: 0;
+        font-family: var(--font-main);
+        overflow: hidden;
+    }
+
+    .presentation {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 2rem;
+        box-sizing: border-box;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.6s ease-in-out, visibility 0.6s ease-in-out;
+    }
+
+    .slide.active {
+        opacity: 1;
+        visibility: visible;
+        z-index: 1;
+    }
+
+    .slide h1 { font-size: 3rem; font-weight: 700; margin: 0 0 0.5rem 0; }
+    .slide h2 { font-size: 1.8rem; font-weight: 300; margin: 0; }
+
+    .slide-countdown { background-color: var(--color-orange); color: var(--color-black); }
+    .slide-countdown h2 { color: var(--color-dark-gray-2); }
+    .slide-countdown .timer { font-size: 5rem; font-weight: 300; letter-spacing: 5px; margin: 1.5rem 0; text-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    .slide-countdown .start-message { font-size: 2.5rem; font-weight: 700; display: none; }
+    
+    .bouncing-logo-container { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; overflow: hidden; z-index: 0; pointer-events: none; }
+    .bouncing-logo { position: absolute; width: 250px; opacity: 0.15; animation: bounceX 13s linear infinite alternate, bounceY 9s linear infinite alternate; }
+    @keyframes bounceX { 0% { left: 0; } 100% { left: calc(100vw - 250px); } }
+    @keyframes bounceY { 0% { top: 0; } 100% { top: calc(100vh - 75px); } }
+
+    .traffic-logo-container { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; overflow: hidden; z-index: 0; pointer-events: none; }
+    .traffic-logo-img { position: absolute; width: 220px; opacity: 0.15; left: -250px; transform: translateY(-50%); }
+    @keyframes driveRight { 0% { transform: translateY(-50%) translateX(0); } 100% { transform: translateY(-50%) translateX(calc(100vw + 500px)); } }
+
+    .slide-transition { background-color: var(--color-green); color: var(--color-black); }
+    
+    .slide-warnup-mood { background-color: var(--color-green); color: var(--color-black); justify-content: center; position: relative; }
+    .content-wrapper { position: relative; z-index: 1; background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); padding: 2rem 4rem; border-radius: 20px; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1); border: 1px solid rgba(255, 255, 255, 0.18); }
+    .slide-warnup-mood h1, .slide-warnup-mood h2 { font-weight: bold; }
+    .emoji-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 0; }
+    .emoji { position: absolute; top: -10%; font-size: 2rem; animation: fall 10s linear infinite; }
+    @keyframes fall {
+        0% { transform: translateY(0) rotate(0); }
+        100% { transform: translateY(110vh) rotate(360deg); }
+    }
+
+    .slide-agenda, .slide-warnup-question, .slide-basic_slide, .slide-two_columns_slide { background-color: var(--color-light-gray); color: var(--color-black); }
+    .slide-agenda .content-wrapper, .slide-basic_slide .content-wrapper, .slide-two_columns_slide .content-wrapper { width: 90%; text-align: left; overflow-y: auto; max-height: 85vh; padding: 2rem 3rem; }
+    .slide-basic_slide .content-wrapper img, .slide-two_columns_slide .content-wrapper img { max-width: 100%; border-radius: 10px; display: block; margin: 1rem auto; padding: 0; }
+    .slide-basic_slide .content-wrapper p, .slide-basic_slide .content-wrapper ul, .slide-basic_slide .content-wrapper ol, .slide-two_columns_slide .content-wrapper p, .slide-two_columns_slide .content-wrapper ul, .slide-two_columns_slide .content-wrapper ol { font-size: 1.5rem; line-height: 1.6; }
+    .slide-basic_slide .content-wrapper ul, .slide-basic_slide .content-wrapper ol, .slide-two_columns_slide .content-wrapper ul, .slide-two_columns_slide .content-wrapper ol { padding-left: 3rem; }
+    
+    .slide-two_columns_slide .column-left { padding-right: 2rem; width: 50%; display: flex; flex-direction: column; justify-content: center; }
+    .slide-two_columns_slide .column-right { width: 50%; display: flex; align-items: center; justify-content: center; height: 100%; }
+    .slide-two_columns_slide .column-right img { width: 100%; max-height: 70vh; object-fit: contain; }
+    .slide-agenda h1 { color: var(--color-black); margin-bottom: 1.5rem; }
+    .slide-agenda ul { list-style: none; padding: 0; font-size: 1.5rem; }
+    .slide-agenda li { margin: 0.8rem 0; }
+    .slide-agenda li strong { color: var(--color-black); }
+    .slide-agenda li span { color: var(--color-dark-gray-1); margin-left: 1rem; }
+
+    .two-column-layout { display: flex; align-items: center; justify-content: center; width: 100%; gap: 2rem; }
+    .column-left { width: 50%; text-align: left; }
+    .column-right { width: 50%; }
+    .column-right img { max-width: 100%; border-radius: 10px; }
+
+    .slide-objectives { background-color: var(--color-light-gray); color: var(--color-black); }
+    .slide-objectives .content-wrapper { padding: 3rem; text-align: center; width: 95%; max-width: 1600px; max-height: 85vh; overflow-y: auto; }
+    .slide-objectives .objectives-container > ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; list-style: none; padding: 0; margin: 2rem 0; width: 100%; }
+    .slide-objectives .objectives-container > ul > li { background-color: var(--color-light-gray); color: var(--color-dark-gray-1); padding: 2.5rem; border-radius: 15px; flex: 1; min-width: 300px; max-width: 480px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: left; font-size: 1.3rem; line-height: 1.5; display: flex; flex-direction: column; }
+    .slide-objectives .objectives-container > ul > li p { margin: 0; }
+    .slide-objectives .objectives-container img { max-width: 100%; max-height: 100px; object-fit: contain; display: block; margin: 0 auto 1rem auto; }
+    .slide-objectives .objectives-container > ul > li > ul { list-style: none; padding-left: 0; margin-top: 1rem; font-size: 1.1rem; }
+    .slide-objectives .objectives-container > ul > li > ul > li { position: relative; padding-left: 1.2rem; margin-bottom: 0.8rem; color: var(--color-dark-gray-2); }
+    .slide-objectives .objectives-container > ul > li > ul > li::before { content: "•"; position: absolute; left: 0; color: var(--color-green); font-weight: bold; }
+    .slide-objectives h1 { color: var(--color-black); margin-bottom: 1rem; }
+
+    .slide-overlay { background-color: var(--color-black); color: var(--color-white-soft); }
+    .slide-overlay h1, .slide-overlay h2 { color: var(--color-white-soft); margin-bottom: 0.5rem; }
+    .slide-overlay p { font-size: 3rem; font-weight: 500; margin: 1rem 0; line-height: 1.4; color: var(--color-white-soft); text-align: center; }
+
+    .slide-gotocode { background-color: var(--color-dark-mode); color: var(--color-white-soft); }
+    .slide-finale { background-color: var(--color-orange); color: var(--color-black); }
+    .slide-finale h2 { color: var(--color-dark-gray-2); }
+    .slide-gotocode a { color: var(--color-white-soft); }
+    .slide-gotocode .qr-container { display: flex; gap: 2rem; margin-top: 2rem; }
+    .slide-gotocode .qr-item { display: flex; flex-direction: column; align-items: center; }
+    .slide-gotocode .qr-item img { width: 150px; height: 150px; border-radius: 10px; }
+
+    #transition-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out; background-color: var(--color-green); color: var(--color-black); }
+    #transition-overlay h1 { color: var(--color-black); margin-bottom: 0; }
+    #transition-overlay .content-wrapper { width: 90%; text-align: left; padding: 2rem 3rem; }
+    #transition-overlay.visible { opacity: 1; visibility: visible; }
+    
+    .slide-nav { position: absolute; bottom: 20px; right: 20px; z-index: 100; display: flex; gap: 10px; }
+    .slide-nav button { background: rgba(128, 128, 128, 0.5); border: none; color: white; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 1.5rem; transition: background 0.3s; }
+    .slide-nav button:hover { background: rgba(128, 128, 128, 0.9); }
+
+    .slide-menu { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); z-index: 200; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+    .slide-menu.active { opacity: 1; visibility: visible; }
+    .slide-menu-content { background: var(--color-light-gray); padding: 3rem; border-radius: 15px; width: 80%; max-width: 800px; max-height: 80vh; overflow-y: auto; position: relative; color: var(--color-black); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+    .slide-menu-content h2 { margin-top: 0; border-bottom: 2px solid var(--color-dark-gray-1); padding-bottom: 1rem; color: var(--color-black); }
+    .close-menu { position: absolute; top: 15px; right: 20px; background: none; border: none; font-size: 2.5rem; cursor: pointer; color: var(--color-dark-gray-2); transition: color 0.3s; }
+    .close-menu:hover { color: var(--color-orange); }
+    .slide-list { list-style: none; padding: 0; }
+    .slide-list li { margin: 0.5rem 0; }
+    .menu-jump-btn { width: 100%; text-align: left; background: var(--color-white-soft); border: 1px solid rgba(0,0,0,0.1); padding: 1rem; border-radius: 8px; font-size: 1.2rem; cursor: pointer; transition: background 0.2s, transform 0.1s; font-family: var(--font-main); color: var(--color-dark-gray-1); }
+    .menu-jump-btn:hover { background: var(--color-orange); color: var(--color-black); transform: translateX(5px); }
+    
+    .company-logo { position: absolute; top: 30px; left: 40px; max-height: 60px; opacity: 0; z-index: 50; pointer-events: none; }
+    .slide-countdown .company-logo, .slide-warnup-mood .company-logo, .slide-finale .company-logo, .slide-overlay .company-logo { display: none !important; animation: none !important; }
+    .slide.active .company-logo { animation: showAndHideLogo 4s ease-in-out forwards; }
+    @keyframes showAndHideLogo {
+        0% { opacity: 0; transform: translateY(-10px); }
+        10% { opacity: 1; transform: translateY(0); }
+        80% { opacity: 1; transform: translateY(0); }
+        100% { opacity: 0; transform: translateY(-10px); }
+    }
+
+    .quiz-container { display: flex; flex-direction: column; width: 90%; max-width: 1000px; padding: 3rem; align-items: stretch; text-align: left; overflow-y: auto; max-height: 85vh;}
+    .quiz-container h1, .quiz-container h2 { text-align: center; }
+    .quiz-intro { text-align: center; font-size: 1.5rem; margin-bottom: 2rem; color: var(--color-dark-gray-1); }
+    .quiz-start-btn, .quiz-next-btn { align-self: center; background: var(--color-orange); border: none; color: var(--color-black); font-size: 1.5rem; font-weight: bold; padding: 1rem 3rem; border-radius: 10px; cursor: pointer; transition: transform 0.2s; margin-top: 2rem; }
+    .quiz-start-btn:hover, .quiz-next-btn:hover, .quiz-show-answer-btn:hover { transform: scale(1.05); }
+    .quiz-header { display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: bold; margin-bottom: 1rem; color: var(--color-dark-gray-2); border-bottom: 2px solid rgba(0,0,0,0.1); padding-bottom: 10px; }
+    .quiz-timer { color: #d9534f; }
+    .quiz-question-box { font-size: 1.8rem; margin: 1.5rem 0; font-weight: 700; color: var(--color-black); }
+    .quiz-question-box p { margin: 0; }
+    .quiz-question-box img { max-width: 100%; border-radius: 10px; max-height: 350px; object-fit: contain; display: block; margin: 15px auto; }
+    .quiz-options-box { display: flex; flex-direction: column; gap: 1rem; perspective: 1000px; }
+    .quiz-option-card { background: var(--color-white-soft); border: 2px solid var(--color-light-gray); text-align: left; padding: 1rem 1.5rem; font-size: 1.4rem; border-radius: 10px; transition: all 0.6s cubic-bezier(0.4, 0.2, 0.2, 1); font-family: var(--font-main); color: var(--color-dark-gray-1); transform-style: preserve-3d; }
+    .quiz-option-card p { margin: 0; }
+    .quiz-option-card.flip-correct { background: #d4edda; border-color: #28a745; color: #155724; transform: rotateX(360deg); box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3); }
+    .quiz-option-card.fade-out { opacity: 0.4; filter: grayscale(100%); }
+    .quiz-feedback-box { margin-top: 2rem; background: rgba(0,0,0,0.05); padding: 1.5rem; border-radius: 10px; border-left: 5px solid var(--color-orange); font-size: 1.3rem; opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .quiz-feedback-box.show { opacity: 1; transform: translateY(0); display: block; }
+    
+    .quiz-nav-menu { display: flex; justify-content: center; gap: 10px; margin-bottom: 2rem; }
+    .quiz-nav-dot { width: 40px; height: 40px; border-radius: 50%; background: rgba(0,0,0,0.1); color: var(--color-dark-gray-2); border: none; font-size: 1.2rem; font-weight: bold; cursor: pointer; transition: all 0.3s; display: flex; justify-content: center; align-items: center; }
+    .quiz-nav-dot:hover { background: rgba(0,0,0,0.2); }
+    .quiz-nav-dot.active { background: var(--color-orange); color: var(--color-black); transform: scale(1.1); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    .quiz-intro { transition: opacity 0.5s, transform 0.5s; }
+    .quiz-ui { transition: opacity 0.5s, transform 0.5s; }
+    .slide-quizz .content-wrapper { overflow-x: hidden; }
+    pre { border-radius: 8px; font-size: 1.1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 1.2rem; color: var(--color-dark-gray-1); }
+    th, td { border: 1px solid rgba(0,0,0,0.1); padding: 1rem; text-align: left; }
+    th { background-color: var(--color-light-gray); font-weight: bold; color: var(--color-black); }
+    tr:nth-child(even) { background-color: rgba(0,0,0,0.02); }
+    .slide-overlay table, .slide-gotocode table { color: var(--color-white-soft); }
+    .slide-overlay th, .slide-gotocode th { background-color: rgba(255,255,255,0.1); color: var(--color-white-soft); border-color: rgba(255,255,255,0.2); }
+    .slide-overlay td, .slide-gotocode td { border-color: rgba(255,255,255,0.2); }
+    .slide-overlay tr:nth-child(even), .slide-gotocode tr:nth-child(even) { background-color: rgba(255,255,255,0.05); }
+</style>
+
+</head>
+<body>
+    <div class="presentation">
+        <div id="transition-overlay"><div class="content-wrapper"><h1></h1></div></div>
+        <div class="slide slide-countdown" id="slide-0" data-type="countdown" data-timer="600" data-transition-title="¡Comenzamos en breve!">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="traffic-logo-container"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 15%; animation: driveRight 27.61s linear -0.00s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 15%; animation: driveRight 27.61s linear -6.90s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 15%; animation: driveRight 27.61s linear -13.80s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 15%; animation: driveRight 27.61s linear -20.71s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 35%; animation: driveRight 28.08s linear -0.00s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 35%; animation: driveRight 28.08s linear -5.62s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 35%; animation: driveRight 28.08s linear -11.23s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 35%; animation: driveRight 28.08s linear -16.85s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 35%; animation: driveRight 28.08s linear -22.46s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 55%; animation: driveRight 22.53s linear -0.00s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 55%; animation: driveRight 22.53s linear -7.51s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 55%; animation: driveRight 22.53s linear -15.02s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 75%; animation: driveRight 26.25s linear -0.00s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 75%; animation: driveRight 26.25s linear -8.75s infinite;"><img class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" style="top: 75%; animation: driveRight 26.25s linear -17.50s infinite;"></div><div class="content-wrapper"><h1>Sprint 3 Sesión 4</h1><h2>Explorar KPIs con SQL</h2><div class="timer">--:--</div><div class="start-message">¡Comenzamos!</div><p></p></div><div class="dynamic-date" style="position: absolute; bottom: 30px; left: 40px; font-size: 1.5rem; font-weight: bold; color: var(--color-black); z-index: 1;"></div>
+</div>
+<div class="slide slide-warnup-mood" id="slide-1" data-type="warnup-mood" data-transition-title="Midamos los ánimos">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="emoji-container"><div class="emoji" style="left: 57vw; animation-delay: -4.77s; animation-duration: 11.66s; font-size: 4.43rem;">🤨</div><div class="emoji" style="left: 85vw; animation-delay: -8.25s; animation-duration: 9.07s; font-size: 3.23rem;">🤩</div><div class="emoji" style="left: 41vw; animation-delay: -2.33s; animation-duration: 5.38s; font-size: 5.29rem;">🤔</div><div class="emoji" style="left: 22vw; animation-delay: -4.73s; animation-duration: 11.09s; font-size: 3.80rem;">🤯</div><div class="emoji" style="left: 54vw; animation-delay: -5.88s; animation-duration: 8.92s; font-size: 4.26rem;">🥱</div><div class="emoji" style="left: 3vw; animation-delay: -7.78s; animation-duration: 7.68s; font-size: 3.84rem;">😁</div><div class="emoji" style="left: 67vw; animation-delay: -4.01s; animation-duration: 5.36s; font-size: 5.32rem;">😪</div><div class="emoji" style="left: 41vw; animation-delay: -7.30s; animation-duration: 11.56s; font-size: 4.35rem;">😤</div><div class="emoji" style="left: 10vw; animation-delay: -2.20s; animation-duration: 8.58s; font-size: 4.04rem;">🧠</div><div class="emoji" style="left: 37vw; animation-delay: -4.21s; animation-duration: 10.79s; font-size: 3.17rem;">😠</div><div class="emoji" style="left: 35vw; animation-delay: -7.01s; animation-duration: 7.46s; font-size: 3.06rem;">💪</div><div class="emoji" style="left: 52vw; animation-delay: -7.35s; animation-duration: 9.13s; font-size: 4.95rem;">🤯</div><div class="emoji" style="left: 51vw; animation-delay: -0.86s; animation-duration: 5.53s; font-size: 5.43rem;">💪</div><div class="emoji" style="left: 21vw; animation-delay: -1.10s; animation-duration: 11.22s; font-size: 5.02rem;">⚡</div><div class="emoji" style="left: 46vw; animation-delay: -1.70s; animation-duration: 10.63s; font-size: 4.19rem;">😶</div><div class="emoji" style="left: 89vw; animation-delay: -7.59s; animation-duration: 10.03s; font-size: 3.46rem;">🤔</div><div class="emoji" style="left: 33vw; animation-delay: -9.92s; animation-duration: 5.77s; font-size: 3.19rem;">💡</div><div class="emoji" style="left: 52vw; animation-delay: -4.90s; animation-duration: 9.76s; font-size: 3.15rem;">🎉</div><div class="emoji" style="left: 79vw; animation-delay: -5.89s; animation-duration: 9.08s; font-size: 5.01rem;">🤯</div><div class="emoji" style="left: 20vw; animation-delay: -9.71s; animation-duration: 6.22s; font-size: 5.24rem;">😠</div><div class="emoji" style="left: 30vw; animation-delay: -1.00s; animation-duration: 8.33s; font-size: 3.94rem;">💡</div><div class="emoji" style="left: 24vw; animation-delay: -8.22s; animation-duration: 11.62s; font-size: 5.22rem;">😤</div><div class="emoji" style="left: 72vw; animation-delay: -1.70s; animation-duration: 10.06s; font-size: 3.10rem;">😶</div><div class="emoji" style="left: 88vw; animation-delay: -9.41s; animation-duration: 7.33s; font-size: 4.59rem;">🥳</div><div class="emoji" style="left: 16vw; animation-delay: -8.17s; animation-duration: 5.62s; font-size: 5.99rem;">⚡</div><div class="emoji" style="left: 68vw; animation-delay: -4.68s; animation-duration: 8.12s; font-size: 3.81rem;">🙌</div><div class="emoji" style="left: 58vw; animation-delay: -5.35s; animation-duration: 6.72s; font-size: 4.71rem;">🎉</div><div class="emoji" style="left: 73vw; animation-delay: -6.20s; animation-duration: 6.79s; font-size: 4.60rem;">😓</div><div class="emoji" style="left: 41vw; animation-delay: -3.25s; animation-duration: 9.44s; font-size: 3.88rem;">✨</div><div class="emoji" style="left: 46vw; animation-delay: -7.85s; animation-duration: 11.09s; font-size: 3.66rem;">😢</div><div class="emoji" style="left: 63vw; animation-delay: -1.20s; animation-duration: 9.34s; font-size: 3.67rem;">🤩</div><div class="emoji" style="left: 64vw; animation-delay: -7.60s; animation-duration: 8.78s; font-size: 4.74rem;">🤨</div><div class="emoji" style="left: 80vw; animation-delay: -1.84s; animation-duration: 11.41s; font-size: 4.75rem;">🧐</div><div class="emoji" style="left: 25vw; animation-delay: -1.27s; animation-duration: 6.79s; font-size: 3.55rem;">😊</div><div class="emoji" style="left: 2vw; animation-delay: -5.25s; animation-duration: 9.73s; font-size: 3.95rem;">🤔</div><div class="emoji" style="left: 79vw; animation-delay: -2.31s; animation-duration: 10.35s; font-size: 3.17rem;">😠</div><div class="emoji" style="left: 52vw; animation-delay: -1.70s; animation-duration: 11.32s; font-size: 3.72rem;">🏋️</div><div class="emoji" style="left: 34vw; animation-delay: -6.61s; animation-duration: 5.07s; font-size: 5.96rem;">😞</div><div class="emoji" style="left: 68vw; animation-delay: -5.19s; animation-duration: 7.35s; font-size: 4.10rem;">🤨</div><div class="emoji" style="left: 6vw; animation-delay: -8.67s; animation-duration: 8.81s; font-size: 3.97rem;">😠</div><div class="emoji" style="left: 61vw; animation-delay: -0.08s; animation-duration: 5.83s; font-size: 3.85rem;">🧐</div><div class="emoji" style="left: 19vw; animation-delay: -4.84s; animation-duration: 8.74s; font-size: 5.60rem;">😀</div><div class="emoji" style="left: 69vw; animation-delay: -3.87s; animation-duration: 9.49s; font-size: 4.22rem;">😐</div><div class="emoji" style="left: 43vw; animation-delay: -0.49s; animation-duration: 8.84s; font-size: 5.75rem;">😐</div><div class="emoji" style="left: 58vw; animation-delay: -4.09s; animation-duration: 5.46s; font-size: 5.38rem;">😠</div><div class="emoji" style="left: 19vw; animation-delay: -2.10s; animation-duration: 10.45s; font-size: 3.21rem;">😤</div><div class="emoji" style="left: 76vw; animation-delay: -6.27s; animation-duration: 9.06s; font-size: 5.01rem;">⚡</div><div class="emoji" style="left: 68vw; animation-delay: -2.94s; animation-duration: 10.95s; font-size: 3.56rem;">😐</div><div class="emoji" style="left: 44vw; animation-delay: -8.33s; animation-duration: 10.03s; font-size: 4.88rem;">😠</div><div class="emoji" style="left: 4vw; animation-delay: -0.11s; animation-duration: 6.97s; font-size: 5.37rem;">😠</div></div><div class="content-wrapper"><h1>¿Cómo llegas a la sesión de hoy?</h1><h2>Reacciona con el emoji 😎🤔🤓🙂 que mejor represente tu mood</h2></div>
+</div>
+<div class="slide slide-agenda" id="slide-2" data-type="agenda" data-transition-title="Nuestra Agenda de Hoy">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="content-wrapper"><h1>Plan de nuestra sesión</h1><ul><li><strong>👋 Bienvenida</strong> <span>5 min</span></li><li><strong>🔎 Revisión del proyecto del sprint</strong> <span>5 min</span></li><li><strong>💡 Consultas SQL para análisis de negocio: Caso Readify</strong> <span>60 min</span></li><li><strong>🤔 Reflexión y discusión: ¿Qué aprendimos en esta sesión?</strong> <span>5 min</span></li></ul></div>
+</div>
+<div class="slide slide-objectives" id="slide-3" data-type="objectives" data-transition-title="¿Qué aprenderemos hoy?">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="content-wrapper"><h1>Metas de contenido para esta sesión</h1><div class="objectives-container"><ul>
+<li>🗄️ <strong>Comprender los fundamentos de bases de datos y consultas SQL</strong>:<ul>
+<li>Conocer el concepto de bases de datos relacionales y cómo se estructuran las tablas.</li>
+<li>Entender la sintaxis y el orden de ejecución lógico de una consulta SQL.</li>
+</ul>
+</li>
+<li>🔍 <strong>Realizar consultas de selección y filtrado</strong>:<ul>
+<li>Dominar la selección básica de columnas usando <code>SELECT</code> y <code>FROM</code>.</li>
+<li>Ordenar y limitar los resultados obtenidos con <code>ORDER BY</code> y <code>LIMIT</code>.</li>
+<li>Aplicar filtros avanzados a los registros mediante la cláusula <code>WHERE</code>.</li>
+</ul>
+</li>
+<li>📊 <strong>Categorizar y segmentar información</strong>:<ul>
+<li>Utilizar expresiones condicionales con <code>CASE</code> para clasificar y etiquetar datos dinámicamente.</li>
+</ul>
+</li>
+<li>🤝 <strong>Relacionar y unir información de múltiples tablas</strong>:<ul>
+<li>Combinar datos relacionados de distintas tablas utilizando la cláusula <code>JOIN</code>.</li>
+</ul>
+</li>
+<li>🧬 <strong>Estructurar consultas avanzadas con subconsultas y CTEs</strong>:<ul>
+<li>Implementar subconsultas dentro de las cláusulas <code>FROM</code> y <code>WHERE</code>.</li>
+<li>Organizar y simplificar consultas complejas utilizando expresiones de tabla comunes con <code>WITH</code>.</li>
+</ul>
+</li>
+</ul></div></div>
+</div>
+<div class="slide slide-gotocode" id="slide-4" data-type="gotocode" data-transition-title="Momento de trabajar en equipo">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<h1>¡A trabajar en equipo!</h1><div class="qr-container"><div class="qr-item"><img src="../img/qrs/10-insights-sql-books.png" alt="Análisis de negocio: Caso Readify QR Code"><p>Análisis de negocio: Caso Readify</p></div><div class="qr-item"><img src="../img/qrs/sql-interface.png" alt="SQL runner QR Code"><p>SQL runner</p></div></div>
+</div>
+<div class="slide slide-quizz" id="slide-5" data-type="quizz">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="content-wrapper quiz-container" data-quiz="[{&quot;text&quot;: &quot;&lt;p&gt;Si ejecutas la siguiente consulta para analizar la valoraci\u00f3n del cat\u00e1logo en Readify:&lt;/p&gt;\n&lt;pre&gt;&lt;code class=\&quot;language-sql\&quot;&gt;SELECT AVG(rating) AS promedio_valoracion\nFROM ratings;\n&lt;/code&gt;&lt;/pre&gt;\n&lt;p&gt;\u00bfQu\u00e9 m\u00e9trica de negocio est\u00e1s calculando?&lt;/p&gt;&quot;, &quot;options&quot;: [{&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude07 La calificaci\u00f3n m\u00e1s alta registrada por un usuario.&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude0e La cantidad total de calificaciones recibidas en la plataforma.&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\udc4d La satisfacci\u00f3n promedio o calidad percibida del cat\u00e1logo por parte de los lectores.&lt;/p&gt;&quot;, &quot;correct&quot;: true}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude04 El n\u00famero de usuarios activos que han calificado alg\u00fan libro.&lt;/p&gt;&quot;, &quot;correct&quot;: false}], &quot;feedback&quot;: &quot;&lt;p&gt;\u00a1Correcto! La funci\u00f3n &lt;code&gt;AVG(rating)&lt;/code&gt; calcula el promedio de todas las calificaciones de la tabla &lt;code&gt;ratings&lt;/code&gt;, representando la calidad general o satisfacci\u00f3n percibida de los lectores.&lt;/p&gt;&quot;}, {&quot;text&quot;: &quot;&lt;p&gt;Para identificar libros extensos (de largo aliento) en Readify, ejecutamos la siguiente consulta:&lt;/p&gt;\n&lt;pre&gt;&lt;code class=\&quot;language-sql\&quot;&gt;SELECT book_id, title\nFROM books\nWHERE num_pages &amp;gt; 500;\n&lt;/code&gt;&lt;/pre&gt;\n&lt;p&gt;\u00bfQu\u00e9 registros devolver\u00e1 esta consulta?&lt;/p&gt;&quot;, &quot;options&quot;: [{&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude07 Todos los libros que tienen exactamente 500 p\u00e1ginas.&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude0e \u00danicamente los libros con una extensi\u00f3n de p\u00e1ginas estrictamente mayor a 500.&lt;/p&gt;&quot;, &quot;correct&quot;: true}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\udc4d Los primeros 500 libros registrados en la base de datos.&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude04 Todos los libros ordenados de mayor a menor n\u00famero de p\u00e1ginas.&lt;/p&gt;&quot;, &quot;correct&quot;: false}], &quot;feedback&quot;: &quot;&lt;p&gt;\u00a1Exacto! La condici\u00f3n &lt;code&gt;WHERE num_pages &amp;gt; 500&lt;/code&gt; filtra las filas para mostrar solo aquellos libros cuya extensi\u00f3n de p\u00e1ginas supera el valor de 500.&lt;/p&gt;&quot;}, {&quot;text&quot;: &quot;&lt;p&gt;Para analizar el cat\u00e1logo de libros seg\u00fan la editorial que los publica, ejecutamos:&lt;/p&gt;\n&lt;pre&gt;&lt;code class=\&quot;language-sql\&quot;&gt;SELECT publisher_id, COUNT(*) AS total_libros\nFROM books\nGROUP BY publisher_id;\n&lt;/code&gt;&lt;/pre&gt;\n&lt;p&gt;\u00bfQu\u00e9 resultado produce esta consulta?&lt;/p&gt;&quot;, &quot;options&quot;: [{&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude07 Muestra la editorial con los libros m\u00e1s largos del cat\u00e1logo.&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude0e Cuenta cu\u00e1ntos libros han sido publicados por cada editorial (publisher_id).&lt;/p&gt;&quot;, &quot;correct&quot;: true}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\udc4d Filtra los libros para mostrar solo los que pertenecen a una editorial espec\u00edfica.&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude04 Muestra el promedio de p\u00e1ginas de todos los libros de la base de datos.&lt;/p&gt;&quot;, &quot;correct&quot;: false}], &quot;feedback&quot;: &quot;&lt;p&gt;\u00a1Correcto! &lt;code&gt;GROUP BY publisher_id&lt;/code&gt; agrupa los libros por su editorial asociada, y &lt;code&gt;COUNT(*)&lt;/code&gt; cuenta el n\u00famero de t\u00edtulos pertenecientes a cada grupo de editorial.&lt;/p&gt;&quot;}, {&quot;text&quot;: &quot;&lt;p&gt;Para identificar el nombre del autor o autora de cada libro de nuestro cat\u00e1logo, usamos la siguiente consulta:&lt;/p&gt;\n&lt;pre&gt;&lt;code class=\&quot;language-sql\&quot;&gt;SELECT books.title, authors.author\nFROM books\nINNER JOIN authors ON books.author_id = authors.author_id;\n&lt;/code&gt;&lt;/pre&gt;\n&lt;p&gt;\u00bfPor qu\u00e9 es necesario usar &lt;code&gt;INNER JOIN&lt;/code&gt; en esta consulta?&lt;/p&gt;&quot;, &quot;options&quot;: [{&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude07 Porque los t\u00edtulos de los libros est\u00e1n en la tabla &lt;code&gt;books&lt;/code&gt; y los nombres de los autores en &lt;code&gt;authors&lt;/code&gt;.&lt;/p&gt;&quot;, &quot;correct&quot;: true}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude0e Porque queremos ordenar los libros alfab\u00e9ticamente por el nombre del autor.&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\udc4d Porque &lt;code&gt;INNER JOIN&lt;/code&gt; elimina autom\u00e1ticamente los libros con t\u00edtulos duplicados.&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude04 Porque de lo contrario la base de datos no sabr\u00eda c\u00f3mo calcular el total de p\u00e1ginas de cada autor.&lt;/p&gt;&quot;, &quot;correct&quot;: false}], &quot;feedback&quot;: &quot;&lt;p&gt;\u00a1As\u00ed es! Los datos de negocio est\u00e1n distribuidos en dos tablas: &lt;code&gt;books&lt;/code&gt; (informaci\u00f3n del libro) y &lt;code&gt;authors&lt;/code&gt; (nombre del autor). El &lt;code&gt;JOIN&lt;/code&gt; las une usando la clave com\u00fan &lt;code&gt;author_id&lt;/code&gt;.&lt;/p&gt;&quot;}, {&quot;text&quot;: &quot;&lt;p&gt;Analiza la siguiente consulta que busca identificar libros con alta interacci\u00f3n y debate:&lt;/p&gt;\n&lt;pre&gt;&lt;code class=\&quot;language-sql\&quot;&gt;WITH debate_libros AS (\n    SELECT book_id, COUNT(review_id) AS total_rese\u00f1as\n    FROM reviews\n    GROUP BY book_id\n)\nSELECT book_id\nFROM debate_libros\nWHERE total_rese\u00f1as &amp;gt; 10;\n&lt;/code&gt;&lt;/pre&gt;\n&lt;p&gt;\u00bfQu\u00e9 informaci\u00f3n devuelve esta consulta?&lt;/p&gt;&quot;, &quot;options&quot;: [{&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude07 Los IDs de los libros que recibieron m\u00e1s de 10 rese\u00f1as escritas en un solo d\u00eda.&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude0e Los IDs de los libros que han acumulado m\u00e1s de 10 rese\u00f1as escritas en total en la plataforma.&lt;/p&gt;&quot;, &quot;correct&quot;: true}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\udc4d El total de rese\u00f1as escritas en toda la plataforma cuando el total supera las 10.&lt;/p&gt;&quot;, &quot;correct&quot;: false}, {&quot;text&quot;: &quot;&lt;p&gt;\ud83d\ude04 Una lista de todos los libros ordenados de mayor a menor cantidad de rese\u00f1as.&lt;/p&gt;&quot;, &quot;correct&quot;: false}], &quot;feedback&quot;: &quot;&lt;p&gt;\u00a1Excelente! La CTE &lt;code&gt;debate_libros&lt;/code&gt; calcula primero la cantidad total de rese\u00f1as escritas para cada libro. Luego, la consulta principal filtra y muestra solo los IDs de aquellos libros que superan las 10 rese\u00f1as acumuladas.&lt;/p&gt;&quot;}]" data-timer="80">
+        <h1>Pongamos a prueba lo aprendido</h1>
+        <h2>Reaccciona en la llamada con el emoji de la respuesta correcta</h2>
+        <div class="quiz-intro"></div>
+        <div class="quiz-ui" style="display:none; opacity: 0; transform: translateX(20px);">
+            <div class="quiz-nav-menu"></div>
+            <div class="quiz-header" style="justify-content: flex-end; flex-direction: column; align-items: flex-end;">
+                <span class="quiz-timer" style="display:none; font-size: 1.5rem;">⏳ <span class="time-left"></span>s</span>
+                <button class="quiz-show-answer-btn" style="display:none; margin-top: 10px; font-size: 1.1rem; cursor: pointer; padding: 8px 15px; border-radius: 5px; background: var(--color-orange); color: var(--color-black); border: none; font-weight: bold; transition: transform 0.2s;">Mostrar Respuesta</button>
+            </div>
+            <div class="quiz-question-box"></div>
+            <div class="quiz-options-box"></div>
+            <div class="quiz-feedback-box"></div>
+            <button class="quiz-next-btn" style="display:none;">Siguiente Pregunta</button>
+        </div>
+        <button class="quiz-start-btn">Comenzar</button>
+    </div>
+</div>
+<div class="slide slide-basic_slide" id="slide-6" data-type="basic_slide" data-transition-title="Ahora para finalizar">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<div class="content-wrapper"><h1>🎉 Espero que hayas disfrutado la sesión</h1><h2>Qué te parece si:</h2><ul>
+<li>🚀 Trata de aplicar lo aprendido en un proyecto personal o tema de tu interés.</li>
+<li>🤝 Participa en el Co-Learning para afianzar tus conocimientos mientras ayudas a otros a entenderlos.</li>
+<li>💬 Comparte en nuestro canal de <code>community</code> algo que te haya gustado o llamado la atención de esta sesión.</li>
+<li>📝 Al finalizar la sesión recibirás una encuesta de satisfacción, tus comentarios son muy valiosos para nosotros y me ayudará a mejorar como tutor.</li>
+</ul></div>
+</div>
+<div class="slide slide-finale" id="slide-7" data-type="finale">
+<img src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" class="company-logo" alt="Logo">
+<h1>¡Excelente trabajo! 🚀📊</h1><h2>¡Gracias por participar!</h2>
+</div>
+
+        <div id="slide-menu" class="slide-menu">
+            <div class="slide-menu-content">
+                <button id="close-menu-btn" class="close-menu" title="Cerrar">&times;</button>
+                <h2>Índice de Diapositivas</h2>
+                <ul class="slide-list">
+                    <li><button class="menu-jump-btn" data-index="0">1. Sprint 3 Sesión 4</button></li>
+<li><button class="menu-jump-btn" data-index="1">2. ¿Cómo llegas a la sesión de hoy?</button></li>
+<li><button class="menu-jump-btn" data-index="2">3. Plan de nuestra sesión</button></li>
+<li><button class="menu-jump-btn" data-index="3">4. Metas de contenido para esta sesión</button></li>
+<li><button class="menu-jump-btn" data-index="4">5. ¡A trabajar en equipo!</button></li>
+<li><button class="menu-jump-btn" data-index="5">6. Pongamos a prueba lo aprendido</button></li>
+<li><button class="menu-jump-btn" data-index="6">7. 🎉 Espero que hayas disfrutado la sesión</button></li>
+<li><button class="menu-jump-btn" data-index="7">8. ¡Excelente trabajo! 🚀📊</button></li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="slide-nav">
+            <button id="prev-btn" title="Anterior (Flecha Izquierda)">&#8592;</button>
+            <button id="menu-btn" title="Índice de Diapositivas">&#9776;</button>
+            <button id="next-btn" title="Siguiente (Flecha Derecha)">&#8594;</button>
+        </div>
+    </div>
+    
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const dateObj = new Date();
+        const day = dateObj.getDate();
+        const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+        const month = months[dateObj.getMonth()];
+        const year = dateObj.getFullYear();
+        const dateStr = `${day} de ${month} ${year}`;
+        document.querySelectorAll('.dynamic-date').forEach(el => el.textContent = dateStr);
+
+        const slides = document.querySelectorAll('.slide');
+        const transitionOverlay = document.getElementById('transition-overlay');
+        const transitionTitleElement = transitionOverlay.querySelector('h1');
+        
+        let currentSlide = -1;
+        let isTransitioning = false;
+        let slideIntervals = {}; 
+
+        function showSlide(index) {
+            if (isTransitioning || index === currentSlide) return;
+            
+            const nextSlideElement = slides[index];
+            if (!nextSlideElement) return;
+
+            isTransitioning = true;
+            
+            const transitionTitle = nextSlideElement.dataset.transitionTitle;
+
+            if (currentSlide > -1) {
+                slides[currentSlide].classList.remove('active');
+            }
+
+            if (transitionTitle && index > currentSlide) {
+                transitionTitleElement.textContent = transitionTitle;
+                transitionOverlay.className = 'slide';
+                transitionOverlay.classList.add(`slide-${nextSlideElement.dataset.type}`);
+                transitionOverlay.classList.add('visible');
+
+                setTimeout(() => {
+                    transitionOverlay.classList.remove('visible');
+                    currentSlide = index;
+                    slides[currentSlide].classList.add('active');
+                    activateSlide(currentSlide);
+                    setTimeout(() => isTransitioning = false, 500);
+                }, 1000);
+            } else {
+                currentSlide = index;
+                slides[currentSlide].classList.add('active');
+                activateSlide(currentSlide);
+                isTransitioning = false;
+            }
+        }
+
+        function nextSlide() {
+            if (currentSlide < slides.length - 1) {
+                showSlide(currentSlide + 1);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                showSlide(currentSlide - 1);
+            }
+        }
+        
+        function activateSlide(index) {
+            const slideElement = slides[index];
+            if (!slideElement) return;
+            const slideType = slideElement.dataset.type;
+
+            Object.values(slideIntervals).forEach(clearInterval);
+
+            if (slideType === 'countdown') {
+                const timerElement = slideElement.querySelector('.timer');
+                const startMessage = slideElement.querySelector('.start-message');
+                let duration = parseInt(slideElement.dataset.timer || '600', 10);
+
+                slideIntervals[index] = setInterval(() => {
+                    if (duration < 0) {
+                        clearInterval(slideIntervals[index]);
+                        timerElement.style.display = 'none';
+                        startMessage.style.display = 'block';
+                        setTimeout(nextSlide, 2000); 
+                        return;
+                    }
+                    const minutes = Math.floor(duration / 60);
+                    const seconds = duration % 60;
+                    timerElement.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+                    duration--;
+                }, 1000);
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            else if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const menuBtn = document.getElementById('menu-btn');
+        const slideMenu = document.getElementById('slide-menu');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+
+        if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+        if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+        if (menuBtn) menuBtn.addEventListener('click', () => slideMenu.classList.add('active'));
+        if (closeMenuBtn) closeMenuBtn.addEventListener('click', () => slideMenu.classList.remove('active'));
+
+        document.querySelectorAll('.menu-jump-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const index = parseInt(e.currentTarget.dataset.index, 10);
+                slideMenu.classList.remove('active');
+                showSlide(index);
+            });
+        });
+
+        document.querySelectorAll('.quiz-container').forEach(container => {
+            const startBtn = container.querySelector('.quiz-start-btn');
+            const nextBtn = container.querySelector('.quiz-next-btn');
+            const uiBox = container.querySelector('.quiz-ui');
+            const introBox = container.querySelector('.quiz-intro');
+            const qBox = container.querySelector('.quiz-question-box');
+            const optBox = container.querySelector('.quiz-options-box');
+            const feedBox = container.querySelector('.quiz-feedback-box');
+            const timerDiv = container.querySelector('.quiz-timer');
+            const timerSpan = container.querySelector('.time-left');
+            const navMenu = container.querySelector('.quiz-nav-menu');
+            const showAnsBtn = container.querySelector('.quiz-show-answer-btn');
+
+            const h1 = container.querySelector('h1');
+            const h2 = container.querySelector('h2');
+
+            let rawData = container.getAttribute('data-quiz') || "[]";
+            const questions = JSON.parse(rawData);
+            const timeLimit = parseInt(container.getAttribute('data-timer') || "0", 10);
+            
+            let currentQIndex = 0;
+            let timerInterval;
+            let timeLeft = timeLimit;
+            let canAnswer = false;
+
+            function buildNavMenu() {
+                navMenu.innerHTML = '';
+                questions.forEach((q, idx) => {
+                    const dot = document.createElement('button');
+                    dot.className = 'quiz-nav-dot';
+                    dot.textContent = idx + 1;
+                    dot.addEventListener('click', () => jumpToQuestion(idx));
+                    navMenu.appendChild(dot);
+                });
+            }
+
+            function updateNavMenu() {
+                const dots = navMenu.querySelectorAll('.quiz-nav-dot');
+                dots.forEach((dot, idx) => {
+                    if (idx === currentQIndex) dot.classList.add('active');
+                    else dot.classList.remove('active');
+                });
+            }
+
+            function renderQuestion() {
+                clearInterval(timerInterval);
+
+                if(currentQIndex >= questions.length) {
+                    uiBox.innerHTML = '<div style="text-align:center; padding: 5rem;"><h2>¡Quiz Terminado!</h2><p>Continúa con las flechas de navegación convencionales.</p></div>';
+                    return;
+                }
+                
+                uiBox.style.opacity = '0';
+                uiBox.style.transform = 'translateX(20px)';
+                
+                setTimeout(() => {
+                    const q = questions[currentQIndex];
+                    canAnswer = true;
+                    qBox.innerHTML = q.text;
+                    optBox.innerHTML = '';
+                    feedBox.className = 'quiz-feedback-box'; 
+                    feedBox.innerHTML = q.feedback || '';
+                    nextBtn.style.display = 'none';
+                    if (showAnsBtn) showAnsBtn.style.display = 'none';
+                    updateNavMenu();
+
+                    q.options.forEach((opt, idx) => {
+                        const card = document.createElement('div');
+                        card.className = 'quiz-option-card';
+                        card.innerHTML = opt.text;
+                        optBox.appendChild(card);
+                    });
+
+                    uiBox.style.display = 'block';
+                    void uiBox.offsetWidth;
+                    uiBox.style.opacity = '1';
+                    uiBox.style.transform = 'translateX(0)';
+                    
+                    if (window.MathJax) {
+                        MathJax.typesetPromise().catch((err) => console.log('MathJax error: ', err));
+                    }
+                    if (window.hljs) {
+                        uiBox.querySelectorAll('pre code').forEach((block) => hljs.highlightElement(block));
+                    }
+
+                    if (timeLimit > 0) {
+                        timerDiv.style.display = 'inline-block';
+                        if (showAnsBtn) showAnsBtn.style.display = 'inline-block';
+                        timeLeft = timeLimit;
+                        timerSpan.textContent = timeLeft;
+                        timerInterval = setInterval(() => {
+                            timeLeft--;
+                            timerSpan.textContent = timeLeft;
+                            if (timeLeft <= 0) {
+                                clearInterval(timerInterval);
+                                revealAnswer();
+                            }
+                        }, 1000);
+                    } else {
+                        timerDiv.style.display = 'none';
+                        if (showAnsBtn) showAnsBtn.style.display = 'inline-block';
+                        setTimeout(revealAnswer, 5000);
+                    }
+                }, 400);
+            }
+
+            function revealAnswer() {
+                if(!canAnswer) return;
+                canAnswer = false;
+                clearInterval(timerInterval);
+                if (showAnsBtn) showAnsBtn.style.display = 'none';
+                
+                const q = questions[currentQIndex];
+                const cards = optBox.querySelectorAll('.quiz-option-card');
+                
+                cards.forEach((card, idx) => {
+                    if(q.options[idx].correct) {
+                        card.classList.add('flip-correct');
+                    } else {
+                        card.classList.add('fade-out');
+                    }
+                });
+
+                if (q.feedback) {
+                    feedBox.classList.add('show');
+                }
+                
+                if (currentQIndex < questions.length - 1) {
+                    nextBtn.style.display = 'inline-block';
+                    
+                    if (timeLimit > 0) {
+                        timeLeft = timeLimit;
+                        timerSpan.textContent = timeLeft;
+                        timerInterval = setInterval(() => {
+                            timeLeft--;
+                            timerSpan.textContent = timeLeft;
+                            if (timeLeft <= 0) {
+                                clearInterval(timerInterval);
+                                currentQIndex++;
+                                renderQuestion();
+                            }
+                        }, 1000);
+                    }
+                } else {
+                    setTimeout(() => {
+                        currentQIndex++;
+                        renderQuestion();
+                    }, timeLimit > 0 ? timeLimit * 1000 : 5000);
+                }
+            }
+            
+            function jumpToQuestion(idx) {
+                clearInterval(timerInterval);
+                currentQIndex = idx;
+                renderQuestion();
+            }
+
+            startBtn.addEventListener('click', () => {
+                startBtn.style.display = 'none';
+                
+                if(introBox) {
+                    introBox.style.opacity = '0';
+                    introBox.style.transform = 'scale(0.95)';
+                    setTimeout(() => introBox.style.display = 'none', 500);
+                }
+                if(h1) h1.style.display = 'none';
+                if(h2) h2.style.display = 'none';
+                
+                buildNavMenu();
+                
+                setTimeout(() => {
+                    uiBox.style.display = 'block';
+                    renderQuestion();
+                }, 500);
+            });
+
+            nextBtn.addEventListener('click', () => {
+                currentQIndex++;
+                renderQuestion();
+            });
+
+            if (showAnsBtn) {
+                showAnsBtn.addEventListener('click', () => {
+                    revealAnswer();
+                });
+            }
+        });
+
+        if (slides.length > 0) {
+            showSlide(0);
+        }
+    });
+</script>
+
+</body>
+</html>

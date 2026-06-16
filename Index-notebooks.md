@@ -94,6 +94,7 @@
       - 06-proyecto
          - [12-insurance-analysis](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/06-proyecto/12-insurance-analysis.ipynb)
       - 07-herramientas-desarrollo
+         - [01-entorno-python](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/07-herramientas-desarrollo/01-entorno-python.ipynb)
          - [13-S7-Terminal](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/07-herramientas-desarrollo/13-S7-Terminal.ipynb)
          - [14-S7-Control-de-versiones-Git-y-GitHub](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/07-herramientas-desarrollo/14-S7-Control-de-versiones-Git-y-GitHub.ipynb)
          - [15-cuestionario_repaso](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/07-herramientas-desarrollo/15-cuestionario_repaso.ipynb)
