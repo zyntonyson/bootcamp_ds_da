@@ -108,6 +108,7 @@
          - [19-Cohortes_Economia](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/09-da-analisis-negocio/19-Cohortes_Economia.ipynb)
          - [datos-sinteticos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/09-da-analisis-negocio/datos-sinteticos.ipynb)
       - 09-ds-machine-learning
+         - [01-introduccion-machine-learning](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/09-ds-machine-learning/01-introduccion-machine-learning.ipynb)
          - [18-clasificacion_binaria](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/09-ds-machine-learning/18-clasificacion_binaria.ipynb)
          - [19-regresion](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/09-ds-machine-learning/19-regresion.ipynb)
       - 10-da-toma-decisiones-negocio
