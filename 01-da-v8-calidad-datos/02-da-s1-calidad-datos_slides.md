@@ -11,90 +11,7 @@
 ## Reacciona con el emoji 😎🤔🤓🙂 que mejor represente tu mood
 
 ---
-@quizz{time_limit: 20, title_transition: "¡Quizz time!"}
 
-# Pongamos a prueba lo aprendido
-## Reaccciona en la llamada con el emoji de la respuesta correcta
-
-quizz:
-  - question:
-      body: |
-        ¿A qué grupo perteneces? 
-        ![alt text](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGpmYmhqaGJyMmJvMHRyYjV3bGYzamNydnB4aXY1djJ4eTVvcXk3NyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/EklVJOCXj3avu/giphy.gif)
-      items:
-        - option: "😇 The Beatles"
-        - option: "😎 Atlético Ballenita"
-        - option: "👍 DA-121.A"
-          correct: true
-        - option: "😄 Socios del Ritmo"
-      feedback: |
-        ¡Correcto! Eres parte de la cohorte DA-121.A
-  - question:
-      body: |
-        ¿Quién es tu tutor?
-        ![alt text](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExejRucDV0ZGt4NGs5azcwOXV1bGY5cDZnNXdta2QycGVwOHFtbHBveSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xTiIzJSKB4l7xTouE8/giphy.gif)
-      items:
-        - option: "😇 Román Castillo"
-          correct: true
-        - option: "😎 Obiwan Kenobi"
-        - option: "👍 El bicho Xiuu!"
-        - option: "😄 Kim Kardashian"
-      feedback: |
-        ¡Correcto! Soy Román Castillo, tu tutor en este bootcamp.
-
-  - question:
-      body: |
-        ¿Quién es tu SM (Student Manager)?
-        ![alt text](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHIzMWozanJnMDMyYjYxYzduZjl0N3V1dDFlZzBnMzh2YXh1YndiZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cvDO3smAPu5YA/giphy.gif)
-      items:
-        - option: "😇 James Bond"
-        - option: "😎 Elon Musk"
-        - option: "👍 Estefania Cabrera"
-          correct: true
-        - option: "😄 Juán Pérez"
-      feedback: |
-        ¡Así es! Estefania Cabrera es tu Student Manager y te acompañará en tu proceso.
-
-  - question:
-      body: |
-        ¿Qué días tenemos Webinar?
-        ![alt text](https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ2xiajFzN3QwNGVlNjNibXZmY2hsMXo2bXVmNDd6bjJubXg3OTM0eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xPNkaiUGhnzKU/giphy.gif)
-      items:
-        - option: "😇 Nadie sabe"
-        - option: "😎 Martes 7 PM y Sábado 9 AM CDMX"
-          correct: true
-        - option: "👍 Todos los dias 5 AM"
-        - option: "😄 Todos los dias que tengan un S en su nombre"
-      feedback: |
-        ¡Exacto! Nos vemos los martes y sábados .
-
-  - question:
-      body: |
-        Para que mis preguntas puedan ser mejor resueltas en Discord es importante que yo etiquete a:
-        ![alt text](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2l2NGdqeTB4NjhqamJqcXRvM2Vkb2hhdzhtc3lwaWM0bGhhYmRjdCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qeJy57OmPIL1AQtC4b/giphy.gif)
-      items:
-        - option: "😇 @ayudaplis"
-        - option: "😎 @Dataconsulta"
-          correct: true
-        - option: "👍 😳"
-        - option: "😄 @discord"
-      feedback: |
-        ¡Muy bien! Etiquetando a @Dataconsulta aseguras que el equipo de soporte vea y atienda tu duda rápidamente.
-
-  - question:
-      body: |
-        La mejor estrategia para pedir ayuda en el bootcamp es:
-        ![alt text](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExa3dmbzYzMHBoYXM4MWhkMm11ZjFhNngzazF2d29vcXh5bGJuNDV6YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/pUVOeIagS1rrqsYQJe/giphy.gif)
-      items:
-        - option: "😇 No pedir ayuda, es pa' débiles"
-        - option: "😎 Plataforma → Dot → Discord → Colearning → DM Tutor → 1:1"
-          correct: true
-        - option: "👍 Spam al tutor"
-        - option: "😄 Me hago bolita"
-      feedback: |
-        ¡Excelente! Seguir este orden de escalamiento te ayuda a desarrollar autonomía y obtener la mejor respuesta según la complejidad de tu duda.
-
----
 @agenda{title_transition: "Nuestra Agenda de Hoy"}
 
 # Plan de nuestra sesión
@@ -102,8 +19,7 @@ quizz:
 
 
 * 👋 Bienvenida {10}
-* 🔍👩‍💻 Repaso del proyecto en plataforma {15}
-*  📊🧹 Taylor Swift dataset 👱‍♀️💃  (continuación) {50}
+*  📊🧹 Proyecto colaborativo: Taylor Swift dataset 👱‍♀️💃  {70}
 * 🤔 Reflexión y discusión: ¿Qué aprendimos en esta sesión? {10}
 
 ---
@@ -125,71 +41,6 @@ quizz:
     * *Generar conclusiones útiles a partir de los datos*
 
 ---
-@basic_slide{title_transition: "¿Cómo son los proyectos?"}
-
-# ¿Que son los proyectos y que se espera de mi?
-
-
-📚 **Cada sprint combina teoría + práctica**  
-
-En la parte práctica 💻 te enfrentarás a un **proyecto aplicado**, donde pondrás a prueba todo lo aprendido 🚀  
-
-Cuando subas tu proyecto 📤, será asignado a un **revisor** 🧐  
-
-
-- Evaluará tu trabajo con base en criterios definidos  
-- Te dará **feedback claro y accionable** para ayudarte a mejorar 📈  
-
-> *Aquí es donde realmente creces como profesional: iterando y mejorando cada entrega* 💡  
-
-💼 Además, los proyectos están basados en **problemas reales de negocio**  
-
-- Te ayudarán a ganar experiencia práctica  
-- Y a comenzar a construir tu **portafolio de evidencias** 🌟  
-
-
----
-
-@basic_slide{}
-
-
-📝 **Resultado de la revisión de tu proyecto**  
-
-Al finalizar la revisión, el evaluador tomará una **decisión global** sobre tu entrega 👇  
-
-✅ **Aprobado**  
-
-- Tu proyecto cumple con el nivel necesario para avanzar 🚀  
-- Puede incluir recomendaciones (🟡), pero **no hay errores críticos**  
-
-❌ **Rechazado**  
-
-- Existe al menos un punto crítico (🔴)  
-- Deberás **corregir únicamente esos puntos rojos** antes de reenviar 🔁  
- 
-
----
-
-@basic_slide{}
-
-
-🔁 **¿Qué pasa si tu proyecto es rechazado?**  
-
-Si tu proyecto no es aprobado ❌, regresará a ti para que puedas:  
-- Corregir los **puntos rojos (🔴)**  
-- Reenviarlo nuevamente 📤  
-
-💡 Puedes tener **tantas iteraciones como sea necesario**  
-El objetivo no es solo aprobar, sino **asegurarnos de que realmente aprendas** 📚✨  
-
-👨‍🏫 Si el revisor detecta que necesitas apoyo adicional, podrá solicitar una **sesión 1:1 con tutores**  
-- Trabajarás a detalle sobre los errores  
-- Resolverás dudas específicas en tiempo real 🧠  
-
-> *Aprovecha estas instancias: son oportunidades clave para fortalecer tu conocimiento y crecer como profesional* 🚀📈  
-
----
-
 @gotocode{title_transition: "Manos a la Obra"}
 
 # Escanea el código para los materiales de la clase

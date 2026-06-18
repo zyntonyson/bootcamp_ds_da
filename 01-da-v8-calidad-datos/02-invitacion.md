@@ -3,9 +3,9 @@
 Continuemos con nuestro entrenamiento en el análisis de datos, en nuestra próxima sesión platicaremos sobre:
 **Primeros pasos en el análisis de datos** 🧮➡️📊
 
-Retomaremos nuestro ejemplo guiado en el que nuestro cliente nos solicita hacer un propuesta para la siguiente gira de Taylor Swift:
-- Terminaremos de limpiar nuestros datos
-- Asegurarnos de tener el registro completo de cambios
+Un cliente nos solicita hacer un propuesta para la siguiente gira de Taylor Swift, este será el escenario perfecto para que podamos:
+- Limpiar datos
+- Estandarizar información
 - Obtener métricas de interés que resuelvan la necesidad de nuestro cliente
 - Agregar gráficos que nos ayuden a dar peso a nuestras conclusiones
 

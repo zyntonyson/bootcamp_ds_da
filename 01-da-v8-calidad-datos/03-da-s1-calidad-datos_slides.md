@@ -18,9 +18,8 @@
 
 
 * 👋 Bienvenida {10}
-*  📊🧹 Taylor Swift dataset 👱‍♀️💃  (continuación) {20}
-* 🔍👩‍💻 Quizz de repaso {10}
 *  📊🧹 Proyecto colaborativo: MexStay   {55}
+* 🔍👩‍💻 Quizz de repaso {10}
 * 🤔 Reflexión y discusión: ¿Qué aprendimos en esta sesión? {5}
 
 ---
@@ -40,16 +39,16 @@
 * 💡 **Descubrir insights en los datos**
     * *Identificar patrones y relaciones ocultas*
     * *Generar conclusiones útiles a partir de los datos*
-
 ---
-@gotocode{title_transition: "Retomemos el trabajo de la sesión anterior"}
 
 
-# Escanea el código para los materiales de la clase
+@gotocode{title_transition: "Momento de trabajar en equipo"}
+
+# ¡A trabajar en equipo!
 
 
+* [Trabajo en equipo: MexStay](../img/qrs/03-da-s1-calidad-datos.png)
 
-* [Limpieza de datos: Taylor Swift Dataset](../img/qrs/01-da-s1-calidad-datos.png)
 
 ---
 
@@ -126,15 +125,6 @@ quizz:
 
 ---
 
-@gotocode{title_transition: "Momento de trabajar en equipo"}
-
-# ¡A trabajar en equipo!
-
-
-* [Trabajo en equipo: MexStay](../img/qrs/03-da-s1-calidad-datos.png)
-
-
----
 
 
 @include{path="../slides/farewell.md"}
