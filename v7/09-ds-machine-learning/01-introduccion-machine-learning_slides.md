@@ -1,4 +1,4 @@
-@countdown{timer: 600 , title_transition: "¡Comenzamos en breve!", logo_animation: "traffic"}
+@countdown{timer: 300 , title_transition: "¡Comenzamos en breve!", logo_animation: "traffic"}
 
 # Sprint 10 Sesión 1
 ## Introducción al machine learning

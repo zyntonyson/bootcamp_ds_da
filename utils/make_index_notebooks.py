@@ -44,6 +44,6 @@ def generar_markdown_notebooks(ruta_repo_local, nombre_repo="main-folder", archi
 if __name__ == "__main__":
     ruta_repo_local=r"C:\Users\roman\Documents\proyectos\tripleten\bootcamp_ds_da"
     nombre_repo='bootcamp_ds_da'
-    archivo_salida=r"C:\Users\roman\Documents\proyectos\tripleten\bootcamp_ds_da\Index-notebooks.md"
+    archivo_salida=r"C:\Users\roman\Documents\proyectos\tripleten\bootcamp_ds_da\index-notebooks.md"
     generar_markdown_notebooks(ruta_repo_local=ruta_repo_local, nombre_repo=nombre_repo,archivo_salida=archivo_salida)
 

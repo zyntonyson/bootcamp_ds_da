@@ -22,7 +22,7 @@ def main():
     parser = argparse.ArgumentParser(description="Generador de QRs a partir de URLs o archivo Markdown")
     parser.add_argument("--url", type=str, help="URL específica para codificar en formato QR")
     parser.add_argument("--filename", type=str, help="Nombre del archivo de salida (con o sin .png)")
-    parser.add_argument("--index_file", type=str,default="Index-notebooks.md" ,help="Archivo md con enlaces a generar")
+    parser.add_argument("--index_file", type=str,default="index-notebooks.md" ,help="Archivo md con enlaces a generar")
     
 
     args = parser.parse_args()

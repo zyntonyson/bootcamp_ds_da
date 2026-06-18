@@ -24,9 +24,9 @@ Estás dando un paso muy importante en tu carrera 🌱✨
 
 .left{
 
-¡Hola! 👋 Soy **Román**, tu tutor en el programa de *Data Analytics* 📊  
+¡Hola! 👋 Soy **Román**, soy tutor en el programa de *Data Analytics* 📊  
 
-Mi misión es **acompañarte en este viaje** 🚀, ayudarte a resolver tus dudas y asegurarme de que saques el máximo provecho de cada módulo 💡  
+Nuestra  misión es **acompañarte en este viaje** 🚀, ayudarte a resolver tus dudas y asegurarme de que saques el máximo provecho de cada módulo 💡  
 
 Estoy aquí para **apoyarte paso a paso** en tu transición hacia una nueva carrera en tecnología 💻✨  
 Vivo en Mérida, Yucatán 🌴 y tengo más de **10 años de experiencia en el mundo de los datos** 📈  
@@ -153,7 +153,8 @@ Si necesitas ayuda o quieres conectar, ¡escríbeme sin problema! 🤝
 - 💬 **Discord**  
     - Espacio central para comunicarte, preguntar y conectar con la comunidad 🤝  
     - 🧵 **Hilos de preguntas y respuestas** : Aprende de las dudas de otros y comparte tus propias soluciones 📚  
-    - 🔊 **Co-Learning** :Estudia acompañado y resuelve dudas en tiempo real 🧠  
+
+- 🚪 **Office Hours** : Es una sala abierta de Zoom donde los tutores están conectados esperando tus dudas. No necesitas agendar; simplemente entras, saludas y lanzas tus preguntas. 🧠  
 
 - 🧑‍🏫 **Sesiones 1:1 con tu tutor**  
     - Atención personalizada para avanzar más rápido y con claridad 🎯  
@@ -164,7 +165,7 @@ Si necesitas ayuda o quieres conectar, ¡escríbeme sin problema! 🤝
 
 # 📂 Canales principales:
 
-- 🆘 **DA_GRUPO_121.A**
+- 🆘 **DA_GRUPO_###**
     - 📣 **da-info-cohort-**: Anuncios importantes y noticias del programa  
     - 💬 **da-community-cohort-**: Espacio de discusión general con la comunidad  
 - 🆘 **DA_CONSULTA**: Canal para resolver dudas con apoyo del equipo  
@@ -227,18 +228,33 @@ y este es el error que me marca:
 
 ---
 
+@basic_slide{title_transition: "Office Hours"}
+
+🎥 **Office Hours**  
+
+El antiguo espacio de co-learning se transforma. 
+Es una sala abierta de Zoom donde los tutores están conectados esperando tus dudas. No necesitas agendar; simplemente entras, saludas y lanzas tus preguntas.
+
+🗓️ **Horarios:**  
+
+![Horarios](../img/qrs/office-hours.png)
+
+
+---
+
+
 @basic_slide{title_transition: "Webinars"}
 
 🎥 **Webinars semanales**  
 
-Contamos con **dos sesiones cada semana** donde:  
-- 📚 Revisaremos contenido del sprint  
-- ❓ Resolveremos dudas  
-- 🧠 Practicaremos con ejercicios extra  
+Estas sesiones en vivo junto con un tutor vas a:  
+- 📚 Revisar contenido del sprint  
+- ❓ Resolver dudas  
+- 🧠 Practicar con ejercicios extra  
 
 🗓️ **Horarios:**  
-- 🟣 **Martes — 7:00 PM (CDMX)**  
-- 🔵 **Sábado — 9:00 AM (CDMX)**  
+
+![Horarios](../img/qrs/calendario-webinar-da.png)
 
 🎞️ **Grabaciones de webinars anteriores**
 - Todos los webinars quedan grabados y se comparten en  canal de **community**
@@ -249,7 +265,7 @@ Contamos con **dos sesiones cada semana** donde:
 
 @objectives{}
 
-# 📝 Recomendaciones para las sesiones  
+# 📝 Recomendaciones para las sesiones  las sesiones en vivo
 
 - 💻 **Usa la aplicación de escritorio o móvil**  
     - Evita el navegador para una mejor experiencia  
