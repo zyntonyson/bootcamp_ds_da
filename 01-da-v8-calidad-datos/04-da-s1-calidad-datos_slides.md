@@ -1,4 +1,4 @@
-@countdown{timer: 600 , title_transition: "¡Comenzamos en breve!", logo_animation: "traffic"}
+@countdown{timer: 200 , title_transition: "¡Comenzamos en breve!", logo_animation: "traffic"}
 
 # Sprint 1 Sesión 4
 ## Asegura la calidad de los datos y genera reportes básicos
@@ -114,9 +114,31 @@ El objetivo no es solo aprobar, sino **asegurarnos de que realmente aprendas** �
 * [Trabajo en equipo: Analisis de accidentes viales](../img/qrs/04-da-s1-calidad-datos.png)
 
 ---
+@basic_slide{title_transition: "Ahora para finalizar"}
 
+# 🚀 ¿Cómo puedo seguir practicando?
 
-@include{path="../slides/farewell.md"}
+¡Pon a prueba tus habilidades usando la IA de tu preferencia (ChatGPT, Claude, Gemini, etc.)! Reclama tu rol de analista y recrea o mejora el reto de hoy usando un prompt estructurado como este:
+
+ 🤖 **Prompt sugerido:**
+
+ *"Actúa como un Senior Data Engineer. Necesito que generes un dataset ficticio en formato CSV sobre **[TEMA DE TU INTERES]** (por ejemplo: e-commerce, música, deportes, etc.) para practicar limpieza de datos.
+
+ El dataset debe incluir al menos 30 filas y contener problemas comunes de calidad:
+
+1. Valores nulos (faltantes) en columnas clave.
+2. Filas duplicadas y registros ligeramente inconsistentes.
+3. Formatos de datos inconsistentes (fechas mal formateadas, variaciones de texto, números con comas o puntos).
+
+ Al final, proporcióname un contexto de negocio breve, 3 preguntas clave que la empresa quiere responder y las métricas de interés dentro del contexto del problema ."*
+
+* 💡 **Detalla tu petición:** Entre más específico seas con las columnas y el contexto, mejor será el resultado de la IA.
+* 🎨 **Usa tu creatividad:** Genera datasets de temas que realmente te apasionen.
+* 💼 **Construye tu portafolio:** Documenta tu proceso de limpieza y análisis en GitHub; ¡esto sumará mucho a tu portafolio profesional!
+
+---
+
+@include{path="../slides/farewell_lite.md"}
 
 
 
