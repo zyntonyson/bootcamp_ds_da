@@ -95,9 +95,12 @@
          - [12-insurance-analysis](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/06-proyecto/12-insurance-analysis.ipynb)
       - 07-herramientas-desarrollo
          - [01-entorno-python](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/07-herramientas-desarrollo/01-entorno-python.ipynb)
-         - [13-S7-Terminal](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/07-herramientas-desarrollo/13-S7-Terminal.ipynb)
-         - [14-S7-Control-de-versiones-Git-y-GitHub](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/07-herramientas-desarrollo/14-S7-Control-de-versiones-Git-y-GitHub.ipynb)
-         - [15-cuestionario_repaso](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/07-herramientas-desarrollo/15-cuestionario_repaso.ipynb)
+         - [02-entorno-python](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/07-herramientas-desarrollo/02-entorno-python.ipynb)
+         - [03-entorno-python](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/07-herramientas-desarrollo/03-entorno-python.ipynb)
+         - old
+            - [13-S7-Terminal](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/07-herramientas-desarrollo/old/13-S7-Terminal.ipynb)
+            - [14-S7-Control-de-versiones-Git-y-GitHub](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/07-herramientas-desarrollo/old/14-S7-Control-de-versiones-Git-y-GitHub.ipynb)
+            - [15-cuestionario_repaso](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/07-herramientas-desarrollo/old/15-cuestionario_repaso.ipynb)
       - 08-data-retrieval
          - [16-S8-mineria-de-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/08-data-retrieval/16-S8-mineria-de-datos.ipynb)
          - [17-S8-SQL](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/08-data-retrieval/17-S8-SQL.ipynb)
@@ -109,8 +112,9 @@
          - [datos-sinteticos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/09-da-analisis-negocio/datos-sinteticos.ipynb)
       - 09-ds-machine-learning
          - [01-introduccion-machine-learning](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/09-ds-machine-learning/01-introduccion-machine-learning.ipynb)
-         - [18-clasificacion_binaria](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/09-ds-machine-learning/18-clasificacion_binaria.ipynb)
-         - [19-regresion](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/09-ds-machine-learning/19-regresion.ipynb)
+         - old
+            - [18-clasificacion_binaria](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/09-ds-machine-learning/old/18-clasificacion_binaria.ipynb)
+            - [19-regresion](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/09-ds-machine-learning/old/19-regresion.ipynb)
       - 10-da-toma-decisiones-negocio
          - [20-pruebas-ab](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/10-da-toma-decisiones-negocio/20-pruebas-ab.ipynb)
          - [21-challenge-test-ab](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/10-da-toma-decisiones-negocio/21-challenge-test-ab.ipynb)
