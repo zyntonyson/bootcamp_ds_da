@@ -19,14 +19,14 @@ Estás dando un paso muy importante en tu carrera 🌱✨
 
 ---
 
-@two_columns_slide{title_transition: "Sobre mi, tu tutor"}
+@two_columns_slide{title_transition: "Presentémonos"}
 
 
 .left{
 
-¡Hola! 👋 Soy **Román**, soy tutor en el programa de *Data Analytics* 📊  
+¡Hola! 👋 Soy **Román**, soy tutor en el programa de *Data Analytics* 📊  en tripleten
 
-Nuestra  misión es **acompañarte en este viaje** 🚀, ayudarte a resolver tus dudas y asegurarme de que saques el máximo provecho de cada módulo 💡  
+Nuestra en el equipo de tutores  misión es **acompañarte en este viaje** 🚀, ayudarte a resolver tus dudas y asegurarme de que saques el máximo provecho de cada módulo 💡  
 
 Estoy aquí para **apoyarte paso a paso** en tu transición hacia una nueva carrera en tecnología 💻✨  
 Vivo en Mérida, Yucatán 🌴 y tengo más de **10 años de experiencia en el mundo de los datos** 📈  
@@ -36,7 +36,7 @@ Si necesitas ayuda o quieres conectar, ¡escríbeme sin problema! 🤝
 
 }
 .rigth{
-![Roman Castillo](../img/rcc.jpg)
+![Roman Castillo](https://raw.githubusercontent.com/zyntonyson/img_repo/refs/heads/main/img/tutores.png)
 }
 
 ---
@@ -199,31 +199,54 @@ Si necesitas ayuda o quieres conectar, ¡escríbeme sin problema! 🤝
 @basic_slide{title_transition: "Cómo es un buen post"}
 
 
-**Sprint 3/Cap 3/Calculando ganancia y margen/Última tarea**
+**Sprint 1 / Cap 2 / Limpieza de datos / Ejercicio de Duración**
 
-`@Dataconsulta` Hola! No entiendo qué me pide la plataforma. El código se ejecuta y según yo correctamente, pero me marca este error que no entiendo para nada a qué se refiere. Help! Mil gracias 🙂. Este es mi código:
+`@Dataconsulta` ¡Hola! Estoy atascado intentando limpiar la columna de duración de las canciones del dataset de Taylor Swift. Quiero separar los minutos de los segundos usando la función `SPLIT` para poder calcular los segundos totales, pero no me está dividiendo el texto en celdas separadas como se espera.
 
-```sql
-SELECT
-    uvb.tipo_vehiculo,
-    SUM(uvb.valor_booking) AS total_revenue,
-    SUM(COALESCE(ucv.costo_total, 0)) AS total_cost,
-    SUM(uvb.valor_booking) - SUM(COALESCE(ucv.costo_total, 0)) AS gross_profit,
-    SUM(uvb.valor_booking) - SUM(COALESCE(ucv.costo_total, 0)) / nullif(sum(uvb.valor_booking), 0) * 100 AS margin_pct
--- Crea margin_pct
--- ESCRIBE TU CODIGO AQUI
-FROM uber_viajes_bookings AS uvb
-LEFT JOIN uber_costo_viajes AS ucv
-    ON ucv.booking_id = uvb.booking_id
-WHERE uvb.fecha BETWEEN '2024-01-01' AND '2024-03-31'
-GROUP BY uvb.tipo_vehiculo
-ORDER BY margin_pct DESC;
+Esta es la fórmula que estoy usando en la celda `E2`:
+`=SPLIT(D2, ",")`
 
+* **Lo que busco obtener:** Que el texto `3:45` (celda D2) se divida para obtener el `3` (minutos) en la celda E2 y el `45` (segundos) en la celda F2.
+* **Lo que estoy obteniendo:** La fórmula se ejecuta pero me devuelve el texto completo `3:45` en la celda E2, sin realizar ninguna separación.
+
+Aquí está la captura de pantalla de mi hoja de cálculo con la fórmula y el resultado:
+
+| Celda D2 (Duración) | Celda E2 (Fórmula) | Celda F2 |
+| :--- | :--- | :--- |
+| `3:45` | `3:45` *(Fórmula: =SPLIT(D2, ","))* | *(Vacío)* |
+
+¡Mil gracias por su ayuda! 🙂
+
+---
+
+@basic_slide{}
+
+
+**Sprint 5 / Cap 1 / Estructuras de Control / Ejercicio de Bucles**
+
+`@Dataconsulta` ¡Hola! Estoy intentando crear una función para sumar todos los elementos de una lista, pero al ejecutar mi código en Jupyter Notebook me arroja un error de indentación que no logro entender. He revisado el código y me parece que los espacios están bien.
+
+Este es mi código:
+
+```python
+def sumar_elementos(numeros):
+    total = 0
+    for n in numeros:
+    total += n
+    return total
 ```
 
-y este es el error que me marca:
+* **Lo que busco obtener:** Que la función reciba una lista como `[10, 20, 30]` y devuelva la suma total, que sería `60`.
+* **Lo que estoy obteniendo:** Al ejecutar la celda, la ejecución se detiene y me muestra este error en la consola:
 
-![Error al ejecutar SQL](https://raw.githubusercontent.com/zyntonyson/img_repo/refs/heads/main/img/Captura_de_Pantalla_2026-05-06_a_las_13.25.34.png)
+```text
+  File "<ipython-input-5-abc12345>", line 4
+    total += n
+    ^
+IndentationError: expected an indented block after 'for' statement on line 3
+```
+
+¿Me podrían orientar sobre qué está mal en mi formato? ¡Muchas gracias! 🙂
 
 
 ---
@@ -303,7 +326,7 @@ Puedes programar sesiones **1:1 con un tutor** para:
 
 ---
 
-@gotocode{title_transition: "Manos a la Obra"}
+@gotocode{}
 
 # ¡Veamos como programar una reunion 1:1!
 
@@ -311,7 +334,7 @@ Puedes programar sesiones **1:1 con un tutor** para:
 
 * [Programador 1:1 via Calendly](../img/qrs/zoom-11-general-da.png )
 
-
+s
 ---
 
 @objectives{title_transition: "Recomendaciones para aprovechar al máximo tu preparación"}

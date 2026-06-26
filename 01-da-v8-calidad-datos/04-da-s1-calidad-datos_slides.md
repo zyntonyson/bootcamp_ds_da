@@ -1,4 +1,4 @@
-@countdown{timer: 200 , title_transition: "¡Comenzamos en breve!", logo_animation: "traffic"}
+@countdown{timer: 360 , title_transition: "¡Comenzamos en breve!", logo_animation: "traffic"}
 
 # Sprint 1 Sesión 4
 ## Asegura la calidad de los datos y genera reportes básicos
