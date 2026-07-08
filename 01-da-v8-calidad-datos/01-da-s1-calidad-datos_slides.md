@@ -4,7 +4,10 @@
 ## Asegura la calidad de los datos y genera reportes básicos
 
 ---
-@basic_slide{title_transition: "¡Bienvenidos a TripleTen! 🚀"}
+
+@two_columns_slide{title_transition: "¡Bienvenidos a TripleTen! 🚀"}
+
+.left{
 
 # ¡Bienvenido a tu nueva aventura profesional!
 
@@ -17,6 +20,10 @@ Estás dando un paso muy importante en tu carrera 🌱✨
 
 > *El primer paso no te lleva a donde quieres, pero te saca de donde estás* 💡
 
+}
+.rigth{
+![Welcome](https://raw.githubusercontent.com/zyntonyson/img_repo/refs/heads/main/img/welcome.jpg)
+}
 ---
 
 @two_columns_slide{title_transition: "Presentémonos"}
@@ -24,7 +31,7 @@ Estás dando un paso muy importante en tu carrera 🌱✨
 
 .left{
 
-¡Hola! 👋 Soy **Román**, soy tutor en el programa de *Data Analytics* 📊  en tripleten
+¡Hola! 👋 Soy **Román**, soy tutor en el programa de entrenamiento profesional en *Data Analyst* 📊  en TripleTen
 
 Nuestra en el equipo de tutores  misión es **acompañarte en este viaje** 🚀, ayudarte a resolver tus dudas y asegurarme de que saques el máximo provecho de cada módulo 💡  
 
@@ -36,7 +43,7 @@ Si necesitas ayuda o quieres conectar, ¡escríbeme sin problema! 🤝
 
 }
 .rigth{
-![Roman Castillo](https://raw.githubusercontent.com/zyntonyson/img_repo/refs/heads/main/img/tutores.png)
+![Tutor](https://raw.githubusercontent.com/zyntonyson/img_repo/refs/heads/main/img/tutores.png)
 }
 
 ---
@@ -83,10 +90,6 @@ Si necesitas ayuda o quieres conectar, ¡escríbeme sin problema! 🤝
 - 3️⃣ **¿Qué hace un analista de datos?**     
     - *Conocerás las responsabilidades de un analista de datos*
     - *Conocerás qué tipo de proyectos realizan*
-- 4️⃣ **Introducción a conceptos de calidad y limpieza de datos** 
-    - *Conceptos de calidad de datos*
-    - *Tipos de datos*
-    - *Formato de datos*
 
 
 ---
@@ -147,14 +150,16 @@ Si necesitas ayuda o quieres conectar, ¡escríbeme sin problema! 🤝
     - Ejercicios guiados paso a paso para aprender haciendo 🚀  
     - 🤖 **Asistente de IA DOT** :Tu aliado para resolver dudas rápidas y practicar en cualquier momento 💡  
 
-- 📡 **Webinars semanales con tu tutor**  
-    - Sesiones en vivo para reforzar conceptos y aprender con ejemplos prácticos 🎥  
-
 - 💬 **Discord**  
     - Espacio central para comunicarte, preguntar y conectar con la comunidad 🤝  
     - 🧵 **Hilos de preguntas y respuestas** : Aprende de las dudas de otros y comparte tus propias soluciones 📚  
 
+
 - 🚪 **Office Hours** : Es una sala abierta de Zoom donde los tutores están conectados esperando tus dudas. No necesitas agendar; simplemente entras, saludas y lanzas tus preguntas. 🧠  
+
+- 📡 **Webinars semanales con tu tutor**  
+    - Sesiones en vivo para reforzar conceptos y aprender con ejemplos prácticos 🎥  
+
 
 - 🧑‍🏫 **Sesiones 1:1 con tu tutor**  
     - Atención personalizada para avanzar más rápido y con claridad 🎯  
@@ -163,7 +168,7 @@ Si necesitas ayuda o quieres conectar, ¡escríbeme sin problema! 🤝
 @objectives{title_transition: "Sobre Discord"}
 
 
-# 📂 Canales principales:
+# 📂 Discord: Canales principales
 
 - 🆘 **DA_GRUPO_###**
     - 📣 **da-info-cohort-**: Anuncios importantes y noticias del programa  
@@ -172,9 +177,6 @@ Si necesitas ayuda o quieres conectar, ¡escríbeme sin problema! 🤝
     - 📚 **preguntas-de-teoria**: Preguntas sobre ejercicios o contenido de la plataforma  
     - 🛠️ **preguntas-de-proyecto**: Dudas sobre proyectos  
     - Recuerda etiquetar a tu tutor y a **@Dataconsulta** 👀  
-
-- 🎥 **DATA-CO-LEARNING** 
-    - Sesiones en vivo para Q&A y aprendizaje colaborativo  
 
 ---
 
@@ -253,7 +255,7 @@ IndentationError: expected an indented block after 'for' statement on line 3
 
 @basic_slide{title_transition: "Office Hours"}
 
-🎥 **Office Hours**  
+# 🎥 Office Hours  
 
 El antiguo espacio de co-learning se transforma. 
 Es una sala abierta de Zoom donde los tutores están conectados esperando tus dudas. No necesitas agendar; simplemente entras, saludas y lanzas tus preguntas.
@@ -268,7 +270,7 @@ Es una sala abierta de Zoom donde los tutores están conectados esperando tus du
 
 @basic_slide{title_transition: "Webinars"}
 
-🎥 **Webinars semanales**  
+# 🎥 Webinars semanales 
 
 Estas sesiones en vivo junto con un tutor vas a:  
 - 📚 Revisar contenido del sprint  
@@ -312,7 +314,7 @@ Estas sesiones en vivo junto con un tutor vas a:
 
 @basic_slide{title_transition: "Reuniones 1:1 con un tutor"}
 
-🧑‍🏫 **Sesiones 1:1 con un tutor**  
+# 🧑‍🏫  Sesiones 1:1 con un tutor  
 
 Puedes programar sesiones **1:1 con un tutor** para:  
 - ❓ Resolver dudas específicas  
@@ -371,7 +373,9 @@ s
 
 
 
-Vivimos en la era de los datos: cada interacción digital genera información valiosa. 🌍 Hoy, las empresas necesitan aprovechar esos datos para decidir mejor, innovar y crecer. Por eso, la demanda de profesionales en Data Analytics y Data Science 🚀 es una de las más altas del mercado.
+Vivimos en la era de los datos: cada interacción digital genera información valiosa.
+
+ 🌍 Hoy, las empresas necesitan aprovechar esos datos para decidir mejor, innovar y crecer. Por eso, la demanda de profesionales en Data Analytics y Data Science 🚀 es una de las más altas del mercado.
 
 }
 
@@ -405,31 +409,6 @@ Vivimos en la era de los datos: cada interacción digital genera información va
 - **🎯 Convierte datos → decisiones**
     - El objetivo final: que el negocio actúe con base en evidencia  
     - Ejemplo: recomendar invertir más en el canal que trae más clientes recurrentes  
-
-
----
-@basic_slide{title_transition: "Conceptos de calidad de datos"}
-
-# Conceptos de calidad de datos
-
-Una **fuente de datos de calidad** debe tener datos precisos, completos, consistentes y actualizados. 🎯 Estos datos son fundamentales para tomar **decisiones informadas y confiables**. 
-
-🧑‍💻 Como **analistas de datos**, gran parte de nuestro trabajo es asegurar que la información que vamos a analizar cumpla con este estándar. 
-
-Por eso, es importante conocer los diferentes **tipos de datos** 🗂️, sus características, cómo se almacenan 💾 y cómo se utilizan en el análisis. 
-
-🧹 En esta sesión nos enfocaremos en los **conceptos básicos de calidad de datos** y en cómo realizar la limpieza de información utilizando hojas de cálculo. ✨
-
-
----
-@gotocode{}
-
-# Escanea el código QR para acceder al material de la actividad. 
-
-
-* [Limpieza de datos: Taylor Swift Dataset](../img/qrs/01-da-s1-calidad-datos.png)
-
-
 
 
 
