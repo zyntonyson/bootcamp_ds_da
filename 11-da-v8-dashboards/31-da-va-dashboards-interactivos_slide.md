@@ -45,7 +45,7 @@
 
 
 
-* [Modelado de Datos y Dashboards con Power BI: Caso Frutícola del Sur](../img/qrs/30-da-va-dashboards-frutas.png)
+* [Modelado de Datos y Dashboards con Power BI: Caso IIAS](../img/qrs/31-da-v8-dashboards-hidroponia.png)
 
 ---
 
