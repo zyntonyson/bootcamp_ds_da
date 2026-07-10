@@ -257,7 +257,6 @@ IndentationError: expected an indented block after 'for' statement on line 3
 
 # 🎥 Office Hours  
 
-El antiguo espacio de co-learning se transforma. 
 Es una sala abierta de Zoom donde los tutores están conectados esperando tus dudas. No necesitas agendar; simplemente entras, saludas y lanzas tus preguntas.
 
 🗓️ **Horarios:**  
@@ -371,22 +370,13 @@ s
 
 .right{
 
-
-
-Vivimos en la era de los datos: cada interacción digital genera información valiosa.
-
- 🌍 Hoy, las empresas necesitan aprovechar esos datos para decidir mejor, innovar y crecer. Por eso, la demanda de profesionales en Data Analytics y Data Science 🚀 es una de las más altas del mercado.
+Vivimos en la era de los datos: cada interacción digital genera información valiosa.🌍 Hoy, las empresas necesitan aprovechar esos datos para decidir mejor, innovar y crecer. Por eso, la demanda de profesionales en Data Analytics y Data Science 🚀 es una de las más altas del mercado.
 
 }
-
 ---
 @basic_slide{}
 
-# 👩‍💻Roles en el mundo de los datos🧑‍💻
-
-
-![Roles en el mundo de los datos](../img/00-roles-data.png)
-
+![Roles Datos](https://raw.githubusercontent.com/zyntonyson/img_repo/refs/heads/main/img/roles_datos.png)
 
 ---
 
@@ -413,7 +403,35 @@ Vivimos en la era de los datos: cada interacción digital genera información va
 
 
 ---
+@objectives{}
 
-@include{path="../slides/farewell.md"}
+# ¿Cómo impactan los analistas en las empresas?
+
+- **🍿 Netflix (Recomendaciones y contenido)**
+    - Su motor de recomendación guía el 80% del contenido visto, ahorrando $1,000 millones de dólares anuales en retención  
+    - Validaron e invirtieron en *House of Cards* analizando previamente el éxito potencial de la combinación de director y actor  
+
+- **📦 Amazon (Logística predictiva)**
+    - Su sistema de recomendación personalizado genera el 35% de sus ingresos  
+    - Utilizan análisis predictivo para pre-enviar productos a centros de distribución cercanos a clientes antes de que realicen la compra  
+
+- **👗 Zara (Moda rápida en tiempo real)**
+    - Analizan diariamente reportes de ventas e inventarios para ajustar la producción al instante  
+    - Lanzan nuevas colecciones en solo 2 a 3 semanas, reduciendo drásticamente el desperdicio en comparación con el ciclo tradicional de 9 meses  
+
+- **☕ Starbucks (Geolocalización estratégica)**
+    - Integran datos demográficos y de tráfico para decidir la ubicación exacta de nuevas tiendas con alta precisión y rentabilidad  
+    - Diseñan promociones hiper-personalizadas basadas en el historial de consumo de sus usuarios  
+
+
+---
+
+
+@finale{}
+
+# ¡Excelente trabajo! 🚀📊
+
+## ¡Gracias por participar!
+
 
 
