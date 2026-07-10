@@ -1,0 +1,41 @@
+id_institucion,categoria_institucion,pais,ciudad
+INST001,Universidad Pública,México,CDMX
+INST002,Universidad Pública,México,Guadalajara
+INST003,Universidad Privada,México,Monterrey
+INST004,Centro de Investigación,México,Mérida
+INST005,Universidad Pública,España,Madrid
+INST006,Universidad Pública,España,Barcelona
+INST007,Universidad Privada,España,Navarra
+INST008,Centro de Investigación,España,Valencia
+INST009,Universidad Pública,Colombia,Bogotá
+INST010,Universidad Pública,Colombia,Medellín
+INST011,Centro de Investigación,Colombia,Cali
+INST012,Universidad Pública,Chile,Santiago
+INST013,Universidad Pública,Chile,Valparaíso
+INST014,Centro de Investigación,Chile,Concepción
+INST015,Universidad Pública,Argentina,Buenos Aires
+INST016,Universidad Pública,Argentina,Córdoba
+INST017,Centro de Investigación,Argentina,La Plata
+INST018,Universidad Pública,Brasil,São Paulo
+INST019,Universidad Pública,Brasil,Campinas
+INST020,Centro de Investigación,Brasil,Río de Janeiro
+INST021,Empresa,México,Querétaro
+INST022,Empresa,España,Zaragoza
+INST023,Empresa,Colombia,Barranquilla
+INST024,Empresa,Chile,Rancagua
+INST025,Empresa,Argentina,Rosario
+INST026,Universidad Pública,México,Puebla
+INST027,Universidad Privada,México,Toluca
+INST028,Centro de Investigación,México,Ensenada
+INST029,Universidad Pública,España,Sevilla
+INST030,Universidad Pública,España,Granada
+INST031,Centro de Investigación,España,Sevilla
+INST032,Universidad Pública,Colombia,Bucaramanga
+INST033,Universidad Privada,Colombia,Cali
+INST034,Universidad Pública,Chile,Talca
+INST035,Centro de Investigación,Chile,Antofagasta
+INST036,Universidad Pública,Argentina,Rosario
+INST037,Universidad Privada,Argentina,Mendoza
+INST038,Universidad Pública,Brasil,Belo Horizonte
+INST039,Centro de Investigación,Brasil,Brasilia
+INST040,Empresa,Brasil,Curitiba

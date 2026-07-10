@@ -1,0 +1,13 @@
+id_revista,tipo_revista,ciudad,editorial,volumenes_anuales,paginas_promedio,costo_base_usd,categoria_revista
+REV001,Journal,Londres,Elsevier,12,15,3800,Biotecnología
+REV002,Journal,Basilea,MDPI,24,12,2300,Agronomía
+REV003,Journal,Ámsterdam,Elsevier,12,14,3200,Fisiología Vegetal
+REV004,Journal,Nueva York,Springer,8,16,2900,Agronomía
+REV005,Journal,Heidelberg,Springer,6,18,3500,Fisiología Vegetal
+REV006,Journal,Lausana,Frontiers,12,13,2700,Biotecnología
+REV007,Conference,Tokio,IEEE,1,8,1200,Robótica Agrícola
+REV008,Conference,Munich,Springer,1,10,1500,Robótica Agrícola
+REV009,Book Series,Berlín,Springer,4,22,1800,Sustentabilidad
+REV010,Journal,Hoboken,Wiley,12,15,3100,Agronomía
+REV011,Journal,Londres,Taylor & Francis,10,14,2500,Sustentabilidad
+REV012,Book Series,Oxford,Elsevier,2,25,2000,Fisiología Vegetal

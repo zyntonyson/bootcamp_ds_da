@@ -1,4 +1,4 @@
-@countdown{timer: 300 , title_transition: "¡Comenzamos en breve!", logo_animation: "traffic"}
+@countdown{timer: 600 , title_transition: "¡Comenzamos en breve!", logo_animation: "traffic"}
 
 # Sprint 1 Sesión 2
 ## Asegura la calidad de los datos y genera reportes básicos
@@ -52,7 +52,7 @@
 
 ---
 
-@quizz{time_limit: 30}
+@quizz{time_limit: 50}
 
 # Pongamos a prueba lo aprendido
 ## Reaccciona en la llamada con el emoji de la respuesta correcta

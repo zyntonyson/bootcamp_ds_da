@@ -1,0 +1,266 @@
+# Sprint 11 · Webinar · BI (Power BI) · Análisis de Publicaciones Científicas de Lechugas Hidropónicas y Modelo Estrella 🥬🔬📊
+
+**Tema:** Análisis de Tendencias de Publicaciones Científicas en Cultivos Hidropónicos y Modelado Dimensional.
+
+> En esta sesión nos pondremos en los zapatos de un Analista de Datos del **Instituto Internacional de Agricultura Sostenible (IIAS)** 🌍.
+> Conectaremos nuestros datos a Power BI, diseñaremos un modelo relacional tipo estrella ⭐ y crearemos un dashboard interactivo para presentar al comité de financiamiento científico las tendencias y costos de publicación en investigación de lechugas hidropónicas para el periodo 2024-2025.
+
+**Programa:** Data Analytics · **Sprint:** 11 · **Duración:** 100 min · **Modalidad:** Práctico
+
+---
+
+## 🥬 El Reto: Mapeando el Impacto Científico de la Hidroponía
+
+¡Hola a todos! Bienvenidos. Hoy seremos parte del equipo de análisis de datos del **IIAS**, un centro global dedicado a promover técnicas de cultivo eficientes para combatir la escasez de agua. 🏪
+
+El Director de Investigación de la institución necesita preparar la rendición de cuentas para el comité internacional de donantes. Quieren evaluar cómo se están comportando las publicaciones científicas y los costos de procesamiento de artículos (APC - Article Processing Charges) a nivel global, pero se enfrentan a desafíos clave:
+- Tienen los registros de publicaciones desconectados del catálogo de revistas científicas y del listado de instituciones académicas.
+- No saben con precisión qué categorías de revistas y cuartiles de impacto concentran los mayores costos de publicación.
+- Desconocen qué países o tipos de instituciones están recibiendo mayor cobertura de becas/financiamiento para publicar.
+- Necesitan evaluar la retención institucional (cohortes): ¿las universidades que publican con nosotros una vez, vuelven a publicar en meses posteriores, o son esfuerzos aislados?
+
+Tu misión es estructurar estos datos simulados en un **Modelo Estrella** ⭐, implementar cálculos dinámicos en DAX y diseñar un **Dashboard Ejecutivo** de alto impacto para responder a estas preguntas con claridad y precisión técnica.
+
+---
+
+## 🎯 Objetivos de la Sesión
+
+Al finalizar esta clase práctica, serás capaz de:
+
+1. **Importar y limpiar múltiples archivos CSV** con información científica estructurada en Power BI.
+2. **Establecer relaciones consistentes** entre una tabla de hechos y dos tablas de dimensiones en un **Modelo Estrella**.
+3. **Generar una dimensión de tiempo dinámica (`dim_fecha`)** usando fórmulas DAX para el análisis temporal.
+4. **Calcular métricas avanzadas en DAX** incluyendo sumas, promedios, participación porcentual (%) y fórmulas de inteligencia de tiempo.
+5. **Implementar un análisis de cohortes** para medir la recurrencia de publicaciones de las instituciones académicas.
+6. **Crear visualizaciones profesionales** (tarjetas, gráficos de líneas, treemaps y matrices con formato condicional).
+
+---
+
+## 📚 Diccionario de Datos Ficticios
+
+Para este webinar utilizaremos un set de datos simulado que representa las publicaciones científicas sobre lechugas hidropónicas en el periodo 2024-2025.
+
+### 1️⃣ `31-hechos-publicaciones.csv` (Tabla de Hechos)
+Registra cada artículo científico publicado e indexado de forma individual.
+
+| Columna | Tipo de Dato (Origen) | Tipo de Dato (BI Target) | Descripción |
+| :--- | :--- | :--- | :--- |
+| `id_publicacion` | Texto / String | Texto | Clave Primaria (PK) única de la publicación (Ej: `PUB000001`). |
+| `fecha_publicacion` | Texto / String | Fecha (Date) | Fecha de publicación del artículo (Ej: `2024-03-12`). *Requiere conversión*. |
+| `id_institucion` | Texto / String | Texto | Clave Foránea (FK) que conecta con `dim_instituciones` (Ej: `INST0025`). |
+| `id_revista` | Texto / String | Texto | Clave Foránea (FK) que conecta con `dim_revistas` (Ej: `REV014`). |
+| `ciudad_revista` | Texto / String | Texto / Categoría Geográfica | Ciudad sede de la editorial de la revista (Ej: `Ámsterdam`, `Londres`). |
+| `costo_apc` | Entero / Numérico | Entero / Moneda (USD) | Cargo por Procesamiento de Artículo (APC) pagado (Ej: `2500`). |
+| `tipo_revista` | Texto / String | Texto | Tipo de formato de la revista (Ej: `Journal`, `Conference`, `Book Series`). |
+| `canal_publicacion` | Texto / String | Texto | Canal o vía de tramitación (Ej: `Directo`, `Consorcio`, `Repositorio`). |
+| `porcentaje_beca` | Flotante / Numérico | Porcentaje (%) | Porcentaje de beca/financiamiento externo obtenido (Ej: `0.40` -> `40%`). |
+| `monto_beca` | Entero / Numérico | Entero / Moneda (USD) | Monto financiado cubierto por la beca (Ej: `1000`). |
+
+### 2️⃣ `31-dim-instituciones.csv` (Dimensión Instituciones)
+Contiene información demográfica y de categorización de los centros de investigación y universidades que publican.
+
+| Columna | Tipo de Dato (Origen) | Tipo de Dato (BI Target) | Descripción |
+| :--- | :--- | :--- | :--- |
+| `id_institucion` | Texto / String | Texto | Clave Primaria (PK) de la institución (Ej: `INST0001`). Sin duplicados. |
+| `categoria_institucion`| Texto / String | Texto | Tipo de institución (Ej: `Universidad Pública`, `Universidad Privada`, `Centro de Investigación`). |
+| `pais` | Texto / String | Texto / Categoría Geográfica | País de la institución (Ej: `México`, `España`, `Colombia`). |
+| `ciudad` | Texto / String | Texto / Categoría Geográfica | Ciudad sede de la institución (Ej: `Guadalajara`, `Madrid`, `Bogotá`). |
+
+### 3️⃣ `31-dim-revistas.csv` (Dimensión Revistas)
+Contiene las características y métricas de impacto de los medios científicos especializados.
+
+| Columna | Tipo de Dato (Origen) | Tipo de Dato (BI Target) | Descripción |
+| :--- | :--- | :--- | :--- |
+| `id_revista` | Texto / String | Texto | Clave Primaria (PK) de la revista (Ej: `REV001`). Sin duplicados. |
+| `tipo_revista` | Texto / String | Texto | Formato de revista (Ej: `Journal`, `Conference`, `Book Series`). |
+| `ciudad` | Texto / String | Texto / Categoría Geográfica | Ciudad donde está registrada la revista (Ej: `Londres`, `Basilea`). |
+| `editorial` | Texto / String | Texto | Editorial científica que publica la revista (Ej: `Elsevier`, `Springer`, `MDPI`). |
+| `volumenes_anuales` | Entero | Entero | Cantidad de volúmenes/números publicados al año (Ej: `12`). |
+| `paginas_promedio` | Entero | Entero | Promedio de páginas por artículo (Ej: `14`). |
+| `costo_base_usd` | Flotante / Numérico | Entero / Moneda (USD) | Costo base publicado del APC antes de descuentos o becas (Ej: `3000`). |
+| `categoria_revista` | Texto / String | Texto | Categoría temática (Ej: `Agronomía`, `Biotecnología`, `Fisiología Vegetal`). |
+
+---
+
+## 🛠️ Desglose de Tareas del Analista
+
+Para construir este sistema analítico y responder a los requerimientos del instituto, realizaremos las siguientes tareas estructuradas paso a paso:
+
+### 🧹 Paso 1: Limpieza e Importación de Datos
+- **Carga de Archivos**: Cargar las tres tablas dimensionales y de hechos desde sus orígenes CSV en Power Query.
+- **Configuración de Tipos**:
+  - Asegurar que `fecha_publicacion` se convierta de Texto a **Fecha (Date)**.
+  - Asegurar que los IDs (`id_publicacion`, `id_institucion`, `id_revista`) estén configurados como **Texto** (no como números) para prevenir agregaciones accidentales.
+  - Asignar formato de moneda a `costo_apc`, `monto_beca` y `costo_base_usd`.
+  - Asegurar que `porcentaje_beca` se lea como decimal y formatearlo como **Porcentaje (%)**.
+- **Integridad y Duplicados**: Asegurarse de que no existan duplicados en las claves primarias de `dim_instituciones` y `dim_revistas`. Justificar la eliminación de nulos si existieran.
+
+### 📅 Paso 2: Creación de la Tabla Calendario (`dim_fecha`)
+Utilizando DAX en Power BI, crearemos una tabla calendario de rango dinámico para controlar la temporalidad de las publicaciones científicas.
+
+```dax
+dim_fecha = 
+VAR FechaMin = MIN('31-hechos-publicaciones'[fecha_publicacion])
+VAR FechaMax = MAX('31-hechos-publicaciones'[fecha_publicacion])
+RETURN
+ADDCOLUMNS(
+    CALENDAR(FechaMin, FechaMax),
+    "Año", YEAR([Date]),
+    "Mes", FORMAT([Date], "MMMM"),
+    "Mes Número", MONTH([Date]),
+    "Año-Mes", FORMAT([Date], "YYYY-MM"),
+    "Trimestre", "Q" & FORMAT([Date], "Q"),
+    "Año-Trimestre", FORMAT([Date], "YYYY") & "-Q" & FORMAT([Date], "Q"),
+    "Dia Semana", FORMAT([Date], "dddd"),
+    "Es Fin Semana", IF(WEEKDAY([Date], 2) > 5, TRUE, FALSE)
+)
+```
+> ⚠️ **Configuración Crítica:** Recuerda marcar esta tabla como **Tabla de fechas (Mark as date table)** seleccionando la columna `Date` como su clave primaria. ¡Esto garantizará que las funciones de Inteligencia de Tiempo de DAX funcionen a la perfección!
+
+### 🧩 Paso 3: Modelado de Datos (Esquema Estrella)
+- Coloca la tabla de hechos `31-hechos-publicaciones` en el centro del lienzo del modelo.
+- Organiza a su alrededor las tres tablas dimensionales (`dim_instituciones`, `dim_revistas`, `dim_fecha`).
+- Establece las siguientes relaciones de **1 a Muchos (1:*)** con dirección de filtro **Única (Single)**:
+  - Conectar `dim_instituciones[id_institucion]` ➔ `31-hechos-publicaciones[id_institucion]`.
+  - Conectar `dim_revistas[id_revista]` ➔ `31-hechos-publicaciones[id_revista]`.
+  - Conectar `dim_fecha[Date]` ➔ `31-hechos-publicaciones[fecha_publicacion]`.
+
+---
+
+## 📈 Paso 4: Fórmulas y Medidas DAX
+
+Aquí es donde entra la matemática detrás del análisis. Crearemos medidas explícitas para estructurar nuestro dashboard.
+
+### 4.1 Medidas Base 📊
+- **Inversión APC Total (USD):** Suma total de los costos de procesamiento pagados.
+  $$\text{Inversion APC Total} = \sum (\text{costo\_apc})$$
+  ```dax
+  Inversion APC Total = SUM('31-hechos-publicaciones'[costo_apc])
+  ```
+- **Cantidad de Publicaciones:** Número total de artículos científicos publicados.
+  ```dax
+  Cantidad de Publicaciones = COUNTROWS('31-hechos-publicaciones')
+  ```
+- **Costo APC Promedio (USD):** Tarifa promedio por artículo.
+  $$\text{APC Promedio} = \frac{\text{Inversion APC Total}}{\text{Cantidad de Publicaciones}}$$
+  ```dax
+  APC Promedio = DIVIDE([Inversion APC Total], [Cantidad de Publicaciones], 0)
+  ```
+- **Monto de Becas Total (USD):** Total del financiamiento obtenido de patrocinadores externos.
+  ```dax
+  Beca Total = SUM('31-hechos-publicaciones'[monto_beca])
+  ```
+
+### 4.2 Medidas con Contexto de Filtro Modificado (%) 🔬
+Estas medidas nos permiten conocer la participación de un segmento específico respecto al total global de publicaciones o de costos.
+- **% Participación por Tipo de Revista:**
+  ```dax
+  % Participación APC por Tipo de Revista = 
+  DIVIDE(
+      [Inversion APC Total],
+      CALCULATE([Inversion APC Total], ALL('31-hechos-publicaciones'[tipo_revista])),
+      0
+  )
+  ```
+- **% Participación por Canal de Publicación:**
+  ```dax
+  % Participación APC por Canal = 
+  DIVIDE(
+      [Inversion APC Total],
+      CALCULATE([Inversion APC Total], ALL('31-hechos-publicaciones'[canal_publicacion])),
+      0
+  )
+  ```
+- **% Participación por Categoría de Institución:**
+  ```dax
+  % Participación APC por Categoria Institucion = 
+  DIVIDE(
+      [Inversion APC Total],
+      CALCULATE([Inversion APC Total], ALL('dim_instituciones'[categoria_institucion])),
+      0
+  )
+  ```
+
+### 4.3 Inteligencia de Tiempo ⏳
+Para evaluar si el volumen de investigación sobre lechugas hidropónicas está creciendo en comparación con períodos anteriores:
+- **Publicaciones YTD (Year-to-Date):**
+  ```dax
+  Publicaciones YTD = TOTALYTD([Cantidad de Publicaciones], 'dim_fecha'[Date])
+  ```
+- **Publicaciones del Año Anterior (Prior Year - PY):**
+  ```dax
+  Publicaciones PY = CALCULATE([Cantidad de Publicaciones], SAMEPERIODLASTYEAR('dim_fecha'[Date]))
+  ```
+- **Crecimiento de Publicaciones YoY (%):**
+  $$\text{Crecimiento YoY} = \frac{\text{Publicaciones YTD} - \text{Publicaciones PY}}{\text{Publicaciones PY}}$$
+  ```dax
+  Crecimiento YoY % = DIVIDE([Publicaciones YTD] - [Publicaciones PY], [Publicaciones PY], 0)
+  ```
+
+### 4.4 Columnas Calculadas para Cohortes (Re-publicación) 🧩
+Queremos ver con qué frecuencia las instituciones publican estudios en meses consecutivos desde su primer artículo en nuestro instituto.
+1. **Fecha de Primera Publicación de la Institución:**
+   ```dax
+   Primera publicacion por institucion = 
+   CALCULATE(
+       MIN('31-hechos-publicaciones'[fecha_publicacion]),
+       ALLEXCEPT('31-hechos-publicaciones', '31-hechos-publicaciones'[id_institucion])
+   )
+   ```
+2. **Mes Cohorte (Mes de Inicio):**
+   ```dax
+   Mes Cohorte = FORMAT('31-hechos-publicaciones'[Primera publicacion por institucion], "YYYY-MM")
+   ```
+3. **Mes Publicación Actual:**
+   ```dax
+   Mes Publicacion = FORMAT('31-hechos-publicaciones'[fecha_publicacion], "YYYY-MM")
+   ```
+4. **Diferencia de Meses (Distancia de Cohorte):**
+   Mide cuántos meses han pasado desde la primera publicación de esa institución.
+   ```dax
+   Meses Transcurridos = 
+   DATEDIFF(
+       '31-hechos-publicaciones'[Primera publicacion por institucion],
+       '31-hechos-publicaciones'[fecha_publicacion],
+       MONTH
+   )
+   ```
+
+---
+
+## 🎨 Diseño Visual del Dashboard (3 Páginas)
+
+Diseñaremos un informe interactivo con una paleta de colores ecológica y sobria (tonos verdes esmeralda, verdes agua y acentos grises oscuros).
+
+### 📊 Página 1: Panorama General de Investigación (Overview)
+- **Tarjetas KPI en la cabecera:** `Inversion APC Total` (con formato de moneda), `Cantidad de Publicaciones`, `APC Promedio` y `Beca Total`.
+- **Evolución Temporal (Gráfico de Líneas):** En el eje X el campo `fecha_publicacion` (agrupado por Año y Mes) y en el eje Y la `Cantidad de Publicaciones` y la `Inversion APC Total`.
+- **Producción Científica por País (Gráfico de Barras Horizontales):** Mapea la `Cantidad de Publicaciones` cruzada con `pais` de la tabla `dim_instituciones`.
+- **Indicador de Crecimiento YoY%:** Una tarjeta dinámica que muestre el porcentaje de crecimiento anual de la investigación.
+
+### 🔬 Página 2: Análisis de Revistas y Canales
+- **Distribución de Costos (Gráfico de Donas/Anillo o Treemap):** Muestra el `Inversion APC Total` distribuido por `tipo_revista` y `canal_publicacion`.
+- **Tabla Detallada con Formato Condicional (Matriz):**
+  - Filas: `categoria_revista` de la tabla de dimensiones.
+  - Columnas/Métricas: `Inversion APC Total`, `Cantidad de Publicaciones` y `APC Promedio`.
+  - Aplicaremos formato condicional tipo escala de color verde para identificar los nichos de investigación más costosos.
+- **Tooltips Personalizados:** Añadiremos tooltips emergentes que muestren el `% Participación APC por Canal` y el `% Participación APC por Categoria Institucion` al pasar el cursor sobre cualquier revista en los gráficos.
+
+### 👥 Página 3: Matriz de Retención Institucional (Cohortes)
+- **Matriz de Re-publicación (Heatmap):**
+  - Filas: `Mes Cohorte` (mes de primera publicación de la institución).
+  - Columnas: `Meses Transcurridos` (0, 1, 2, 3... meses desde el debut).
+  - Valores: Conteo de instituciones únicas activas (usando `DISTINCTCOUNT('31-hechos-publicaciones'[id_institucion])`).
+- **Interpretación del Analista:** Esta matriz permitirá ver si las universidades siguen produciendo investigación científica sobre hidroponía a lo largo del tiempo o si abandonan tras el primer artículo.
+
+---
+
+## 🕵️‍♂️ Preguntas de Negocio para el Análisis Académico
+
+Utiliza tu modelo y el dashboard interactivo para dar respuestas fundamentadas al Director de Investigación:
+
+1. **Eficiencia en Financiamiento:** *¿Qué categoría de institución científica (Universidad Pública, Privada o Centro de Investigación) aprovecha mejor el monto de becas y en qué porcentaje disminuyen sus costos finales de publicación (APC)?*
+2. **Impacto vs. Costo:** *¿Existe una relación directa entre el costo base de publicación (`costo_base_usd`) de una revista y la categoría temática (`categoria_revista`) a la que pertenece? ¿Cuáles temáticas resultan más costosas para publicar sobre lechuga hidropónica?*
+3. **Tendencias Geográficas:** *¿Cuáles son los 3 países que lideran la cantidad de publicaciones científicas y cuál de ellos tiene el APC promedio más bajo?*
+4. **Análisis de Cohortes y Fidelidad:** *Al observar la matriz de cohortes, ¿las instituciones muestran recurrencia en el segundo y tercer mes, o hay una caída drástica en las publicaciones consecutivas? ¿Qué estrategias de becas/incentivos propondrías para mantener activas a las universidades?*
+
