@@ -1,4 +1,4 @@
-@countdown{timer: 300 , title_transition: "¡Comenzamos en breve!", logo_animation: "traffic"}
+@countdown{timer: 600 , title_transition: "¡Comenzamos en breve!", logo_animation: "traffic"}
 
 # Sprint 7 Sesión 2
 ## Herramientas de desarrollo de software: Creando un dashboard con Streamlit 
@@ -99,5 +99,3 @@ quizz:
 @include{path="../../slides/farewell.md"}
 
 
-
-C:\Users\roman\Documents\proyectos\tripleten\bootcamp_ds_da\v7\07-herramientas-desarrollo\03-entorno-python_slides.md
