@@ -1,4 +1,4 @@
-@countdown{timer: 300 , title_transition: "¡Comenzamos en breve!",logo_animation: "traffic"}
+@countdown{timer: 600 , title_transition: "¡Comenzamos en breve!",logo_animation: "traffic"}
 
 # Sprint 11 
 ## Crea dashboards interactivos para stakeholders
@@ -45,7 +45,7 @@
 
 
 
-* [Modelado de Datos y Dashboards con Power BI: Caso IIAS](../img/qrs/31-da-v8-dashboards-hidroponia.png)
+* [Modelado de Datos y Dashboards con Power BI: Caso IIAS](../img/qrs/32-da-v8-dashboards-gentrificacion.png)
 
 ---
 
