@@ -46,6 +46,7 @@
       - [29-da-va-dashboards-interactivos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/11-da-v8-dashboards/29-da-va-dashboards-interactivos.ipynb)
       - [30-da-va-dashboards-frutas](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/11-da-v8-dashboards/30-da-va-dashboards-frutas.ipynb)
       - [31-da-v8-dashboards-hidroponia](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/11-da-v8-dashboards/31-da-v8-dashboards-hidroponia.ipynb)
+      - [32-da-va-dashboards-gentrificacion](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/11-da-v8-dashboards/32-da-va-dashboards-gentrificacion.ipynb)
       - [S11 Estudiante_Proyecto_InmobiliarioGrupoAndes](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/11-da-v8-dashboards/S11 Estudiante_Proyecto_InmobiliarioGrupoAndes.ipynb)
       - [Sprint11_Webinar35_Teórico](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/11-da-v8-dashboards/Sprint11_Webinar35_Teórico.ipynb)
       - [Sprint11_Webinar36_Practico](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/11-da-v8-dashboards/Sprint11_Webinar36_Practico.ipynb)

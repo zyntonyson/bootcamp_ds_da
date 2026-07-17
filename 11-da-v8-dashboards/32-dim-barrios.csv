@@ -1,0 +1,9 @@
+id_barrio,nombre_barrio,nivel_socioeconomico,estatus_gentrificacion,poblacion_estimada,distancia_centro_km
+BAR001,San Rafael,Medio,En Transición,18500,2.8
+BAR002,La Condesa,Alto,Gentrificado,22000,3.5
+BAR003,Polanco,Alto,Gentrificado,28000,5.2
+BAR004,Roma Norte,Alto,En Transición,24000,2.1
+BAR005,Santa María,Medio,En Transición,19000,4.0
+BAR006,Tacubaya,Bajo,Tradicional,32000,5.8
+BAR007,Doctores,Bajo,Tradicional,29000,1.5
+BAR008,Coyoacán,Medio,Tradicional,25000,9.5

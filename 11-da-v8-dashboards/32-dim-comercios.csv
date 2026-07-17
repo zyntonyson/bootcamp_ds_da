@@ -1,0 +1,26 @@
+id_comercio,nombre_comercio,tipo_escala,categoria_negocio,origen_capital,superficie_m2
+COM001,Abarrotes Don Pepe,Pequeño Comercio,Abarrotes,Local/Familiar,45
+COM002,Carnicería La Única,Pequeño Comercio,Carnicería,Local/Familiar,35
+COM003,Verdulería El Huerto,Pequeño Comercio,Verdulería,Local/Familiar,30
+COM004,Panadería El Trigo,Pequeño Comercio,Panadería,Local/Familiar,60
+COM005,Abarrotes La Esquina,Pequeño Comercio,Abarrotes,Local/Familiar,40
+COM006,Frutería San José,Pequeño Comercio,Verdulería,Local/Familiar,28
+COM007,Tortillería La Estampa,Pequeño Comercio,Abarrotes,Local/Familiar,25
+COM008,Supermercado MegaMax,Gran Supermercado,Supermercado General,Multinacional,2500
+COM009,Hipermercado Ahorro,Gran Supermercado,Supermercado General,Franquicia Nacional,1800
+COM010,Abarrotes Doña María,Pequeño Comercio,Abarrotes,Local/Familiar,50
+COM011,Pollería Lupita,Pequeño Comercio,Carnicería,Local/Familiar,22
+COM012,Verdulería Fresca,Pequeño Comercio,Verdulería,Local/Familiar,32
+COM013,Mini Super La Unión,Pequeño Comercio,Abarrotes,Local/Familiar,90
+COM014,Panadería La Flor,Pequeño Comercio,Panadería,Local/Familiar,45
+COM015,Super Express Local,Gran Supermercado,Supermercado General,Multinacional,1200
+COM016,Carnicería La Selecta,Pequeño Comercio,Carnicería,Local/Familiar,40
+COM017,Abarrotes Don Bosco,Pequeño Comercio,Abarrotes,Local/Familiar,48
+COM018,Frutería La Huerta,Pequeño Comercio,Verdulería,Local/Familiar,35
+COM019,Mini Super El Sol,Pequeño Comercio,Abarrotes,Local/Familiar,80
+COM020,Gourmet Market Condesa,Pequeño Comercio,Supermercado General,Franquicia Nacional,150
+COM021,Boutique del Pan Roma,Pequeño Comercio,Panadería,Franquicia Nacional,75
+COM022,Eco Tienda Orgánica,Pequeño Comercio,Abarrotes,Local/Familiar,65
+COM023,Supermercado WalMartín,Gran Supermercado,Supermercado General,Multinacional,3500
+COM024,Carnes Finas de Coyoacán,Pequeño Comercio,Carnicería,Local/Familiar,55
+COM025,La Panera Tradicional,Pequeño Comercio,Panadería,Local/Familiar,42
