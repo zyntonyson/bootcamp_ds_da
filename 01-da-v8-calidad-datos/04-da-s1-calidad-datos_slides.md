@@ -1,24 +1,17 @@
-@countdown{timer: 600 , title_transition: "¡Comenzamos en breve!", logo_animation: "traffic"}
+@countdown{timer: 10 , title_transition: "¡Comenzamos en breve!", logo_animation: "traffic"}
 
 # Sprint 1 Sesión 4
 ## Asegura la calidad de los datos y genera reportes básicos
 
 ---
 
-@warnup-mood{title_transition: "Midamos los ánimos"}
-
-# ¿Cómo llegas a la sesión de hoy?
-## Reacciona con el emoji 😎🤔🤓🙂 que mejor represente tu mood
-
----
 @agenda{title_transition: "Nuestra Agenda de Hoy"}
 
 # Plan de nuestra sesión
 
 
 * 👋 Bienvenida {5}
-* 🔍👩‍💻 Revisión del proyecto del sprint {15}
-*  📊🧹 Proyecto colaborativo: Analisis de accidentes viales   {65}
+*  📊🧹 Proyecto colaborativo: Analisis de accidentes viales   {30}
 * 🤔 Reflexión y discusión: ¿Qué aprendimos en esta sesión? {5}
 
 ---

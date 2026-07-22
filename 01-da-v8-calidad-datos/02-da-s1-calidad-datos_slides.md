@@ -19,7 +19,7 @@
 
 
 * 👋 Bienvenida {10}
-*  📊🧹 Proyecto colaborativo: Taylor Swift dataset 👱‍♀️💃  {70}
+*  📊🧹 Proyecto colaborativo: Taylor Swift dataset 👱‍♀️💃  {60}
 * 🤔 Reflexión y discusión: ¿Qué aprendimos en esta sesión? {10}
 
 ---
@@ -52,7 +52,7 @@
 
 ---
 
-@quizz{time_limit: 50}
+@quizz{time_limit: 10}
 
 # Pongamos a prueba lo aprendido
 ## Reaccciona en la llamada con el emoji de la respuesta correcta
@@ -75,7 +75,7 @@ quizz:
         ¿Cuál sería el primer paso hacia un análisis de datos?
       items:
         - option: "😇 Calcular métricas como sumas y porcentajes"
-        - option: "😎 Revisar la calidad de los datos"
+        - option: "😎 Hacer tablas y gráficas"
         - option: "👍 Conocer el origen de los datos"
           correct: true
         - option: "😄 Realizar limpieza de los datos"

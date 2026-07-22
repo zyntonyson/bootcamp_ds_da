@@ -1,18 +1,10 @@
-@countdown{timer: 200 , title_transition: "¡Comenzamos en breve!",logo_animation: "traffic"}
+@countdown{timer: 10 , title_transition: "¡Comenzamos en breve!",logo_animation: "traffic"}
 
 # Sprint 11 
 ## Crea dashboards interactivos para stakeholders
 
 
 ---
-
-@warnup-mood{title_transition: "Midamos los ánimos"}
-
-# ¿Cómo llegas a la sesión de hoy?
-## Reacciona con el emoji 😎🤔🤓🙂 que mejor represente tu mood
-
----
-
 @agenda{title_transition: "Nuestra Agenda de Hoy"}
 
 # Agenda de la sesión
@@ -45,7 +37,7 @@
 
 
 
-* [Modelado de Datos y Dashboards con Power BI: Caso IIAS](../img/qrs/32-da-v8-dashboards-gentrificacion.png)
+* [Modelado de Datos y Dashboards con Power BI: Caso IPDUS](../img/qrs/32-da-va-dashboards-gentrificacion.png)
 
 ---
 
