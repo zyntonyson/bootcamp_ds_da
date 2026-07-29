@@ -315,11 +315,9 @@ with col_grafico2:
 Para correr la aplicación web de Streamlit, necesitamos instalar `streamlit`, `matplotlib` y `seaborn` en nuestro entorno virtual activo y ejecutar la app:
 
 ```bash
-# Instalar los nuevos paquetes requeridos
-pip install streamlit matplotlib seaborn
 
-# Actualizar el archivo requirements.txt con todas las librerías del entorno
-pip freeze > requirements.txt
+# Instalar paquetes desde requirements.txt
+pip install -r requirements.txt
 
 # Iniciar la aplicación de Streamlit
 streamlit run app.py

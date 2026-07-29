@@ -140,6 +140,9 @@
             - [25-08.proyecto](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/12-da-automatizacion/proyectos/25-08.proyecto.ipynb)
       - 12-ds-proyecto-2
          - [24-S12-Proyecto-2](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/12-ds-proyecto-2/24-S12-Proyecto-2.ipynb)
+         - gold_recovery_project
+            - [notebook](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/12-ds-proyecto-2/gold_recovery_project/notebook.ipynb)
+            - [solucion](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/12-ds-proyecto-2/gold_recovery_project/solucion.ipynb)
       - 13-da-pronosticos-predicciones
          - [25-introducion-machine-learning](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/13-da-pronosticos-predicciones/25-introducion-machine-learning.ipynb)
          - [26-introduccion-machine-learning-ii](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/v7/13-da-pronosticos-predicciones/26-introduccion-machine-learning-ii.ipynb)

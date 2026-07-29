@@ -72,15 +72,39 @@ quizz:
 
   - question:
       body: |
-        Después de instalar nuevas librerías en tu entorno virtual con `pip install`, ¿cuál es la buena práctica recomendada para registrar de forma automática estas dependencias en tu archivo de requerimientos?
+        Necesitas instalar la librería `pandas` en tu entorno virtual activo. ¿Cuál es el comando correcto para hacerlo con `pip`?
       items:
-        - option: "😇 Ejecutar `pip install -r requirements.txt` en la consola"
-        - option: "😎 Ejecutar `pip freeze > requirements.txt` en la consola"
+        - option: "😇 `pip install pandas --global`"
+        - option: "😎 `pip install pandas`"
           correct: true
-        - option: "👍 Crear manualmente un archivo llamado `libraries.json`"
-        - option: "😄 Ejecutar `python -m venv requirements.txt` en la consola"
+        - option: "👍 `python add pandas`"
+        - option: "😄 `pip download pandas`"
       feedback: |
-        ¡Excelente! `pip freeze > requirements.txt` exporta el listado exacto de las librerías instaladas en tu entorno virtual activo y lo guarda en `requirements.txt`, asegurando que cualquier otra persona pueda replicar exactamente tu entorno.
+        ¡Correcto! El comando `pip install pandas` descarga e instala la librería directamente en el entorno virtual activo. Si el entorno virtual está activado, la instalación queda aislada sólo para ese proyecto.
+
+  - question:
+      body: |
+        ¿Cuál es el comando que debes ejecutar en la terminal para verificar qué versión del intérprete de Python está activa en tu entorno?
+      items:
+        - option: "😇 `python --help`"
+        - option: "😎 `python --version`"
+          correct: true
+        - option: "👍 `python -info`"
+        - option: "😄 `pip show python`"
+      feedback: |
+        ¡Exacto! `python --version` muestra en la terminal la versión del intérprete de Python que está siendo utilizada, por ejemplo `Python 3.11.9`. Es el primer comando que debes ejecutar para confirmar que el entorno está bien configurado.
+
+  - question:
+      body: |
+        En VS Code, ¿cómo seleccionas el intérprete de Python correcto para que el editor use el de tu entorno virtual y no el del sistema?
+      items:
+        - option: "😇 Editando directamente el archivo `settings.json` y escribiendo la ruta manualmente"
+        - option: "😎 Abriendo la paleta de comandos con `Ctrl+Shift+P`, buscando `Python: Select Interpreter` y eligiendo el de `.venv`"
+          correct: true
+        - option: "👍 Reinstalando la extensión de Python en VS Code"
+        - option: "😄 Ejecutando `code --interpreter .venv` desde la terminal"
+      feedback: |
+        ¡Muy bien! En VS Code, usas `Ctrl+Shift+P` para abrir la paleta de comandos, escribes `Python: Select Interpreter` y seleccionas el intérprete dentro de la carpeta `.venv` de tu proyecto. Así el editor usa las librerías instaladas en tu entorno virtual.
 
   - question:
       body: |
