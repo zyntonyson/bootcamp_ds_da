@@ -1,4 +1,4 @@
-@countdown{timer: 300 , title_transition: "¡Comenzamos en breve!", logo_animation: "traffic"}
+@countdown{timer: 600 , title_transition: "¡Comenzamos en breve!", logo_animation: "traffic"}
 
 # Sprint 1 Sesión 1
 ## Asegura la calidad de los datos y genera reportes básicos
@@ -55,7 +55,7 @@ Si necesitas ayuda o quieres conectar, ¡escríbeme sin problema! 🤝
 
 
 
-* [Unéte a Mentimeter y comparte con nosotros](../img/qrs/00-onboarding-menti.png)
+* [Unéte a Mentimeter y comparte con nosotros](../img/qrs/01-onboarding-menti.png)
 
 
 
@@ -154,12 +154,10 @@ Si necesitas ayuda o quieres conectar, ¡escríbeme sin problema! 🤝
     - Espacio central para comunicarte, preguntar y conectar con la comunidad 🤝  
     - 🧵 **Hilos de preguntas y respuestas** : Aprende de las dudas de otros y comparte tus propias soluciones 📚  
 
-
 - 🚪 **Office Hours** : Es una sala abierta de Zoom donde los tutores están conectados esperando tus dudas. No necesitas agendar; simplemente entras, saludas y lanzas tus preguntas. 🧠  
 
 - 📡 **Webinars semanales con tu tutor**  
     - Sesiones en vivo para reforzar conceptos y aprender con ejemplos prácticos 🎥  
-
 
 - 🧑‍🏫 **Sesiones 1:1 con tu tutor**  
     - Atención personalizada para avanzar más rápido y con claridad 🎯  

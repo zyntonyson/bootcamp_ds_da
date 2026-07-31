@@ -52,7 +52,7 @@
 
 ---
 
-@quizz{time_limit: 10}
+@quizz{time_limit: 60}
 
 # Pongamos a prueba lo aprendido
 ## Reaccciona en la llamada con el emoji de la respuesta correcta

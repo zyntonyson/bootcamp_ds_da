@@ -34,6 +34,3 @@
 
 @include{path="../../slides/farewell.md"}
 
-
-
-C:\Users\roman\Documents\proyectos\tripleten\bootcamp_ds_da\v7\07-herramientas-desarrollo\03-entorno-python_slides.md
