@@ -1,4 +1,4 @@
-@countdown{timer: 600 , title_transition: "¡Comenzamos en breve!",logo_animation: "traffic"}
+@countdown{timer: 180 , title_transition: "¡Comenzamos en breve!",logo_animation: "traffic"}
 
 # Sprint 11 
 ## Crea dashboards interactivos para stakeholders
@@ -31,10 +31,10 @@
 
 
 * 🌐 Conectar múltiples archivos CSV desde la web a Power BI.
-* ⭐ Construir un **modelo en estrella** (Cliente, Campaña, Evento) para asegurar la integridad analítica.
-* 🧮 Crear **columnas calculadas y medidas** DAX (¡midiendo desde conversiones hasta el ARPU!).
-* 🎯 Aplicar la función `CALCULATE` para modificar el contexto y filtrar el embudo de marketing.
-* ☕ Diseñar un **dashboard interactivo** que descifre el *Customer Journey* de los clientes.
+* ⭐ Construir un **modelo en estrella** que conecte los datos de trabajo.
+* 🧮 Crear **columnas calculadas y medidas** DAX .
+* 🎯 Aplicar la función `CALCULATE` para modificar el contexto.
+* ☕ Diseñar un **dashboard interactivo** que resuma y visualice los datos de trabajo.
 
 
 ---
