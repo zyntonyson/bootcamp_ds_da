@@ -1,4 +1,4 @@
-@countdown{timer: 600 , title_transition: "¡Comenzamos en breve!", logo_animation: "traffic"}
+@countdown{timer: 60 , title_transition: "¡Comenzamos en breve!", logo_animation: "traffic"}
 
 # Sprint 7 Sesión 3
 ## Herramientas de desarrollo de software: Compartiendo tu Proyecto en GitHub y Despliegue en Render
@@ -104,5 +104,3 @@ quizz:
 @include{path="../../slides/farewell.md"}
 
 
-
-C:\Users\roman\Documents\proyectos\tripleten\bootcamp_ds_da\v7\07-herramientas-desarrollo\03-entorno-python_slides.md
