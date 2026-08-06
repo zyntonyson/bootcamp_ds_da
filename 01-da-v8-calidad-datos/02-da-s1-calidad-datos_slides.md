@@ -72,7 +72,7 @@ quizz:
 
   - question:
       body: |
-        ¿Cuál sería el primer paso hacia un análisis de datos?
+        ¿Cuál de las siguientes etapas debería ser la primera al realizar un análisis de datos?
       items:
         - option: "😇 Calcular métricas como sumas y porcentajes"
         - option: "😎 Hacer tablas y gráficas"
@@ -89,7 +89,7 @@ quizz:
         - option: "😇 Revisamos existencia de datos repetidos"
         - option: "😎 Identificamos/Tratamos los datos faltantes"
         - option: "👍 Estandarizamos el formato de los datos"
-        - option: "😄 Ordenamos los valores"
+        - option: "😄 Ordenamos los valores de menor a mayor"
           correct: true
       feedback: |
         ¡Exacto! El orden de los valores no afecta la calidad de los datos per se. Limpiar datos se enfoca en que la información sea correcta, completa y consistente, independientemente de cómo esté ordenada.
