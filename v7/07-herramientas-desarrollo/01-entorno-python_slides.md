@@ -1,4 +1,4 @@
-@countdown{timer: 600 , title_transition: "¡Comenzamos en breve!", logo_animation: "traffic"}
+@countdown{timer: 100 , title_transition: "¡Comenzamos en breve!", logo_animation: "traffic"}
 
 # Sprint 7 Sesión 1
 ## Herramientas de desarrollo de software: Entorno local para análisis de datos con Python

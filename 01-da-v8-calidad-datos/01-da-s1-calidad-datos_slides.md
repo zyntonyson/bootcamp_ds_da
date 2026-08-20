@@ -1,4 +1,4 @@
-@countdown{timer: 600 , title_transition: "¡Comenzamos en breve!", logo_animation: "traffic"}
+@countdown{timer: 300 , title_transition: "¡Comenzamos en breve!", logo_animation: "traffic"}
 
 # Sprint 1 Sesión 1
 ## Asegura la calidad de los datos y genera reportes básicos
@@ -89,12 +89,8 @@ Si necesitas ayuda o quieres conectar, ¡escríbeme sin problema! 🤝
     - *Verás los recursos que tienes disponibles*
 - 3️⃣ **¿Qué hace un analista de datos?**     
     - *Conocerás las responsabilidades de un analista de datos*
-    - *Conocerás qué tipo de proyectos realizan*
-
 
 ---
-
-
 
 @basic_slide{title_transition: "Contenido del curso"}
 
@@ -114,33 +110,8 @@ Si necesitas ayuda o quieres conectar, ¡escríbeme sin problema! 🤝
 - **Sprint 12:** Proyecto final 🚀  
 
 
----
-
-@objectives{title_transition="¿Qué herramientas usaremos?"}
-
-# ¿Qué herramientas usaremos?
-
-- ![Zoom](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Zoom_Communications_Logo.svg/1280px-Zoom_Communications_Logo.svg.png)  
-    - Aquí nos estaremos conectando en las diferentes sesiones  
-    - Te recomiendo instalar la aplicación de escritorio o móvil en vez de usar la versión del navegador  
-
-- ![Discord](https://static.wikia.nocookie.net/discord/images/d/dd/Discord.png/revision/latest?cb=20210319023006&path-prefix=es)  
-    - Principal canal de comunicación de texto/audio  
-    - Aquí podrás dejar tus preguntas, compartir inquietudes y convivir con el equipo de TripleTen  
-
-- ![Google Drive](https://upload.wikimedia.org/wikipedia/commons/1/12/Google_Drive_icon_%282020%29.svg)  
-    - No es obligatorio, pero estaremos trabajando con muchos recursos en la nube  
-    - Es muy útil para gestionar todo el material que irás generando en el curso  
-
-- ![Google Colab](https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Colaboratory_SVG_Logo.svg)  
-    - Ambiente interactivo para ejecutar Python  
-    - Usa recursos computacionales de Google de forma gratuita  
-
-
 
 ---
-
-
 
 @objectives{title_transition: "¿De que ayudas dispongo en el curso?"}
 
@@ -279,7 +250,7 @@ Estas sesiones en vivo junto con un tutor vas a:
 ![Horarios](../img/qrs/calendario-webinar-da.png)
 
 🎞️ **Grabaciones de webinars anteriores**
-- Todos los webinars quedan grabados y se comparten en  canal de **community**
+- Todos los webinars quedan grabados y se comparten en  canal de **info**
 - Encontrarás el listado de todas las grabaciones en la guia del estudiante
 
 
@@ -371,10 +342,6 @@ s
 Vivimos en la era de los datos: cada interacción digital genera información valiosa.🌍 Hoy, las empresas necesitan aprovechar esos datos para decidir mejor, innovar y crecer. Por eso, la demanda de profesionales en Data Analytics y Data Science 🚀 es una de las más altas del mercado.
 
 }
----
-@basic_slide{}
-
-![Roles Datos](https://raw.githubusercontent.com/zyntonyson/img_repo/refs/heads/main/img/roles_datos.png)
 
 ---
 
@@ -420,6 +387,22 @@ Vivimos en la era de los datos: cada interacción digital genera información va
 - **☕ Starbucks (Geolocalización estratégica)**
     - Integran datos demográficos y de tráfico para decidir la ubicación exacta de nuevas tiendas con alta precisión y rentabilidad  
     - Diseñan promociones hiper-personalizadas basadas en el historial de consumo de sus usuarios  
+
+
+---
+@basic_slide{}
+
+# 🔭 En la próxima clase...
+
+> ¡Prepárate para entrar de lleno al trabajo real de un analista de datos!
+
+- **🗺️ Flujo de trabajo típico de un analista de datos**  
+  Conocerás el marco **OSEMN** paso a paso:  
+  **Obtain** (fuentes de datos) → **Scrub** (limpieza) → **Explore** (EDA) → **Model** (agregados / segmentos) → **iNterpret** (insights y decisiones)
+
+- **🧹 Limpieza de datos en la práctica**  
+  Aprenderemos las técnicas esenciales:  
+  casteo de tipos, manejo de valores nulos, detección de duplicados y creación de columnas auxiliares
 
 
 ---
