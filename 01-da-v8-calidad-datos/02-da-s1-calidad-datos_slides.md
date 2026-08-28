@@ -108,7 +108,7 @@ quizz:
 
   - question:
       body: |
-        ¿Cuál de las siguientes es una forma adecuada de eliminar filas duplicadas en Google Sheets o Excel?
+        ¿Cuál de las siguientes es una forma adecuada de eliminar filas duplicadas en una hoja de cálculo?
       items:
         - option: "😇 Usar la función SUMAR.SI para agrupar los datos"
         - option: "😎 Ordenar los datos y borrar a mano las filas que parezcan iguales"

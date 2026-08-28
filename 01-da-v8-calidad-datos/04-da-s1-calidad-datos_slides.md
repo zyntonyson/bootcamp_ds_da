@@ -59,7 +59,7 @@
 
  🤖 **Prompt sugerido:**
 
- *"Genera un dataset ficticio en formato CSV sobre **[TEMA DE TU INTERES]** (por ejemplo: e-commerce, música, deportes, etc.) para practicar limpieza de datos.
+ *"Genera un dataset en formato CSV sobre **[TEMA DE TU INTERES]** (por ejemplo: e-commerce, música, deportes, etc.) para practicar limpieza de datos.
 
  El dataset debe incluir al menos [30] filas y contener problemas comunes de calidad:
 
