@@ -321,9 +321,6 @@ s
     - Es la mejor forma de reforzar el aprendizaje  
 
 - 💬 **No esperes a estar bloqueado días**  
-    - Si surge una duda → escríbela en Discord  
-
-- ⏱️ **Regla de los 20 minutos**  
     - Si llevas más de 20 min atascado… ¡pregunta! 🙋  
 
 ---
@@ -379,10 +376,6 @@ Vivimos en la era de los datos: cada interacción digital genera información va
 - **📦 Amazon (Logística predictiva)**
     - Su sistema de recomendación personalizado genera el 35% de sus ingresos  
     - Utilizan análisis predictivo para pre-enviar productos a centros de distribución cercanos a clientes antes de que realicen la compra  
-
-- **👗 Zara (Moda rápida en tiempo real)**
-    - Analizan diariamente reportes de ventas e inventarios para ajustar la producción al instante  
-    - Lanzan nuevas colecciones en solo 2 a 3 semanas, reduciendo drásticamente el desperdicio en comparación con el ciclo tradicional de 9 meses  
 
 - **☕ Starbucks (Geolocalización estratégica)**
     - Integran datos demográficos y de tráfico para decidir la ubicación exacta de nuevas tiendas con alta precisión y rentabilidad  
