@@ -12,6 +12,10 @@
 
 ---
 @include{path="./content_sprint.md"}
+---
+@include{path="/content_sprint.md"}
+---
+@include{path="content_sprint.md"}
 
 ---
 @agenda{title_transition: "Nuestra Agenda de Hoy"}
