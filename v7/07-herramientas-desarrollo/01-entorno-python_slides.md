@@ -1,4 +1,4 @@
-@countdown{timer: 100 , title_transition: "¡Comenzamos en breve!", logo_animation: "traffic"}
+@countdown{timer: 300 , title_transition: "¡Comenzamos en breve!", logo_animation: "traffic"}
 
 # Sprint 7 Sesión 1
 ## Herramientas de desarrollo de software: Entorno local para análisis de datos con Python
@@ -11,7 +11,8 @@
 ## Reacciona con el emoji 😎🤔🤓🙂 que mejor represente tu mood
 
 ---
-@include{path="content_sprint.md"}
+
+@include{path="./content_sprint.md"}
 
 ---
 @agenda{title_transition: "Nuestra Agenda de Hoy"}
