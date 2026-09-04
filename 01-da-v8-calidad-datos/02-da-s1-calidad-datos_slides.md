@@ -12,6 +12,10 @@
 
 ---
 
+@include{path="content-sprint.md"}
+
+---
+
 @agenda{title_transition: "Nuestra Agenda de Hoy"}
 
 # Plan de nuestra sesión

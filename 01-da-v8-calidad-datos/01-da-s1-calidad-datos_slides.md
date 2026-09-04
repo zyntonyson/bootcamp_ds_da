@@ -58,7 +58,9 @@ Si necesitas ayuda o quieres conectar, ¡escríbeme sin problema! 🤝
 * [Unéte a Mentimeter y comparte con nosotros](../img/qrs/01-onboarding-menti.png)
 
 
+---
 
+@include{path="content-sprint.md"}
 
 ---
 @basic_slide{title_transition: "¿Qué haremos hoy?"}
@@ -362,7 +364,47 @@ Vivimos en la era de los datos: cada interacción digital genera información va
     - El objetivo final: que el negocio actúe con base en evidencia  
     - Ejemplo: recomendar invertir más en el canal que trae más clientes recurrentes  
 
+---
 
+
+@basic_slide{title_transition: "Un flujo práctico y repetible para el DA"}
+
+# 🔄 El flujo de trabajo de un analista de datos
+
+> No importa si analizas ventas, usuarios o logística — este flujo siempre funciona.
+
+- 🔍 **1. Descubrir el problema** — Define: ¿qué decisión se tomará?, ¿qué KPI importa?, ¿quién usará el resultado?
+  - *Ej: "¿Por qué bajaron las ventas en marzo?"*
+- 🗄️ **2. Auditar las fuentes** — ¿Qué contienen mis datos?, ¿De dónde vienen?, ¿Quién es el responsable de mantenerlos?
+  - *Ej: Un CSV del ERP — ¿está completo y actualizado?*
+- 🧹 **3. Limpiar y estandarizar** — ¿Hay nulos, duplicados o formatos incorrectos que distorsionen el análisis?
+  - *Ej: Fechas en texto, montos con comas, clientes repetidos*
+- 📊 **4. Calcular y explorar (EDA)** — Promedios, conteos, distribuciones. ¿Qué características saltan a la vista?
+  - *Ej: El 80% de los ingresos vienen del 20% de los clientes*
+- 📉 **5. Visualizar y narrar** — Elige el gráfico correcto. ¿Qué significa este resultado?, ¿Qué acción sugiere?
+  - *Ej: Una línea descendente mensual señala dónde está el problema*
+- 📁 **6. Entregar y documentar** — Deja todo ordenado: hojas bien nombradas, formato consistente, notas de supuestos
+  - *Ej: Hoja "Datos crudos" → "Datos limpios" → "Resumen ejecutivo"*
+
+---
+@objectives{}
+
+# 🧭 Este flujo tiene nombre: OSEMN
+
+> Un marco clásico en análisis de datos que hace tu proceso **transparente y reproducible**.
+
+- **📥 Obtain** (Obtener) — Consigue los datos: archivos, bases de datos, APIs, formularios
+  - *Nuestro flujo: pasos 1 y 2 → descubrir + auditar*
+- **🧽 Scrub** (Limpiar) — Elimina ruido: nulos, duplicados, formatos inconsistentes
+  - *Nuestro flujo: paso 3 → limpiar y estandarizar*
+- **🔬 Explore** (Explorar) — Analiza distribuciones, busca patrones y anomalías
+  - *Nuestro flujo: paso 4 → EDA*
+- **🏗️ Model** (Modelar) — Agrega, segmenta y calcula KPIs clave
+  - *Nuestro flujo: parte avanzada del paso 4*
+- **💡 iNterpret** (Interpretar) — Transforma números en historias y acciones concretas
+  - *Nuestro flujo: pasos 5 y 6 → visualizar + entregar*
+
+> **`Obtain → Scrub → Explore → Model → iNterpret`** — ¡Lo practicaremos en cada proyecto del bootcamp! 🚀
 
 ---
 @objectives{}
@@ -390,8 +432,7 @@ Vivimos en la era de los datos: cada interacción digital genera información va
 > ¡Prepárate para entrar de lleno al trabajo real de un analista de datos!
 
 - **🗺️ Flujo de trabajo típico de un analista de datos**  
-  Conocerás el marco **OSEMN** paso a paso:  
-  **Obtain** (fuentes de datos) → **Scrub** (limpieza) → **Explore** (EDA) → **Model** (agregados / segmentos) → **iNterpret** (insights y decisiones)
+ Veremos un ejemplo práctico del flujo
 
 - **🧹 Limpieza de datos en la práctica**  
   Aprenderemos las técnicas esenciales:  
