@@ -4,6 +4,9 @@
       - [01-da-s1-calidad-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/01-da-v8-calidad-datos/01-da-s1-calidad-datos.ipynb)
       - [03-da-s1-calidad-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/01-da-v8-calidad-datos/03-da-s1-calidad-datos.ipynb)
       - [04-da-s1-calidad-datos](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/01-da-v8-calidad-datos/04-da-s1-calidad-datos.ipynb)
+      - proyectos
+         - TecnoMem
+            - [Proyecto_Produccion_TecnoMem_2020](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/01-da-v8-calidad-datos/proyectos/TecnoMem/Proyecto_Produccion_TecnoMem_2020.ipynb)
    - 02-da-v8-insights-negocio
       - [03-da-v8-insights-negocio](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-da-v8-insights-negocio/03-da-v8-insights-negocio.ipynb)
       - [05-da-v8-insigths-negocio](https://colab.research.google.com/github/zyntonyson/bootcamp_ds_da/blob/main/02-da-v8-insights-negocio/05-da-v8-insigths-negocio.ipynb)

@@ -1,0 +1,80 @@
+Proyecto 1: Limpieza y resumen de datos en hojas de cálculo
+Introducción
+Imagina que trabajas como analista de datos junior en "VentaExpress", una empresa de comercio electrónico en crecimiento. El director de operaciones te ha asignado analizar los datos de ventas del último trimestre para preparar un informe ejecutivo. Los datos están crudos —es decir, sin procesar— y necesitas limpiarlos, organizarlos y extraer la información clave que ayude a tomar decisiones estratégicas.
+
+Este proyecto marca tu primer desafío integral como analista. Pondrás en práctica habilidades de limpieza, análisis y visualización de datos, así como tu capacidad para comunicar hallazgos de forma clara y accionable.
+
+El Desafío: datos de VentaExpress
+Has recibido un archivo de datos de ventas que contiene información valiosa, pero que presenta varios problemas típicos que encontrarás en el mundo real:
+
+Datos con formato inconsistente.
+Valores duplicados y ausentes.
+Columnas desorganizadas.
+Información que necesita ser dividida o combinada.
+Falta de una documentación clara.
+Tu misión es transformar estos datos caóticos en un informe profesional y comprensible que responda a las preguntas clave del negocio.
+
+Dataset del proyecto
+Contexto del negocio:
+
+VentaExpress vende productos de tecnología (laptops, teléfonos, auriculares, tablets) a través de su plataforma online en distintas ciudades de México y Colombia.
+
+Período por analizar:  El dataset contiene todas las ventas de Octubre - Diciembre 2024 (i.e. 4° trimestre de 2024).
+
+Archivo base: ventas_q4_2024_raw.csv.
+
+Objetivos del proyecto
+Al completar este proyecto, habrás demostrado tu capacidad para:
+
+Identificar y documentar problemas en un dataset real.
+Aplicar técnicas de limpieza sistemáticas y justificadas.
+Organizar datos siguiendo las mejores prácticas profesionales.
+Calcular métricas clave relevantes para la toma de decisiones.
+Crear visualizaciones que comuniquen tus insights (hallazgos) efectivamente.
+Estructurar un informe claro y viable.
+💡 Recuerda: los buenos analistas no lo saben todo, pero sí saben cómo encontrar respuestas.
+
+Si te quedas atascado, tienes varias opciones para avanzar:
+
+Recursos de apoyo: Desplácete hasta el final del proyecto para ver consejos útiles.
+Pregúntale a DOT — nuestro IA chatbot interno, disponible 24/7.
+Agenda una sesión 1 a 1 con un instructor para recibir orientación personalizada.
+Pregunta en Discord y comparte tus dudas con otros estudiantes.
+Usar tus recursos de manera efectiva también es parte de desarrollar tu mentalidad de analista.
+
+Parte 1: Exploración y diagnóstico inicial (30 minutos)
+Observa el dataset y explóralo para conocerlo.
+Renombra las pestañas:
+De ventas_q4_2024_raw aDatos_Originales →para preservar los datos sin modificar.
+De Hoja1 a Datos_Limpios → donde trabajarás en la limpieza.
+De Hoja2 a Análisis → para hacer los cálculos y métricas.
+De Hoja3 a Visualizaciones → para los gráficos.
+De Hoja4 a Informe_Ejecutivo → para el resumen final.
+Parte 2: Limpieza y preparación de datos (45 minutos)
+En la pestaña Datos_Limpios, aplica las siguientes transformaciones para limpiar los datos:
+
+Formatear las columnas con divisas:
+ 
+Aplica formato de moneda a los precios (Precio unitario) y montos totales (Monto total). Deberán tener el formato $ xxxx.xx (por ejemplo, $ 104.30)
+Limpiar los nombres de las ciudades:
+ 
+Crea una nueva columna llamada Ciudad corregida a la derecha de la columna Ciudad.
+Escribe una fórmula que convierta la primera letra de cada ciudad a mayúscula y el resto a minúsculas.
+Funcion útil (Ingles / Español) : PROPER() / NOMPROPIO()
+Dividir la información de los productos:
+ 
+Utiliza la función “dividir texto en columnas” para dividir la información de la columna Producto en 3 nuevas columnas Categoría, Tipo, Especificaciones
+Asegurate de dejar la columna Producto intacta pero añadir 3 nuevas columnas con cada detalle.
+Ejemplo: "Laptop-Gaming-16GB" → se convierte en:
+Producto	Categoría	Tipo	Especificaciones
+Laptop-Gaming-16GB	Laptop	Gaming	16GB
+Manejar los valores ausentes:.
+ 
+Identifica celdas vacías en las columnas de precio unitario y monto total.
+Documenta cuántos valores ausentes hay en la pestaña Informe_Ejecutivo.
+Observa que en todas las filas donde nos falta información en la columna Precio unitario, si contamos con los datos de Cantidad y Monto total. Para rellenar estos ausentes, podemos dividir Monto total entre Cantidad.
+Algo similar sucede en Monto total, intenta una operación diferente para calcular y rellenar esos valores ausentes.
+Eliminar los duplicados completos:
+ 
+Usa Datos > Limpieza de datos > Quitar duplicados.
+Documenta en la pestaña Informe_Ejecutivo cuántos duplicados encontraste.

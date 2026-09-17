@@ -32,5 +32,5 @@
 
 ---
 
-@include{path="../../slides/farewell.md"}
+@include{path="../../../slides/farewell.md"}
 
