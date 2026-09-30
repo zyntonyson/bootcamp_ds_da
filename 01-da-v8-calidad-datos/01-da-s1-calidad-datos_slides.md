@@ -127,10 +127,11 @@ Si necesitas ayuda o quieres conectar, ¡escríbeme sin problema! 🤝
     - Espacio central para comunicarte, preguntar y conectar con la comunidad 🤝  
     - 🧵 **Hilos de preguntas y respuestas** : Aprende de las dudas de otros y comparte tus propias soluciones 📚  
 
-- 🚪 **Office Hours** : Es una sala abierta de Zoom donde los tutores están conectados esperando tus dudas. No necesitas agendar; simplemente entras, saludas y lanzas tus preguntas. 🧠  
-
 - 📡 **Webinars semanales con tu tutor**  
     - Sesiones en vivo para reforzar conceptos y aprender con ejemplos prácticos 🎥  
+
+- 🚪 **Office Hours** : Es una sala abierta de Zoom donde los tutores están conectados esperando tus dudas. No necesitas agendar; simplemente entras, saludas y lanzas tus preguntas. 🧠  
+
 
 - 🧑‍🏫 **Sesiones 1:1 con tu tutor**  
     - Atención personalizada para avanzar más rápido y con claridad 🎯  
@@ -150,93 +151,6 @@ Si necesitas ayuda o quieres conectar, ¡escríbeme sin problema! 🤝
     - Recuerda etiquetar a tu tutor y a **@Dataconsulta** 👀  
 
 ---
-
-@objectives{}
-
-# 💬 Normas de etiqueta  
-
-- 1️⃣ 🧩 **Sé claro al formular tu duda**  
-    - Incluye contexto, error y captura si aplica 📸  
-
-- 2️⃣ 🏷️ **Usa títulos o tags en tus mensajes**  
-    - Ejemplos: [Excel], [Python], [Dashboard]  
-
-- 3️⃣ ⏰ **Respeta los tiempos de respuesta**  
-    - Los tutores responden en horarios de oficina  
-
-- 4️⃣ 🤝 **Fomenta el apoyo entre pares**  
-    - Si sabes la respuesta, ¡apoya a tus compañeros! 🚀  
-
----
-
-@basic_slide{title_transition: "Cómo es un buen post"}
-
-
-**Sprint 1 / Cap 2 / Limpieza de datos / Ejercicio de Duración**
-
-`@Dataconsulta` ¡Hola! Estoy atascado intentando limpiar la columna de duración de las canciones del dataset de Taylor Swift. Quiero separar los minutos de los segundos usando la función `SPLIT` para poder calcular los segundos totales, pero no me está dividiendo el texto en celdas separadas como se espera.
-
-Esta es la fórmula que estoy usando en la celda `E2`:
-`=SPLIT(D2, ",")`
-
-* **Lo que busco obtener:** Que el texto `3:45` (celda D2) se divida para obtener el `3` (minutos) en la celda E2 y el `45` (segundos) en la celda F2.
-* **Lo que estoy obteniendo:** La fórmula se ejecuta pero me devuelve el texto completo `3:45` en la celda E2, sin realizar ninguna separación.
-
-Aquí está la captura de pantalla de mi hoja de cálculo con la fórmula y el resultado:
-
-| Celda D2 (Duración) | Celda E2 (Fórmula) | Celda F2 |
-| :--- | :--- | :--- |
-| `3:45` | `3:45` *(Fórmula: =SPLIT(D2, ","))* | *(Vacío)* |
-
-¡Mil gracias por su ayuda! 🙂
-
----
-
-@basic_slide{}
-
-
-**Sprint 5 / Cap 1 / Estructuras de Control / Ejercicio de Bucles**
-
-`@Dataconsulta` ¡Hola! Estoy intentando crear una función para sumar todos los elementos de una lista, pero al ejecutar mi código en Jupyter Notebook me arroja un error de indentación que no logro entender. He revisado el código y me parece que los espacios están bien.
-
-Este es mi código:
-
-```python
-def sumar_elementos(numeros):
-    total = 0
-    for n in numeros:
-    total += n
-    return total
-```
-
-* **Lo que busco obtener:** Que la función reciba una lista como `[10, 20, 30]` y devuelva la suma total, que sería `60`.
-* **Lo que estoy obteniendo:** Al ejecutar la celda, la ejecución se detiene y me muestra este error en la consola:
-
-```text
-  File "<ipython-input-5-abc12345>", line 4
-    total += n
-    ^
-IndentationError: expected an indented block after 'for' statement on line 3
-```
-
-¿Me podrían orientar sobre qué está mal en mi formato? ¡Muchas gracias! 🙂
-
-
----
-
-@basic_slide{title_transition: "Office Hours"}
-
-# 🎥 Office Hours  
-
-Es una sala abierta de Zoom donde los tutores están conectados esperando tus dudas. No necesitas agendar; simplemente entras, saludas y lanzas tus preguntas.
-
-🗓️ **Horarios:**  
-
-![Horarios](../img/qrs/office-hours.png)
-
-
----
-
 
 @basic_slide{title_transition: "Webinars"}
 
@@ -282,6 +196,19 @@ Estas sesiones en vivo junto con un tutor vas a:
 
 ---
 
+@basic_slide{title_transition: "Office Hours"}
+
+# 🎥 Office Hours  
+
+Es una sala abierta de Zoom donde los tutores están conectados esperando tus dudas. No necesitas agendar; simplemente entras, saludas y lanzas tus preguntas.
+
+🗓️ **Horarios:**  
+
+![Horarios](../img/qrs/office-hours.png)
+
+
+---
+
 @basic_slide{title_transition: "Reuniones 1:1 con un tutor"}
 
 # 🧑‍🏫  Sesiones 1:1 con un tutor  
@@ -306,7 +233,7 @@ Puedes programar sesiones **1:1 con un tutor** para:
 
 * [Programador 1:1 via Calendly](../img/qrs/zoom-11-general-da.png )
 
-s
+
 ---
 
 @objectives{title_transition: "Recomendaciones para aprovechar al máximo tu preparación"}
