@@ -71,7 +71,7 @@ quizz:
         | `  mExiCo  ` | `Mexico` |
         | `bOgOtA ` | `Bogota` |
         
-        ¿Qué funciones de Google Sheets nos permiten pasar de la "Ciudad Original" a la "Ciudad Limpia"?
+        ¿Qué funciones nos permiten pasar de la "Ciudad Original" a la "Ciudad Limpia"?
       items:
         - option: "😇 SUMAR() y EXTRAE()"
         - option: "😎 ESPACIOS()  y NOMPROPIO()"
@@ -117,7 +117,7 @@ quizz:
         ¡Exacto! Cuando los números están guardados como texto (generalmente se alinean a la izquierda por defecto), las funciones matemáticas como SUMA o PROMEDIO los ignoran. Para solucionarlo, debemos cambiar el formato de la columna a "Número" o usar funciones como VALOR().
   - question:
       body: |
-        Tienes una tabla donde el nombre de una ciudad aparece de diferentes formas por errores de tipeo: `CDMX`, `Cdmx` y `Cd. de Mexico`. Si quieres unificar todos a `Ciudad de México` de forma rápida sin usar fórmulas, ¿qué herramienta de Google Sheets es la mejor opción?
+        Tienes una tabla donde el nombre de una ciudad aparece de diferentes formas por errores de tipeo: `CDMX`, `Cdmx` y `Cd. de Mexico`. Si quieres unificar todos a `Ciudad de México` de forma rápida sin usar fórmulas, ¿qué herramienta es la mejor opción?
       items:
         - option: "😇 La función EXTRAE() para sacar letra por letra"
         - option: "😎 La herramienta integrada de 'Buscar y reemplazar' (Find and Replace)"

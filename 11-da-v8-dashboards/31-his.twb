@@ -1,0 +1,1408 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20262.26.0819.2015                               -->
+<workbook _.fcp.WorkbookFingerprinting.true...author-id='6d37973bd35a13eb1438b9b47785ea21403be67b1b26721de27a742138dcabb8' _.fcp.WorkbookFingerprinting.true...creator-author-id='6d37973bd35a13eb1438b9b47785ea21403be67b1b26721de27a742138dcabb8' _.fcp.WorkbookFingerprinting.true...creator-license-type='public' _.fcp.WorkbookFingerprinting.true...creator-machine-id='8a0a3881a60a7e4654629db5939f0d857638aaba4a00d2fc244bda9e066acda2' _.fcp.WorkbookFingerprinting.true...license-type='public' _.fcp.WorkbookFingerprinting.true...machine-id='8a0a3881a60a7e4654629db5939f0d857638aaba4a00d2fc244bda9e066acda2' original-version='18.1' source-build='2026.2.2 (20262.26.0819.2015)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AnimationOnByDefault />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelExtractV2 />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+    <_.fcp.WorkbookFingerprinting.true...WorkbookFingerprinting />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='31-dim-instituciones+' inline='true' name='federated.18kzs5l0o4soa710h5fv00qe1x79' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='31-dim-instituciones' name='textscan.1mdngl31fh1bjv15rtjat1vx8cqe'>
+            <connection class='textscan' directory='C:/Users/roman/Documents/proyectos/tripleten/bootcamp_ds_da/11-da-v8-dashboards' filename='31-dim-instituciones.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation type='collection'>
+          <relation connection='textscan.1mdngl31fh1bjv15rtjat1vx8cqe' name='31-dim-instituciones.csv' table='[31-dim-instituciones#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='es_MX' separator=','>
+              <column datatype='string' name='id_institucion' ordinal='0' />
+              <column datatype='string' name='categoria_institucion' ordinal='1' />
+              <column datatype='string' name='pais' ordinal='2' />
+              <column datatype='string' name='ciudad' ordinal='3' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1mdngl31fh1bjv15rtjat1vx8cqe' name='31-hechos-publicaciones.csv' table='[31-hechos-publicaciones#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='es_MX' separator=','>
+              <column datatype='string' name='id_publicacion' ordinal='0' />
+              <column datatype='date' name='fecha_publicacion' ordinal='1' />
+              <column datatype='string' name='id_institucion' ordinal='2' />
+              <column datatype='string' name='id_revista' ordinal='3' />
+              <column datatype='string' name='ciudad_revista' ordinal='4' />
+              <column datatype='integer' name='costo_apc' ordinal='5' />
+              <column datatype='string' name='tipo_revista' ordinal='6' />
+              <column datatype='string' name='canal_publicacion' ordinal='7' />
+              <column datatype='real' name='porcentaje_beca' ordinal='8' />
+              <column datatype='integer' name='monto_beca' ordinal='9' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1mdngl31fh1bjv15rtjat1vx8cqe' name='31-dim-revistas.csv' table='[31-dim-revistas#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='es_MX' separator=','>
+              <column datatype='string' name='id_revista' ordinal='0' />
+              <column datatype='string' name='tipo_revista' ordinal='1' />
+              <column datatype='string' name='ciudad' ordinal='2' />
+              <column datatype='string' name='editorial' ordinal='3' />
+              <column datatype='integer' name='volumenes_anuales' ordinal='4' />
+              <column datatype='integer' name='paginas_promedio' ordinal='5' />
+              <column datatype='integer' name='costo_base_usd' ordinal='6' />
+              <column datatype='string' name='categoria_revista' ordinal='7' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[canal_publicacion]' value='[31-hechos-publicaciones.csv].[canal_publicacion]' />
+          <map key='[categoria_institucion]' value='[31-dim-instituciones.csv].[categoria_institucion]' />
+          <map key='[categoria_revista]' value='[31-dim-revistas.csv].[categoria_revista]' />
+          <map key='[ciudad (31-dim-revistas.csv)]' value='[31-dim-revistas.csv].[ciudad]' />
+          <map key='[ciudad]' value='[31-dim-instituciones.csv].[ciudad]' />
+          <map key='[ciudad_revista]' value='[31-hechos-publicaciones.csv].[ciudad_revista]' />
+          <map key='[costo_apc]' value='[31-hechos-publicaciones.csv].[costo_apc]' />
+          <map key='[costo_base_usd]' value='[31-dim-revistas.csv].[costo_base_usd]' />
+          <map key='[editorial]' value='[31-dim-revistas.csv].[editorial]' />
+          <map key='[fecha_publicacion]' value='[31-hechos-publicaciones.csv].[fecha_publicacion]' />
+          <map key='[id_institucion (31-hechos-publicaciones.csv)]' value='[31-hechos-publicaciones.csv].[id_institucion]' />
+          <map key='[id_institucion]' value='[31-dim-instituciones.csv].[id_institucion]' />
+          <map key='[id_publicacion]' value='[31-hechos-publicaciones.csv].[id_publicacion]' />
+          <map key='[id_revista (31-dim-revistas.csv)]' value='[31-dim-revistas.csv].[id_revista]' />
+          <map key='[id_revista]' value='[31-hechos-publicaciones.csv].[id_revista]' />
+          <map key='[monto_beca]' value='[31-hechos-publicaciones.csv].[monto_beca]' />
+          <map key='[paginas_promedio]' value='[31-dim-revistas.csv].[paginas_promedio]' />
+          <map key='[pais]' value='[31-dim-instituciones.csv].[pais]' />
+          <map key='[porcentaje_beca]' value='[31-hechos-publicaciones.csv].[porcentaje_beca]' />
+          <map key='[tipo_revista (31-dim-revistas.csv)]' value='[31-dim-revistas.csv].[tipo_revista]' />
+          <map key='[tipo_revista]' value='[31-hechos-publicaciones.csv].[tipo_revista]' />
+          <map key='[volumenes_anuales]' value='[31-dim-revistas.csv].[volumenes_anuales]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[31-dim-instituciones.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;es&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;es_MX&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[31-hechos-publicaciones.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;es&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;es_MX&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[31-dim-revistas.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;es&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;es_MX&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id_institucion</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[id_institucion]</local-name>
+            <parent-name>[31-dim-instituciones.csv]</parent-name>
+            <remote-alias>id_institucion</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LES_RES' />
+            <object-id>[31-dim-instituciones.csv_0AEB5D08DA874C469A409C7AE3B95973]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>categoria_institucion</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[categoria_institucion]</local-name>
+            <parent-name>[31-dim-instituciones.csv]</parent-name>
+            <remote-alias>categoria_institucion</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LES_RES' />
+            <object-id>[31-dim-instituciones.csv_0AEB5D08DA874C469A409C7AE3B95973]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>pais</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[pais]</local-name>
+            <parent-name>[31-dim-instituciones.csv]</parent-name>
+            <remote-alias>pais</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LES_RES' />
+            <object-id>[31-dim-instituciones.csv_0AEB5D08DA874C469A409C7AE3B95973]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ciudad</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[ciudad]</local-name>
+            <parent-name>[31-dim-instituciones.csv]</parent-name>
+            <remote-alias>ciudad</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LES_RES' />
+            <object-id>[31-dim-instituciones.csv_0AEB5D08DA874C469A409C7AE3B95973]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id_publicacion</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[id_publicacion]</local-name>
+            <parent-name>[31-hechos-publicaciones.csv]</parent-name>
+            <remote-alias>id_publicacion</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LES_RES' />
+            <object-id>[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>fecha_publicacion</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[fecha_publicacion]</local-name>
+            <parent-name>[31-hechos-publicaciones.csv]</parent-name>
+            <remote-alias>fecha_publicacion</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id_institucion</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[id_institucion (31-hechos-publicaciones.csv)]</local-name>
+            <parent-name>[31-hechos-publicaciones.csv]</parent-name>
+            <remote-alias>id_institucion</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LES_RES' />
+            <object-id>[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id_revista</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[id_revista]</local-name>
+            <parent-name>[31-hechos-publicaciones.csv]</parent-name>
+            <remote-alias>id_revista</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LES_RES' />
+            <object-id>[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ciudad_revista</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[ciudad_revista]</local-name>
+            <parent-name>[31-hechos-publicaciones.csv]</parent-name>
+            <remote-alias>ciudad_revista</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LES_RES' />
+            <object-id>[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>costo_apc</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[costo_apc]</local-name>
+            <parent-name>[31-hechos-publicaciones.csv]</parent-name>
+            <remote-alias>costo_apc</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>tipo_revista</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[tipo_revista]</local-name>
+            <parent-name>[31-hechos-publicaciones.csv]</parent-name>
+            <remote-alias>tipo_revista</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LES_RES' />
+            <object-id>[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>canal_publicacion</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[canal_publicacion]</local-name>
+            <parent-name>[31-hechos-publicaciones.csv]</parent-name>
+            <remote-alias>canal_publicacion</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LES_RES' />
+            <object-id>[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>porcentaje_beca</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[porcentaje_beca]</local-name>
+            <parent-name>[31-hechos-publicaciones.csv]</parent-name>
+            <remote-alias>porcentaje_beca</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>monto_beca</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[monto_beca]</local-name>
+            <parent-name>[31-hechos-publicaciones.csv]</parent-name>
+            <remote-alias>monto_beca</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id_revista</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[id_revista (31-dim-revistas.csv)]</local-name>
+            <parent-name>[31-dim-revistas.csv]</parent-name>
+            <remote-alias>id_revista</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LES_RES' />
+            <object-id>[31-dim-revistas.csv_B5ACE2730FEE48F28FA5BECECAA43866]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>tipo_revista</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[tipo_revista (31-dim-revistas.csv)]</local-name>
+            <parent-name>[31-dim-revistas.csv]</parent-name>
+            <remote-alias>tipo_revista</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LES_RES' />
+            <object-id>[31-dim-revistas.csv_B5ACE2730FEE48F28FA5BECECAA43866]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ciudad</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[ciudad (31-dim-revistas.csv)]</local-name>
+            <parent-name>[31-dim-revistas.csv]</parent-name>
+            <remote-alias>ciudad</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LES_RES' />
+            <object-id>[31-dim-revistas.csv_B5ACE2730FEE48F28FA5BECECAA43866]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>editorial</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[editorial]</local-name>
+            <parent-name>[31-dim-revistas.csv]</parent-name>
+            <remote-alias>editorial</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LES_RES' />
+            <object-id>[31-dim-revistas.csv_B5ACE2730FEE48F28FA5BECECAA43866]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>volumenes_anuales</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[volumenes_anuales]</local-name>
+            <parent-name>[31-dim-revistas.csv]</parent-name>
+            <remote-alias>volumenes_anuales</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[31-dim-revistas.csv_B5ACE2730FEE48F28FA5BECECAA43866]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>paginas_promedio</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[paginas_promedio]</local-name>
+            <parent-name>[31-dim-revistas.csv]</parent-name>
+            <remote-alias>paginas_promedio</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[31-dim-revistas.csv_B5ACE2730FEE48F28FA5BECECAA43866]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>costo_base_usd</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[costo_base_usd]</local-name>
+            <parent-name>[31-dim-revistas.csv]</parent-name>
+            <remote-alias>costo_base_usd</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[31-dim-revistas.csv_B5ACE2730FEE48F28FA5BECECAA43866]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>categoria_revista</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[categoria_revista]</local-name>
+            <parent-name>[31-dim-revistas.csv]</parent-name>
+            <remote-alias>categoria_revista</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LES_RES' />
+            <object-id>[31-dim-revistas.csv_B5ACE2730FEE48F28FA5BECECAA43866]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Cantidad de Publicaciones' datatype='integer' name='[Calculation_3255428170113024]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='COUNTD([id_publicacion])' />
+      </column>
+      <column caption='Cantidad de instituciones apoyadas' datatype='integer' name='[Calculation_3255428170223617]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='COUNTD([id_institucion (31-hechos-publicaciones.csv)])' />
+      </column>
+      <column caption='Inversión APC total' datatype='integer' name='[Calculation_3255428170362882]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='SUM([costo_apc])' />
+      </column>
+      <column caption='Monto total  de becas' datatype='integer' name='[Calculation_3255428170502147]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='SUM([monto_beca])' />
+      </column>
+      <column caption='31-dim-instituciones.csv' datatype='table' name='[__tableau_internal_object_id__].[31-dim-instituciones.csv_0AEB5D08DA874C469A409C7AE3B95973]' role='measure' type='quantitative' />
+      <column caption='31-dim-revistas.csv' datatype='table' name='[__tableau_internal_object_id__].[31-dim-revistas.csv_B5ACE2730FEE48F28FA5BECECAA43866]' role='measure' type='quantitative' />
+      <column caption='31-hechos-publicaciones.csv' datatype='table' name='[__tableau_internal_object_id__].[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF]' role='measure' type='quantitative' />
+      <column caption='Canal Publicacion' datatype='string' name='[canal_publicacion]' role='dimension' type='nominal' />
+      <column caption='Categoria Institucion' datatype='string' name='[categoria_institucion]' role='dimension' type='nominal' />
+      <column caption='Categoria Revista' datatype='string' name='[categoria_revista]' role='dimension' type='nominal' />
+      <column caption='Ciudad (31-Dim-Revistas.Csv)' datatype='string' name='[ciudad (31-dim-revistas.csv)]' role='dimension' type='nominal' />
+      <column caption='Ciudad' datatype='string' name='[ciudad]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+      <column caption='Ciudad Revista' datatype='string' name='[ciudad_revista]' role='dimension' type='nominal' />
+      <column caption='Costo Apc' datatype='integer' name='[costo_apc]' role='measure' type='quantitative' />
+      <column caption='Costo Base Usd' datatype='integer' name='[costo_base_usd]' role='measure' type='quantitative' />
+      <column caption='Editorial' datatype='string' name='[editorial]' role='dimension' type='nominal' />
+      <column caption='Fecha Publicacion' datatype='date' name='[fecha_publicacion]' role='dimension' type='ordinal' />
+      <column caption='Id Institucion (31-Hechos-Publicaciones.Csv)' datatype='string' name='[id_institucion (31-hechos-publicaciones.csv)]' role='dimension' type='nominal' />
+      <column caption='Id Institucion' datatype='string' name='[id_institucion]' role='dimension' type='nominal' />
+      <column caption='Id Publicacion' datatype='string' name='[id_publicacion]' role='dimension' type='nominal' />
+      <column caption='Id Revista (31-Dim-Revistas.Csv)' datatype='string' name='[id_revista (31-dim-revistas.csv)]' role='dimension' type='nominal' />
+      <column caption='Id Revista' datatype='string' name='[id_revista]' role='dimension' type='nominal' />
+      <column caption='Monto Beca' datatype='integer' name='[monto_beca]' role='measure' type='quantitative' />
+      <column caption='Paginas Promedio' datatype='integer' name='[paginas_promedio]' role='measure' type='quantitative' />
+      <column caption='Pais' datatype='string' name='[pais]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column caption='Porcentaje Beca' datatype='real' name='[porcentaje_beca]' role='measure' type='quantitative' />
+      <column caption='Tipo Revista (31-Dim-Revistas.Csv)' datatype='string' name='[tipo_revista (31-dim-revistas.csv)]' role='dimension' type='nominal' />
+      <column caption='Tipo Revista' datatype='string' name='[tipo_revista]' role='dimension' type='nominal' />
+      <column caption='Volumenes Anuales' datatype='integer' name='[volumenes_anuales]' role='measure' type='quantitative' />
+      <drill-paths>
+        <drill-path name='pais, ciudad'>
+          <field>[pais]</field>
+          <field>[ciudad]</field>
+        </drill-path>
+      </drill-paths>
+      <extract count='-1' enabled='true' object-id='' units='records' user-specific='false'>
+        <connection access_mode='readonly' author-locale='es_ES' class='hyper' dbname='C:/Users/roman/AppData/Local/Temp/TableauTemp/#TableauTemp_0o154t906ywegq0zv7v3o1ulxz85.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='09/25/2026 10:48:19 PM' username='tableau_internal_user'>
+          <relation type='collection'>
+            <relation name='31-dim-instituciones.csv_0AEB5D08DA874C469A409C7AE3B95973' table='[Extract].[31-dim-instituciones.csv_0AEB5D08DA874C469A409C7AE3B95973]' type='table' />
+            <relation name='31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF' table='[Extract].[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF]' type='table' />
+            <relation name='31-dim-revistas.csv_B5ACE2730FEE48F28FA5BECECAA43866' table='[Extract].[31-dim-revistas.csv_B5ACE2730FEE48F28FA5BECECAA43866]' type='table' />
+          </relation>
+          <cols>
+            <map key='[canal_publicacion]' value='[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF].[canal_publicacion]' />
+            <map key='[categoria_institucion]' value='[31-dim-instituciones.csv_0AEB5D08DA874C469A409C7AE3B95973].[categoria_institucion]' />
+            <map key='[categoria_revista]' value='[31-dim-revistas.csv_B5ACE2730FEE48F28FA5BECECAA43866].[categoria_revista]' />
+            <map key='[ciudad (31-dim-revistas.csv)]' value='[31-dim-revistas.csv_B5ACE2730FEE48F28FA5BECECAA43866].[ciudad]' />
+            <map key='[ciudad]' value='[31-dim-instituciones.csv_0AEB5D08DA874C469A409C7AE3B95973].[ciudad]' />
+            <map key='[ciudad_revista]' value='[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF].[ciudad_revista]' />
+            <map key='[costo_apc]' value='[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF].[costo_apc]' />
+            <map key='[costo_base_usd]' value='[31-dim-revistas.csv_B5ACE2730FEE48F28FA5BECECAA43866].[costo_base_usd]' />
+            <map key='[editorial]' value='[31-dim-revistas.csv_B5ACE2730FEE48F28FA5BECECAA43866].[editorial]' />
+            <map key='[fecha_publicacion]' value='[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF].[fecha_publicacion]' />
+            <map key='[id_institucion (31-hechos-publicaciones.csv)]' value='[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF].[id_institucion]' />
+            <map key='[id_institucion]' value='[31-dim-instituciones.csv_0AEB5D08DA874C469A409C7AE3B95973].[id_institucion]' />
+            <map key='[id_publicacion]' value='[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF].[id_publicacion]' />
+            <map key='[id_revista (31-dim-revistas.csv)]' value='[31-dim-revistas.csv_B5ACE2730FEE48F28FA5BECECAA43866].[id_revista]' />
+            <map key='[id_revista]' value='[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF].[id_revista]' />
+            <map key='[monto_beca]' value='[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF].[monto_beca]' />
+            <map key='[paginas_promedio]' value='[31-dim-revistas.csv_B5ACE2730FEE48F28FA5BECECAA43866].[paginas_promedio]' />
+            <map key='[pais]' value='[31-dim-instituciones.csv_0AEB5D08DA874C469A409C7AE3B95973].[pais]' />
+            <map key='[porcentaje_beca]' value='[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF].[porcentaje_beca]' />
+            <map key='[tipo_revista (31-dim-revistas.csv)]' value='[31-dim-revistas.csv_B5ACE2730FEE48F28FA5BECECAA43866].[tipo_revista]' />
+            <map key='[tipo_revista]' value='[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF].[tipo_revista]' />
+            <map key='[volumenes_anuales]' value='[31-dim-revistas.csv_B5ACE2730FEE48F28FA5BECECAA43866].[volumenes_anuales]' />
+          </cols>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>id_institucion</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[id_institucion]</local-name>
+              <parent-name>[31-dim-instituciones.csv_0AEB5D08DA874C469A409C7AE3B95973]</parent-name>
+              <remote-alias>id_institucion</remote-alias>
+              <ordinal>0</ordinal>
+              <family>31-dim-instituciones.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>40</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LES_RES' />
+              <object-id>[31-dim-instituciones.csv_0AEB5D08DA874C469A409C7AE3B95973]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>categoria_institucion</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[categoria_institucion]</local-name>
+              <parent-name>[31-dim-instituciones.csv_0AEB5D08DA874C469A409C7AE3B95973]</parent-name>
+              <remote-alias>categoria_institucion</remote-alias>
+              <ordinal>1</ordinal>
+              <family>31-dim-instituciones.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LES_RES' />
+              <object-id>[31-dim-instituciones.csv_0AEB5D08DA874C469A409C7AE3B95973]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>pais</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[pais]</local-name>
+              <parent-name>[31-dim-instituciones.csv_0AEB5D08DA874C469A409C7AE3B95973]</parent-name>
+              <remote-alias>pais</remote-alias>
+              <ordinal>2</ordinal>
+              <family>31-dim-instituciones.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>6</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LES_RES' />
+              <object-id>[31-dim-instituciones.csv_0AEB5D08DA874C469A409C7AE3B95973]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>ciudad</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[ciudad]</local-name>
+              <parent-name>[31-dim-instituciones.csv_0AEB5D08DA874C469A409C7AE3B95973]</parent-name>
+              <remote-alias>ciudad</remote-alias>
+              <ordinal>3</ordinal>
+              <family>31-dim-instituciones.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>37</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LES_RES' />
+              <object-id>[31-dim-instituciones.csv_0AEB5D08DA874C469A409C7AE3B95973]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>id_publicacion</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[id_publicacion]</local-name>
+              <parent-name>[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF]</parent-name>
+              <remote-alias>id_publicacion</remote-alias>
+              <ordinal>4</ordinal>
+              <family>31-hechos-publicaciones.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>215</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LES_RES' />
+              <object-id>[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>fecha_publicacion</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[fecha_publicacion]</local-name>
+              <parent-name>[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF]</parent-name>
+              <remote-alias>fecha_publicacion</remote-alias>
+              <ordinal>5</ordinal>
+              <family>31-hechos-publicaciones.csv</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>174</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>id_institucion</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[id_institucion (31-hechos-publicaciones.csv)]</local-name>
+              <parent-name>[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF]</parent-name>
+              <remote-alias>id_institucion</remote-alias>
+              <ordinal>6</ordinal>
+              <family>31-hechos-publicaciones.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>40</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LES_RES' />
+              <object-id>[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>id_revista</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[id_revista]</local-name>
+              <parent-name>[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF]</parent-name>
+              <remote-alias>id_revista</remote-alias>
+              <ordinal>7</ordinal>
+              <family>31-hechos-publicaciones.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>12</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LES_RES' />
+              <object-id>[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>ciudad_revista</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[ciudad_revista]</local-name>
+              <parent-name>[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF]</parent-name>
+              <remote-alias>ciudad_revista</remote-alias>
+              <ordinal>8</ordinal>
+              <family>31-hechos-publicaciones.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>11</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LES_RES' />
+              <object-id>[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>costo_apc</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[costo_apc]</local-name>
+              <parent-name>[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF]</parent-name>
+              <remote-alias>costo_apc</remote-alias>
+              <ordinal>9</ordinal>
+              <family>31-hechos-publicaciones.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>208</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>tipo_revista</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[tipo_revista]</local-name>
+              <parent-name>[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF]</parent-name>
+              <remote-alias>tipo_revista</remote-alias>
+              <ordinal>10</ordinal>
+              <family>31-hechos-publicaciones.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LES_RES' />
+              <object-id>[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>canal_publicacion</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[canal_publicacion]</local-name>
+              <parent-name>[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF]</parent-name>
+              <remote-alias>canal_publicacion</remote-alias>
+              <ordinal>11</ordinal>
+              <family>31-hechos-publicaciones.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LES_RES' />
+              <object-id>[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>porcentaje_beca</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[porcentaje_beca]</local-name>
+              <parent-name>[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF]</parent-name>
+              <remote-alias>porcentaje_beca</remote-alias>
+              <ordinal>12</ordinal>
+              <family>31-hechos-publicaciones.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>212</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>monto_beca</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[monto_beca]</local-name>
+              <parent-name>[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF]</parent-name>
+              <remote-alias>monto_beca</remote-alias>
+              <ordinal>13</ordinal>
+              <family>31-hechos-publicaciones.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>199</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>id_revista</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[id_revista (31-dim-revistas.csv)]</local-name>
+              <parent-name>[31-dim-revistas.csv_B5ACE2730FEE48F28FA5BECECAA43866]</parent-name>
+              <remote-alias>id_revista</remote-alias>
+              <ordinal>14</ordinal>
+              <family>31-dim-revistas.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>12</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LES_RES' />
+              <object-id>[31-dim-revistas.csv_B5ACE2730FEE48F28FA5BECECAA43866]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>tipo_revista</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[tipo_revista (31-dim-revistas.csv)]</local-name>
+              <parent-name>[31-dim-revistas.csv_B5ACE2730FEE48F28FA5BECECAA43866]</parent-name>
+              <remote-alias>tipo_revista</remote-alias>
+              <ordinal>15</ordinal>
+              <family>31-dim-revistas.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LES_RES' />
+              <object-id>[31-dim-revistas.csv_B5ACE2730FEE48F28FA5BECECAA43866]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>ciudad</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[ciudad (31-dim-revistas.csv)]</local-name>
+              <parent-name>[31-dim-revistas.csv_B5ACE2730FEE48F28FA5BECECAA43866]</parent-name>
+              <remote-alias>ciudad</remote-alias>
+              <ordinal>16</ordinal>
+              <family>31-dim-revistas.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>11</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LES_RES' />
+              <object-id>[31-dim-revistas.csv_B5ACE2730FEE48F28FA5BECECAA43866]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>editorial</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[editorial]</local-name>
+              <parent-name>[31-dim-revistas.csv_B5ACE2730FEE48F28FA5BECECAA43866]</parent-name>
+              <remote-alias>editorial</remote-alias>
+              <ordinal>17</ordinal>
+              <family>31-dim-revistas.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>7</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LES_RES' />
+              <object-id>[31-dim-revistas.csv_B5ACE2730FEE48F28FA5BECECAA43866]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>volumenes_anuales</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[volumenes_anuales]</local-name>
+              <parent-name>[31-dim-revistas.csv_B5ACE2730FEE48F28FA5BECECAA43866]</parent-name>
+              <remote-alias>volumenes_anuales</remote-alias>
+              <ordinal>18</ordinal>
+              <family>31-dim-revistas.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>8</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[31-dim-revistas.csv_B5ACE2730FEE48F28FA5BECECAA43866]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>paginas_promedio</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[paginas_promedio]</local-name>
+              <parent-name>[31-dim-revistas.csv_B5ACE2730FEE48F28FA5BECECAA43866]</parent-name>
+              <remote-alias>paginas_promedio</remote-alias>
+              <ordinal>19</ordinal>
+              <family>31-dim-revistas.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>10</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[31-dim-revistas.csv_B5ACE2730FEE48F28FA5BECECAA43866]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>costo_base_usd</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[costo_base_usd]</local-name>
+              <parent-name>[31-dim-revistas.csv_B5ACE2730FEE48F28FA5BECECAA43866]</parent-name>
+              <remote-alias>costo_base_usd</remote-alias>
+              <ordinal>20</ordinal>
+              <family>31-dim-revistas.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>12</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[31-dim-revistas.csv_B5ACE2730FEE48F28FA5BECECAA43866]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>categoria_revista</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[categoria_revista]</local-name>
+              <parent-name>[31-dim-revistas.csv_B5ACE2730FEE48F28FA5BECECAA43866]</parent-name>
+              <remote-alias>categoria_revista</remote-alias>
+              <ordinal>21</ordinal>
+              <family>31-dim-revistas.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LES_RES' />
+              <object-id>[31-dim-revistas.csv_B5ACE2730FEE48F28FA5BECECAA43866]</object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Estados Unidos Mexicanos&quot;' />
+      </semantic-values>
+      <object-graph>
+        <objects>
+          <object caption='31-dim-instituciones.csv' id='31-dim-instituciones.csv_0AEB5D08DA874C469A409C7AE3B95973'>
+            <properties context=''>
+              <relation connection='textscan.1mdngl31fh1bjv15rtjat1vx8cqe' name='31-dim-instituciones.csv' table='[31-dim-instituciones#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='es_MX' separator=','>
+                  <column datatype='string' name='id_institucion' ordinal='0' />
+                  <column datatype='string' name='categoria_institucion' ordinal='1' />
+                  <column datatype='string' name='pais' ordinal='2' />
+                  <column datatype='string' name='ciudad' ordinal='3' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='31-dim-instituciones.csv_0AEB5D08DA874C469A409C7AE3B95973' table='[Extract].[31-dim-instituciones.csv_0AEB5D08DA874C469A409C7AE3B95973]' type='table' />
+            </properties>
+          </object>
+          <object caption='31-dim-revistas.csv' id='31-dim-revistas.csv_B5ACE2730FEE48F28FA5BECECAA43866'>
+            <properties context=''>
+              <relation connection='textscan.1mdngl31fh1bjv15rtjat1vx8cqe' name='31-dim-revistas.csv' table='[31-dim-revistas#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='es_MX' separator=','>
+                  <column datatype='string' name='id_revista' ordinal='0' />
+                  <column datatype='string' name='tipo_revista' ordinal='1' />
+                  <column datatype='string' name='ciudad' ordinal='2' />
+                  <column datatype='string' name='editorial' ordinal='3' />
+                  <column datatype='integer' name='volumenes_anuales' ordinal='4' />
+                  <column datatype='integer' name='paginas_promedio' ordinal='5' />
+                  <column datatype='integer' name='costo_base_usd' ordinal='6' />
+                  <column datatype='string' name='categoria_revista' ordinal='7' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='31-dim-revistas.csv_B5ACE2730FEE48F28FA5BECECAA43866' table='[Extract].[31-dim-revistas.csv_B5ACE2730FEE48F28FA5BECECAA43866]' type='table' />
+            </properties>
+          </object>
+          <object caption='31-hechos-publicaciones.csv' id='31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF'>
+            <properties context=''>
+              <relation connection='textscan.1mdngl31fh1bjv15rtjat1vx8cqe' name='31-hechos-publicaciones.csv' table='[31-hechos-publicaciones#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='es_MX' separator=','>
+                  <column datatype='string' name='id_publicacion' ordinal='0' />
+                  <column datatype='date' name='fecha_publicacion' ordinal='1' />
+                  <column datatype='string' name='id_institucion' ordinal='2' />
+                  <column datatype='string' name='id_revista' ordinal='3' />
+                  <column datatype='string' name='ciudad_revista' ordinal='4' />
+                  <column datatype='integer' name='costo_apc' ordinal='5' />
+                  <column datatype='string' name='tipo_revista' ordinal='6' />
+                  <column datatype='string' name='canal_publicacion' ordinal='7' />
+                  <column datatype='real' name='porcentaje_beca' ordinal='8' />
+                  <column datatype='integer' name='monto_beca' ordinal='9' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF' table='[Extract].[31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF]' type='table' />
+            </properties>
+          </object>
+        </objects>
+        <relationships>
+          <relationship>
+            <expression op='='>
+              <expression op='[id_revista]' />
+              <expression op='[id_revista (31-dim-revistas.csv)]' />
+            </expression>
+            <first-end-point object-id='31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF' />
+            <second-end-point object-id='31-dim-revistas.csv_B5ACE2730FEE48F28FA5BECECAA43866' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[id_institucion]' />
+              <expression op='[id_institucion (31-hechos-publicaciones.csv)]' />
+            </expression>
+            <first-end-point object-id='31-dim-instituciones.csv_0AEB5D08DA874C469A409C7AE3B95973' />
+            <second-end-point object-id='31-hechos-publicaciones.csv_C004BC263E134B51954D5DD40763E5EF' />
+          </relationship>
+        </relationships>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Cantidad de publicaciones'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='31-dim-instituciones+' name='federated.18kzs5l0o4soa710h5fv00qe1x79' />
+          </datasources>
+          <datasource-dependencies datasource='federated.18kzs5l0o4soa710h5fv00qe1x79'>
+            <column caption='Cantidad de Publicaciones' datatype='integer' name='[Calculation_3255428170113024]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='COUNTD([id_publicacion])' />
+            </column>
+            <column caption='Inversión APC total' datatype='integer' name='[Calculation_3255428170362882]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='SUM([costo_apc])' />
+            </column>
+            <column caption='Costo Apc' datatype='integer' name='[costo_apc]' role='measure' type='quantitative' />
+            <column caption='Fecha Publicacion' datatype='date' name='[fecha_publicacion]' role='dimension' type='ordinal' />
+            <column caption='Id Publicacion' datatype='string' name='[id_publicacion]' role='dimension' type='nominal' />
+            <column-instance column='[fecha_publicacion]' derivation='Month-Trunc' name='[tmn:fecha_publicacion:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_3255428170113024]' derivation='User' name='[usr:Calculation_3255428170113024:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_3255428170362882]' derivation='User' name='[usr:Calculation_3255428170362882:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.18kzs5l0o4soa710h5fv00qe1x79].[usr:Calculation_3255428170362882:qk]' field-type='quantitative' fold='true' scope='rows' type='space' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.18kzs5l0o4soa710h5fv00qe1x79].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.18kzs5l0o4soa710h5fv00qe1x79].[usr:Calculation_3255428170113024:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.18kzs5l0o4soa710h5fv00qe1x79].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.18kzs5l0o4soa710h5fv00qe1x79].[usr:Calculation_3255428170362882:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.18kzs5l0o4soa710h5fv00qe1x79].[:Measure Names]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>([federated.18kzs5l0o4soa710h5fv00qe1x79].[usr:Calculation_3255428170113024:qk] + [federated.18kzs5l0o4soa710h5fv00qe1x79].[usr:Calculation_3255428170362882:qk])</rows>
+        <cols>[federated.18kzs5l0o4soa710h5fv00qe1x79].[tmn:fecha_publicacion:qk]</cols>
+      </table>
+      <simple-id uuid='{38AF3C51-4F8A-4EDA-BF58-AF32AC86A2B8}' />
+    </worksheet>
+    <worksheet name='Metricas'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='31-dim-instituciones+' name='federated.18kzs5l0o4soa710h5fv00qe1x79' />
+          </datasources>
+          <datasource-dependencies datasource='federated.18kzs5l0o4soa710h5fv00qe1x79'>
+            <column caption='Cantidad de Publicaciones' datatype='integer' name='[Calculation_3255428170113024]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='COUNTD([id_publicacion])' />
+            </column>
+            <column caption='Cantidad de instituciones apoyadas' datatype='integer' name='[Calculation_3255428170223617]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='COUNTD([id_institucion (31-hechos-publicaciones.csv)])' />
+            </column>
+            <column caption='Inversión APC total' datatype='integer' name='[Calculation_3255428170362882]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='SUM([costo_apc])' />
+            </column>
+            <column caption='Monto total  de becas' datatype='integer' name='[Calculation_3255428170502147]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='SUM([monto_beca])' />
+            </column>
+            <column caption='Costo Apc' datatype='integer' name='[costo_apc]' role='measure' type='quantitative' />
+            <column caption='Id Institucion (31-Hechos-Publicaciones.Csv)' datatype='string' name='[id_institucion (31-hechos-publicaciones.csv)]' role='dimension' type='nominal' />
+            <column caption='Id Publicacion' datatype='string' name='[id_publicacion]' role='dimension' type='nominal' />
+            <column caption='Monto Beca' datatype='integer' name='[monto_beca]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_3255428170113024]' derivation='User' name='[usr:Calculation_3255428170113024:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_3255428170223617]' derivation='User' name='[usr:Calculation_3255428170223617:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_3255428170362882]' derivation='User' name='[usr:Calculation_3255428170362882:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_3255428170502147]' derivation='User' name='[usr:Calculation_3255428170502147:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.18kzs5l0o4soa710h5fv00qe1x79].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.18kzs5l0o4soa710h5fv00qe1x79].[usr:Calculation_3255428170113024:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.18kzs5l0o4soa710h5fv00qe1x79].[usr:Calculation_3255428170223617:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.18kzs5l0o4soa710h5fv00qe1x79].[usr:Calculation_3255428170362882:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.18kzs5l0o4soa710h5fv00qe1x79].[usr:Calculation_3255428170502147:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.18kzs5l0o4soa710h5fv00qe1x79].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.18kzs5l0o4soa710h5fv00qe1x79].[:Measure Names]' value='197' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.18kzs5l0o4soa710h5fv00qe1x79].[Multiple Values]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols>[federated.18kzs5l0o4soa710h5fv00qe1x79].[:Measure Names]</cols>
+      </table>
+      <simple-id uuid='{977C0145-AF27-4D23-BF76-1F039A211915}' />
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' name='Metricas'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='61'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.18kzs5l0o4soa710h5fv00qe1x79].[:Measure Names]</field>
+            <field>[federated.18kzs5l0o4soa710h5fv00qe1x79].[none:id_institucion (31-hechos-publicaciones.csv):nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{DB0DB4B0-E8DD-4F9D-B318-A51CABFB7334}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Cantidad de publicaciones'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='175'>
+            <card pane-specification-id='1' param='[federated.18kzs5l0o4soa710h5fv00qe1x79].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.18kzs5l0o4soa710h5fv00qe1x79].[:Measure Names]</field>
+            <field>[federated.18kzs5l0o4soa710h5fv00qe1x79].[yr:fecha_publicacion:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{EA3AC1E7-864C-45ED-8255-41A8F810B4DE}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Cantidad de publicaciones' width='192'>
+      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
+      AAAAAElFTkSuQmCC
+    </thumbnail>
+    <thumbnail height='64' name='Metricas' width='192'>
+      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
+    </thumbnail>
+  </thumbnails>
+</workbook>
