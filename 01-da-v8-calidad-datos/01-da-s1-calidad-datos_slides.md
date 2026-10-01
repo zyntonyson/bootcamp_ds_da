@@ -48,18 +48,6 @@ Si necesitas ayuda o quieres conectar, ¡escríbeme sin problema! 🤝
 
 ---
 
-
-@gotocode{title_transition: "Y ahora, ¿tú eres?😎🪪"}
-
-# Tomemos un momento para conocernos
-
-
-
-* [Unéte a Mentimeter y comparte con nosotros](../img/qrs/01-onboarding-menti.png)
-
-
----
-
 @include{path="content-sprint.md"}
 
 ---
