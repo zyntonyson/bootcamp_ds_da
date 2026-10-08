@@ -1,0 +1,2615 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Sprint 1 Sesión 1 · Rol del Data Analyst, exploración inicial y limpieza básica</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&amp;display=swap"
+        rel="stylesheet" />
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+        };
+    </script>
+    <script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css"
+        rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <style>
+        :root {
+            --color-orange: #F2855A;
+            --color-green: #66B37D;
+            --color-light-gray: #F2F2F2;
+            --color-dark-mode: #111111;
+            --color-black: #0A0A0A;
+            --color-dark-gray-1: #333333;
+            --color-dark-gray-2: #5F5F5F;
+            --color-white-soft: #F5F5F5;
+            --font-main: 'Montserrat', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--font-main);
+            overflow: hidden;
+        }
+
+        .presentation {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            box-sizing: border-box;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.6s ease-in-out, visibility 0.6s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            z-index: 1;
+        }
+
+        .slide h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .slide h2 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin: 0;
+        }
+
+        .slide-countdown {
+            background-color: var(--color-orange);
+            color: var(--color-black);
+        }
+
+        .slide-countdown h2 {
+            color: var(--color-dark-gray-2);
+        }
+
+        .slide-countdown .timer {
+            font-size: 5rem;
+            font-weight: 300;
+            letter-spacing: 5px;
+            margin: 1.5rem 0;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .slide-countdown .start-message {
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: none;
+        }
+
+        .bouncing-logo-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .bouncing-logo {
+            position: absolute;
+            width: 250px;
+            opacity: 0.15;
+            animation: bounceX 13s linear infinite alternate, bounceY 9s linear infinite alternate;
+        }
+
+        @keyframes bounceX {
+            0% {
+                left: 0;
+            }
+
+            100% {
+                left: calc(100vw - 250px);
+            }
+        }
+
+        @keyframes bounceY {
+            0% {
+                top: 0;
+            }
+
+            100% {
+                top: calc(100vh - 75px);
+            }
+        }
+
+        .traffic-logo-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .traffic-logo-img {
+            position: absolute;
+            width: 220px;
+            opacity: 0.15;
+            left: -250px;
+            transform: translateY(-50%);
+        }
+
+        @keyframes driveRight {
+            0% {
+                transform: translateY(-50%) translateX(0);
+            }
+
+            100% {
+                transform: translateY(-50%) translateX(calc(100vw + 500px));
+            }
+        }
+
+        .slide-transition {
+            background-color: var(--color-green);
+            color: var(--color-black);
+        }
+
+        .slide-warnup-mood {
+            background-color: var(--color-green);
+            color: var(--color-black);
+            justify-content: center;
+            position: relative;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 2rem 4rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .slide-warnup-mood h1,
+        .slide-warnup-mood h2 {
+            font-weight: bold;
+        }
+
+        .emoji-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .emoji {
+            position: absolute;
+            top: -10%;
+            font-size: 2rem;
+            animation: fall 10s linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0);
+            }
+
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+            }
+        }
+
+        .slide-agenda,
+        .slide-warnup-question,
+        .slide-basic_slide,
+        .slide-two_columns_slide {
+            background-color: var(--color-light-gray);
+            color: var(--color-black);
+        }
+
+        .slide-agenda .content-wrapper,
+        .slide-basic_slide .content-wrapper,
+        .slide-two_columns_slide .content-wrapper {
+            width: 90%;
+            text-align: left;
+            overflow-y: auto;
+            max-height: 85vh;
+            padding: 2rem 3rem;
+        }
+
+        .slide-basic_slide .content-wrapper img,
+        .slide-two_columns_slide .content-wrapper img {
+            max-width: 100%;
+            border-radius: 10px;
+            display: block;
+            margin: 1rem auto;
+            padding: 0;
+        }
+
+        .slide-basic_slide .content-wrapper p,
+        .slide-basic_slide .content-wrapper ul,
+        .slide-basic_slide .content-wrapper ol,
+        .slide-two_columns_slide .content-wrapper p,
+        .slide-two_columns_slide .content-wrapper ul,
+        .slide-two_columns_slide .content-wrapper ol {
+            font-size: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .slide-basic_slide .content-wrapper ul,
+        .slide-basic_slide .content-wrapper ol,
+        .slide-two_columns_slide .content-wrapper ul,
+        .slide-two_columns_slide .content-wrapper ol {
+            padding-left: 3rem;
+        }
+
+        .slide-two_columns_slide .column-left {
+            padding-right: 2rem;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .slide-two_columns_slide .column-right {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .slide-two_columns_slide .column-right img {
+            width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+        }
+
+        .slide-agenda h1 {
+            color: var(--color-black);
+            margin-bottom: 1.5rem;
+        }
+
+        .slide-agenda ul {
+            list-style: none;
+            padding: 0;
+            font-size: 1.5rem;
+        }
+
+        .slide-agenda li {
+            margin: 0.8rem 0;
+        }
+
+        .slide-agenda li strong {
+            color: var(--color-black);
+        }
+
+        .slide-agenda li span {
+            color: var(--color-dark-gray-1);
+            margin-left: 1rem;
+        }
+
+        .two-column-layout {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            gap: 2rem;
+        }
+
+        .column-left {
+            width: 50%;
+            text-align: left;
+        }
+
+        .column-right {
+            width: 50%;
+        }
+
+        .column-right img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .slide-objectives {
+            background-color: var(--color-light-gray);
+            color: var(--color-black);
+        }
+
+        .slide-objectives .content-wrapper {
+            padding: 3rem;
+            text-align: center;
+            width: 95%;
+            max-width: 1600px;
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+
+        .slide-objectives .objectives-container>ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+            width: 100%;
+        }
+
+        .slide-objectives .objectives-container>ul>li {
+            background-color: var(--color-light-gray);
+            color: var(--color-dark-gray-1);
+            padding: 2.5rem;
+            border-radius: 15px;
+            flex: 1;
+            min-width: 300px;
+            max-width: 480px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            font-size: 1.3rem;
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-objectives .objectives-container>ul>li p {
+            margin: 0;
+        }
+
+        .slide-objectives .objectives-container img {
+            max-width: 100%;
+            max-height: 100px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto 1rem auto;
+        }
+
+        .slide-objectives .objectives-container>ul>li>ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .slide-objectives .objectives-container>ul>li>ul>li {
+            position: relative;
+            padding-left: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: var(--color-dark-gray-2);
+        }
+
+        .slide-objectives .objectives-container>ul>li>ul>li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--color-green);
+            font-weight: bold;
+        }
+
+        .slide-objectives h1 {
+            color: var(--color-black);
+            margin-bottom: 1rem;
+        }
+
+        .slide-overlay {
+            background-color: var(--color-black);
+            color: var(--color-white-soft);
+        }
+
+        .slide-overlay h1,
+        .slide-overlay h2 {
+            color: var(--color-white-soft);
+            margin-bottom: 0.5rem;
+        }
+
+        .slide-overlay p {
+            font-size: 3rem;
+            font-weight: 500;
+            margin: 1rem 0;
+            line-height: 1.4;
+            color: var(--color-white-soft);
+            text-align: center;
+        }
+
+        .slide-gotocode {
+            background-color: var(--color-dark-mode);
+            color: var(--color-white-soft);
+        }
+
+        .slide-finale {
+            background-color: var(--color-orange);
+            color: var(--color-black);
+        }
+
+        .slide-finale h2 {
+            color: var(--color-dark-gray-2);
+        }
+
+        .slide-gotocode a {
+            color: var(--color-white-soft);
+        }
+
+        .slide-gotocode .qr-container {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .slide-gotocode .qr-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .slide-gotocode .qr-item img {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+        }
+
+        #transition-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+            background-color: var(--color-green);
+            color: var(--color-black);
+        }
+
+        #transition-overlay h1 {
+            color: var(--color-black);
+            margin-bottom: 0;
+        }
+
+        #transition-overlay .content-wrapper {
+            width: 90%;
+            text-align: left;
+            padding: 2rem 3rem;
+        }
+
+        #transition-overlay.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .slide-nav {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            display: flex;
+            gap: 10px;
+        }
+
+        .slide-nav button {
+            background: rgba(128, 128, 128, 0.5);
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: background 0.3s;
+        }
+
+        .slide-nav button:hover {
+            background: rgba(128, 128, 128, 0.9);
+        }
+
+        .slide-menu {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 200;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .slide-menu.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .slide-menu-content {
+            background: var(--color-light-gray);
+            padding: 3rem;
+            border-radius: 15px;
+            width: 80%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            color: var(--color-black);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .slide-menu-content h2 {
+            margin-top: 0;
+            border-bottom: 2px solid var(--color-dark-gray-1);
+            padding-bottom: 1rem;
+            color: var(--color-black);
+        }
+
+        .close-menu {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 2.5rem;
+            cursor: pointer;
+            color: var(--color-dark-gray-2);
+            transition: color 0.3s;
+        }
+
+        .close-menu:hover {
+            color: var(--color-orange);
+        }
+
+        .slide-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .slide-list li {
+            margin: 0.5rem 0;
+        }
+
+        .menu-jump-btn {
+            width: 100%;
+            text-align: left;
+            background: var(--color-white-soft);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            font-family: var(--font-main);
+            color: var(--color-dark-gray-1);
+        }
+
+        .menu-jump-btn:hover {
+            background: var(--color-orange);
+            color: var(--color-black);
+            transform: translateX(5px);
+        }
+
+        .company-logo {
+            position: absolute;
+            top: 30px;
+            left: 40px;
+            max-height: 60px;
+            opacity: 0;
+            z-index: 50;
+            pointer-events: none;
+        }
+
+        .slide-countdown .company-logo,
+        .slide-warnup-mood .company-logo,
+        .slide-finale .company-logo,
+        .slide-overlay .company-logo {
+            display: none !important;
+            animation: none !important;
+        }
+
+        .slide.active .company-logo {
+            animation: showAndHideLogo 4s ease-in-out forwards;
+        }
+
+        @keyframes showAndHideLogo {
+            0% {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            10% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            80% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+        }
+
+        .quiz-container {
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+            max-width: 1000px;
+            padding: 3rem;
+            align-items: stretch;
+            text-align: left;
+            overflow-y: auto;
+            max-height: 85vh;
+        }
+
+        .quiz-container h1,
+        .quiz-container h2 {
+            text-align: center;
+        }
+
+        .quiz-intro {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--color-dark-gray-1);
+        }
+
+        .quiz-start-btn,
+        .quiz-next-btn {
+            align-self: center;
+            background: var(--color-orange);
+            border: none;
+            color: var(--color-black);
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 1rem 3rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            margin-top: 2rem;
+        }
+
+        .quiz-start-btn:hover,
+        .quiz-next-btn:hover,
+        .quiz-show-answer-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: var(--color-dark-gray-2);
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+            padding-bottom: 10px;
+        }
+
+        .quiz-timer {
+            color: #d9534f;
+        }
+
+        .quiz-question-box {
+            font-size: 1.8rem;
+            margin: 1.5rem 0;
+            font-weight: 700;
+            color: var(--color-black);
+        }
+
+        .quiz-question-box p {
+            margin: 0;
+        }
+
+        .quiz-question-box img {
+            max-width: 100%;
+            border-radius: 10px;
+            max-height: 350px;
+            object-fit: contain;
+            display: block;
+            margin: 15px auto;
+        }
+
+        .quiz-options-box {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            perspective: 1000px;
+        }
+
+        .quiz-option-card {
+            background: var(--color-white-soft);
+            border: 2px solid var(--color-light-gray);
+            text-align: left;
+            padding: 1rem 1.5rem;
+            font-size: 1.4rem;
+            border-radius: 10px;
+            transition: all 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+            font-family: var(--font-main);
+            color: var(--color-dark-gray-1);
+            transform-style: preserve-3d;
+        }
+
+        .quiz-option-card p {
+            margin: 0;
+        }
+
+        .quiz-option-card.flip-correct {
+            background: #d4edda;
+            border-color: #28a745;
+            color: #155724;
+            transform: rotateX(360deg);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+        }
+
+        .quiz-option-card.fade-out {
+            opacity: 0.4;
+            filter: grayscale(100%);
+        }
+
+        .quiz-feedback-box {
+            margin-top: 2rem;
+            background: rgba(0, 0, 0, 0.05);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 5px solid var(--color-orange);
+            font-size: 1.3rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .quiz-feedback-box.show {
+            opacity: 1;
+            transform: translateY(0);
+            display: block;
+        }
+
+        .quiz-nav-menu {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .quiz-nav-dot {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.1);
+            color: var(--color-dark-gray-2);
+            border: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .quiz-nav-dot:hover {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .quiz-nav-dot.active {
+            background: var(--color-orange);
+            color: var(--color-black);
+            transform: scale(1.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .quiz-intro {
+            transition: opacity 0.5s, transform 0.5s;
+        }
+
+        .quiz-ui {
+            transition: opacity 0.5s, transform 0.5s;
+        }
+
+        .slide-quizz .content-wrapper {
+            overflow-x: hidden;
+        }
+
+        pre {
+            border-radius: 8px;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 1.2rem;
+            color: var(--color-dark-gray-1);
+        }
+
+        th,
+        td {
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--color-light-gray);
+            font-weight: bold;
+            color: var(--color-black);
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+
+        .slide-overlay table,
+        .slide-gotocode table {
+            color: var(--color-white-soft);
+        }
+
+        .slide-overlay th,
+        .slide-gotocode th {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--color-white-soft);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .slide-overlay td,
+        .slide-gotocode td {
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .slide-overlay tr:nth-child(even),
+        .slide-gotocode tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Ajustes agregados para convertir notebooks en presentaciones de clase */
+        .slide-basic_slide .content-wrapper h1,
+        .slide-agenda .content-wrapper h1,
+        .slide-objectives .content-wrapper h1 {
+            font-size: 2.55rem;
+            margin-bottom: 1.1rem;
+        }
+
+        .slide-basic_slide .content-wrapper h2,
+        .slide-agenda .content-wrapper h2,
+        .slide-objectives .content-wrapper h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 1rem 0 0.6rem 0;
+            color: var(--color-black);
+        }
+
+        .slide-basic_slide .content-wrapper h3,
+        .slide-agenda .content-wrapper h3,
+        .slide-objectives .content-wrapper h3 {
+            font-size: 1.45rem;
+            font-weight: 700;
+            margin: 0.9rem 0 0.4rem 0;
+            color: var(--color-dark-gray-1);
+        }
+
+        .slide-basic_slide .content-wrapper p,
+        .slide-basic_slide .content-wrapper li,
+        .slide-agenda .content-wrapper p,
+        .slide-agenda .content-wrapper li,
+        .slide-objectives .content-wrapper p,
+        .slide-objectives .content-wrapper li {
+            font-size: 1.28rem;
+            line-height: 1.5;
+        }
+
+        .slide-basic_slide .content-wrapper table,
+        .slide-agenda .content-wrapper table,
+        .slide-objectives .content-wrapper table {
+            font-size: 1.03rem;
+        }
+
+        .slide-basic_slide .content-wrapper th,
+        .slide-basic_slide .content-wrapper td,
+        .slide-agenda .content-wrapper th,
+        .slide-agenda .content-wrapper td,
+        .slide-objectives .content-wrapper th,
+        .slide-objectives .content-wrapper td {
+            padding: 0.65rem;
+            vertical-align: top;
+        }
+
+        .content-wrapper code {
+            background: rgba(0, 0, 0, 0.08);
+            padding: 0.08rem 0.28rem;
+            border-radius: 5px;
+        }
+
+        .content-wrapper pre code {
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+        }
+
+        .content-wrapper pre {
+            max-height: 42vh;
+            overflow: auto;
+        }
+
+        .content-wrapper blockquote {
+            border-left: 6px solid var(--color-orange);
+            margin: 1rem 0;
+            padding: 0.8rem 1.2rem;
+            background: rgba(255, 255, 255, 0.45);
+            border-radius: 8px;
+        }
+
+        .class-moment {
+            display: inline-block;
+            background: var(--color-green);
+            color: var(--color-black);
+            padding: 0.35rem 0.8rem;
+            border-radius: 999px;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+        }
+
+        .slide-overlay .content-wrapper {
+            background: transparent;
+            box-shadow: none;
+            border: none;
+            text-align: center;
+        }
+
+        .slide-overlay .content-wrapper p {
+            font-size: 1.6rem;
+        }
+
+        .quiz-show-answer-btn {
+            align-self: center;
+            background: var(--color-green);
+            border: none;
+            color: var(--color-black);
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 0.8rem 2rem;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .session-tag {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--color-dark-gray-2);
+            z-index: 2;
+        }
+
+
+        /* Ajustes solicitados: reglas persistentes, respuestas separadas y jerarquía visual */
+        .slide-objectives .content-wrapper,
+        .slide-objectives .objectives-container,
+        .slide-objectives .objectives-container>p,
+        .slide-objectives .objectives-container>ol {
+            text-align: left !important;
+        }
+
+        .slide-objectives .objectives-container>ol {
+            padding-left: 2rem;
+        }
+
+        .class-rules-footer {
+            position: absolute;
+            left: 22px;
+            right: 285px;
+            bottom: 12px;
+            z-index: 60;
+            padding: 0.55rem 0.85rem;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.90);
+            color: var(--color-dark-gray-1);
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+            font-size: 0.82rem;
+            line-height: 1.25;
+            font-weight: 700;
+            text-align: left;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .slide-gotocode .class-rules-footer,
+        .slide-overlay .class-rules-footer {
+            background: rgba(245, 245, 245, 0.94);
+            color: var(--color-black);
+        }
+
+        .slide-countdown .dynamic-date {
+            bottom: 62px !important;
+        }
+
+        .slide-basic_slide .content-wrapper,
+        .slide-agenda .content-wrapper,
+        .slide-objectives .content-wrapper,
+        .slide-quizz .content-wrapper {
+            max-height: 78vh;
+        }
+
+        .slide-basic_slide .content-wrapper>h1,
+        .slide-agenda .content-wrapper>h1,
+        .slide-objectives .content-wrapper>h1 {
+            border-left: 8px solid var(--color-orange);
+            padding-left: 1rem;
+        }
+
+        .answer-reveal-section {
+            margin-top: 42vh !important;
+            padding-top: 2rem;
+            border-top: 3px dashed rgba(242, 133, 90, 0.75);
+        }
+
+        .answer-reveal-section::before {
+            content: "Desplázate para revelar la respuesta";
+            display: block;
+            margin-bottom: 1rem;
+            color: var(--color-dark-gray-2);
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+
+        .project-checkpoint {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            background: rgba(102, 179, 125, 0.16);
+            border-left: 6px solid var(--color-green);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="presentation">
+        <div id="transition-overlay">
+            <div class="content-wrapper">
+                <h1></h1>
+            </div>
+        </div>
+        <div class="slide slide-countdown" data-timer="300" data-transition-title="¡Comenzamos en breve!"
+            data-type="countdown" id="slide-0">
+            <img alt="Logo" class="company-logo"
+                src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" />
+            <div class="traffic-logo-container"><img class="traffic-logo-img"
+                    src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png"
+                    style="top: 15%; animation: driveRight 24.00s linear -0.00s infinite;" /><img
+                    class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png"
+                    style="top: 15%; animation: driveRight 24.00s linear -8.00s infinite;" /><img
+                    class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png"
+                    style="top: 15%; animation: driveRight 24.00s linear -16.00s infinite;" /><img
+                    class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png"
+                    style="top: 35%; animation: driveRight 27.00s linear -0.00s infinite;" /><img
+                    class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png"
+                    style="top: 35%; animation: driveRight 27.00s linear -6.75s infinite;" /><img
+                    class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png"
+                    style="top: 35%; animation: driveRight 27.00s linear -13.50s infinite;" /><img
+                    class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png"
+                    style="top: 35%; animation: driveRight 27.00s linear -20.25s infinite;" /><img
+                    class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png"
+                    style="top: 55%; animation: driveRight 30.00s linear -0.00s infinite;" /><img
+                    class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png"
+                    style="top: 55%; animation: driveRight 30.00s linear -10.00s infinite;" /><img
+                    class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png"
+                    style="top: 55%; animation: driveRight 30.00s linear -20.00s infinite;" /><img
+                    class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png"
+                    style="top: 75%; animation: driveRight 33.00s linear -0.00s infinite;" /><img
+                    class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png"
+                    style="top: 75%; animation: driveRight 33.00s linear -8.25s infinite;" /><img
+                    class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png"
+                    style="top: 75%; animation: driveRight 33.00s linear -16.50s infinite;" /><img
+                    class="traffic-logo-img" src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png"
+                    style="top: 75%; animation: driveRight 33.00s linear -24.75s infinite;" /></div>
+            <div class="content-wrapper">
+                <h1>Sprint 1 Sesión 1</h1>
+                <h2>Rol del Data Analyst, exploración inicial y limpieza básica</h2>
+                <div class="timer">--:--</div>
+                <div class="start-message">¡Comenzamos!</div>
+                <p></p>
+            </div>
+            <div class="dynamic-date"
+                style="position: absolute; bottom: 30px; left: 40px; font-size: 1.5rem; font-weight: bold; color: var(--color-black); z-index: 1;">
+            </div>
+            <div class="class-rules-footer">🙋 Levanta la mano antes de participar · 💬 Participa por voz o chat · 🛠️
+                Mantén Sheets y Colab abiertos · 🆘 Pregunta en cuanto te sientas perdido/a</div>
+        </div>
+        <div class="slide slide-warnup-mood" data-transition-title="Midamos los ánimos" data-type="warnup-mood"
+            id="slide-1">
+            <div class="emoji-container"><span class="emoji"
+                    style="left:0%; animation-delay:0.00s; animation-duration:8s; font-size:1.50rem;">📊</span><span
+                    class="emoji"
+                    style="left:13%; animation-delay:-0.55s; animation-duration:9s; font-size:1.68rem;">🧹</span><span
+                    class="emoji"
+                    style="left:26%; animation-delay:-1.10s; animation-duration:10s; font-size:1.86rem;">🗂️</span><span
+                    class="emoji"
+                    style="left:39%; animation-delay:-1.65s; animation-duration:11s; font-size:2.04rem;">✅</span><span
+                    class="emoji"
+                    style="left:52%; animation-delay:-2.20s; animation-duration:12s; font-size:2.22rem;">📈</span><span
+                    class="emoji"
+                    style="left:65%; animation-delay:-2.75s; animation-duration:13s; font-size:1.50rem;">🧠</span><span
+                    class="emoji"
+                    style="left:78%; animation-delay:-3.30s; animation-duration:8s; font-size:1.68rem;">🔎</span><span
+                    class="emoji"
+                    style="left:91%; animation-delay:-3.85s; animation-duration:9s; font-size:1.86rem;">📝</span><span
+                    class="emoji"
+                    style="left:4%; animation-delay:-4.40s; animation-duration:10s; font-size:2.04rem;">💡</span><span
+                    class="emoji"
+                    style="left:17%; animation-delay:-4.95s; animation-duration:11s; font-size:2.22rem;">🚀</span><span
+                    class="emoji"
+                    style="left:30%; animation-delay:-5.50s; animation-duration:12s; font-size:1.50rem;">📊</span><span
+                    class="emoji"
+                    style="left:43%; animation-delay:-6.05s; animation-duration:13s; font-size:1.68rem;">🧹</span><span
+                    class="emoji"
+                    style="left:56%; animation-delay:0.00s; animation-duration:8s; font-size:1.86rem;">🗂️</span><span
+                    class="emoji"
+                    style="left:69%; animation-delay:-0.55s; animation-duration:9s; font-size:2.04rem;">✅</span><span
+                    class="emoji"
+                    style="left:82%; animation-delay:-1.10s; animation-duration:10s; font-size:2.22rem;">📈</span><span
+                    class="emoji"
+                    style="left:95%; animation-delay:-1.65s; animation-duration:11s; font-size:1.50rem;">🧠</span><span
+                    class="emoji"
+                    style="left:8%; animation-delay:-2.20s; animation-duration:12s; font-size:1.68rem;">🔎</span><span
+                    class="emoji"
+                    style="left:21%; animation-delay:-2.75s; animation-duration:13s; font-size:1.86rem;">📝</span><span
+                    class="emoji"
+                    style="left:34%; animation-delay:-3.30s; animation-duration:8s; font-size:2.04rem;">💡</span><span
+                    class="emoji"
+                    style="left:47%; animation-delay:-3.85s; animation-duration:9s; font-size:2.22rem;">🚀</span><span
+                    class="emoji"
+                    style="left:60%; animation-delay:-4.40s; animation-duration:10s; font-size:1.50rem;">📊</span><span
+                    class="emoji"
+                    style="left:73%; animation-delay:-4.95s; animation-duration:11s; font-size:1.68rem;">🧹</span><span
+                    class="emoji"
+                    style="left:86%; animation-delay:-5.50s; animation-duration:12s; font-size:1.86rem;">🗂️</span><span
+                    class="emoji"
+                    style="left:99%; animation-delay:-6.05s; animation-duration:13s; font-size:2.04rem;">✅</span><span
+                    class="emoji"
+                    style="left:12%; animation-delay:0.00s; animation-duration:8s; font-size:2.22rem;">📈</span><span
+                    class="emoji"
+                    style="left:25%; animation-delay:-0.55s; animation-duration:9s; font-size:1.50rem;">🧠</span><span
+                    class="emoji"
+                    style="left:38%; animation-delay:-1.10s; animation-duration:10s; font-size:1.68rem;">🔎</span><span
+                    class="emoji"
+                    style="left:51%; animation-delay:-1.65s; animation-duration:11s; font-size:1.86rem;">📝</span><span
+                    class="emoji"
+                    style="left:64%; animation-delay:-2.20s; animation-duration:12s; font-size:2.04rem;">💡</span><span
+                    class="emoji"
+                    style="left:77%; animation-delay:-2.75s; animation-duration:13s; font-size:2.22rem;">🚀</span><span
+                    class="emoji"
+                    style="left:90%; animation-delay:-3.30s; animation-duration:8s; font-size:1.50rem;">📊</span><span
+                    class="emoji"
+                    style="left:3%; animation-delay:-3.85s; animation-duration:9s; font-size:1.68rem;">🧹</span><span
+                    class="emoji"
+                    style="left:16%; animation-delay:-4.40s; animation-duration:10s; font-size:1.86rem;">🗂️</span><span
+                    class="emoji"
+                    style="left:29%; animation-delay:-4.95s; animation-duration:11s; font-size:2.04rem;">✅</span></div>
+            <div class="content-wrapper">
+                <h1>¿Cómo llegas a la sesión de hoy?</h1>
+                <h2>Elige un emoji en el chat y comparte una expectativa concreta.</h2>
+            </div>
+            <div class="class-rules-footer">🙋 Levanta la mano antes de participar · 💬 Participa por voz o chat · 🛠️
+                Mantén Sheets y Colab abiertos · 🆘 Pregunta en cuanto te sientas perdido/a</div>
+        </div>
+        <div class="slide slide-basic_slide" data-transition-title="Contexto de clase" data-type="basic_slide"
+            id="slide-2">
+            <img alt="Logo" class="company-logo"
+                src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" /><span
+                class="session-tag">Sprint 1 · Sesión teórica</span>
+            <div class="content-wrapper">
+                <div class="class-moment">Inicio</div>
+                <h1>🧭 Contexto de la sesión</h1>
+                <p><strong>Tipo de sesión:</strong> teórica con demostraciones breves<br />
+                    <strong>Duración total:</strong> 90 minutos<br /><strong>Distribución:</strong> 82 min de contenido
+                    guiado + 8 min de quiz final<br />
+                    <strong>Herramientas:</strong> Google Sheets y Google Colab<br />
+                    <strong>Dataset:</strong> <code>sp1_w1_taylor_swift_da_intro.xlsx</code>
+                </p>
+                <p>Esta sesión consolida la introducción al rol de Data Analyst, el uso inicial de Google Sheets y
+                    Colab, el reconocimiento del dataset y el criterio profesional para diagnosticar y limpiar datos de
+                    forma segura.</p>
+            </div>
+            <div class="class-rules-footer">🙋 Levanta la mano antes de participar · 💬 Participa por voz o chat · 🛠️
+                Mantén Sheets y Colab abiertos · 🆘 Pregunta en cuanto te sientas perdido/a</div>
+        </div>
+        <div class="slide slide-basic_slide" data-transition-title="Punto de partida" data-type="basic_slide"
+            id="slide-3">
+            <img alt="Logo" class="company-logo"
+                src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" /><span
+                class="session-tag">Sprint 1 · Sesión teórica</span>
+            <div class="content-wrapper">
+                <h1>🧭 Introducción</h1>
+                <p>En esta sesión vamos a conectar tres ideas fundamentales del Sprint 1:</p>
+                <ol>
+                    <li>Qué hace un/a Data Analyst dentro de un flujo de trabajo real.</li>
+                    <li>Cómo usar Google Sheets y Google Colab como herramientas iniciales de aprendizaje.</li>
+                    <li>Cómo pasar de la exploración del archivo a una limpieza mínima, verificable y documentada.</li>
+                </ol>
+                <p>El objetivo no es aprender muchas funciones de memoria. El objetivo es construir criterio: saber
+                    cuándo observar, cuándo documentar, cuándo limpiar y cuándo consultar una regla de negocio antes de
+                    modificar datos.</p>
+            </div>
+            <div class="class-rules-footer">🙋 Levanta la mano antes de participar · 💬 Participa por voz o chat · 🛠️
+                Mantén Sheets y Colab abiertos · 🆘 Pregunta en cuanto te sientas perdido/a</div>
+        </div>
+        <div class="slide slide-objectives" data-transition-title="Objetivos de aprendizaje" data-type="objectives"
+            id="slide-4">
+            <img alt="Logo" class="company-logo"
+                src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" /><span
+                class="session-tag">Sprint 1 · Sesión teórica</span>
+            <div class="content-wrapper">
+                <h1>Metas de contenido para esta sesión</h1>
+                <div class="objectives-container">
+                    <p>Al finalizar la sesión podrás:</p>
+                    <ol>
+                        <li>Explicar el rol de un/a Data Analyst y sus entregables principales.</li>
+                        <li>Diferenciar exploración, diagnóstico, limpieza, transformación y documentación.</li>
+                        <li>Reconocer la estructura del dataset del Sprint 1 y la unidad de análisis de sus hojas.</li>
+                        <li>Identificar problemas frecuentes: espacios extra, categorías inconsistentes, nulos,
+                            duplicados, fechas ambiguas, números como texto y booleanos no estandarizados.</li>
+                        <li>Explicar cuándo usar Google Sheets y cuándo apoyarse en Google Colab.</li>
+                        <li>Describir una rutina segura de limpieza mínima en Google Sheets.</li>
+                        <li>Justificar por qué <code>issues_log</code> y <code>change_log</code> son piezas clave de
+                            trazabilidad.</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="class-rules-footer">🙋 Levanta la mano antes de participar · 💬 Participa por voz o chat · 🛠️
+                Mantén Sheets y Colab abiertos · 🆘 Pregunta en cuanto te sientas perdido/a</div>
+        </div>
+        <div class="slide slide-agenda" data-transition-title="Estructura de clase" data-type="agenda" id="slide-5">
+            <img alt="Logo" class="company-logo"
+                src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" /><span
+                class="session-tag">Sprint 1 · Sesión teórica</span>
+            <div class="content-wrapper">
+                <h1>Plan de nuestra sesión</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="text-align:right">Minutos</th>
+                            <th>Bloque</th>
+                            <th>Propósito</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align:right">0–5</td>
+                            <td>Apertura y reglas</td>
+                            <td>Alinear expectativas, herramientas y participación</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:right">5–12</td>
+                            <td>Rol de Data Analyst</td>
+                            <td>Entender entregables y flujo mental del análisis</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:right">12–19</td>
+                            <td>Herramientas iniciales</td>
+                            <td>Ubicar Google Sheets, Google Colab y el dataset</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:right">19–26</td>
+                            <td>Dataset del sprint</td>
+                            <td>Reconocer hojas, unidad de análisis y problemas intencionales</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:right">26–41</td>
+                            <td>Exploración y diagnóstico</td>
+                            <td>Observar, formular preguntas y documentar hallazgos</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:right">41–54</td>
+                            <td>Limpieza mínima</td>
+                            <td>Decidir qué limpiar, qué documentar y qué consultar</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:right">54–61</td>
+                            <td>Buscar y reemplazar</td>
+                            <td>Aplicar reemplazos controlados y seguros</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:right">61–69</td>
+                            <td>Funciones y verificación</td>
+                            <td>Usar funciones simples y comprobar resultados</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:right">69–75</td>
+                            <td>Trazabilidad</td>
+                            <td>Relacionar <code>issues_log</code>, <code>change_log</code> y criterio profesional</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:right">75–82</td>
+                            <td>Cierre</td>
+                            <td>Responder preguntas, consolidar takeaways y resolver dudas</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:right">82–90</td>
+                            <td>Quiz final</td>
+                            <td>Validar comprensión sin mostrar respuestas por adelantado</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="class-rules-footer">🙋 Levanta la mano antes de participar · 💬 Participa por voz o chat · 🛠️
+                Mantén Sheets y Colab abiertos · 🆘 Pregunta en cuanto te sientas perdido/a</div>
+        </div>
+        <div class="slide slide-basic_slide" data-transition-title="Materiales" data-type="basic_slide" id="slide-6">
+            <img alt="Logo" class="company-logo"
+                src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" /><span
+                class="session-tag">Sprint 1 · Sesión teórica</span>
+            <div class="content-wrapper">
+                <h1>📂 Dataset y material de trabajo</h1>
+                <p><strong>Dataset principal:</strong> <code>sp1_w1_taylor_swift_da_intro.xlsx</code></p>
+                <p><strong>Hojas del archivo:</strong></p>
+                <ul>
+                    <li><code>raw_songs</code>: canciones con problemas intencionales de formato, fechas, nulos,
+                        duplicados y categorías.</li>
+                    <li><code>raw_albums</code>: información agregada por álbum.</li>
+                    <li><code>data_dictionary</code>: definición de columnas y tipos esperados.</li>
+                    <li><code>change_log</code>: plantilla para documentar cambios.</li>
+                    <li><code>summary_template</code>: plantilla para métricas de cierre.</li>
+                    <li><code>README</code>: guía rápida del archivo.</li>
+                </ul>
+                <p><strong>Regla del Sprint 1:</strong> trabajar primero en Google Sheets. Google Colab se usa como
+                    entorno para abrir notebooks, seguir guías y ejecutar verificaciones simples, pero el análisis
+                    central de estas sesiones ocurre en Sheets.</p>
+            </div>
+            <div class="class-rules-footer">🙋 Levanta la mano antes de participar · 💬 Participa por voz o chat · 🛠️
+                Mantén Sheets y Colab abiertos · 🆘 Pregunta en cuanto te sientas perdido/a</div>
+        </div>
+        <div class="slide slide-gotocode" data-transition-title="Vamos al material" data-type="gotocode" id="slide-7">
+            <img alt="Logo" class="company-logo"
+                src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" />
+            <h1>Momento de abrir el archivo de trabajo</h1>
+            <p style="font-size:1.6rem; max-width:1000px; line-height:1.5;">Comparte el enlace del notebook/dataset y
+                verifica que todos puedan abrir Google Sheets o Colab antes de avanzar.</p>
+            <div class="class-rules-footer">🙋 Levanta la mano antes de participar · 💬 Participa por voz o chat · 🛠️
+                Mantén Sheets y Colab abiertos · 🆘 Pregunta en cuanto te sientas perdido/a</div>
+        </div>
+        <div class="slide slide-basic_slide" data-transition-title="Reglas de la sesión" data-type="basic_slide"
+            id="slide-8">
+            <img alt="Logo" class="company-logo"
+                src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" /><span
+                class="session-tag">Sprint 1 · Sesión teórica</span>
+            <div class="content-wrapper">
+                <h1>⚖️ Reglas de trabajo</h1>
+                <p>Para mantener el foco principiante, esta sesión evita:</p>
+                <ul>
+                    <li>fórmulas anidadas complejas,</li>
+                    <li><code>ARRAYFORMULA</code>,</li>
+                    <li>expresiones regulares,</li>
+                    <li>macros,</li>
+                    <li>Apps Script,</li>
+                    <li>automatizaciones avanzadas,</li>
+                    <li>limpieza masiva sin revisión previa.</li>
+                </ul>
+                <p>Durante esta primera parte del sprint, el criterio vale más que la velocidad. Un cambio rápido pero
+                    no documentado puede producir un análisis difícil de auditar.</p>
+            </div>
+            <div class="class-rules-footer">🙋 Levanta la mano antes de participar · 💬 Participa por voz o chat · 🛠️
+                Mantén Sheets y Colab abiertos · 🆘 Pregunta en cuanto te sientas perdido/a</div>
+        </div>
+        <div class="slide slide-basic_slide"
+            data-transition-title="1) Apertura, logística mínima y forma de trabajo (5 min)" data-type="basic_slide"
+            id="slide-9">
+            <img alt="Logo" class="company-logo"
+                src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" /><span
+                class="session-tag">Sprint 1 · Sesión teórica</span>
+            <div class="content-wrapper">
+                <div class="class-moment">Teoría guiada</div>
+                <h1>1) Apertura, logística mínima y forma de trabajo (5 min)</h1>
+                <p>Antes de trabajar con datos, es importante aclarar cómo se va a aprender durante el sprint.</p>
+                <h3>Dinámica esperada</h3>
+                <ul>
+                    <li>Las clases combinan explicación, demostración y práctica guiada.</li>
+                    <li>El notebook funciona como guía de clase, no como reemplazo de la participación.</li>
+                    <li>Google Sheets será la herramienta principal para manipular el archivo.</li>
+                    <li>Google Colab se usará para abrir notebooks, seguir instrucciones y ejecutar validaciones simples
+                        cuando sea necesario.</li>
+                    <li>Las dudas deben comunicarse temprano. Pedir ayuda al final del sprint suele dejar menos margen
+                        para corregir.</li>
+                </ul>
+                <h3>Mensaje clave para estudiantes</h3>
+                <p>En Data Analytics no se espera que el estudiante “adivine” todo. Se espera que observe, formule
+                    hipótesis, documente evidencia y pregunte cuando falte una regla de negocio.</p>
+            </div>
+            <div class="class-rules-footer">🙋 Levanta la mano antes de participar · 💬 Participa por voz o chat · 🛠️
+                Mantén Sheets y Colab abiertos · 🆘 Pregunta en cuanto te sientas perdido/a</div>
+        </div>
+        <div class="slide slide-basic_slide" data-transition-title="2) ¿Qué hace un/a Data Analyst? (7 min)"
+            data-type="basic_slide" id="slide-10">
+            <img alt="Logo" class="company-logo"
+                src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" /><span
+                class="session-tag">Sprint 1 · Sesión teórica</span>
+            <div class="content-wrapper">
+                <div class="class-moment">Teoría guiada</div>
+                <h1>2) ¿Qué hace un/a Data Analyst? (7 min)</h1>
+                <p>Un/a Data Analyst convierte preguntas de negocio en evidencia útil para tomar decisiones.</p>
+                <h3>2.1 Entregables comunes</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Entregable</th>
+                            <th>Para qué sirve</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Dataset revisado</td>
+                            <td>Garantizar que los datos son utilizables</td>
+                        </tr>
+                        <tr>
+                            <td>Tabla resumen</td>
+                            <td>Sintetizar métricas principales</td>
+                        </tr>
+                        <tr>
+                            <td>Dashboard</td>
+                            <td>Comunicar indicadores de forma visual</td>
+                        </tr>
+                        <tr>
+                            <td>Informe</td>
+                            <td>Explicar hallazgos, limitaciones y recomendaciones</td>
+                        </tr>
+                        <tr>
+                            <td>Documentación</td>
+                            <td>Dejar trazabilidad para que otro pueda revisar o reproducir</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>2.2 Flujo mental del Data Analyst</h3>
+                <pre><code class="language-text">Pregunta de negocio
+    ↓
+Archivo o fuente de datos
+    ↓
+Exploración inicial
+    ↓
+Detección de problemas
+    ↓
+Limpieza mínima y documentada
+    ↓
+Cálculo de métricas
+    ↓
+Comunicación de hallazgos
+</code></pre>
+                <h3>2.3 Criterio profesional</h3>
+                <p>Un/a Data Analyst no solo calcula. También decide si un dato es confiable, si una transformación está
+                    justificada y si el resultado puede ser explicado.</p>
+            </div>
+            <div class="class-rules-footer">🙋 Levanta la mano antes de participar · 💬 Participa por voz o chat · 🛠️
+                Mantén Sheets y Colab abiertos · 🆘 Pregunta en cuanto te sientas perdido/a</div>
+        </div>
+        <div class="slide slide-basic_slide"
+            data-transition-title="3) Herramientas iniciales: Google Sheets y Google Colab (7 min)"
+            data-type="basic_slide" id="slide-11">
+            <img alt="Logo" class="company-logo"
+                src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" /><span
+                class="session-tag">Sprint 1 · Sesión teórica</span>
+            <div class="content-wrapper">
+                <div class="class-moment">Teoría guiada</div>
+                <h1>3) Herramientas iniciales: Google Sheets y Google Colab (7 min)</h1>
+                <h3>3.1 Por qué empezamos con Google Sheets</h3>
+                <p>Google Sheets permite:</p>
+                <ul>
+                    <li>abrir archivos tabulares rápidamente,</li>
+                    <li>inspeccionar datos visualmente,</li>
+                    <li>activar filtros,</li>
+                    <li>duplicar hojas,</li>
+                    <li>aplicar fórmulas simples,</li>
+                    <li>colaborar con otras personas,</li>
+                    <li>documentar hallazgos dentro del mismo archivo.</li>
+                </ul>
+                <p>Es una herramienta adecuada para el primer contacto con el dataset porque hace visible cada cambio.
+                </p>
+                <h3>3.2 Cuándo Google Sheets no basta</h3>
+                <p>Google Sheets puede quedarse corto cuando:</p>
+                <ul>
+                    <li>el archivo es muy grande,</li>
+                    <li>se requiere automatización,</li>
+                    <li>hay muchas reglas de limpieza repetitivas,</li>
+                    <li>se necesitan consultas SQL,</li>
+                    <li>se requiere versionamiento más formal,</li>
+                    <li>el análisis debe ejecutarse de forma recurrente.</li>
+                </ul>
+                <h3>3.3 Uso inicial de Google Colab</h3>
+                <p>Google Colab permite abrir notebooks <code>.ipynb</code> desde el navegador. En este sprint se usa
+                    principalmente para seguir guías de clase y ejecutar celdas simples.</p>
+                <p>Para ejecutar una celda:</p>
+                <ul>
+                    <li>clic en el botón ▶️, o</li>
+                    <li><code>Shift + Enter</code>.</li>
+                </ul>
+                <p>La primera ejecución puede tardar porque Colab debe conectarse a un entorno de ejecución.</p>
+            </div>
+            <div class="class-rules-footer">🙋 Levanta la mano antes de participar · 💬 Participa por voz o chat · 🛠️
+                Mantén Sheets y Colab abiertos · 🆘 Pregunta en cuanto te sientas perdido/a</div>
+        </div>
+        <div class="slide slide-basic_slide" data-transition-title="Celda opcional" data-type="basic_slide"
+            id="slide-12">
+            <img alt="Logo" class="company-logo"
+                src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" /><span
+                class="session-tag">Sprint 1 · Sesión teórica</span>
+            <div class="content-wrapper">
+                <div class="class-moment">Demo breve</div>
+                <h1>🧪 Verificación opcional en Colab</h1>
+                <pre><code class="language-python"># Celda opcional: verificación básica de Google Colab
+# No es análisis de datos. Solo confirma que el notebook puede ejecutar una celda.
+
+print("Colab está funcionando correctamente.")</code></pre>
+            </div>
+            <div class="class-rules-footer">🙋 Levanta la mano antes de participar · 💬 Participa por voz o chat · 🛠️
+                Mantén Sheets y Colab abiertos · 🆘 Pregunta en cuanto te sientas perdido/a</div>
+        </div>
+        <div class="slide slide-basic_slide" data-transition-title="Materiales" data-type="basic_slide" id="slide-13">
+            <img alt="Logo" class="company-logo"
+                src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" /><span
+                class="session-tag">Sprint 1 · Sesión teórica</span>
+            <div class="content-wrapper">
+                <h1>📂 Dataset y material de trabajo</h1>
+                <h2>4) Dataset del Sprint 1: caso Taylor Swift (7 min)</h2>
+                <p>El archivo <code>sp1_w1_taylor_swift_da_intro.xlsx</code> simula una situación común: recibimos datos
+                    útiles, pero no totalmente limpios.</p>
+                <h3>4.1 Hojas principales</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Hoja</th>
+                            <th>Unidad de análisis</th>
+                            <th>Uso en clase</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>raw_songs</code></td>
+                            <td>Una fila ≈ una canción</td>
+                            <td>Inspección, problemas de formato y limpieza</td>
+                        </tr>
+                        <tr>
+                            <td><code>raw_albums</code></td>
+                            <td>Una fila = un álbum</td>
+                            <td>Validación y métricas por álbum</td>
+                        </tr>
+                        <tr>
+                            <td><code>data_dictionary</code></td>
+                            <td>Una fila = una columna documentada</td>
+                            <td>Entender tipos esperados</td>
+                        </tr>
+                        <tr>
+                            <td><code>change_log</code></td>
+                            <td>Una fila = un cambio realizado</td>
+                            <td>Trazabilidad de modificaciones</td>
+                        </tr>
+                        <tr>
+                            <td><code>summary_template</code></td>
+                            <td>Una fila = una métrica</td>
+                            <td>Resumen posterior a la limpieza</td>
+                        </tr>
+                        <tr>
+                            <td><code>README</code></td>
+                            <td>Una fila = una instrucción o nota</td>
+                            <td>Contexto del archivo</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>4.2 Problemas intencionales del dataset</h3>
+                <p>En <code>raw_songs</code> aparecen problemas como:</p>
+                <ul>
+                    <li>nombres con espacios extra: <code>" LOVE STORY "</code>,</li>
+                    <li>mayúsculas y minúsculas inconsistentes: <code>FOLKLORE</code>, <code>folklore</code>,
+                        <code>Lover</code>,</li>
+                    <li>fechas en formatos diferentes: <code>12/09/08</code>, <code>Oct 05, 2015</code>,
+                        <code>18-08-2014</code>,</li>
+                    <li>números como texto: <code>1,863.12</code>, <code>349,76</code>, <code>1.493,44</code>,</li>
+                    <li>booleanos inconsistentes: <code>Y</code>, <code>N</code>, <code>1</code>, <code>0</code>,
+                        <code>TRUE</code>, <code>FALSE</code>, <code>maybe</code>, vacíos,</li>
+                    <li>duplicados,</li>
+                    <li>delimitadores diferentes en <code>Writers</code>.</li>
+                </ul>
+                <p>En esta sesión los reconocemos y definimos cómo tratarlos. En la práctica los trabajaremos paso a
+                    paso.</p>
+            </div>
+            <div class="class-rules-footer">🙋 Levanta la mano antes de participar · 💬 Participa por voz o chat · 🛠️
+                Mantén Sheets y Colab abiertos · 🆘 Pregunta en cuanto te sientas perdido/a</div>
+        </div>
+        <div class="slide slide-gotocode" data-transition-title="Vamos al material" data-type="gotocode" id="slide-14">
+            <img alt="Logo" class="company-logo"
+                src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" />
+            <h1>Momento de abrir el archivo de trabajo</h1>
+            <p style="font-size:1.6rem; max-width:1000px; line-height:1.5;">Comparte el enlace del notebook/dataset y
+                verifica que todos puedan abrir Google Sheets o Colab antes de avanzar.</p>
+            <div class="class-rules-footer">🙋 Levanta la mano antes de participar · 💬 Participa por voz o chat · 🛠️
+                Mantén Sheets y Colab abiertos · 🆘 Pregunta en cuanto te sientas perdido/a</div>
+        </div>
+        <div class="slide slide-basic_slide"
+            data-transition-title="5) Exploración y diagnóstico antes de limpiar (15 min)" data-type="basic_slide"
+            id="slide-15">
+            <img alt="Logo" class="company-logo"
+                src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" /><span
+                class="session-tag">Sprint 1 · Sesión teórica</span>
+            <div class="content-wrapper">
+                <div class="class-moment">Teoría guiada</div>
+                <h1>5) Exploración y diagnóstico antes de limpiar (15 min)</h1>
+                <p>Antes de corregir datos, se debe entender el archivo.</p>
+                <h3>5.1 Preguntas de exploración inicial</h3>
+                <p>Al abrir una hoja, responde:</p>
+                <ul>
+                    <li>¿Qué representa una fila?</li>
+                    <li>¿Cuántas filas y columnas hay?</li>
+                    <li>¿Qué columnas parecen numéricas?</li>
+                    <li>¿Qué columnas parecen fechas?</li>
+                    <li>¿Qué columnas son categóricas?</li>
+                    <li>¿Qué columnas podrían tener nulos?</li>
+                    <li>¿Qué columnas podrían tener duplicados?</li>
+                    <li>¿Qué problemas parecen afectar cálculos?</li>
+                </ul>
+                <h3>5.2 Problemas que se documentan en <code>issues_log</code></h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tipo de problema</th>
+                            <th>Ejemplo</th>
+                            <th>Riesgo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Espacios extra</td>
+                            <td><code>" LOVE STORY "</code></td>
+                            <td>Dificulta búsquedas exactas</td>
+                        </tr>
+                        <tr>
+                            <td>Categoría inconsistente</td>
+                            <td><code>FOLKLORE</code>, <code>folklore</code>, <code>Folklore</code></td>
+                            <td>Agrupaciones incorrectas</td>
+                        </tr>
+                        <tr>
+                            <td>Número como texto</td>
+                            <td><code>1.493,44</code></td>
+                            <td>Promedios o sumas incorrectas</td>
+                        </tr>
+                        <tr>
+                            <td>Booleano no estándar</td>
+                            <td><code>Y</code>, <code>1</code>, <code>maybe</code></td>
+                            <td>Conteos incorrectos</td>
+                        </tr>
+                        <tr>
+                            <td>Fecha ambigua</td>
+                            <td><code>12/09/08</code></td>
+                            <td>Error en análisis temporal</td>
+                        </tr>
+                        <tr>
+                            <td>Duplicado</td>
+                            <td>Canción repetida</td>
+                            <td>Inflar métricas</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>5.3 Estructura sugerida de <code>issues_log</code></h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Columna</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>id</code></td>
+                            <td>Número del hallazgo</td>
+                        </tr>
+                        <tr>
+                            <td><code>sheet</code></td>
+                            <td>Hoja donde aparece</td>
+                        </tr>
+                        <tr>
+                            <td><code>column</code></td>
+                            <td>Columna afectada</td>
+                        </tr>
+                        <tr>
+                            <td><code>issue_type</code></td>
+                            <td>Tipo de problema</td>
+                        </tr>
+                        <tr>
+                            <td><code>example_value</code></td>
+                            <td>Ejemplo observado</td>
+                        </tr>
+                        <tr>
+                            <td><code>business_risk</code></td>
+                            <td>Impacto del problema</td>
+                        </tr>
+                        <tr>
+                            <td><code>priority</code></td>
+                            <td>Alta, media o baja</td>
+                        </tr>
+                        <tr>
+                            <td><code>suggested_action</code></td>
+                            <td>Qué se recomienda hacer después</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="class-rules-footer">🙋 Levanta la mano antes de participar · 💬 Participa por voz o chat · 🛠️
+                Mantén Sheets y Colab abiertos · 🆘 Pregunta en cuanto te sientas perdido/a</div>
+        </div>
+        <div class="slide slide-basic_slide" data-transition-title="6) Qué es limpieza mínima de datos (13 min)"
+            data-type="basic_slide" id="slide-16">
+            <img alt="Logo" class="company-logo"
+                src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" /><span
+                class="session-tag">Sprint 1 · Sesión teórica</span>
+            <div class="content-wrapper">
+                <div class="class-moment">Teoría guiada</div>
+                <h1>6) Qué es limpieza mínima de datos (13 min)</h1>
+                <p>La limpieza mínima busca corregir problemas que impiden una lectura o cálculo básico, sin
+                    sobreprocesar el archivo.</p>
+                <h3>6.1 Sí es limpieza mínima</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Acción</th>
+                            <th>Ejemplo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Quitar espacios extra</td>
+                            <td><code>" LOVE STORY "</code> → <code>"LOVE STORY"</code></td>
+                        </tr>
+                        <tr>
+                            <td>Estandarizar categorías</td>
+                            <td><code>FOLKLORE</code>, <code>folklore</code>, <code>Folklore</code> →
+                                <code>Folklore</code></td>
+                        </tr>
+                        <tr>
+                            <td>Corregir encabezados</td>
+                            <td><code>Spotify Streams (M)</code> → <code>spotify_streams_m</code></td>
+                        </tr>
+                        <tr>
+                            <td>Estandarizar booleanos</td>
+                            <td><code>Y</code>, <code>1</code>, <code>TRUE</code> → <code>TRUE</code></td>
+                        </tr>
+                        <tr>
+                            <td>Validar números como números</td>
+                            <td>Revisar si Sheets puede promediar una columna</td>
+                        </tr>
+                        <tr>
+                            <td>Documentar decisiones</td>
+                            <td>Registrar cambio, hoja, antes y después</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>6.2 No es limpieza mínima</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Acción</th>
+                            <th>Por qué evitarla al inicio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Cambiar valores sin evidencia</td>
+                            <td>Puede alterar el significado del dato</td>
+                        </tr>
+                        <tr>
+                            <td>Eliminar filas duplicadas automáticamente</td>
+                            <td>Puede borrar registros válidos</td>
+                        </tr>
+                        <tr>
+                            <td>Interpretar fechas ambiguas sin regla</td>
+                            <td>Puede crear errores temporales</td>
+                        </tr>
+                        <tr>
+                            <td>Aplicar reemplazos a todo el archivo</td>
+                            <td>Puede modificar columnas no relacionadas</td>
+                        </tr>
+                        <tr>
+                            <td>Usar fórmulas complejas sin explicación</td>
+                            <td>Dificulta auditoría y aprendizaje</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>6.3 Regla central</h3>
+                <p>Si no puedes explicar qué cambiaste, dónde lo cambiaste y por qué, todavía no deberías aplicar ese
+                    cambio al archivo final.</p>
+            </div>
+            <div class="class-rules-footer">🙋 Levanta la mano antes de participar · 💬 Participa por voz o chat · 🛠️
+                Mantén Sheets y Colab abiertos · 🆘 Pregunta en cuanto te sientas perdido/a</div>
+        </div>
+        <div class="slide slide-basic_slide"
+            data-transition-title="7) Buscar y reemplazar como herramienta de limpieza (7 min)" data-type="basic_slide"
+            id="slide-17">
+            <img alt="Logo" class="company-logo"
+                src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" /><span
+                class="session-tag">Sprint 1 · Sesión teórica</span>
+            <div class="content-wrapper">
+                <div class="class-moment">Teoría guiada</div>
+                <h1>7) Buscar y reemplazar como herramienta de limpieza (7 min)</h1>
+                <p>Buscar y reemplazar es útil, pero debe aplicarse con control.</p>
+                <h3>7.1 Casos adecuados</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Caso</th>
+                            <th>Ejemplo</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Quitar símbolo repetido</td>
+                            <td><code>$1,200</code></td>
+                            <td>Buscar <code>$</code>, reemplazar vacío</td>
+                        </tr>
+                        <tr>
+                            <td>Quitar espacios dobles</td>
+                            <td><code>Taylor  Swift</code></td>
+                            <td>Reemplazar doble espacio por uno</td>
+                        </tr>
+                        <tr>
+                            <td>Estandarizar categoría</td>
+                            <td><code>yes</code>, <code>Y</code>, <code>1</code></td>
+                            <td>Convertir a una convención definida</td>
+                        </tr>
+                        <tr>
+                            <td>Normalizar separador</td>
+                            <td><code>1,863.12</code></td>
+                            <td>Evaluar si la coma es miles o decimal</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>7.2 Riesgos</h3>
+                <p>Buscar <code>.</code> y reemplazar vacío puede dañar una fecha, un decimal o un texto.<br />
+                    Buscar <code>1</code> y reemplazar <code>TRUE</code> en todo el archivo puede afectar valores
+                    numéricos.</p>
+                <h3>7.3 Reglas de seguridad</h3>
+                <ol>
+                    <li>Trabajar en una copia.</li>
+                    <li>Aplicar el reemplazo a un rango específico.</li>
+                    <li>Revisar ejemplos antes y después.</li>
+                    <li>Documentar el cambio.</li>
+                    <li>Verificar con una métrica simple.</li>
+                </ol>
+            </div>
+            <div class="class-rules-footer">🙋 Levanta la mano antes de participar · 💬 Participa por voz o chat · 🛠️
+                Mantén Sheets y Colab abiertos · 🆘 Pregunta en cuanto te sientas perdido/a</div>
+        </div>
+        <div class="slide slide-basic_slide"
+            data-transition-title="8) Funciones simples de texto y verificación (8 min)" data-type="basic_slide"
+            id="slide-18">
+            <img alt="Logo" class="company-logo"
+                src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" /><span
+                class="session-tag">Sprint 1 · Sesión teórica</span>
+            <div class="content-wrapper">
+                <div class="class-moment">Teoría guiada</div>
+                <h1>8) Funciones simples de texto y verificación (8 min)</h1>
+                <p>Las funciones simples permiten crear columnas auxiliares limpias.</p>
+                <h3>8.1 Funciones de texto</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Función</th>
+                            <th>Uso</th>
+                            <th>Ejemplo conceptual</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>TRIM/ESPACIOS</code></td>
+                            <td>Quitar espacios al inicio, final y repetidos</td>
+                            <td><code>" LOVE STORY "</code> → <code>"LOVE STORY"</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>LOWER/MINUSC</code></td>
+                            <td>Convertir a minúsculas</td>
+                            <td><code>"FOLKLORE"</code> → <code>"folklore"</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>UPPER/MAYUSC</code></td>
+                            <td>Convertir a mayúsculas</td>
+                            <td><code>"folklore"</code> → <code>"FOLKLORE"</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>PROPER/NOMPROPIO</code></td>
+                            <td>Convertir a nombre propio</td>
+                            <td><code>"lover"</code> → <code>"Lover"</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>8.2 Funciones de verificación</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pregunta</th>
+                            <th>Fórmula en inglés</th>
+                            <th>Fórmula en español</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>¿Cuántas celdas numéricas hay?</td>
+                            <td><code>=COUNT(rango)</code></td>
+                            <td><code>=CONTAR(rango)</code></td>
+                        </tr>
+                        <tr>
+                            <td>¿Cuántas celdas no vacías hay?</td>
+                            <td><code>=COUNTA(rango)</code></td>
+                            <td><code>=CONTARA(rango)</code></td>
+                        </tr>
+                        <tr>
+                            <td>¿Cuántas celdas vacías hay?</td>
+                            <td><code>=COUNTBLANK(rango)</code></td>
+                            <td><code>=CONTAR.BLANCO(rango)</code></td>
+                        </tr>
+                        <tr>
+                            <td>¿Cuántas veces aparece una categoría?</td>
+                            <td><code>=COUNTIF(rango,"x")</code></td>
+                            <td><code>=CONTAR.SI(rango;"x")</code></td>
+                        </tr>
+                        <tr>
+                            <td>¿Qué valores únicos existen?</td>
+                            <td><code>=UNIQUE(rango)</code></td>
+                            <td><code>=UNICOS(rango)</code></td>
+                        </tr>
+                        <tr>
+                            <td>¿Se puede calcular un promedio?</td>
+                            <td><code>=AVERAGE(rango)</code></td>
+                            <td><code>=PROMEDIO(rango)</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Si <code>AVERAGE/PROMEDIO</code> falla o ignora valores, probablemente algunos números siguen como
+                    texto.</p>
+            </div>
+            <div class="class-rules-footer">🙋 Levanta la mano antes de participar · 💬 Participa por voz o chat · 🛠️
+                Mantén Sheets y Colab abiertos · 🆘 Pregunta en cuanto te sientas perdido/a</div>
+        </div>
+        <div class="slide slide-basic_slide"
+            data-transition-title="9) Trazabilidad: issues_log, change_log y criterio profesional (6 min)"
+            data-type="basic_slide" id="slide-19">
+            <img alt="Logo" class="company-logo"
+                src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" /><span
+                class="session-tag">Sprint 1 · Sesión teórica</span>
+            <div class="content-wrapper">
+                <div class="class-moment">Teoría guiada</div>
+                <h1>9) Trazabilidad: issues_log, change_log y criterio profesional (6 min)</h1>
+                <h3>9.1 Diferencia entre <code>issues_log</code> y <code>change_log</code></h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Hoja</th>
+                            <th>Cuándo se usa</th>
+                            <th>Qué responde</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>issues_log</code></td>
+                            <td>Durante la exploración</td>
+                            <td>¿Qué problema encontré y qué impacto tiene?</td>
+                        </tr>
+                        <tr>
+                            <td><code>change_log</code></td>
+                            <td>Durante o después de la limpieza</td>
+                            <td>¿Qué cambié, dónde y cómo quedó?</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>9.2 Ejemplo de <code>change_log</code></h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="text-align:right">step</th>
+                            <th>who</th>
+                            <th>when</th>
+                            <th>change_description</th>
+                            <th>sheet</th>
+                            <th>before_example</th>
+                            <th>after_example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align:right">1</td>
+                            <td>JP</td>
+                            <td>2026-06-06</td>
+                            <td>Aplicar <code>TRIM/ESPACIOS</code> en título de canción</td>
+                            <td><code>songs_clean_v1</code></td>
+                            <td><code>" LOVE STORY "</code></td>
+                            <td><code>"LOVE STORY"</code></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:right">2</td>
+                            <td>JP</td>
+                            <td>2026-06-06</td>
+                            <td>Estandarizar <code>Y</code> y <code>1</code> como <code>TRUE</code> en
+                                <code>explicit</code></td>
+                            <td><code>songs_clean_v1</code></td>
+                            <td><code>Y</code></td>
+                            <td><code>TRUE</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>9.3 Cuándo detenerse</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Situación</th>
+                            <th>Decisión recomendada</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>El problema impide calcular una métrica central</td>
+                            <td>Limpiar ahora</td>
+                        </tr>
+                        <tr>
+                            <td>El problema afecta pocas filas y no impacta el análisis actual</td>
+                            <td>Documentar y dejar pendiente</td>
+                        </tr>
+                        <tr>
+                            <td>La corrección requiere conocer una regla de negocio</td>
+                            <td>Consultar antes de cambiar</td>
+                        </tr>
+                        <tr>
+                            <td>El dato parece inválido pero no hay evidencia</td>
+                            <td>Marcar para revisión</td>
+                        </tr>
+                        <tr>
+                            <td>La limpieza puede dañar otros valores</td>
+                            <td>Probar primero en una copia</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="class-rules-footer">🙋 Levanta la mano antes de participar · 💬 Participa por voz o chat · 🛠️
+                Mantén Sheets y Colab abiertos · 🆘 Pregunta en cuanto te sientas perdido/a</div>
+        </div>
+        <div class="slide slide-basic_slide" data-transition-title="Cierre de la sesión (7 min)" data-type="basic_slide"
+            id="slide-20">
+            <img alt="Logo" class="company-logo"
+                src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" /><span
+                class="session-tag">Sprint 1 · Sesión teórica</span>
+            <div class="content-wrapper">
+                <div class="class-moment">Teoría guiada</div>
+                <h1>Cierre de la sesión (7 min)</h1>
+                <h3>Preguntas de validación de conocimiento</h3>
+                <p>Responde individualmente o en el chat:</p>
+                <ol>
+                    <li>¿Cuál es la diferencia entre explorar y limpiar?</li>
+                    <li>¿Por qué no debemos modificar directamente <code>raw_songs</code>?</li>
+                    <li>¿Qué tipo de problema representa <code>" LOVE STORY "</code>?</li>
+                    <li>¿Qué riesgo tiene aplicar Buscar y reemplazar sobre todo el archivo?</li>
+                    <li>¿Cuándo usarías <code>issues_log</code> y cuándo usarías <code>change_log</code>?</li>
+                    <li>Si una fecha es ambigua, ¿la corriges automáticamente o la documentas? ¿Por qué?</li>
+                </ol>
+                <h3 class="answer-reveal-section">Respuestas esperadas</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="text-align:right">Pregunta</th>
+                            <th>Criterio esperado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align:right">1</td>
+                            <td>Explorar es observar y diagnosticar; limpiar es modificar datos bajo una regla.</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:right">2</td>
+                            <td>Porque es la fuente original y debe mantenerse intacta para auditoría.</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:right">3</td>
+                            <td>Espacios extra en texto.</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:right">4</td>
+                            <td>Puede alterar columnas o valores no relacionados.</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:right">5</td>
+                            <td><code>issues_log</code> para problemas detectados; <code>change_log</code> para cambios
+                                aplicados.</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:right">6</td>
+                            <td>Se documenta o consulta una regla de negocio antes de cambiarla.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Takeaways</h3>
+                <ol>
+                    <li>El Data Analyst convierte preguntas de negocio en evidencia.</li>
+                    <li>Antes de limpiar, se debe entender la estructura del archivo.</li>
+                    <li>La limpieza mínima debe ser simple, verificable y documentada.</li>
+                    <li>Google Sheets permite inspección y limpieza inicial visible.</li>
+                    <li>Google Colab permite seguir notebooks y ejecutar validaciones simples.</li>
+                    <li>La trazabilidad empieza desde el primer diagnóstico.</li>
+                </ol>
+                <blockquote>
+                    <p><strong>Nota sobre idioma de funciones en Google Sheets:</strong> según la configuración
+                        regional, algunas funciones pueden verse en inglés o español.<br />
+                        En estos notebooks usaremos ambos nombres cuando sea útil:<br />
+                        <code>TRIM/ESPACIOS</code>, <code>LOWER/MINUSC</code>, <code>UPPER/MAYUSC</code>,
+                        <code>PROPER/NOMPROPIO</code>, <code>COUNT/CONTAR</code>, <code>COUNTA/CONTARA</code>,
+                        <code>COUNTBLANK/CONTAR.BLANCO</code>, <code>AVERAGE/PROMEDIO</code>,
+                        <code>COUNTIF/CONTAR.SI</code>, <code>UNIQUE/UNICOS</code>, <code>SUMIF/SUMAR.SI</code>.
+                    </p>
+                </blockquote>
+                <h3>¿Necesitas ayuda?</h3>
+                <p>Recuerda los canales de ayuda disponibles:</p>
+                <ul>
+                    <li><code>OFFICE HOURS</code>: revisa los horarios de atención en la guía del estudiante. Hay
+                        espacios de apoyo para resolver dudas puntuales.</li>
+                    <li><code>DA_CONSULTA</code>: puedes publicar preguntas sobre el contenido de la plataforma o el
+                        proyecto 24/7. En tu pregunta agrega el tag <code>@Dataconsulta</code>.</li>
+                    <li><code>SPRINT FOCUS</code>: para los Sprints 1 al 5 hay sesiones extra donde se abordan temáticas
+                        de cada sprint con mayor profundidad. Revisa la guía del estudiante para conocer los horarios.
+                    </li>
+                    <li><code>SESIONES 1:1</code>: puedes agendar sesiones 1:1 con un tutor. Agenda con antelación y
+                        lleva dudas concretas sobre proyecto, curso, carrera o problemas técnicos.</li>
+                    <li><code>CANAL DE DISCORD DE COMMUNITY</code>: tu cohorte tiene un canal especial para compartir
+                        dudas, hallazgos, recursos o elementos interesantes con tus compañeros de curso.</li>
+                </ul>
+            </div>
+            <div class="class-rules-footer">🙋 Levanta la mano antes de participar · 💬 Participa por voz o chat · 🛠️
+                Mantén Sheets y Colab abiertos · 🆘 Pregunta en cuanto te sientas perdido/a</div>
+        </div>
+        <div class="slide slide-quizz slide-basic_slide" data-transition-title="Pongamos a prueba lo aprendido"
+            data-type="quizz" id="slide-21">
+            <img alt="Logo" class="company-logo"
+                src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" />
+            <div class="quiz-container content-wrapper"
+                data-quiz='[{"text": "&lt;p&gt;¿Qué debe hacer un/a Data Analyst antes de limpiar un dato?&lt;/p&gt;", "options": [{"text": "&lt;p&gt;Modificarlo directamente para ahorrar tiempo.&lt;/p&gt;", "correct": false}, {"text": "&lt;p&gt;Explorarlo, diagnosticar el problema y documentar evidencia.&lt;/p&gt;", "correct": true}, {"text": "&lt;p&gt;Eliminar todas las filas con dudas.&lt;/p&gt;", "correct": false}], "feedback": "&lt;strong&gt;Clave:&lt;/strong&gt; primero se entiende y documenta el problema; luego se decide la acción."}, {"text": "&lt;p&gt;¿Para qué sirve un &lt;code&gt;change_log&lt;/code&gt;?&lt;/p&gt;", "options": [{"text": "&lt;p&gt;Para registrar cambios aplicados y mantener trazabilidad.&lt;/p&gt;", "correct": true}, {"text": "&lt;p&gt;Para reemplazar el diccionario de datos.&lt;/p&gt;", "correct": false}, {"text": "&lt;p&gt;Para ocultar errores de limpieza.&lt;/p&gt;", "correct": false}], "feedback": "El &lt;code&gt;change_log&lt;/code&gt; permite auditar qué se cambió, dónde y por qué."}, {"text": "&lt;p&gt;¿Cuál de estos casos sí pertenece a limpieza mínima?&lt;/p&gt;", "options": [{"text": "&lt;p&gt;Quitar espacios extra y estandarizar categorías evidentes.&lt;/p&gt;", "correct": true}, {"text": "&lt;p&gt;Crear un modelo predictivo.&lt;/p&gt;", "correct": false}, {"text": "&lt;p&gt;Reescribir la regla de negocio sin validar.&lt;/p&gt;", "correct": false}], "feedback": "La limpieza mínima corrige problemas básicos sin sobreprocesar el archivo."}]'
+                data-timer="20">
+                <h1>Pongamos a prueba lo aprendido</h1>
+                <h2>Preguntas rápidas de validación</h2>
+                <div class="quiz-intro">Reserva 8 minutos. Responde por voz o chat; las respuestas permanecen ocultas
+                    hasta revelarlas.</div>
+                <button class="quiz-start-btn">Iniciar quiz</button>
+                <div class="quiz-ui" style="display:none;">
+                    <div class="quiz-nav-menu"></div>
+                    <div class="quiz-header"><span>Pregunta activa</span><span class="quiz-timer">Tiempo: <span
+                                class="time-left">20</span>s</span></div>
+                    <div class="quiz-question-box"></div>
+                    <div class="quiz-options-box"></div>
+                    <div class="quiz-feedback-box"></div>
+                    <button class="quiz-show-answer-btn">Mostrar respuesta</button>
+                    <button class="quiz-next-btn" style="display:none;">Siguiente pregunta</button>
+                </div>
+            </div>
+            <div class="class-rules-footer">🙋 Levanta la mano antes de participar · 💬 Participa por voz o chat · 🛠️
+                Mantén Sheets y Colab abiertos · 🆘 Pregunta en cuanto te sientas perdido/a</div>
+        </div>
+        <div class="slide slide-basic_slide" data-transition-title="Ahora para finalizar" data-type="basic_slide"
+            id="slide-22">
+            <img alt="Logo" class="company-logo"
+                src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" /><span
+                class="session-tag">Sprint 1 · Sesión teórica</span>
+            <div class="content-wrapper">
+                <div class="class-moment">Cierre</div>
+                <h1>🎉 Espero que hayas disfrutado la sesión</h1>
+                <h2>Qué te parece si:</h2>
+                <ul>
+                    <li>Aplicas lo aprendido en el archivo de práctica.</li>
+                    <li>Documentas dudas concretas para revisarlas en comunidad o tutoría.</li>
+                    <li>Comparte un hallazgo, un problema detectado o una captura de tu avance.</li>
+                    <li>Responde la encuesta de satisfacción al finalizar la sesión.</li>
+                </ul>
+            </div>
+            <div class="class-rules-footer">🙋 Levanta la mano antes de participar · 💬 Participa por voz o chat · 🛠️
+                Mantén Sheets y Colab abiertos · 🆘 Pregunta en cuanto te sientas perdido/a</div>
+        </div>
+        <div class="slide slide-finale" data-type="finale" id="slide-23">
+            <img alt="Logo" class="company-logo"
+                src="https://logoimg.careerjet.net/2f2f984040414fbcf1747ea52b99ee70.png" />
+            <h1>¡Excelente trabajo! 🚀📊</h1>
+            <h2>¡Gracias por participar!</h2>
+            <div class="class-rules-footer">🙋 Levanta la mano antes de participar · 💬 Participa por voz o chat · 🛠️
+                Mantén Sheets y Colab abiertos · 🆘 Pregunta en cuanto te sientas perdido/a</div>
+        </div>
+        <div class="slide-menu" id="slide-menu">
+            <div class="slide-menu-content"><button class="close-menu" id="close-menu-btn" title="Cerrar">×</button>
+                <h2>Índice de Diapositivas</h2>
+                <ul class="slide-list">
+                    <li><button class="menu-jump-btn" data-index="0">1. Sprint 1 Sesión 1</button></li>
+                    <li><button class="menu-jump-btn" data-index="1">2. ¿Cómo llegas a la sesión de hoy?</button></li>
+                    <li><button class="menu-jump-btn" data-index="2">3. 🧭 Contexto de la sesión</button></li>
+                    <li><button class="menu-jump-btn" data-index="3">4. 🧭 Introducción</button></li>
+                    <li><button class="menu-jump-btn" data-index="4">5. Metas de contenido para esta sesión</button>
+                    </li>
+                    <li><button class="menu-jump-btn" data-index="5">6. Plan de nuestra sesión</button></li>
+                    <li><button class="menu-jump-btn" data-index="6">7. 📂 Dataset y material de trabajo</button></li>
+                    <li><button class="menu-jump-btn" data-index="7">8. Momento de abrir el archivo de trabajo</button>
+                    </li>
+                    <li><button class="menu-jump-btn" data-index="8">9. ⚖️ Reglas de trabajo</button></li>
+                    <li><button class="menu-jump-btn" data-index="9">10. 1) Apertura, logística mínima y forma de
+                            trabajo (5 min)</button></li>
+                    <li><button class="menu-jump-btn" data-index="10">11. 2) ¿Qué hace un/a Data Analyst? (7
+                            min)</button></li>
+                    <li><button class="menu-jump-btn" data-index="11">12. 3) Herramientas iniciales: Google Sheets y
+                            Google Colab (7 min)</button></li>
+                    <li><button class="menu-jump-btn" data-index="12">13. 🧪 Verificación opcional en Colab</button>
+                    </li>
+                    <li><button class="menu-jump-btn" data-index="13">14. 📂 Dataset y material de trabajo</button></li>
+                    <li><button class="menu-jump-btn" data-index="14">15. Momento de abrir el archivo de
+                            trabajo</button></li>
+                    <li><button class="menu-jump-btn" data-index="15">16. 5) Exploración y diagnóstico antes de limpiar
+                            (15 min)</button></li>
+                    <li><button class="menu-jump-btn" data-index="16">17. 6) Qué es limpieza mínima de datos (13
+                            min)</button></li>
+                    <li><button class="menu-jump-btn" data-index="17">18. 7) Buscar y reemplazar como herramienta de
+                            limpieza (7 min)</button></li>
+                    <li><button class="menu-jump-btn" data-index="18">19. 8) Funciones simples de texto y verificación
+                            (8 min)</button></li>
+                    <li><button class="menu-jump-btn" data-index="19">20. 9) Trazabilidad: issues_log, change_log y
+                            criterio profesional (6 min)</button></li>
+                    <li><button class="menu-jump-btn" data-index="20">21. Cierre de la sesión (7 min)</button></li>
+                    <li><button class="menu-jump-btn" data-index="21">22. Pongamos a prueba lo aprendido</button></li>
+                    <li><button class="menu-jump-btn" data-index="22">23. 🎉 Espero que hayas disfrutado la
+                            sesión</button></li>
+                    <li><button class="menu-jump-btn" data-index="23">24. ¡Excelente trabajo! 🚀📊</button></li>
+                </ul>
+            </div>
+        </div>
+        <div class="slide-nav">
+            <button id="prev-btn" title="Anterior (Flecha Izquierda)">←</button>
+            <button id="menu-btn" title="Índice de Diapositivas">☰</button>
+            <button id="next-btn" title="Siguiente (Flecha Derecha)">→</button>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dateObj = new Date();
+            const day = dateObj.getDate();
+            const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+            const month = months[dateObj.getMonth()];
+            const year = dateObj.getFullYear();
+            const dateStr = `${day} de ${month} ${year}`;
+            document.querySelectorAll('.dynamic-date').forEach(el => el.textContent = dateStr);
+
+            const slides = document.querySelectorAll('.slide');
+            const transitionOverlay = document.getElementById('transition-overlay');
+            const transitionTitleElement = transitionOverlay.querySelector('h1');
+
+            let currentSlide = -1;
+            let isTransitioning = false;
+            let slideIntervals = {};
+
+            function showSlide(index) {
+                if (isTransitioning || index === currentSlide) return;
+
+                const nextSlideElement = slides[index];
+                if (!nextSlideElement) return;
+
+                isTransitioning = true;
+
+                const transitionTitle = nextSlideElement.dataset.transitionTitle;
+
+                if (currentSlide > -1) {
+                    slides[currentSlide].classList.remove('active');
+                }
+
+                if (transitionTitle && index > currentSlide) {
+                    transitionTitleElement.textContent = transitionTitle;
+                    transitionOverlay.className = 'slide';
+                    transitionOverlay.classList.add(`slide-${nextSlideElement.dataset.type}`);
+                    transitionOverlay.classList.add('visible');
+
+                    setTimeout(() => {
+                        transitionOverlay.classList.remove('visible');
+                        currentSlide = index;
+                        slides[currentSlide].classList.add('active');
+                        activateSlide(currentSlide);
+                        setTimeout(() => isTransitioning = false, 500);
+                    }, 1000);
+                } else {
+                    currentSlide = index;
+                    slides[currentSlide].classList.add('active');
+                    activateSlide(currentSlide);
+                    isTransitioning = false;
+                }
+            }
+
+            function nextSlide() {
+                if (currentSlide < slides.length - 1) {
+                    showSlide(currentSlide + 1);
+                }
+            }
+
+            function prevSlide() {
+                if (currentSlide > 0) {
+                    showSlide(currentSlide - 1);
+                }
+            }
+
+            function activateSlide(index) {
+                const slideElement = slides[index];
+                if (!slideElement) return;
+                const slideType = slideElement.dataset.type;
+
+                Object.values(slideIntervals).forEach(clearInterval);
+
+                if (slideType === 'countdown') {
+                    const timerElement = slideElement.querySelector('.timer');
+                    const startMessage = slideElement.querySelector('.start-message');
+                    let duration = parseInt(slideElement.dataset.timer || '300', 10);
+
+                    slideIntervals[index] = setInterval(() => {
+                        if (duration < 0) {
+                            clearInterval(slideIntervals[index]);
+                            timerElement.style.display = 'none';
+                            startMessage.style.display = 'block';
+                            setTimeout(nextSlide, 2000);
+                            return;
+                        }
+                        const minutes = Math.floor(duration / 60);
+                        const seconds = duration % 60;
+                        timerElement.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+                        duration--;
+                    }, 1000);
+                }
+            }
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight') nextSlide();
+                else if (e.key === 'ArrowLeft') prevSlide();
+            });
+
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const menuBtn = document.getElementById('menu-btn');
+            const slideMenu = document.getElementById('slide-menu');
+            const closeMenuBtn = document.getElementById('close-menu-btn');
+
+            if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+            if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+            if (menuBtn) menuBtn.addEventListener('click', () => slideMenu.classList.add('active'));
+            if (closeMenuBtn) closeMenuBtn.addEventListener('click', () => slideMenu.classList.remove('active'));
+
+            document.querySelectorAll('.menu-jump-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const index = parseInt(e.currentTarget.dataset.index, 10);
+                    slideMenu.classList.remove('active');
+                    showSlide(index);
+                });
+            });
+
+            document.querySelectorAll('.quiz-container').forEach(container => {
+                const startBtn = container.querySelector('.quiz-start-btn');
+                const nextBtn = container.querySelector('.quiz-next-btn');
+                const uiBox = container.querySelector('.quiz-ui');
+                const introBox = container.querySelector('.quiz-intro');
+                const qBox = container.querySelector('.quiz-question-box');
+                const optBox = container.querySelector('.quiz-options-box');
+                const feedBox = container.querySelector('.quiz-feedback-box');
+                const timerDiv = container.querySelector('.quiz-timer');
+                const timerSpan = container.querySelector('.time-left');
+                const navMenu = container.querySelector('.quiz-nav-menu');
+                const showAnsBtn = container.querySelector('.quiz-show-answer-btn');
+
+                const h1 = container.querySelector('h1');
+                const h2 = container.querySelector('h2');
+
+                let rawData = container.getAttribute('data-quiz') || "[]";
+                const questions = JSON.parse(rawData);
+                const timeLimit = parseInt(container.getAttribute('data-timer') || "0", 10);
+
+                let currentQIndex = 0;
+                let timerInterval;
+                let timeLeft = timeLimit;
+                let canAnswer = false;
+
+                function buildNavMenu() {
+                    navMenu.innerHTML = '';
+                    questions.forEach((q, idx) => {
+                        const dot = document.createElement('button');
+                        dot.className = 'quiz-nav-dot';
+                        dot.textContent = idx + 1;
+                        dot.addEventListener('click', () => jumpToQuestion(idx));
+                        navMenu.appendChild(dot);
+                    });
+                }
+
+                function updateNavMenu() {
+                    const dots = navMenu.querySelectorAll('.quiz-nav-dot');
+                    dots.forEach((dot, idx) => {
+                        if (idx === currentQIndex) dot.classList.add('active');
+                        else dot.classList.remove('active');
+                    });
+                }
+
+                function renderQuestion() {
+                    clearInterval(timerInterval);
+
+                    if (currentQIndex >= questions.length) {
+                        uiBox.innerHTML = '<div style="text-align:center; padding: 5rem;"><h2>¡Quiz Terminado!</h2><p>Continúa con las flechas de navegación convencionales.</p></div>';
+                        return;
+                    }
+
+                    uiBox.style.opacity = '0';
+                    uiBox.style.transform = 'translateX(20px)';
+
+                    setTimeout(() => {
+                        const q = questions[currentQIndex];
+                        canAnswer = true;
+                        qBox.innerHTML = q.text;
+                        optBox.innerHTML = '';
+                        feedBox.className = 'quiz-feedback-box';
+                        feedBox.innerHTML = q.feedback || '';
+                        nextBtn.style.display = 'none';
+                        if (showAnsBtn) showAnsBtn.style.display = 'none';
+                        updateNavMenu();
+
+                        q.options.forEach((opt, idx) => {
+                            const card = document.createElement('div');
+                            card.className = 'quiz-option-card';
+                            card.innerHTML = opt.text;
+                            optBox.appendChild(card);
+                        });
+
+                        uiBox.style.display = 'block';
+                        void uiBox.offsetWidth;
+                        uiBox.style.opacity = '1';
+                        uiBox.style.transform = 'translateX(0)';
+
+                        if (window.MathJax) {
+                            MathJax.typesetPromise().catch((err) => console.log('MathJax error: ', err));
+                        }
+                        if (window.hljs) {
+                            uiBox.querySelectorAll('pre code').forEach((block) => hljs.highlightElement(block));
+                        }
+
+                        if (timeLimit > 0) {
+                            timerDiv.style.display = 'inline-block';
+                            if (showAnsBtn) showAnsBtn.style.display = 'inline-block';
+                            timeLeft = timeLimit;
+                            timerSpan.textContent = timeLeft;
+                            timerInterval = setInterval(() => {
+                                timeLeft--;
+                                timerSpan.textContent = timeLeft;
+                                if (timeLeft <= 0) {
+                                    clearInterval(timerInterval);
+                                    revealAnswer();
+                                }
+                            }, 1000);
+                        } else {
+                            timerDiv.style.display = 'none';
+                            if (showAnsBtn) showAnsBtn.style.display = 'inline-block';
+                            setTimeout(revealAnswer, 5000);
+                        }
+                    }, 400);
+                }
+
+                function revealAnswer() {
+                    if (!canAnswer) return;
+                    canAnswer = false;
+                    clearInterval(timerInterval);
+                    if (showAnsBtn) showAnsBtn.style.display = 'none';
+
+                    const q = questions[currentQIndex];
+                    const cards = optBox.querySelectorAll('.quiz-option-card');
+
+                    cards.forEach((card, idx) => {
+                        if (q.options[idx].correct) {
+                            card.classList.add('flip-correct');
+                        } else {
+                            card.classList.add('fade-out');
+                        }
+                    });
+
+                    if (q.feedback) {
+                        feedBox.classList.add('show');
+                    }
+
+                    if (currentQIndex < questions.length - 1) {
+                        nextBtn.style.display = 'inline-block';
+
+                        if (timeLimit > 0) {
+                            timeLeft = timeLimit;
+                            timerSpan.textContent = timeLeft;
+                            timerInterval = setInterval(() => {
+                                timeLeft--;
+                                timerSpan.textContent = timeLeft;
+                                if (timeLeft <= 0) {
+                                    clearInterval(timerInterval);
+                                    currentQIndex++;
+                                    renderQuestion();
+                                }
+                            }, 1000);
+                        }
+                    } else {
+                        setTimeout(() => {
+                            currentQIndex++;
+                            renderQuestion();
+                        }, timeLimit > 0 ? timeLimit * 1000 : 5000);
+                    }
+                }
+
+                function jumpToQuestion(idx) {
+                    clearInterval(timerInterval);
+                    currentQIndex = idx;
+                    renderQuestion();
+                }
+
+                startBtn.addEventListener('click', () => {
+                    startBtn.style.display = 'none';
+
+                    if (introBox) {
+                        introBox.style.opacity = '0';
+                        introBox.style.transform = 'scale(0.95)';
+                        setTimeout(() => introBox.style.display = 'none', 500);
+                    }
+                    if (h1) h1.style.display = 'none';
+                    if (h2) h2.style.display = 'none';
+
+                    buildNavMenu();
+
+                    setTimeout(() => {
+                        uiBox.style.display = 'block';
+                        renderQuestion();
+                    }, 500);
+                });
+
+                nextBtn.addEventListener('click', () => {
+                    currentQIndex++;
+                    renderQuestion();
+                });
+
+                if (showAnsBtn) {
+                    showAnsBtn.addEventListener('click', () => {
+                        revealAnswer();
+                    });
+                }
+            });
+
+            if (slides.length > 0) {
+                showSlide(0);
+            }
+        });
+    </script>
+</body>
+
+</html>

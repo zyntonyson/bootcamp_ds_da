@@ -95,7 +95,7 @@ quizz:
 
   - question:
       body: |
-        ¿Para qué nos sirve principalmente la función `UNIQUE()` en Google Sheets cuando estamos limpiando datos?
+        ¿Para qué nos sirve principalmente la función `UNIQUE()` cuando estamos limpiando datos?
       items:
         - option: "😇 Para sumar los valores de una columna sin contar los repetidos"
         - option: "😎 Para extraer una lista de valores únicos, eliminando automáticamente los duplicados"

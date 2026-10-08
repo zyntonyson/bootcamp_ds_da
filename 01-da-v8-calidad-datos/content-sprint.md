@@ -7,14 +7,14 @@
   * 💼 Conocemos las actividades del día a día de un analista de datos
 
 * 🎵 **Sesión 2:** Proyecto colaborativo — Introducción a la limpieza de datos
-  * 🧹 Practica limpieza de datos con un dataset real sobre canciones de Taylor Swift
+  * 🧹 Podremos practicar limpieza de datos con un dataset real sobre canciones de Taylor Swift
 
 * 🏨 **Sesión 3:** Proyecto colaborativo II — Limpieza de datos y cálculo de métricas
   * 📋 Recibirás una solicitud de negocio para analizar datos de una empresa de hospedajes
   * 📊 Limpiarás los datos, calcularás métricas y responderás las preguntas del cliente
 
 * 🚦 **Sesión 4:** Proyecto colaborativo III — Limpieza, métricas y reporte a clientes
-  * 🏛️ Recibirás una solicitud de una dependencia de gobierno para analizar datos de accidentes viales
+  * 🏛️ Recibirás una solicitud de una fábrica internacional de tecnología, veras un proyecto completo de datos
   * 📈 Limpiarás los datos, calcularás métricas, crearás visualizaciones y presentarás tus hallazgos
 
 
