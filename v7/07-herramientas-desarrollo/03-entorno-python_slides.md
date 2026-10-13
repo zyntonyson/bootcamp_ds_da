@@ -70,25 +70,13 @@ quizz:
       body: |
         Para clonar un repositorio remoto directamente desde VS Code sin usar comandos de consola, ¿qué herramienta debemos abrir primero?
       items:
-        - option: "😇 El explorador de archivos con Ctrl + E (o Cmd + E)"
-        - option: "😎 La Paleta de Comandos con Ctrl + Shift + P (o Cmd + Shift + P) y escribir \"Git: Clone\""
+        - option: "😇 La Paleta de Comandos con Ctrl + Shift + P (o Cmd + Shift + P) y escribir \"Git: Clone\""
           correct: true
+        - option: "😎 El explorador de archivos con Ctrl + E (o Cmd + E)"
         - option: "👍 La terminal integrada y ejecutar \"git clone\""
         - option: "😄 La sección de extensiones para instalar el paquete \"Clone Git\""
       feedback: |
         ¡Correcto! Usando la Paleta de Comandos de VS Code e ingresando "Git: Clone", podemos conectar nuestra cuenta de GitHub y clonar el repositorio de forma visual y sencilla.
-
-  - question:
-      body: |
-        Al preparar el archivo `requirements.txt` para desplegar en Render, ¿cuál es una buena práctica recomendada para las versiones de las librerías?
-      items:
-        - option: "😇 Especificar siempre el número de versión exacto de cada librería"
-        - option: "😎 No colocar números de versión para permitir que Render instale las versiones más recientes y estables"
-          correct: true
-        - option: "👍 Escribir los nombres de las librerías en mayúsculas"
-        - option: "😄 Incluir el comando pip install antes de cada librería"
-      feedback: |
-        ¡Así es! Al no definir versiones específicas (ej. escribir `streamlit` en lugar de `streamlit==1.25.0`), Render descarga automáticamente las versiones estables compatibles con su sistema operativo Linux, evitando conflictos de dependencias.
         
   - question:
       body: |
@@ -101,6 +89,54 @@ quizz:
         - option: "😄 `git push origin main`"
       feedback: |
         ¡Correcto! `pip install -r requirements.txt` es el Comando de Construcción (Build Command), mientras que `streamlit run app.py` es el Comando de Inicio (Start Command) que efectivamente arranca el servidor para que los usuarios accedan a la web.
+
+  - question:
+      body: |
+        Para guardar tus cambios locales y subirlos a GitHub, ¿cuál es el orden y propósito correcto del flujo básico de Git?
+      items:
+        - option: "😇 1. `git add .` (preparar), 2. `git commit -m` (guardar la foto de la versión), 3. `git push` (subir a GitHub)"
+          correct: true
+        - option: "😎 1. `git push` (enviar), 2. `git commit -m` (describir), 3. `git add .` (guardar archivos)"
+        - option: "👍 1. `git clone` (descargar), 2. `git add .` (preparar), 3. `git init` (crear repositorio)"
+        - option: "😄 1. `git commit -m` (guardar versión), 2. `git push` (subir), 3. `git status` (confirmar)"
+      feedback: |
+        ¡Perfecto! Siguiendo la analogía de la clase: primero preparamos la maleta con `git add .`, luego le ponemos la etiqueta descriptiva con `git commit -m`, y finalmente enviamos el equipaje al avión con `git push`.
+
+  - question:
+      body: |
+        En nuestra aplicación `app.py`, ¿qué rol cumplen conjuntamente Streamlit y Plotly Express?
+      items:
+        - option: "😇 Plotly Express administra los commits de Git y Streamlit gestiona el servidor en Render"
+        - option: "😎 Streamlit genera el conjunto de datos CSV ficticio y Plotly Express diseña la base de datos"
+        - option: "👍 Streamlit construye la interfaz web interactiva y Plotly Express genera los gráficos dinámicos"
+          correct: true
+        - option: "😄 Plotly Express clona el repositorio y Streamlit instala las dependencias de requirements.txt"
+      feedback: |
+        ¡Excelente! Streamlit proporciona la estructura de la aplicación web (título, checkboxes, interactividad), mientras que Plotly Express crea visualizaciones interactivas (barras, pastel, histogramas) que responden al usuario.
+
+  - question:
+      body: |
+        Al configurar el servicio web en Render, ¿cuál es la función principal del Comando de Construcción (Build Command: `pip install -r requirements.txt`)?
+      items:
+        - option: "😇 Mantener la app activa las 24 horas y generar el enlace público .onrender.com"
+        - option: "😎 Crear un nuevo commit y enviarlo automáticamente al repositorio remoto"
+        - option: "👍 Arrancar la interfaz gráfica para que los usuarios puedan interactuar con los filtros"
+        - option: "😄 Descargar e instalar en el servidor de Render todas las librerías necesarias antes de iniciar la app"
+          correct: true
+      feedback: |
+        ¡Exacto! El Build Command se ejecuta primero para preparar el entorno del servidor e instalar las dependencias necesarias de `requirements.txt`. Una vez completado, el Start Command se encarga de encender la app.
+
+  - question:
+      body: |
+        ¿Por qué es necesario que nuestro repositorio en GitHub esté configurado como Público para el despliegue en esta clase?
+      items:
+        - option: "😇 Porque permite que el plan gratuito de Render acceda y construya el proyecto sin requerir configuraciones de pago ni llaves privadas"
+          correct: true
+        - option: "😎 Porque Git no permite hacer commits locales si el repositorio en la nube es privado"
+        - option: "👍 Para que cualquier persona en internet pueda editar y borrar el código de tu computadora"
+        - option: "😄 Porque los repositorios privados no admiten archivos de código escritos en Python"
+      feedback: |
+        ¡Así es! Al ser un repositorio público, Render puede conectarse, clonar el código y desplegarlo en su nivel gratuito sin necesidad de membresías de pago ni configuraciones complejas de tokens o SSH.
 
 ---
 
