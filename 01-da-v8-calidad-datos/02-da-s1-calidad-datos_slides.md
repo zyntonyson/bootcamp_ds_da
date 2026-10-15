@@ -192,7 +192,7 @@ quizz:
         Al limpiar datos, no necesariamente...
       items:
         - option: "😇 Revisamos existencia de datos repetidos"
-        - option: "😎 Identificamos/Tratamos los datos faltantes"
+        - option: "😎 Identificamos y/o tratamos los datos faltantes"
         - option: "👍 Estandarizamos el formato de los datos"
         - option: "😄 Ordenamos los valores de menor a mayor"
           correct: true

@@ -160,30 +160,6 @@ Estas sesiones en vivo junto con un tutor vas a:
 
 ---
 
-@objectives{}
-
-# 📝 Recomendaciones para las sesiones  las sesiones en vivo
-
-- 💻 **Usa la aplicación de escritorio o móvil**  
-    - Evita el navegador para una mejor experiencia  
-
-- 🧘 **Busca un espacio sin distracciones**  
-    - Así podrás mantenerte enfocado durante la sesión  
-
-- 🪪 **Utiliza un nombre identificable**  
-    - Facilita la comunicación con el tutor y tus compañeros  
-
-- ✋ **Levanta la mano o usa reacciones para participar**  
-    - Mantén el orden y aprovecha mejor las intervenciones  
-
-- 🤝 **Sé siempre respetuoso**  
-    - Nuestros comentarios deben estar orientados a construir y apoyar 💬  
-
-- 🚀 **Mantén una actitud colaborativa**  
-    - Aprender en comunidad hace la diferencia  
-
----
-
 @basic_slide{title_transition: "Office Hours"}
 
 # 🎥 Office Hours  
@@ -221,6 +197,29 @@ Puedes programar sesiones **1:1 con un tutor** para:
 
 * [Programador 1:1 via Calendly](../img/qrs/zoom-11-general-da.png )
 
+---
+
+@objectives{}
+
+# 📝 Recomendaciones para las sesiones  las sesiones en vivo
+
+- 💻 **Usa la aplicación de escritorio o móvil**  
+    - Evita el navegador para una mejor experiencia  
+
+- 🧘 **Busca un espacio sin distracciones**  
+    - Así podrás mantenerte enfocado durante la sesión  
+
+- 🪪 **Utiliza un nombre identificable**  
+    - Facilita la comunicación con el tutor y tus compañeros  
+
+- ✋ **Levanta la mano o usa reacciones para participar**  
+    - Mantén el orden y aprovecha mejor las intervenciones  
+
+- 🤝 **Sé siempre respetuoso**  
+    - Nuestros comentarios deben estar orientados a construir y apoyar 💬  
+
+- 🚀 **Mantén una actitud colaborativa**  
+    - Aprender en comunidad hace la diferencia  
 
 ---
 
