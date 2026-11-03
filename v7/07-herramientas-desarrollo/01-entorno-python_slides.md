@@ -95,23 +95,39 @@ quizz:
 
   - question:
       body: |
-        ¿Verdadero o Falso? Un IDE (como VSCode) es simplemente un editor de texto básico para tomar notas, sin herramientas adicionales para programar.
+        Tienes un archivo llamado `analisis.py` en tu carpeta de proyecto. ¿Cuál es el comando correcto para ejecutarlo desde la terminal?
       items:
-        - option: "👍 Verdadero"
-        - option: "👎 Falso"
+        - option: "😇 `run script analisis.py`"
+        - option: "😎 `python analisis.py`"
           correct: true
+        - option: "👍 `pip start analisis.py`"
+        - option: "😄 `execute analisis.py`"
       feedback: |
-        ¡Correcto! Es **Falso**. Un IDE (*Integrated Development Environment*) es un entorno de desarrollo completo que integra terminal, resaltado de código, extensiones, depuración y utilidades avanzadas para escribir código de manera profesional.
+        ¡Correcto! Para ejecutar un script de Python desde la terminal usamos `python nombre_del_archivo.py` (o `python3` según tu sistema operativo).
 
   - question:
       body: |
-        ¿Verdadero o Falso? En Windows, recomendamos usar GitBash porque permite ejecutar comandos de terminal basados en UNIX/Linux (como `ls` y `pwd`).
+        Al ejecutar tu código, la terminal muestra el error `ModuleNotFoundError: No module named 'pandas'`. ¿Qué significa y cómo lo resuelves?
       items:
-        - option: "👍 Verdadero"
+        - option: "😇 El archivo de código está corrupto y debes crearlo de nuevo"
+        - option: "😎 El sistema operativo bloqueó Python y debes reiniciar la computadora"
+        - option: "👍 La librería `pandas` no está instalada en el entorno actual; debes ejecutar `pip install pandas`"
           correct: true
-        - option: "👎 Falso"
+        - option: "😄 La sintaxis del archivo está mal y debes renombrar el archivo a `pandas.py`"
       feedback: |
-        ¡Correcto! Es **Verdadero**. GitBash emula una consola tipo Bash (Linux/macOS) en Windows, lo que nos permite usar la misma sintaxis de comandos de navegación en cualquier sistema operativo.
+        ¡Muy bien! Este error indica que el intérprete no encuentra la librería en tu entorno activo (o no activaste el entorno virtual). La solución es instalarla usando `pip install pandas`.
+
+  - question:
+      body: |
+        ¿Cómo puedes activar tu entorno virtual `.venv` en Windows (GitBash) y cómo confirmas visualmente que está activo?
+      items:
+        - option: "😇 Ejecutas `pip on .venv` y la terminal se cierra automáticamente"
+        - option: "😎 Ejecutas `source .venv/Scripts/activate` y verás el prefijo `(.venv)` al inicio de la terminal"
+          correct: true
+        - option: "👍 Ejecutas `python activate` y se abre una pestaña en el navegador web"
+        - option: "😄 Ejecutas `start virtualenv` y el texto de la terminal cambia de color a verde"
+      feedback: |
+        ¡Así es! En Windows con GitBash activamos el entorno con `source .venv/Scripts/activate` (o `source .venv/bin/activate` en macOS/Linux). Sabrás que está activo porque aparecerá `(.venv)` al inicio de la línea de comandos.
 
 ---
 
