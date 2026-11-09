@@ -38,8 +38,7 @@ Nuestra en el equipo de tutores  misión es **acompañarte en este viaje** 🚀,
 Estoy aquí para **apoyarte paso a paso** en tu transición hacia una nueva carrera en tecnología 💻✨  
 Vivo en Mérida, Yucatán 🌴 y tengo más de **10 años de experiencia en el mundo de los datos** 📈  
 
-Si necesitas ayuda o quieres conectar, ¡escríbeme sin problema! 🤝  
-👉 **Discord:** *romancastillo0813* 🎮
+
 
 }
 .rigth{
@@ -115,13 +114,13 @@ Si necesitas ayuda o quieres conectar, ¡escríbeme sin problema! 🤝
     - Espacio central para comunicarte, preguntar y conectar con la comunidad 🤝  
     - 🧵 **Hilos de preguntas y respuestas** : Aprende de las dudas de otros y comparte tus propias soluciones 📚  
 
-- 📡 **Webinars semanales con tu tutor**  
+- 📡 **Webinars semanales con un tutor**  
     - Sesiones en vivo para reforzar conceptos y aprender con ejemplos prácticos 🎥  
 
 - 🚪 **Office Hours** : Es una sala abierta de Zoom donde los tutores están conectados esperando tus dudas. No necesitas agendar; simplemente entras, saludas y lanzas tus preguntas. 🧠  
 
 
-- 🧑‍🏫 **Sesiones 1:1 con tu tutor**  
+- 🧑‍🏫 **Sesiones 1:1 con un tutor**  
     - Atención personalizada para avanzar más rápido y con claridad 🎯  
 
 ---
@@ -239,6 +238,9 @@ Puedes programar sesiones **1:1 con un tutor** para:
 - 💬 **No esperes a estar bloqueado días**  
     - Si llevas más de 20 min atascado… ¡pregunta! 🙋  
 
+- 🤖 **Usa la IA con responsabilidad**  
+    - Úsala para ganar ritmo y consultar dudas, pero siempre es tu labor probar y asegurar que la solución funciona 🧠  
+
 ---
 
 @two_columns_slide{title_transition: "¿Qué hace una analista de datos? 🧑‍💻👩‍💻📊"}
@@ -263,21 +265,18 @@ Vivimos en la era de los datos: cada interacción digital genera información va
 # ¿Qué hace un analista de datos?
 
 - **🧹 Recolecta y limpia información**
-    - Antes de analizar, los datos deben estar listos  
-    - Por ejemplo: quitar registros duplicados o corregir fechas mal escritas en una base de clientes  
+    - Antes de analizar, el analista prepara los datos
+      - Por ejemplo: quitar registros duplicados o corregir fechas mal escritas en una base de clientes  
 
-- **📊 Define métricas y KPIs**
-    - Decide qué medir para saber si vamos bien o mal  
-    - Ejemplo: en una tienda online, definir tasa de conversión = (ventas / visitas)  
+- **📊 Analiza los datos y descubre relaciones**
+    - Con técnicas estadísticas, revisamos métricas vitales para el negocio:  
+      - Ejemplo: en una tienda online, definir tasa de conversión = (ventas / visitas)  
 
 - **✨ Comunica hallazgos con storytelling**
     - No solo muestra números, sino que cuenta una historia  
-    - Ejemplo: explicar cómo las ventas subieron después de una campaña en redes  
+      - Ejemplo: explicar cómo las ventas subieron después de una campaña en redes  
 
-- **🎯 Convierte datos → decisiones**
-    - El objetivo final: que el negocio actúe con base en evidencia  
-    - Ejemplo: recomendar invertir más en el canal que trae más clientes recurrentes  
-
+> **`Convertir datos en decisiones 🎯`**
 ---
 
 
@@ -321,22 +320,36 @@ Vivimos en la era de los datos: cada interacción digital genera información va
 > **`Obtain → Scrub → Explore → Model → iNterpret`** — ¡Lo practicaremos en cada proyecto del bootcamp! 🚀
 
 ---
-@objectives{}
 
-# ¿Cómo impactan los analistas en las empresas?
 
-- **🍿 Netflix (Recomendaciones y contenido)**
-    - Su motor de recomendación guía el 80% del contenido visto, ahorrando $1,000 millones de dólares anuales en retención  
-    - Validaron e invirtieron en *House of Cards* analizando previamente el éxito potencial de la combinación de director y actor  
+@two_columns_slide{title_transition: "¿Cómo impactan los analistas en las empresas?"}
 
-- **📦 Amazon (Logística predictiva)**
-    - Su sistema de recomendación personalizado genera el 35% de sus ingresos  
-    - Utilizan análisis predictivo para pre-enviar productos a centros de distribución cercanos a clientes antes de que realicen la compra  
+# Netflix y House of Cards: Big Data en acción 🎬📊
 
-- **☕ Starbucks (Geolocalización estratégica)**
-    - Integran datos demográficos y de tráfico para decidir la ubicación exacta de nuevas tiendas con alta precisión y rentabilidad  
-    - Diseñan promociones hiper-personalizadas basadas en el historial de consumo de sus usuarios  
+.left{
+- 🔍 **¿Qué datos analizaron? (33M de usuarios)**  
+  - Hábitos: pausas, adelantos, abandonos y horarios de mayor conexión.  
+  - *Cruce clave:* quienes vieron la miniserie británica original también consumían a David Fincher y Kevin Spacey.  
 
+- 🎯 **La fórmula dictada por el algoritmo**  
+  - Identificaron la combinación de alta probabilidad: **Director + Actor + Thriller político**.  
+
+
+}
+
+.right{
+
+
+- 🎲 **Una apuesta de $100M sin capítulo piloto**  
+  - Confiaron 70% en datos y 30% en instinto: financiaron 2 temporadas completas directas.  
+  - Rompieron la emisión tradicional semanal e impulsaron el *maratón (binge-watching)*.  
+
+- 🚀 **Impacto y resultados**  
+  - Retención récord, millones de nuevos suscriptores y el modelo base para futuros éxitos (*Stranger Things*, *Narcos*).  
+
+![House of Cards](https://upload.wikimedia.org/wikipedia/en/0/0b/House_of_Cards_season_1.png)
+
+}
 
 ---
 @basic_slide{}
