@@ -46,7 +46,9 @@
 
 
 * [Despliegue de tu proyecto ](../../img/qrs/03-entorno-python.png) 
+---
 
+@include{path="../../slides/recomendations.md"}
 ---
 @quizz{time_limit: 80}
 

@@ -1,4 +1,4 @@
-@countdown{timer: 300 , title_transition: "¡Comenzamos en breve!", logo_animation: "traffic"}
+@countdown{timer: 600 , title_transition: "¡Comenzamos en breve!", logo_animation: "traffic"}
 
 # Sprint 7 Sesión 1
 ## Herramientas de desarrollo de software: Entorno local para análisis de datos con Python
@@ -51,6 +51,9 @@
 
 * [Entorno Local de Análisis de Datos](../../img/qrs/01-entorno-python.png) 
 
+---
+
+@include{path="../../slides/recomendations.md"}
 ---
 @quizz{time_limit: 80}
 
@@ -116,18 +119,6 @@ quizz:
         - option: "😄 La sintaxis del archivo está mal y debes renombrar el archivo a `pandas.py`"
       feedback: |
         ¡Muy bien! Este error indica que el intérprete no encuentra la librería en tu entorno activo (o no activaste el entorno virtual). La solución es instalarla usando `pip install pandas`.
-
-  - question:
-      body: |
-        ¿Cómo puedes activar tu entorno virtual `.venv` en Windows (GitBash) y cómo confirmas visualmente que está activo?
-      items:
-        - option: "😇 Ejecutas `pip on .venv` y la terminal se cierra automáticamente"
-        - option: "😎 Ejecutas `source .venv/Scripts/activate` y verás el prefijo `(.venv)` al inicio de la terminal"
-          correct: true
-        - option: "👍 Ejecutas `python activate` y se abre una pestaña en el navegador web"
-        - option: "😄 Ejecutas `start virtualenv` y el texto de la terminal cambia de color a verde"
-      feedback: |
-        ¡Así es! En Windows con GitBash activamos el entorno con `source .venv/Scripts/activate` (o `source .venv/bin/activate` en macOS/Linux). Sabrás que está activo porque aparecerá `(.venv)` al inicio de la línea de comandos.
 
 ---
 

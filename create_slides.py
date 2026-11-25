@@ -666,6 +666,14 @@ def _generate_quizz_html(slide):
                 intro_lines = [intro_md]
             
             yaml_str = 'quizz:' + parts[1]
+            # Sanitize unescaped inner double quotes in single-line double-quoted YAML values (e.g., - option: "...")
+            def _escape_inner_quotes(match):
+                prefix, inner, suffix = match.group(1), match.group(2), match.group(3)
+                # Escape any double quote that is not already escaped
+                escaped_inner = re.sub(r'(?<!\\)"', r'\\"', inner)
+                return f'{prefix}"{escaped_inner}"{suffix}'
+
+            yaml_str = re.sub(r'^(\s*-\s*option:\s*)"(.*)"(\s*)$', _escape_inner_quotes, yaml_str, flags=re.MULTILINE)
             data = yaml.safe_load(yaml_str)
             quizz_data = data.get('quizz', [])
             
